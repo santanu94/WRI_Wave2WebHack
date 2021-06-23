@@ -1,0 +1,15 @@
+{
+  "name": "wri-w2wh-back",
+  "version": "1.0.0",
+  "description": "WRI_Wave2WebHack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5"
+  }
+}
