@@ -1,0 +1,36 @@
+<div class="container">
+    <p style="margin-top: 3px; margin-left: 7.5px;">Hello, Welcome</p>
+    <mat-card class="storage-card-class">
+        <mat-card-header>
+            <div mat-card-avatar class="storage-image-class"></div>
+            <mat-card-title>Storage</mat-card-title>
+            <mat-card-subtitle>Capacity Left</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mwl-gauge
+                [max]="100"
+                [dialStartAngle]="-90"
+                [dialEndAngle]="-90.001"
+                [value]="storageGuageValue"
+                [animated]="true"
+                [animationDuration]="1"
+            >
+            </mwl-gauge>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="region-card-class">
+        <mat-card-header>
+            <div mat-card-avatar class="region-image-class"></div>
+            <mat-card-title>Regions</mat-card-title>
+            <mat-card-subtitle>Tanks</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-chip-list class="mat-chip-list-stacked">
+                <mat-chip *ngFor="let object of regionList" selected [color]="object.color">
+                  {{object.regionName}}
+                </mat-chip>
+            </mat-chip-list>
+        </mat-card-content>
+        <img class="water-image-class" src="../../../../assets/sea.png" height="45px" width="45px">
+    </mat-card>
+</div>

@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mwl-gauge {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 2px;
+  }
+  mwl-gauge > .gauge > .dial {
+    stroke: #fff;
+    stroke-width: 4;
+    fill: rgba(0, 0, 0, 0);
+  }
+  mwl-gauge > .gauge > .value {
+    stroke: rgb(80, 41, 255);
+    stroke-width: 8.5;
+    fill: rgba(0, 0, 0, 0);
+  }
+  mwl-gauge > .gauge > .value-text {
+    fill: rgb(80, 41, 255);
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+.graph-card-class {
+    width: 96%;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #eeeeee;
+}
+
+.center-class {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
