@@ -3,6 +3,16 @@
         <span class="center-class">Inflow for Current Cycle</span>
     </mat-card-header>
     <mat-card-content>
-        <span class="center-class">Graph place holder</span>
+        <div class="chart-wrapper">
+            <canvas baseChart style="height: 70% !important;"
+                [datasets]="chartData" 
+                [labels]="chartLabels" 
+                [options]="chartOptions"
+                [colors]="chartColors" 
+                [legend]="chartLegend" 
+                [chartType]="chartType" 
+                [plugins]="chartPlugins">
+            </canvas>
+        </div>
     </mat-card-content>
 </mat-card>

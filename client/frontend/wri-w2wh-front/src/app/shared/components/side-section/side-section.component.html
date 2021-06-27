@@ -16,6 +16,9 @@
                 [animationDuration]="1"
             >
             </mwl-gauge>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
         </mat-card-content>
     </mat-card>
     <mat-card class="region-card-class">
@@ -25,8 +28,11 @@
             <mat-card-subtitle>Tanks</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
             <mat-chip-list class="mat-chip-list-stacked">
-                <mat-chip *ngFor="let object of regionList" selected [color]="object.color">
+                <mat-chip *ngFor="let object of regionList" selected [color]="object.color" (click)="regionSelect(object.regionName)">
                   {{object.regionName}}
                 </mat-chip>
             </mat-chip-list>

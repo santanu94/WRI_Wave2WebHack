@@ -6,6 +6,7 @@ import { InflowCurrentCycleComponent } from './components/inflow-current-cycle/i
 import { OutflowComponent } from './components/outflow/outflow.component';
 import { InflowTrendsComponent } from './components/inflow-trends/inflow-trends.component';
 import { MatCardModule } from '@angular/material/card';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     PredictionRoutingModule,
-    MatCardModule
+    MatCardModule,
+    ChartsModule
   ]
 })
 export class PredictionModule { }
