@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class SharedService {
 
-  public selectedRegion: string;
+  public selectedRegion = 'KRS';
   public regionSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public regionObservable: Observable<any>;
   moduleName = '/common';
