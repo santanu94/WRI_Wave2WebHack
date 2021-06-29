@@ -1,68 +1,78 @@
 const express = require('express');
 const router = express.Router();
-var regionNameList = ['KRS', 'KAB', 'HEM', 'HAR'];
+var spawn = require("child_process").spawn;
+var scriptPath = 'D:/Personal_project/WRI_Wave2WebHack/client/backend/wri-w2wh-back/test_scripts/test_data_script.py';
 
 router.get('/inflowCurrentCycle', (req, res) => {
     console.log('inflowCurrentCycle');
     var inflowCurrentCycleArray = [];
-    switch(req.query.region) {
-        case regionNameList[0]:
-            inflowCurrentCycleArray = [85, 72, 78, 75, 77, 75, 55, 55.3, 22.3, 59, 61, 84];
-            break;
-        case regionNameList[1]:
-            inflowCurrentCycleArray = [11, 15, 59, 61, 84, 66, 55, 2, 33, 31, 111, 21, 17];
-            break;
-        case regionNameList[2]:
-            inflowCurrentCycleArray = [11, 15, 59, 61, 77, 75, 88, 85, 97, 87, 59, 61, 84];
-            break;
-        case regionNameList[3]:
-            inflowCurrentCycleArray = [7, 62, 15, 41, 66, 22, 11, 16.3, 22.3, 59, 61, 22];
-            break;
-    }
-    res.status(200);
-    res.json({ 'inflowCurrentCycleArray': inflowCurrentCycleArray });
+    var process = spawn('python', [scriptPath, req.query.region, 'inflowcc']);
+    process.stdout.on('data', (data) => {
+        var dataArrayString = data.toString();
+        dataArrayString.substr(1, dataArrayString.indexOf(']')-1).split(',').forEach((element) => {
+            inflowCurrentCycleArray.push(Number(element));
+        });
+    });
+    process.stderr.on('data', (data) => {
+        console.log(data.toString());
+    });
+    process.on('exit', (code) => {
+        console.log('Process exited with '+ code);
+        if (code === 0) {
+            res.status(200);
+        } else {
+            res.status(500);
+        }
+        res.json({ 'inflowCurrentCycleArray': inflowCurrentCycleArray });
+    });
 });
 
 router.get('/outflow', (req, res) => {
     console.log('outflow');
     var outcomeArray = [];
-    switch(req.query.region) {
-        case regionNameList[0]:
-            outcomeArray = [85, 72, 78, 75, 77, 75, 55, 55.3, 22.3, 59, 61, 84];
-            break;
-        case regionNameList[1]:
-            outcomeArray = [11, 15, 59, 61, 84, 66, 55, 2, 33, 31, 111, 21, 17];
-            break;
-        case regionNameList[2]:
-            outcomeArray = [11, 15, 59, 61, 77, 75, 88, 85, 97, 87, 59, 61, 84];
-            break;
-        case regionNameList[3]:
-            outcomeArray = [7, 62, 15, 41, 66, 22, 11, 16.3, 22.3, 59, 61, 22];
-            break;
-    }
-    res.status(200);
-    res.json({ 'outflowArray': outcomeArray });
+    var process = spawn('python', [scriptPath, req.query.region, 'outflow']);
+    process.stdout.on('data', (data) => {
+        var dataArrayString = data.toString();
+        dataArrayString.substr(1, dataArrayString.indexOf(']')-1).split(',').forEach((element) => {
+            outcomeArray.push(Number(element));
+        });
+    });
+    process.stderr.on('data', (data) => {
+        console.log(data.toString());
+    });
+    process.on('exit', (code) => {
+        console.log('Process exited with '+ code);
+        if (code === 0) {
+            res.status(200);
+        } else {
+            res.status(500);
+        }
+        res.json({ 'outflowArray': outcomeArray });
+    });
 });
 
 router.get('/inflowTrends', (req, res) => {
     console.log('inflowTrends');
     var inflowTrendsArray = [];
-    switch(req.query.region) {
-        case regionNameList[0]:
-            inflowTrendsArray = [85, 72, 78, 75, 77, 75, 55, 55.3, 22.3, 59, 61, 84];
-            break;
-        case regionNameList[1]:
-            inflowTrendsArray = [11, 15, 59, 61, 84, 66, 55, 2, 33, 31, 111, 21, 17];
-            break;
-        case regionNameList[2]:
-            inflowTrendsArray = [11, 15, 59, 61, 77, 75, 88, 85, 97, 87, 59, 61, 84];
-            break;
-        case regionNameList[3]:
-            inflowTrendsArray = [7, 62, 15, 41, 66, 22, 11, 16.3, 22.3, 59, 61, 22];
-            break;
-    }
-    res.status(200);
-    res.json({ 'inflowTrendsArray': inflowTrendsArray });
+    var process = spawn('python', [scriptPath, req.query.region, 'inflowtrends']);
+    process.stdout.on('data', (data) => {
+        var dataArrayString = data.toString();
+        dataArrayString.substr(1, dataArrayString.indexOf(']')-1).split(',').forEach((element) => {
+            inflowTrendsArray.push(Number(element));
+        });
+    });
+    process.stderr.on('data', (data) => {
+        console.log(data.toString());
+    });
+    process.on('exit', (code) => {
+        console.log('Process exited with '+ code);
+        if (code === 0) {
+            res.status(200);
+        } else {
+            res.status(500);
+        }
+        res.json({ 'inflowTrendsArray': inflowTrendsArray });
+    });
 });
 
 module.exports = router;
