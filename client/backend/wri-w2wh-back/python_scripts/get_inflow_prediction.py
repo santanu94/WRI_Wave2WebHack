@@ -15,14 +15,14 @@ args = parser.parse_args()
 rainfall_departure_df = None
 month_date_day_season_df = None
 month_le = None
-day_le = None
+date_le = None
 season_le = None
 device = None
 model = None
 
 
 def init(reservoir):
-    global rainfall_departure_df, month_date_day_season_df, month_le, day_le, season_le, device
+    global rainfall_departure_df, month_date_day_season_df, month_le, date_le, season_le, device
 
     rainfall_departure_df = pd.read_csv('dataset/Rainfall 2010-2020/rainfall_departure_dataset.csv')
     if reservoir == 'KRS':
@@ -34,8 +34,8 @@ def init(reservoir):
     with open('dataset/month_le.pkl', 'rb') as f:
         month_le = pickle.load(f)
 
-    with open('dataset/day_le.pkl', 'rb') as f:
-        day_le = pickle.load(f)
+    with open('dataset/date_le.pkl', 'rb') as f:
+        date_le = pickle.load(f)
 
     with open('dataset/season_le.pkl', 'rb') as f:
         season_le = pickle.load(f)
@@ -51,30 +51,28 @@ def init(reservoir):
 def load_model(reservoir):
     global model
     if reservoir == 'KRS':
-        model = im.KRSInflowModel(len(month_le.classes_), len(day_le.classes_), len(season_le.classes_)).to(device)
-        model.load_state_dict(torch.load('models/krs_inflow_rainfall_multihead_model.pth', map_location=device))
+        model = im.KRSInflowModel(len(month_le.classes_), len(date_le.classes_), len(season_le.classes_)).to(device)
+        model.load_state_dict(torch.load('models/inflow_cnn_date.pth', map_location=device))
         model.eval()
 
-def predict_inflow(month, day, season, year):
+def predict_inflow(month, date, season, year):
     prev_rainfall_departure_df = rainfall_departure_df[(rainfall_departure_df['YEAR'] < year) & (rainfall_departure_df['MONTH'] == month)].sort_values('YEAR', ascending=False).head(3)
     prev_avg_rainfall = prev_rainfall_departure_df['RAINFALL'].values.mean()
     prev_avg_departure = prev_rainfall_departure_df['DEPARTURE'].values.mean()
 
     month_transformed = month_le.transform([month])
-    day_transformed = day_le.transform([day])
+    date_transformed = date_le.transform([date])
     season_transformed = season_le.transform([season])
 
     x_month = torch.tensor(month_transformed).to(device)
-    x_day = torch.tensor(day_transformed).to(device)
+    x_date = torch.tensor(date_transformed).to(device)
     x_season = torch.tensor(season_transformed).to(device)
     x_prev_data = torch.FloatTensor([prev_avg_rainfall, prev_avg_departure]).view(1, -1).to(device)
     
     with torch.no_grad():
-        y_hat = model(x_month, x_day, x_season, x_prev_data)
-    y_hat_rainfall = y_hat[0]
-    y_hat_inflow = y_hat[1]
+        y_hat = model(x_month, x_date, x_season, x_prev_data)
     
-    return y_hat_inflow.view(1).cpu().item()
+    return y_hat.view(1).cpu().item()
 
 def get_prediction(reservoir, year):
     try:
@@ -88,7 +86,7 @@ def get_prediction(reservoir, year):
             day = row['DAY']
             season = row['SEASON']
 
-            inflow = predict_inflow(month, day, season, year)
+            inflow = predict_inflow(month, date, season, year)
 
             if year % 4 != 0 and month == 2 and date == 29:
                 continue
