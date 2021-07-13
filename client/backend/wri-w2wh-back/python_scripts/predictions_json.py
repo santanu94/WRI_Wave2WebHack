@@ -18,7 +18,7 @@ def save_predictions(reservoir, year, curr_storage):
     
     prediction = res_obj.get_predictions(curr_storage, year)
     
-    with open(f'predictions/{reservoir}_inflow_{year}.json', "w") as f:
+    with open(f'predictions/{reservoir}_{year}.json', "w") as f:
         json.dump(prediction, f)
 
 if __name__ == '__main__':
