@@ -46,6 +46,18 @@ class KRS:
         self.outflow_model.load_state_dict(torch.load('models/krs_outflow_bestmodel.pth', map_location=self.device))
         self.outflow_model.eval()
 
+    def _is_leap_year(self, year):
+        if (year % 4) == 0:
+            if (year % 100) == 0:
+                if (year % 400) == 0:
+                    return True # is a leap year
+                else:
+                    return False # is not a leap year
+            else:
+                return True # is a leap year
+        else:
+            return False # is not a leap year
+
     def __predict(self, month, date, season, year, prev_storage):
         prev_rainfall_departure_df = self.rainfall_departure_df[(self.rainfall_departure_df['YEAR'] < year) & (self.rainfall_departure_df['MONTH'] == month)].sort_values('YEAR', ascending=False).head(3)
         prev_avg_rainfall = prev_rainfall_departure_df['RAINFALL'].values.mean()
@@ -78,45 +90,83 @@ class KRS:
         else:
             storage -= pred_outflow_tmc
         
+        import numpy as np
+        if np.isnan(y_hat_outflow):
+            print(self.prev_predictions[self.prev_predictions['DD-MM-YYYY'].str.startswith(f'{date}-{month}')])
         return y_hat_inflow, y_hat_outflow, storage
 
-    def get_predictions(self, prev_storage, year):
+    def __prediction_loop(self, start_year, prev_storage, cold_start=False):
         prediction = {}
         prediction['INFLOW'] = {}
         prediction['OUTFLOW'] = {}
         prediction['STORAGE'] = {}
-
-        self.prev_predictions = None
-        for i in range(1, 4):
-            if year-i >= 2011:
-                with open(f'predictions/KRS_inflow_{year-i}.json') as f:
-                    if self.prev_predictions is None:
-                        self.prev_predictions = pd.DataFrame(json.load(f)).reset_index()
-                        self.prev_predictions.rename(columns={'index': 'DD-MM-YYYY'}, inplace=True)
-                    else:
-                        data_df = pd.DataFrame(json.load(f)).reset_index()
-                        data_df.rename(columns={'index': 'DD-MM-YYYY'}, inplace=True)
-                        self.prev_predictions = self.prev_predictions.append(data_df, ignore_index=True)
-
-        if self.prev_predictions is None:
-            outflow_df = pd.read_csv('dataset/reservoir_dataset.csv')
-            outflow_df = outflow_df[(outflow_df['RESERVOIR'] == 'K.R.S') & (outflow_df['YEAR'] == 2011)]
-            outflow_df['DD-MM-YYYY'] = outflow_df['DATE'].astype(str) + '-' + outflow_df['MONTH'].astype(str) + '-' + outflow_df['YEAR'].astype(str)
-            self.prev_predictions = outflow_df
-            self.prev_predictions.rename(columns={'OUTFLOW_CUECS': 'OUTFLOW'}, inplace=True)
-
         for idx, row in self.month_date_day_season_df.iterrows():
             month = row['MONTH']
             date = row['DATE']
             day = row['DAY']
             season = row['SEASON']
+            
+            if month >= 6:
+                year = start_year
+                if cold_start:
+                    break
+            else:
+                year = start_year + 1
 
-            if year % 4 != 0 and month == 2 and date == 29:
+            if not self._is_leap_year(year) and month == 2 and date == 29:
                 continue
             inflow, outflow, storage = self.__predict(month, date, season, year, prev_storage)
+            import numpy as np
+            if np.isnan(outflow):
+                print(f'{date}-{month}-{year}')
 
             prediction['INFLOW'][f'{date}-{month}-{year}'] = inflow
             prediction['OUTFLOW'][f'{date}-{month}-{year}'] = outflow
             prediction['STORAGE'][f'{date}-{month}-{year}'] = storage
+            
+            if not cold_start:
+                prev_storage = storage
 
         return prediction
+    
+    def get_predictions(self, prev_storage, start_year):
+        self.prev_predictions = None
+        if start_year == 2011:
+            outflow_df = pd.read_csv('dataset/reservoir_dataset.csv')
+            outflow_df = outflow_df[(outflow_df['RESERVOIR'] == 'K.R.S') & (outflow_df['YEAR'] == 2011)]
+            outflow_df['DD-MM-YYYY'] = outflow_df['DATE'].astype(str) + '-' + outflow_df['MONTH'].astype(str) + '-' + outflow_df['YEAR'].astype(str)
+            self.prev_predictions = outflow_df
+            self.prev_predictions.rename(columns={'OUTFLOW_CUECS': 'OUTFLOW'}, inplace=True)
+            
+            predictions = self.__prediction_loop(2010, prev_storage, cold_start=True)
+            
+            self.prev_predictions = self.prev_predictions[self.prev_predictions['MONTH'] >= 6]
+            tmp_df = pd.DataFrame(predictions).reset_index().rename(columns={'index': 'DD-MM-YYYY'})
+            tmp_df['MONTH'] = tmp_df['DD-MM-YYYY'].str.split('-').str[1].astype(int)
+            tmp_df = tmp_df[(tmp_df['MONTH'] < 6) & (tmp_df['MONTH'] >= 1)]
+
+            self.prev_predictions = self.prev_predictions.append(tmp_df, ignore_index=True)
+        else:
+            for i in range(3):
+                try:
+                    with open(f'predictions/KRS_{start_year-1-i}_{start_year-i}.json') as f:
+                        data_df = pd.DataFrame(json.load(f)).reset_index()
+                    data_df.rename(columns={'index': 'DD-MM-YYYY'}, inplace=True)
+                    data_df['MONTH'] = data_df['DD-MM-YYYY'].str.split('-').str[1].astype(int)
+
+                    if self.prev_predictions is None:
+                        self.prev_predictions = data_df.copy()
+                    else:
+                        self.prev_predictions = self.prev_predictions.append(data_df, ignore_index=True)
+                except:
+                    pass
+        
+        if self._is_leap_year(start_year + 1):
+            augmented_outflow = (self.prev_predictions[self.prev_predictions['DD-MM-YYYY'].str.startswith('28-2')]['OUTFLOW'].mean() + self.prev_predictions[self.prev_predictions['DD-MM-YYYY'].str.startswith('1-3')]['OUTFLOW'].mean())/2
+            augmented_row = {'DD-MM-YYYY': f'29-2-{start_year+1}', 'INFLOW': 0, 'OUTFLOW': augmented_outflow, 'STORAGE': 0, 'MONTH': 2}
+            
+            self.prev_predictions = self.prev_predictions.append(pd.DataFrame(augmented_row, index=[0]), ignore_index=True)
+#         print(self.prev_predictions)
+            
+        #print(self.prev_predictions['DD-MM-YYYY'].str.split('-').str[1:].str.join('-').value_counts().sort_index())
+        return self.__prediction_loop(start_year, prev_storage)
