@@ -27,11 +27,11 @@ def save_predictions(reservoir, year, curr_storage):
         reservoir_name = reservoir
     
     # Get AMCS output
-    amcs_out = AMCS(prediction.copy(), reservoir_name, year, year+1).run()
+    amcs_out = AMCS(prediction.copy(), reservoir_name, year, year+1).run(curr_storage)
     prediction.update(amcs_out)
     
     # Get statistics from predictions
-    stats_dict = Stats(prediction.copy()).get_stats_dict()
+    stats_dict = Stats(prediction.copy()).get_stats_dict(start_year=year, end_year=year+1)
     
     # Save prediction file
     with open(f'predictions/{reservoir}/predictions_{year}_{year+1}.json', "w") as f:
@@ -48,5 +48,10 @@ if __name__ == '__main__':
     if reservoir not in ["KRS", "Kabini", "Hemavathi"]:
         print('Reservoir should be one of "KRS", "Kabini", "Hemavathi"')
     
-    curr_storage = 20
+    if year == 2011:
+        curr_storage = 46.42
+    else:
+        with open(f'predictions/KRS/stats_{year-1}_{year}.json') as f:
+            prev_cycle_stats = json.load(f)
+        curr_storage = prev_cycle_stats['FINAL STORAGE']
     save_predictions(reservoir, year, curr_storage)

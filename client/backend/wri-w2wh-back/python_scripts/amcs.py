@@ -3,11 +3,6 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-# parser = argparse.ArgumentParser(description='Predict inflow for a year for a reservoir')
-# parser.add_argument('reservoir', type=str, help='can be one of ["KRS", "Kabini", "Hemavathi"]')
-# parser.add_argument('year', type=int, help='year to make predictins for')
-# args = parser.parse_args()
-
 class AMCS:
     def __init__(self, model_prediction, reservoir, start_year, end_year):
         self.__get_pred_df(model_prediction)
@@ -120,57 +115,44 @@ class AMCS:
             self.pred_df.loc[pred_remaining_start_idx:, ('OUTFLOW')] = new_outflow_list
             self.deviation[pred_remaining_start_idx:] = new_outflow_list - self.normal_outflow[pred_remaining_start_idx:]
 
-#     def __get_storage(self):
-    def run(self):
+    def __get_storage(self, inflow, outflow, storage):
+        inflow_tmc = 8.64e-05 * inflow
+        outflow_tmc = 8.64e-05 * outflow
+        storage = storage + inflow_tmc
+        if outflow_tmc > storage or storage == 0:
+            outflow = 11574.074 * storage
+            storage = 0
+        else:
+            storage -= outflow_tmc
+        
+        return outflow, storage
+    
+    def run(self, storage):
         amcs_outflow = {}
         self.pred_df.merge(self.inflow_df, on='DD-MM-YYYY')
         amcs_outflow['ACTUAL INFLOW'] = self.inflow_df[['DD-MM-YYYY', 'INFLOW_CUSECS']].set_index('DD-MM-YYYY')['INFLOW_CUSECS'].to_dict()
-        amcs_outflow[0] = self.pred_df[['DD-MM-YYYY', 'OUTFLOW']].set_index('DD-MM-YYYY')['OUTFLOW'].to_dict()
-        for interval in range(48):
-            self.__get_outflow(interval)
-            amcs_outflow[interval] = self.pred_df[['DD-MM-YYYY', 'OUTFLOW']].set_index('DD-MM-YYYY')['OUTFLOW'].to_dict()
+        amcs_outflow['AMCS OUTFLOW'] = {}
+        amcs_outflow['AMCS STORAGE'] = {}
+#         amcs_outflow['AMCS OUTFLOW'] = self.pred_df[['DD-MM-YYYY', 'OUTFLOW']].set_index('DD-MM-YYYY')['OUTFLOW'].to_dict()
+        prev_interval = None
+        for idx, row in self.pred_df.iterrows():
+            interval = row['INTERVAL']
+            outflow = self.pred_df.loc[idx, ('OUTFLOW')]
+            ddmmyyyy = row['DD-MM-YYYY']
+            actual_inflow = amcs_outflow['ACTUAL INFLOW'][ddmmyyyy]
+            
+            if interval > 1 and prev_interval != interval and interval < 48:
+                self.__get_outflow(interval)
+            
+            
+            outflow, storage = self.__get_storage(actual_inflow, outflow, storage)
+            amcs_outflow['AMCS OUTFLOW'][ddmmyyyy] = outflow
+            amcs_outflow['AMCS STORAGE'][ddmmyyyy] = storage
+            
+            
+            
+            
+#         for interval in range(48):
+#             self.__get_outflow(interval)
+#             amcs_outflow[interval] = self.pred_df[['DD-MM-YYYY', 'OUTFLOW']].set_index('DD-MM-YYYY')['OUTFLOW'].to_dict()
         return amcs_outflow
-
-# month_season = {'SEASON': {1: 'WINTER', 2: 'WINTER', 3: 'SUMMER', 4: 'SUMMER',
-#                            5: 'SUMMER', 6: 'SUMMER', 7: 'MONSOON', 8: 'MONSOON',
-#                            9: 'MONSOON', 10: 'WINTER', 11: 'WINTER', 12: 'WINTER'}}
-# season_df = pd.DataFrame(month_season)
-# season_df.reset_index(inplace=True)
-# season_df.rename(columns={'index': 'MONTH'}, inplace=True)
-# season_df
-
-
-# # In[42]:
-
-
-# pred_df = pred_df.merge(season_df, on='MONTH')
-# pred_df
-
-
-# # In[44]:
-
-
-# amcs_effect_df = pred_df.groupby('SEASON')[['OUTFLOW', 'OLD_OUTFLOW']].apply(sum)
-# amcs_effect_df
-
-
-# # In[45]:
-
-
-# amcs_effect_df.plot.bar()
-
-
-# # In[47]:
-
-
-# (amcs_effect_df['OUTFLOW'] - amcs_effect_df['OLD_OUTFLOW']) * 100 / amcs_effect_df['OLD_OUTFLOW']
-
-# if __name__ == '__main__':
-#     reservoir = args.reservoir
-#     year = args.year
-    
-#     if reservoir not in ["KRS", "Kabini", "Hemavathi"]:
-#         print('Reservoir should be one of "KRS", "Kabini", "Hemavathi"')
-    
-#     curr_storage = 20
-#     save_predictions(reservoir, year, curr_storage)
