@@ -1,4 +1,6 @@
 from krs import KRS
+from amcs import AMCS
+from stats import Stats
 import json
 import argparse
 import warnings
@@ -16,10 +18,28 @@ def save_predictions(reservoir, year, curr_storage):
     else:
         print('Reservoir not found')
     
+    # Get model predictions
     prediction = res_obj.get_predictions(curr_storage, year)
     
-    with open(f'predictions/{reservoir}_{year}_{year+1}.json', "w") as f:
+    if reservoir == 'KRS':
+        reservoir_name = 'K.R.S'
+    else:
+        reservoir_name = reservoir
+    
+    # Get AMCS output
+    amcs_out = AMCS(prediction.copy(), reservoir_name, year, year+1).run()
+    prediction.update(amcs_out)
+    
+    # Get statistics from predictions
+    stats_dict = Stats(prediction.copy()).get_stats_dict()
+    
+    # Save prediction file
+    with open(f'predictions/{reservoir}/predictions_{year}_{year+1}.json', "w") as f:
         json.dump(prediction, f)
+    
+    # Save stats file
+    with open(f'predictions/{reservoir}/stats_{year}_{year+1}.json', "w") as f:
+        json.dump(stats_dict, f)
 
 if __name__ == '__main__':
     reservoir = args.reservoir

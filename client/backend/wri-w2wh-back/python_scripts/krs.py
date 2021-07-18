@@ -149,7 +149,7 @@ class KRS:
         else:
             for i in range(3):
                 try:
-                    with open(f'predictions/KRS_{start_year-1-i}_{start_year-i}.json') as f:
+                    with open(f'predictions/KRS/predictions_{start_year-1-i}_{start_year-i}.json') as f:
                         data_df = pd.DataFrame(json.load(f)).reset_index()
                     data_df.rename(columns={'index': 'DD-MM-YYYY'}, inplace=True)
                     data_df['MONTH'] = data_df['DD-MM-YYYY'].str.split('-').str[1].astype(int)
