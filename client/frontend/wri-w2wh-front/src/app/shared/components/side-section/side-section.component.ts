@@ -44,6 +44,7 @@ export class SideSectionComponent implements OnInit {
   regionSelect(value: string) {
     this.sharedService.selectedRegion = value;
     this.sharedService.regionSubject.next(true);
+    this.sharedService.dataPopulationSubject.next(false);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  yearList: string[] = [];
+
+  constructor(
+    public sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
+    this.sharedService.getYearlist().subscribe(
+      (response: any) => {
+        this.yearList = response.yearlist;
+      }
+    );
+  }
+
+  onYearChange() {
+    this.sharedService.yearSubject.next(true);
+    this.sharedService.dataPopulationSubject.next(false);
   }
 
 }

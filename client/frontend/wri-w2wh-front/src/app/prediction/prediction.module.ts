@@ -6,7 +6,10 @@ import { InflowCurrentCycleComponent } from './components/inflow-current-cycle/i
 import { OutflowComponent } from './components/outflow/outflow.component';
 import { InflowTrendsComponent } from './components/inflow-trends/inflow-trends.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ChartsModule } from 'ng2-charts';
+import { ViewExpandedDataComponent } from './components/view-expanded-data/view-expanded-data.component';
 
 
 @NgModule({
@@ -14,13 +17,17 @@ import { ChartsModule } from 'ng2-charts';
     PredictionBaseComponent,
     InflowCurrentCycleComponent,
     OutflowComponent,
-    InflowTrendsComponent
+    InflowTrendsComponent,
+    ViewExpandedDataComponent
   ],
   imports: [
     CommonModule,
     PredictionRoutingModule,
     MatCardModule,
+    MatIconModule,
+    MatDialogModule,
     ChartsModule
-  ]
+  ],
+  entryComponents: [ViewExpandedDataComponent]
 })
 export class PredictionModule { }

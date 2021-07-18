@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
 import { GaugeModule } from 'angular-gauge';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GaugeModule } from 'angular-gauge';
     MatIconModule,
     MatCardModule,
     GaugeModule.forRoot(),
-    MatChipsModule
+    MatChipsModule,
+    MatSelectModule
   ],
   exports: [
     HeaderComponent,

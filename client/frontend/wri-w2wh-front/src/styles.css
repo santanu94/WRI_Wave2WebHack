@@ -39,3 +39,7 @@ mwl-gauge {
   margin-left: auto;
   margin-right: auto;
 }
+
+.launch-class {
+  cursor: pointer;
+}

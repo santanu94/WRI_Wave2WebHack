@@ -6,6 +6,15 @@
             <mat-tab label="Prediction"></mat-tab>
             <mat-tab label="AMCS"></mat-tab>
         </mat-tab-group>
+        <div class="row" style="margin-top: 5px;">
+            <div class="col-12">
+                <img class="cumulative-class" src="../assets/up-and-down-arrows.png" height="20px" width="20px">
+                <span class="cumulative-class text-class">Cumulative inflow difference compared to previous year till current month:</span>
+                <img *ngIf="cumulativeInflowDiff > 0" class="cumulative-class" src="../assets/up-arrow.png" height="22px" width="22px">
+                <img *ngIf="0 > cumulativeInflowDiff" class="cumulative-class" src="../assets/down-arrow.png" height="22px" width="22px">
+                <span class="text-class" [ngClass]="{ 'positive-text-class': cumulativeInflowDiff > 0 , 'negative-text-class' : 0 > cumulativeInflowDiff }">{{cumulativeInflowDiff}}%</span>
+            </div>
+        </div>
         <router-outlet></router-outlet>
     </div>
 </div>

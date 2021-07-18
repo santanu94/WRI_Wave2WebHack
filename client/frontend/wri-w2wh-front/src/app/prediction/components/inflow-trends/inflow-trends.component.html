@@ -1,10 +1,13 @@
 <mat-card class="graph-card-class">
-    <mat-card-header>
-        <span class="center-class">Inflow Trends for Last Decade</span>
+    <mat-card-header *ngIf="noTrendsGraph">
+        <span class="center-class">Inflow Trends: {{trendsValue}} cubic metres</span>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-header *ngIf="!noTrendsGraph">
+        <span class="center-class">Inflow Trends</span>
+    </mat-card-header>
+    <mat-card-content *ngIf="!noTrendsGraph">
         <div class="chart-wrapper">
-            <canvas baseChart style="height: 70% !important;"
+            <canvas baseChart style="height: 80% !important;"
                 [datasets]="chartData" 
                 [labels]="chartLabels" 
                 [options]="chartOptions"
@@ -16,3 +19,4 @@
         </div>
     </mat-card-content>
 </mat-card>
+

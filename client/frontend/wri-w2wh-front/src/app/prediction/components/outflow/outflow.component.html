@@ -1,10 +1,11 @@
 <mat-card class="graph-card-class">
     <mat-card-header>
         <span class="center-class">Outflow</span>
+        <mat-icon *ngIf="showExpand" class="launch-class" (click)="onExpandClick('OUTFLOW')">launch</mat-icon>
     </mat-card-header>
     <mat-card-content>
         <div class="chart-wrapper">
-            <canvas baseChart style="height: 70% !important;"
+            <canvas baseChart style="height: 80% !important;"
                 [datasets]="chartData" 
                 [labels]="chartLabels" 
                 [options]="chartOptions"

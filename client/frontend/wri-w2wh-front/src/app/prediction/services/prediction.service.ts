@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,29 +8,36 @@ import { environment } from 'src/environments/environment';
 })
 export class PredictionService {
 
-  public displayMonths = ['January', 'February', 'March', 'April', 'May', 'June',
-         'July', 'August', 'September', 'October', 'November', 'December'];
+  public displayMonths = ['June', 'July', 'August', 'September', 'October', 'November', 'December',
+           'January', 'February', 'March', 'April', 'May'];
+
+  public inflowDataSet: number[] = [];
+  public outflowDataSet: number[] = [];
 
   moduleName = '/prediction';
   getServerUrl = () => environment.serverUrl + this.moduleName;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  getInflowCurrentCycleData(region: string) {
+  getAllArrayData(region: string, year: string) {
     let urlParams = new HttpParams();
     urlParams = urlParams.set('region', region);
-    return this.httpClient.get(this.getServerUrl() + '/inflowCurrentCycle', {params: urlParams});
+    urlParams = urlParams.set('years', year);
+    return this.httpClient.get(this.getServerUrl() + '/getInflowOutflowArrayData', {params: urlParams});
   }
 
-  getOutflowData(region: string) {
+  getExpandedData(region: string, year: string, typeOfData: string) {
     let urlParams = new HttpParams();
     urlParams = urlParams.set('region', region);
-    return this.httpClient.get(this.getServerUrl() + '/outflow', {params: urlParams});
+    urlParams = urlParams.set('years', year);
+    urlParams = urlParams.set('typeOfData', typeOfData);
+    return this.httpClient.get(this.getServerUrl() + '/getExpandedData', {params: urlParams});
   }
 
-  getInflowTrendsData(region: string) {
+  getTrendsData(region: string, year: string) {
     let urlParams = new HttpParams();
     urlParams = urlParams.set('region', region);
-    return this.httpClient.get(this.getServerUrl() + '/inflowTrends', {params: urlParams});
+    urlParams = urlParams.set('year', year);
+    return this.httpClient.get(this.getServerUrl() + '/getInflowTrends', {params: urlParams});
   }
 }

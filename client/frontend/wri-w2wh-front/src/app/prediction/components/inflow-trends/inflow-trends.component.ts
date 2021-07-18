@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { SharedService } from 'src/app/shared/services/shared.service';
@@ -18,7 +18,9 @@ export class InflowTrendsComponent implements OnInit {
   chartLegend = true;
   chartPlugins = [];
   chartType: string;
-  @Input() passedRegion: string;
+
+  noTrendsGraph = true;
+  trendsValue = 0;
 
   constructor(
     private predictionService: PredictionService,
@@ -27,46 +29,52 @@ export class InflowTrendsComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartType = 'line';
-    this.chartLabels = this.predictionService.displayMonths;
     this.chartOptions = {
       responsive: true,
       maintainAspectRatio: false
     };
-
+    this.chartData = [
+      { data: [], label: 'Rainfall' }
+    ];
     this.chartColors = [
       {
         borderColor: 'black',
         backgroundColor: 'rgba(0,0,255,0.28)',
       }
     ];
-    this.fetchDataBasedOnRegion(this.passedRegion);
-    this.sharedService.regionObservable.subscribe(
-      (changeTrigger) => {
-        if (changeTrigger) {
-          this.fetchDataBasedOnRegion(this.sharedService.selectedRegion);
-        }
-      }
-    );
-  }
 
-  fetchDataBasedOnRegion(region: string) {
-    this.predictionService.getInflowTrendsData(region)
-      .subscribe((response: {inflowTrendsArray: number[]}) => {
-        if (!!response) {
-          this.chartData = [
-            { data: response.inflowTrendsArray, label: 'Rainfall' }
-          ];
-        } else {
-          this.chartData = [
-            { data: [], label: 'Rainfall' }
-          ];
+    if (this.sharedService.selectedYear.indexOf('2011') !== -1) {
+      this.noTrendsGraph = true;
+      this.trendsValue = 0;
+    }
+
+    this.sharedService.dataPopulationObservable.subscribe(
+      (dataPopulated) => {
+        if (dataPopulated) {
+          if (this.sharedService.selectedYear.indexOf('2011') !== -1) {
+            this.noTrendsGraph = true;
+            this.trendsValue = 0;
+          } else {
+            this.predictionService.getTrendsData(this.sharedService.selectedRegion, this.sharedService.selectedYear).subscribe(
+              (response: any) => {
+                if (!!response.noOfValues && response.noOfValues === 1) {
+                  this.noTrendsGraph = true;
+                  this.trendsValue = response.trendsValue;
+                } else {
+                  this.noTrendsGraph = false;
+                  this.chartLabels = response.trendsLabel;
+                  this.chartData = [
+                    { data: response.trendsArray, label: 'Rainfall' }
+                  ];
+                }
+              },
+              error => {
+                this.chartData = [{ data: [], label: 'Rainfall' }];
+                this.chartLabels = [];
+                console.log(error);
+            });
+          }
         }
-      },
-      error => {
-        this.chartData = [
-          { data: [], label: 'Rainfall' }
-        ];
-        console.log(error);
     });
   }
 
