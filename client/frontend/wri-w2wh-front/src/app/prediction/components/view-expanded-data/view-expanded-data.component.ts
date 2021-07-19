@@ -20,6 +20,8 @@ export class ViewExpandedDataComponent implements OnInit {
 
   headerData: string;
   labelDetailsData: string;
+  predictedDataSetLabel: string;
+  actualAmcsDataSetLabel: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogData,
@@ -27,7 +29,15 @@ export class ViewExpandedDataComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.headerData = this.dialogData.data === 'INFLOW' ? 'Inflow Current Cycle' : 'Outflow';
+    if (this.dialogData.data === 'INFLOW') {
+      this.headerData = 'Inflow Current Cycle';
+      this.actualAmcsDataSetLabel = 'Actual Inflow Current Cycle';
+      this.predictedDataSetLabel = 'Predicted Inflow';
+    } else {
+      this.headerData = 'Outflow Current Cycle';
+      this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
+      this.predictedDataSetLabel = 'Predicted Outflow';
+    }
     const years = this.dialogData.yearDetails.split(' - ');
     this.labelDetailsData = 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')';
     this.chartType = 'line';
@@ -59,12 +69,17 @@ export class ViewExpandedDataComponent implements OnInit {
       }
     };
     this.chartData = [
-      { data: this.dialogData.yearData, label: 'Dummy' }
+      { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
+      { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel }
     ];
     this.chartColors = [
       {
         borderColor: 'black',
         backgroundColor: 'rgba(0,0,255,0.28)',
+      },
+      {
+        borderColor: 'black',
+        backgroundColor: 'rgba(0,255,0,0.28)',
       }
     ];
   }
@@ -75,7 +90,7 @@ export class ViewExpandedDataComponent implements OnInit {
 
   getChartLabels(): string[] {
     const returnArray = [];
-    for (let i = 1; i <= this.dialogData.yearData.length; i++) {
+    for (let i = 1; i <= this.dialogData.yearPredictedData.length; i++) {
       returnArray.push(i.toString());
     }
     return returnArray;

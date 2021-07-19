@@ -49,12 +49,16 @@ export class PredictionBaseComponent implements OnInit, OnDestroy {
       .subscribe((response: any) => {
         this.predictionService.inflowDataSet = response.inflowCurrentCycleArray;
         this.predictionService.outflowDataSet = response.outflowArray;
+        this.predictionService.actualInflowDataSet = response.actualInflowArray;
+        this.predictionService.amcsOutflowDataSet = response.amcsOutflowArray;
         this.sharedService.dataPopulationSubject.next(true);
         this.showExpand = true;
       },
       error => {
         this.predictionService.inflowDataSet = [];
         this.predictionService.outflowDataSet = [];
+        this.predictionService.actualInflowDataSet = [];
+        this.predictionService.amcsOutflowDataSet = [];
         console.log(error);
       });
   }

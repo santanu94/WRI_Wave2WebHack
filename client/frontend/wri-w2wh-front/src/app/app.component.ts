@@ -9,17 +9,15 @@ import { SharedService } from './shared/services/shared.service';
 })
 export class AppComponent implements OnInit{
   title = 'WRI_Wave2WebHack';
-  public activeTab = 0;
   public cumulativeInflowDiff: number;
 
   constructor(
     private sharedService: SharedService,
     private router: Router
-  ) {
-    router.navigate(['prediction']);
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.router.navigate(['prediction']);
     this.sharedService.getCumulativeInflowDiff().subscribe(
       (response: any) => {
         this.cumulativeInflowDiff = response.cumulativeInflowDiff;
@@ -31,8 +29,4 @@ export class AppComponent implements OnInit{
     );
   }
 
-  moveToTab(event: any) {
-    this.activeTab = event;
-    this.router.navigate(this.activeTab ? ['amcs'] : ['prediction']);
-  }
 }

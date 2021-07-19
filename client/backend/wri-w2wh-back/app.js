@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const commonController = require('./controllers/common');
 const predictionController = require('./controllers/prediction');
-const amcsController = require('./controllers/amcs');
 
 const hostname = '127.0.0.1';
 const port = 3000;

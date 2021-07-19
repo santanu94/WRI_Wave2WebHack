@@ -20,7 +20,6 @@ export class OutflowComponent implements OnInit {
   chartLegend = true;
   chartPlugins = [];
   chartType: string;
-  outflowYearData: number[] = [];
   @Input() showExpand: boolean;
 
   constructor(
@@ -37,12 +36,17 @@ export class OutflowComponent implements OnInit {
       maintainAspectRatio: false
     };
     this.chartData = [
-      { data: [], label: 'Rainfall' }
+      { data: [], label: 'Predicted Outflow' },
+      { data: [], label: 'AMCS Outflow' }
     ];
     this.chartColors = [
       {
         borderColor: 'black',
         backgroundColor: 'rgba(0,0,255,0.28)',
+      },
+      {
+        borderColor: 'black',
+        backgroundColor: 'rgba(0,255,0,0.28)',
       }
     ];
 
@@ -50,7 +54,8 @@ export class OutflowComponent implements OnInit {
       (dataPopulated) => {
         if (dataPopulated) {
           this.chartData = [
-            { data: this.predictionService.outflowDataSet, label: 'Rainfall' }
+            { data: this.predictionService.outflowDataSet, label: 'Predicted Outflow' },
+            { data: this.predictionService.amcsOutflowDataSet, label: 'AMCS Outflow' }
           ];
         }
       }
@@ -63,26 +68,17 @@ export class OutflowComponent implements OnInit {
     config.autoFocus = true;
     config.disableClose = true;
     config.hasBackdrop = true;
-    if (this.outflowYearData.length !== 0) {
-      config.data = {
-        yearData: this.outflowYearData,
-        yearDetails: this.sharedService.selectedYear,
-        data: typeOfData
-      };
-      this.dialog.open(ViewExpandedDataComponent, config);
-    } else {
-      this.predictionService.getExpandedData(this.sharedService.selectedRegion,
-        this.sharedService.selectedYear.toString(), typeOfData)
-        .subscribe((response: any) => {
-          this.outflowYearData = response.fullYearData;
-          config.data = {
-            yearData: this.outflowYearData,
-            yearDetails: this.sharedService.selectedYear,
-            data: typeOfData
-          };
-          this.dialog.open(ViewExpandedDataComponent, config);
-        });
-    }
+    this.predictionService.getExpandedData(this.sharedService.selectedRegion,
+      this.sharedService.selectedYear.toString(), typeOfData)
+      .subscribe((response: any) => {
+        config.data = {
+          yearPredictedData: response.predictedfullYearData,
+          yearActualAmcsData: response.actual_amcsfullYearData,
+          yearDetails: this.sharedService.selectedYear,
+          data: typeOfData
+        };
+        this.dialog.open(ViewExpandedDataComponent, config);
+    });
   }
 
 }

@@ -9,13 +9,7 @@ const routes: Routes = [
       import(
         './prediction/prediction.module'
       ).then((m) => m.PredictionModule)
-  },
-  { path: 'amcs',
-    loadChildren: () =>
-      import(
-        './amcs/amcs.module'
-      ).then((m) => m.AmcsModule)
-  },
+  }
 ];
 
 @NgModule({

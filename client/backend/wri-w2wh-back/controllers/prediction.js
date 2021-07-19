@@ -5,7 +5,7 @@ var spawn = require("child_process").spawn;
 var scriptPath = 'D:/Personal_project/WRI_Wave2WebHack/client/backend/wri-w2wh-back/python_scripts/predictions_json.py';
 var jsonFolderPath = 'D:/Personal_project/WRI_Wave2WebHack/client/backend/wri-w2wh-back/python_scripts/predictions';
 
-var types = ['INFLOW', 'OUTFLOW'];
+var types = ['INFLOW', 'OUTFLOW', 'ACTUAL INFLOW', 'AMCS OUTFLOW'];
 var predictionReturnObject = {};
 
 router.get('/getInflowOutflowArrayData', (req, res) => {
@@ -51,9 +51,10 @@ router.get('/getInflowTrends', (req, res) => {
         var yearArray = yearlist[0].split(' - ');
         var jsonpath = jsonFolderPath + '/' + req.query.region + '/stats' + '_' + yearArray[0] + '_' + yearArray[1] + '.json';
         if (checkIfJsonExists(jsonpath)) {
-            var statsData = JSON.parse(fs.readFileSync(jsonpath, {encoding:'utf8', flag:'r'}));
+            var statsData = JSON.parse(fs.readFileSync(jsonpath, {encoding:'utf8', flag:'r'}))['DAILY CUMULATIVE INFLOW'];
+            var keysArray = Object.keys(statsData);
             inflowTrendsReturnObject.noOfValues = 1;
-            inflowTrendsReturnObject.trendsValue = parseFloat(statsData['ANNUAL CUMULATIVE'].toFixed(2));
+            inflowTrendsReturnObject.trendsValue = parseFloat(statsData[keysArray[keysArray.length - 1]].toFixed(2));
             res.status(200);
         }
     } else {
@@ -63,8 +64,9 @@ router.get('/getInflowTrends', (req, res) => {
             var yearArray = yearlist[i].split(' - ');
             var jsonpath = jsonFolderPath + '/' + req.query.region + '/stats' + '_' + yearArray[0] + '_' + yearArray[1] + '.json';
             if (checkIfJsonExists(jsonpath)) {
-                var statsYearData = JSON.parse(fs.readFileSync(jsonpath, {encoding:'utf8', flag:'r'}));
-                inflowTrendsReturnObject.trendsArray.push(statsYearData['ANNUAL CUMULATIVE']);
+                var statsYearData = JSON.parse(fs.readFileSync(jsonpath, {encoding:'utf8', flag:'r'}))['DAILY CUMULATIVE INFLOW'];
+                var keysArray = Object.keys(statsYearData);
+                inflowTrendsReturnObject.trendsArray.push(parseFloat(statsYearData[keysArray[keysArray.length - 1]].toFixed(2)));
             }
         }
         inflowTrendsReturnObject.noOfValues = inflowTrendsReturnObject.trendsArray.length;
@@ -91,7 +93,8 @@ function readJsonData(jsonpath, res) {
             console.log(err);
             predictionReturnObject.inflowCurrentCycleArray = [];
             predictionReturnObject.outflowArray = [];
-            predictionReturnObject.inflowTrendsArray = [];
+            predictionReturnObject.actualInflowArray = [];
+            predictionReturnObject.amcsOutflowArray = [];
             res.status(500);
         } else {
             var totaljsondata = JSON.parse(data);
@@ -101,9 +104,17 @@ function readJsonData(jsonpath, res) {
                 Object.keys(jsondata).forEach(key => {
                     transArray[parseInt(key.split('-')[1])-1] += jsondata[key];
                 });
-                predictionReturnObject[
-                    element === 'INFLOW' ? 'inflowCurrentCycleArray' : 'outflowArray'
-                ] = transArray.slice(6, 12).concat(transArray.slice(0, 6));
+                var elementName = '';
+                if (element === 'INFLOW') {
+                    elementName = 'inflowCurrentCycleArray';
+                } else if (element === 'OUTFLOW') {
+                    elementName = 'outflowArray';
+                } else if (element === 'ACTUAL INFLOW') {
+                    elementName = 'actualInflowArray';
+                } else if (element === 'AMCS OUTFLOW') {
+                    elementName = 'amcsOutflowArray';
+                } 
+                predictionReturnObject[elementName] = transArray.slice(6, 12).concat(transArray.slice(0, 6));
             });
             res.status(200);
         }
@@ -112,30 +123,40 @@ function readJsonData(jsonpath, res) {
 }
 
 function readJsonDataExpanded(jsonpath, typeofdata, res) {
+    var twoTypesOfData = [
+        typeofdata,
+        typeofdata === 'INFLOW' ? 'ACTUAL INFLOW' : 'AMCS OUTFLOW'
+    ];
     fs.readFile(jsonpath, {encoding:'utf8', flag:'r'}, (err, data) => {
         var expandedData = {};
-        var fullyeardata = [];
         if (err) {
             console.log(err);
-            fullyeardata = [];
+            expandedData.predictedfullYearData = [];
+            expandedData.actual_amcsfullYearData = [];
             res.status(500);
         } else {
-            var listFirstHalf = [];
-            var listSecondHalf = [];
-            var totaljsondata = JSON.parse(data)[typeofdata];
-            Object.keys(totaljsondata).forEach(
-                key => {
-                    if (parseInt(key.split('-')[1]) < 6) {
-                        listSecondHalf.push(totaljsondata[key]);
-                    } else {
-                        listFirstHalf.push(totaljsondata[key]);
+            var totaljsondata = JSON.parse(data);
+            twoTypesOfData.forEach(dataType => {
+                var listFirstHalf = [];
+                var listSecondHalf = [];
+                var partjsondata = totaljsondata[dataType];
+                Object.keys(partjsondata).forEach(
+                    key => {
+                        if (parseInt(key.split('-')[1]) < 6) {
+                            listSecondHalf.push(partjsondata[key]);
+                        } else {
+                            listFirstHalf.push(partjsondata[key]);
+                        }
                     }
+                );
+                if (dataType === 'INFLOW' || dataType === 'OUTFLOW') {
+                    expandedData.predictedfullYearData = listFirstHalf.concat(listSecondHalf);
+                } else {
+                    expandedData.actual_amcsfullYearData = listFirstHalf.concat(listSecondHalf);
                 }
-            );
-            fullyeardata = listFirstHalf.concat(listSecondHalf);
+            });
             res.status(200);
         }
-        expandedData.fullYearData = fullyeardata;
         res.json(expandedData);
     });
 }

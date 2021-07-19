@@ -13,6 +13,8 @@ export class PredictionService {
 
   public inflowDataSet: number[] = [];
   public outflowDataSet: number[] = [];
+  public actualInflowDataSet: number[] = [];
+  public amcsOutflowDataSet: number[] = [];
 
   moduleName = '/prediction';
   getServerUrl = () => environment.serverUrl + this.moduleName;
