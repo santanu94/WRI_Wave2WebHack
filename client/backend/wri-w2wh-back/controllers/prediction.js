@@ -2,8 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 var spawn = require("child_process").spawn;
-var scriptPath = 'D:/Personal_project/WRI_Wave2WebHack/client/backend/wri-w2wh-back/python_scripts/predictions_json.py';
-var jsonFolderPath = 'D:/Personal_project/WRI_Wave2WebHack/client/backend/wri-w2wh-back/python_scripts/predictions';
+var scriptPath = './python_scripts/predictions_json.py';
+var jsonFolderPath = './python_scripts/predictions';
 
 var types = ['INFLOW', 'OUTFLOW', 'ACTUAL INFLOW', 'AMCS OUTFLOW'];
 var predictionReturnObject = {};
