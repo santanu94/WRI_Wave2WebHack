@@ -31,7 +31,7 @@ def save_predictions(reservoir, year, curr_storage):
     prediction.update(amcs_out)
     
     # Get statistics from predictions
-    stats_dict = Stats(prediction.copy()).get_stats_dict(start_year=year, end_year=year+1)
+    stats_dict = Stats(prediction.copy(), reservoir).get_stats_dict(start_year=year, end_year=year+1)
     
     # Save prediction file
     with open(f'predictions/{reservoir}/predictions_{year}_{year+1}.json', "w") as f:
