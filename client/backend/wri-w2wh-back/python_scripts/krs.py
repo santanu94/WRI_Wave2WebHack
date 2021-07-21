@@ -90,10 +90,7 @@ class KRS:
         else:
             storage -= pred_outflow_tmc
         
-        import numpy as np
-        if np.isnan(y_hat_outflow):
-            print(self.prev_predictions[self.prev_predictions['DD-MM-YYYY'].str.startswith(f'{date}-{month}')])
-        return y_hat_inflow, y_hat_outflow, storage
+        return int(y_hat_inflow), int(y_hat_outflow), round(storage, 2)
 
     def __prediction_loop(self, start_year, prev_storage, cold_start=False):
         prediction = {}

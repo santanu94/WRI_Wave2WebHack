@@ -83,6 +83,7 @@ class Stats:
         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['STORAGE'].values[0]
         
         actual_inflow_dict = {f'{start_year}-{end_year}': {}}
+        amcs_outflow_dict = {f'{start_year}-{end_year}': {}}
         prev_cycle_stats = None
         if start_year > 2011:
             prev_actual_inflow_df = pd.read_csv(f'predictions/{self.reservoir}/all_actual_inflow.csv', index_col=0)
@@ -93,7 +94,7 @@ class Stats:
             stats_dict['INFLOW CHANGE'] = {}
             for actual_inflow, outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
                 
-                # Change in Inflow compared to last year
+                # Change in Inflow compared to Normal Inflow
                 year = int(ddmmyyyy.split('-')[-1])
                 prev_year = year - 1
                 try:
@@ -108,6 +109,9 @@ class Stats:
                 # Current actual inflow dataframe
                 ddmm = '-'.join(ddmmyyyy.split('-')[:-1])
                 actual_inflow_dict[f'{start_year}-{end_year}'][ddmm] = actual_inflow
+                
+                # Current amcs outflow dataframe
+                amcs_outflow_dict[f'{start_year}-{end_year}'][ddmm] = amcs_outflow
         else:
             for actual_inflow, outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
                 stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'][self.__get_season(ddmmyyyy)] += amcs_outflow
@@ -116,6 +120,9 @@ class Stats:
                 # Current actual inflow dataframe
                 ddmm = '-'.join(ddmmyyyy.split('-')[:-1])
                 actual_inflow_dict[f'{start_year}-{end_year}'][ddmm] = actual_inflow
+                
+                # Current amcs outflow dataframe
+                amcs_outflow_dict[f'{start_year}-{end_year}'][ddmm] = amcs_outflow
         
         # All actual inflow dataframe
         current_actual_inflow_df = pd.DataFrame(actual_inflow_dict)
@@ -125,6 +132,15 @@ class Stats:
             all_actual_inflow_df.to_csv(f'predictions/{self.reservoir}/all_actual_inflow.csv')
         else:
             current_actual_inflow_df.to_csv(f'predictions/{self.reservoir}/all_actual_inflow.csv')
+        
+        # All amcs outflow dataframe
+        current_amcs_outflow_df = pd.DataFrame(amcs_outflow_dict)
+        if start_year > 2011:
+            prev_amcs_outflow_df = pd.read_csv(f'predictions/{self.reservoir}/all_amcs_outflow.csv', index_col=0)
+            all_amcs_outflow_df = prev_amcs_outflow_df.merge(current_amcs_outflow_df, right_index=True, left_index=True, how='outer')
+            all_amcs_outflow_df.to_csv(f'predictions/{self.reservoir}/all_amcs_outflow.csv')
+        else:
+            current_amcs_outflow_df.to_csv(f'predictions/{self.reservoir}/all_amcs_outflow.csv')
                     
         # AMCS impact on outflow (annual cumulative)
         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS'] = {}

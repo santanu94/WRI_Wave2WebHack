@@ -44,6 +44,8 @@ def save_predictions(reservoir, year, curr_storage):
 if __name__ == '__main__':
     reservoir = args.reservoir
     year = args.year
+    # reservoir = 'KRS'
+    # year = 2012
     
     if reservoir not in ["KRS", "Kabini", "Hemavathi"]:
         print('Reservoir should be one of "KRS", "Kabini", "Hemavathi"')

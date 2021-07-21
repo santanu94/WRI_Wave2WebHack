@@ -5,10 +5,11 @@ warnings.filterwarnings('ignore')
 
 class AMCS:
     def __init__(self, model_prediction, reservoir, start_year, end_year):
+        self.start_year = start_year
         self.__get_pred_df(model_prediction)
         self.__load_inflow_df(reservoir, start_year, end_year)
         self.__load_all_actual_inflow_df(reservoir, start_year)
-        
+        self.__load_all_amcs_outflow_df(reservoir, start_year)
 
         self.deviation = [0] * self.pred_df.shape[0]
         self.normal_outflow = self.pred_df['OUTFLOW'].tolist()
@@ -37,12 +38,23 @@ class AMCS:
         try:
             if start_year > 2011:
                 reservoir = reservoir.replace('.', '')
-                self.all_actual_df = pd.read_csv(f'predictions/{reservoir}/all_actual_inflow.csv', index_col=0)
-                self.all_actual_df = self.all_actual_df[self.all_actual_df.columns[self.all_actual_df.columns.str.split('-').str[0].astype(int) < start_year]]                
+                self.all_actual_inflow_df = pd.read_csv(f'predictions/{reservoir}/all_actual_inflow.csv', index_col=0)
+                self.all_actual_inflow_df = self.all_actual_inflow_df[self.all_actual_inflow_df.columns[self.all_actual_inflow_df.columns.str.split('-').str[0].astype(int) < start_year]]                
             else:
-                self.all_actual_df = None
+                self.all_actual_inflow_df = None
         except FileNotFoundError:
-            self.all_actual_df = None
+            self.all_actual_inflow_df = None
+    
+    def __load_all_amcs_outflow_df(self, reservoir, start_year):
+        try:
+            if start_year > 2011:
+                reservoir = reservoir.replace('.', '')
+                self.all_amcs_outflow_df = pd.read_csv(f'predictions/{reservoir}/all_amcs_outflow.csv', index_col=0)
+                self.all_amcs_outflow_df = self.all_amcs_outflow_df[self.all_amcs_outflow_df.columns[self.all_amcs_outflow_df.columns.str.split('-').str[0].astype(int) < start_year]]                
+            else:
+                self.all_amcs_outflow_df = None
+        except FileNotFoundError:
+            self.all_amcs_outflow_df = None
     
     def __fill_missing_actual_inflow_outflow(self):
         date = []
@@ -164,7 +176,33 @@ class AMCS:
         else:
             storage -= outflow_tmc
         
-        return outflow, storage
+        return int(outflow), round(storage, 2)
+    
+    def __get_reservoir_duration(self, storage, idx):
+        ndays = 0
+        date = 1
+        month = 6
+        while storage > 0:
+            ndays += 1
+            if idx + ndays in self.pred_df.index:
+                outflow = float(self.pred_df.loc[idx+ndays, ('OUTFLOW')])
+            else:
+                ddmm = f'{date}-{month}'
+                ddmmyyyy = f'{ddmm}-{self.start_year}'
+                outflow = self.all_amcs_outflow_df.loc[ddmm].tolist() if self.all_amcs_outflow_df is not None else []
+                outflow += self.pred_df[self.pred_df['DD-MM-YYYY'] == ddmmyyyy]['OUTFLOW'].tolist()
+                outflow = sum(outflow) / len(outflow)
+                
+                if (month in [6, 9, 11] and date == 30) or (month in [7, 8, 10, 12] and date == 31):
+                    month += 1
+                    date = 1
+            outflow_tmc = 8.64e-05 * outflow
+            storage -= outflow_tmc
+            
+            if ndays > 152:
+                return '> 150'
+        
+        return ndays - 1
     
     def run(self, storage):
         amcs_outflow = {}
@@ -174,14 +212,17 @@ class AMCS:
         amcs_outflow['AMCS OUTFLOW'] = {}
         amcs_outflow['AMCS STORAGE'] = {}
         amcs_outflow['NORMAL INFLOW'] = {}
+        amcs_outflow['NORMAL OUTFLOW'] = {}
+        amcs_outflow['DURATION'] = {}
         prev_interval = None
         for idx, row in self.pred_df.iterrows():
             interval = row['INTERVAL']
-            outflow = self.pred_df.loc[idx, ('OUTFLOW')]
+            outflow = float(self.pred_df.loc[idx, ('OUTFLOW')])
             ddmmyyyy = row['DD-MM-YYYY']
             ddmm = '-'.join(ddmmyyyy.split('-')[:-1])
             actual_inflow = amcs_outflow['ACTUAL INFLOW'][ddmmyyyy]
-            normal_inflow = self.all_actual_df.loc[ddmm].sum() if self.all_actual_df is not None else 0
+            normal_inflow = self.all_actual_inflow_df.loc[ddmm].mean() if self.all_actual_inflow_df is not None else 0
+            normal_outflow = self.all_amcs_outflow_df.loc[ddmm].mean() if self.all_amcs_outflow_df is not None else 0
             drought = self.__drought_prediction(actual_inflow, normal_inflow)
             
             if interval > 1 and prev_interval != interval and interval < 48:
@@ -190,13 +231,11 @@ class AMCS:
             
             
             outflow, storage = self.__get_storage(actual_inflow, outflow, storage, idx)
+            duration = self.__get_reservoir_duration(storage, idx)
             amcs_outflow['AMCS OUTFLOW'][ddmmyyyy] = outflow
             amcs_outflow['AMCS STORAGE'][ddmmyyyy] = storage
             amcs_outflow['NORMAL INFLOW'][ddmmyyyy] = normal_inflow
-            
-            
-            
-#         for interval in range(48):
-#             self.__get_outflow(interval)
-#             amcs_outflow[interval] = self.pred_df[['DD-MM-YYYY', 'OUTFLOW']].set_index('DD-MM-YYYY')['OUTFLOW'].to_dict()
+            amcs_outflow['NORMAL OUTFLOW'][ddmmyyyy] = normal_outflow
+            amcs_outflow['DURATION'][ddmmyyyy] = duration
+
         return amcs_outflow
