@@ -14,21 +14,11 @@ export interface RegionModel {
 })
 export class SideSectionComponent implements OnInit {
 
-  storageGuageValue: string;
   regionList: RegionModel[] = [];
 
   constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
-    this.sharedService.getStoragePercent().subscribe(
-      (response: any) => {
-        this.storageGuageValue = response.storagePercent as string;
-      },
-      error => {
-        this.storageGuageValue = '0';
-        console.log(error);
-      }
-    );
     this.sharedService.getRegionList().subscribe(
       (response: any) => {
         this.regionList = response.regionList;
@@ -45,6 +35,7 @@ export class SideSectionComponent implements OnInit {
     this.sharedService.selectedRegion = value;
     this.sharedService.regionSubject.next(true);
     this.sharedService.dataPopulationSubject.next(false);
+    this.sharedService.dailyDisplaynSeasonalSubject.next(false);
   }
 
 }

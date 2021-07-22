@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,18 @@ export class SharedService {
   public dataPopulationSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public dataPopulationObservable: Observable<any>;
 
+  public cumulativeInflowArray: number[] = [];
+  public inflowArray: number[] = [];
+  public outflowArray: number[] = [];
+  public storageArray: number[] = [];
+  public durationArray: any[] = [];
+  public datesArray: any[] = [];
+  public seasonalOutflowAmcsArray: number[] = [];
+  public seasonalOutflowNoAmcsArray: number[] = [];
+  public seasonalLabelsArray: string[] = [];
+  public dailyDisplaynSeasonalSubject: BehaviorSubject<any> = new BehaviorSubject(false);
+  public dailyDisplaynSeasonalObservable: Observable<any>;
+
   moduleName = '/common';
   getServerUrl = () => environment.serverUrl + this.moduleName;
 
@@ -24,10 +36,7 @@ export class SharedService {
     this.regionObservable = this.regionSubject.asObservable();
     this.yearObservable = this.yearSubject.asObservable();
     this.dataPopulationObservable = this.dataPopulationSubject.asObservable();
-  }
-
-  getStoragePercent() {
-    return this.httpClient.get(this.getServerUrl() + '/storagePercent');
+    this.dailyDisplaynSeasonalObservable = this.dailyDisplaynSeasonalSubject.asObservable();
   }
 
   getRegionList() {
@@ -38,7 +47,10 @@ export class SharedService {
     return this.httpClient.get(this.getServerUrl() + '/getYearlist');
   }
 
-  getCumulativeInflowDiff() {
-    return this.httpClient.get(this.getServerUrl() + '/getCumulativeInflowDiff');
+  getDailynSeasonalData() {
+    let urlParams = new HttpParams();
+    urlParams = urlParams.set('region', this.selectedRegion);
+    urlParams = urlParams.set('years', this.selectedYear);
+    return this.httpClient.get(this.getServerUrl() + '/getDailynSeasonalData', {params: urlParams});
   }
 }

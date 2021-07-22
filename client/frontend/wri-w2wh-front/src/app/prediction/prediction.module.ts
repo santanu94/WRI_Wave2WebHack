@@ -10,6 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ChartsModule } from 'ng2-charts';
 import { ViewExpandedDataComponent } from './components/view-expanded-data/view-expanded-data.component';
+import { DailyDataDisplayComponent } from './components/daily-data-display/daily-data-display.component';
+import { GaugeModule } from 'angular-gauge';
+import { BarChartPartComponent } from './components/bar-chart-part/bar-chart-part.component';
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { ViewExpandedDataComponent } from './components/view-expanded-data/view-
     InflowCurrentCycleComponent,
     OutflowComponent,
     InflowTrendsComponent,
-    ViewExpandedDataComponent
+    ViewExpandedDataComponent,
+    DailyDataDisplayComponent,
+    BarChartPartComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +31,8 @@ import { ViewExpandedDataComponent } from './components/view-expanded-data/view-
     MatCardModule,
     MatIconModule,
     MatDialogModule,
-    ChartsModule
+    ChartsModule,
+    GaugeModule.forRoot()
   ],
   entryComponents: [ViewExpandedDataComponent]
 })

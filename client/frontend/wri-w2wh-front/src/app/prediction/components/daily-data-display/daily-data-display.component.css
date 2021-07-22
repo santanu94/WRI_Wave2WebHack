@@ -1,0 +1,32 @@
+.storage-card-class {
+    height: 100%;
+    margin-top: 5px;
+    background-color: #eeeeee;
+}
+.storage-image-class {
+    background-image: url('../../../../assets/water-tank-truck.png');
+    background-size: cover;
+}
+.water-image-class {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cumulative-class {
+    margin-right: 5px;
+    vertical-align: sub !important;
+}
+.text-class {
+    font-size: 28px;
+}
+.positive-text-class {
+    color: green;
+    font-weight: bold;
+}
+.negative-text-class {
+    color: red;
+    font-weight: bold;
+}
+.value-display-class {
+    font-size: 45px;
+}

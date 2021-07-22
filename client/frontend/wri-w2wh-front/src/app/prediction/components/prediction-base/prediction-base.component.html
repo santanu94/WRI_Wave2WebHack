@@ -1,5 +1,17 @@
 <div class="container">
-    <app-inflow-current-cycle [showExpand]="showExpand"></app-inflow-current-cycle>
-    <app-outflow [showExpand]="showExpand"></app-outflow>
-    <app-inflow-trends></app-inflow-trends>
+    <app-daily-data-display></app-daily-data-display>
+    <div class="row col-lg-12">
+        <div class="col-lg-6">
+            <app-inflow-current-cycle [showExpand]="showExpand"></app-inflow-current-cycle>
+        </div>
+        <div class="col-lg-6">
+            <app-outflow [showExpand]="showExpand"></app-outflow>  
+        </div>
+    </div>
+    <div class="row col-lg-12">
+        <app-bar-chart-part></app-bar-chart-part>
+    </div>
+    <div class="row col-lg-12">
+        <app-inflow-trends></app-inflow-trends>
+    </div>
 </div>

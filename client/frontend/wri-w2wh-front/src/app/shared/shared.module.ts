@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
-import { GaugeModule } from 'angular-gauge';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { GaugeModule } from 'angular-gauge';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    GaugeModule.forRoot(),
     MatChipsModule,
     MatSelectModule
   ],

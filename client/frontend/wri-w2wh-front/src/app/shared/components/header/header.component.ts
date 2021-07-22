@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   onYearChange() {
     this.sharedService.yearSubject.next(true);
     this.sharedService.dataPopulationSubject.next(false);
+    this.sharedService.dailyDisplaynSeasonalSubject.next(false);
   }
 
 }

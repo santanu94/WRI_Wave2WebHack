@@ -10,7 +10,7 @@ mwl-gauge {
     padding: 2px;
   }
   mwl-gauge > .gauge > .dial {
-    stroke: #fff;
+    stroke: rgba(255, 255, 255, 0.541);
     stroke-width: 4;
     fill: rgba(0, 0, 0, 0);
   }
@@ -27,11 +27,8 @@ mwl-gauge {
   }
 
 .graph-card-class {
-    width: 96%;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    background-color: #eeeeee;
+  margin-top: 10px;
+  background-color: #eeeeee;
 }
 
 .center-class {
@@ -43,3 +40,9 @@ mwl-gauge {
 .launch-class {
   cursor: pointer;
 }
+
+.container, .row, .col-lg-3, .col-lg-6, .col-lg-12 {
+  padding-right: 0px !important;
+}
+
+

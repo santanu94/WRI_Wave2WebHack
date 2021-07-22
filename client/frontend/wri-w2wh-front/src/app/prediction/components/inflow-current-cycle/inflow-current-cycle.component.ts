@@ -20,11 +20,12 @@ export class InflowCurrentCycleComponent implements OnInit {
   chartLegend = true;
   chartPlugins = [];
   chartType: string;
+
   @Input() showExpand: boolean;
 
   constructor(
     private predictionService: PredictionService,
-    private sharedService: SharedService,
+    public sharedService: SharedService,
     private dialog: MatDialog
   ) { }
 

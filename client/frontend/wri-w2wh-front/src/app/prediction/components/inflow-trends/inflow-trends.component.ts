@@ -54,6 +54,29 @@ export class InflowTrendsComponent implements OnInit {
           if (this.sharedService.selectedYear.indexOf('2011') !== -1) {
             this.noTrendsGraph = true;
             this.trendsValue = 0;
+            this.sharedService.getDailynSeasonalData().subscribe(
+              (cResponse: any) => {
+                this.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
+                this.sharedService.inflowArray = cResponse.inflowArray;
+                this.sharedService.outflowArray = cResponse.outflowArray;
+                this.sharedService.storageArray = cResponse.storageArray;
+                this.sharedService.durationArray = cResponse.durationArray;
+                this.sharedService.datesArray = cResponse.datesArray;
+                this.sharedService.seasonalOutflowAmcsArray = cResponse.seasonalOutflowAmcsArray;
+                this.sharedService.seasonalOutflowNoAmcsArray = cResponse.seasonalOutflowNoAmcsArray;
+                this.sharedService.seasonalLabelsArray = cResponse.seasonalLabelsArray;
+                this.sharedService.dailyDisplaynSeasonalSubject.next(true);
+              },
+              error => {
+                this.sharedService.cumulativeInflowArray = [];
+                this.sharedService.inflowArray = [];
+                this.sharedService.outflowArray = [];
+                this.sharedService.storageArray = [];
+                this.sharedService.durationArray = [];
+                this.sharedService.datesArray = [];
+                console.log(error);
+              }
+            );
           } else {
             this.predictionService.getTrendsData(this.sharedService.selectedRegion, this.sharedService.selectedYear).subscribe(
               (response: any) => {
@@ -67,6 +90,29 @@ export class InflowTrendsComponent implements OnInit {
                     { data: response.trendsArray, label: 'Rainfall' }
                   ];
                 }
+                this.sharedService.getDailynSeasonalData().subscribe(
+                  (cResponse: any) => {
+                    this.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
+                    this.sharedService.inflowArray = cResponse.inflowArray;
+                    this.sharedService.outflowArray = cResponse.outflowArray;
+                    this.sharedService.storageArray = cResponse.storageArray;
+                    this.sharedService.durationArray = cResponse.durationArray;
+                    this.sharedService.datesArray = cResponse.datesArray;
+                    this.sharedService.seasonalOutflowAmcsArray = cResponse.seasonalOutflowAmcsArray;
+                    this.sharedService.seasonalOutflowNoAmcsArray = cResponse.seasonalOutflowNoAmcsArray;
+                    this.sharedService.seasonalLabelsArray = cResponse.seasonalLabelsArray;
+                    this.sharedService.dailyDisplaynSeasonalSubject.next(true);
+                  },
+                  error => {
+                    this.sharedService.cumulativeInflowArray = [];
+                    this.sharedService.inflowArray = [];
+                    this.sharedService.outflowArray = [];
+                    this.sharedService.storageArray = [];
+                    this.sharedService.durationArray = [];
+                    this.sharedService.datesArray = [];
+                    console.log(error);
+                  }
+                );
               },
               error => {
                 this.chartData = [{ data: [], label: 'Rainfall' }];

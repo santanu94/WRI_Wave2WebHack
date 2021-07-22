@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -10,6 +9,7 @@ export class PredictionService {
 
   public displayMonths = ['June', 'July', 'August', 'September', 'October', 'November', 'December',
            'January', 'February', 'March', 'April', 'May'];
+  public displaySeasons = ['WINTER', 'SUMMER', 'MONSOON', 'POST-MONSOON'];
 
   public inflowDataSet: number[] = [];
   public outflowDataSet: number[] = [];

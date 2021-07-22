@@ -1,11 +1,10 @@
 <mat-card class="graph-card-class">
     <mat-card-header>
-        <span class="center-class">Inflow for Current Cycle</span>
-        <mat-icon *ngIf="showExpand" class="launch-class" (click)="onExpandClick('INFLOW')">launch</mat-icon>
+        <span class="center-class">Seasonal Ouflow</span>
     </mat-card-header>
     <mat-card-content>
         <div class="chart-wrapper">
-            <canvas baseChart style="height: 300px !important;"
+            <canvas baseChart style="height: 80% !important;"
                 [datasets]="chartData" 
                 [labels]="chartLabels" 
                 [options]="chartOptions"
