@@ -37,10 +37,12 @@ export class BarChartPartComponent implements OnInit {
     ];
     this.chartColors = [
       {
-        backgroundColor: 'rgba(0,0,255,0.5)',
+        borderColor: 'rgba(255,153,0)',
+        backgroundColor: 'rgba(255,153,0,0.5)',
       },
       {
-        backgroundColor: 'rgba(0,255,0,0.5)',
+        borderColor: 'rgba(0,0,255)',
+        backgroundColor: 'rgba(0,0,255,0.5)',
       }
     ];
 
@@ -48,8 +50,16 @@ export class BarChartPartComponent implements OnInit {
       (dataReceived) => {
         if (dataReceived) {
           this.chartData = [
-            { data: this.sharedService.seasonalOutflowAmcsArray, label: this.sharedService.seasonalLabelsArray[0] },
-            { data: this.sharedService.seasonalOutflowNoAmcsArray, label: this.sharedService.seasonalLabelsArray[1] }
+            {
+              data: this.sharedService.seasonalOutflowAmcsArray,
+              label: this.sharedService.seasonalLabelsArray[0],
+              borderWidth: 4
+            },
+            {
+              data: this.sharedService.seasonalOutflowNoAmcsArray,
+              label: this.sharedService.seasonalLabelsArray[1],
+              borderWidth: 4
+            }
           ];
         }
       }
