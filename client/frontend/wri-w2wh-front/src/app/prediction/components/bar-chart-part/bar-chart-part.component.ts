@@ -11,10 +11,14 @@ import { PredictionService } from '../../services/prediction.service';
 })
 export class BarChartPartComponent implements OnInit {
 
-  chartData: ChartDataSets[] = [];
+  chartDataActual: ChartDataSets[] = [];
+  chartColorsActual: Color[] = [];
+
+  chartDataNormal: ChartDataSets[] = [];
+  chartColorsNormal: Color[] = [];
+
   chartLabels: Label[] = [];
   chartOptions: ChartOptions;
-  chartColors: Color[] = [];
   chartLegend = true;
   chartPlugins = [];
   chartType: string;
@@ -31,39 +35,56 @@ export class BarChartPartComponent implements OnInit {
       responsive: true,
       maintainAspectRatio: false
     };
-    this.chartData = [
-      { data: [], label: '' },
-      { data: [], label: '' }
-    ];
-    this.chartColors = [
-      {
-        borderColor: 'rgba(255,153,0)',
-        backgroundColor: 'rgba(255,153,0,0.5)',
-      },
-      {
-        borderColor: 'rgba(0,0,255)',
-        backgroundColor: 'rgba(0,0,255,0.5)',
-      }
-    ];
-
     this.sharedService.dailyDisplaynSeasonalObservable.subscribe(
       (dataReceived) => {
         if (dataReceived) {
-          this.chartData = [
-            {
-              data: this.sharedService.seasonalOutflowAmcsArray,
-              label: this.sharedService.seasonalLabelsArray[0],
-              borderWidth: 4
-            },
-            {
-              data: this.sharedService.seasonalOutflowNoAmcsArray,
-              label: this.sharedService.seasonalLabelsArray[1],
-              borderWidth: 4
-            }
-          ];
+          if (!!this.sharedService.yearsPredictedvsActualData && !!this.sharedService.yearsPredictedvsNormalData) {
+            this.processDataForDisplay();
+          }
         }
       }
     );
+  }
+
+  processDataForDisplay() {
+    this.chartDataActual = [];
+    this.chartColorsActual = [];
+    this.chartDataNormal = [];
+    this.chartColorsNormal = [];
+    let index = 0;
+    Object.keys(this.sharedService.yearsPredictedvsNormalData).forEach(key => {
+      this.chartDataNormal.push(
+        {
+          data: Object.values(this.sharedService.yearsPredictedvsNormalData[key]) as number[],
+          label: key
+        }
+      );
+      this.chartColorsNormal.push(
+        {
+          borderColor: this.sharedService.borderColorArray[index],
+          backgroundColor: this.sharedService.backgroundColorArray[index],
+          borderWidth: 2
+        }
+      );
+      index++;
+    });
+    index = 0;
+    Object.keys(this.sharedService.yearsPredictedvsActualData).forEach(key => {
+      this.chartDataActual.push(
+        {
+          data: Object.values(this.sharedService.yearsPredictedvsActualData[key]) as number[],
+          label: key
+        }
+      );
+      this.chartColorsActual.push(
+        {
+          borderColor: this.sharedService.borderColorArray[index],
+          backgroundColor: this.sharedService.backgroundColorArray[index],
+          borderWidth: 2
+        }
+      );
+      index++;
+    });
   }
 
 }

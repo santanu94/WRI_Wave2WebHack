@@ -23,11 +23,15 @@ export class SharedService {
   public storageArray: number[] = [];
   public durationArray: any[] = [];
   public datesArray: any[] = [];
-  public seasonalOutflowAmcsArray: number[] = [];
-  public seasonalOutflowNoAmcsArray: number[] = [];
-  public seasonalLabelsArray: string[] = [];
+
+  public yearsPredictedvsActualData: any;
+  public yearsPredictedvsNormalData: any;
+
   public dailyDisplaynSeasonalSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public dailyDisplaynSeasonalObservable: Observable<any>;
+
+  public borderColorArray: string[] = [];
+  public backgroundColorArray: string[] = [];
 
   moduleName = '/common';
   getServerUrl = () => environment.serverUrl + this.moduleName;
@@ -37,6 +41,7 @@ export class SharedService {
     this.yearObservable = this.yearSubject.asObservable();
     this.dataPopulationObservable = this.dataPopulationSubject.asObservable();
     this.dailyDisplaynSeasonalObservable = this.dailyDisplaynSeasonalSubject.asObservable();
+    this.populateColorsArray();
   }
 
   getRegionList() {
@@ -52,5 +57,24 @@ export class SharedService {
     urlParams = urlParams.set('region', this.selectedRegion);
     urlParams = urlParams.set('years', this.selectedYear);
     return this.httpClient.get(this.getServerUrl() + '/getDailynSeasonalData', {params: urlParams});
+  }
+
+  populateColorsArray() {
+    this.borderColorArray = [
+      'rgba(0, 102, 255',
+      'rgba(153, 51, 255',
+      'rgba(255, 0, 255',
+      'rgba(255, 51, 119',
+      'rgba(255, 26, 26',
+      'rgba(255, 209, 26',
+      'rgba(0, 204, 0',
+      'rgba(0, 204, 153',
+      'rgba(255, 170, 0',
+      'rgba(153, 0, 255'
+    ];
+    for (let i = 0; i < 10; i++) {
+      this.backgroundColorArray.push(this.borderColorArray[i] + ', 0.5)');
+      this.borderColorArray[i] += ')';
+    }
   }
 }

@@ -46,9 +46,8 @@ router.get('/getDailynSeasonalData', (req, res) => {
             dailyDataObject[returnArrayName[i]] = Object.values(predictionData[objectName[i]]);
         }
         dailyDataObject['datesArray'] = Object.keys(predictionData['ACTUAL INFLOW']);
-        dailyDataObject['seasonalOutflowAmcsArray'] = Object.values(statsData['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']);
-        dailyDataObject['seasonalOutflowNoAmcsArray'] = Object.values(statsData['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']);
-        dailyDataObject['seasonalLabelsArray'] = ['Annual cumulative total seasonal outflow AMCS', 'Annual cumulative total seasonal outflow no AMCS'];
+        dailyDataObject['yearsPredictedvsActualData'] = statsData['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'];
+        dailyDataObject['yearsPredictedvsNormalData'] = statsData['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'];
         res.status(200);
     } else {
         for (let i = 0; i < objectName.length; i++) {
@@ -56,9 +55,8 @@ router.get('/getDailynSeasonalData', (req, res) => {
         }
         dailyDataObject['cumulativeInflowDiff'] = [];
         dailyDataObject['datesArray'] = [];
-        dailyDataObject['seasonalOutflowAmcsArray'] = [];
-        dailyDataObject['seasonalOutflowNoAmcsArray'] = [];
-        dailyDataObject['seasonalLabelsArray'] = [];
+        dailyDataObject['yearsPredictedvsActualData'] = {};
+        dailyDataObject['yearsPredictedvsNormalData'] = {};
         res.status(500);
     }
     res.json(dailyDataObject); 

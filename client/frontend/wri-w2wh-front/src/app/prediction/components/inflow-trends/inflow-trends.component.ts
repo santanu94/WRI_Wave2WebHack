@@ -62,9 +62,8 @@ export class InflowTrendsComponent implements OnInit {
                 this.sharedService.storageArray = cResponse.storageArray;
                 this.sharedService.durationArray = cResponse.durationArray;
                 this.sharedService.datesArray = cResponse.datesArray;
-                this.sharedService.seasonalOutflowAmcsArray = cResponse.seasonalOutflowAmcsArray;
-                this.sharedService.seasonalOutflowNoAmcsArray = cResponse.seasonalOutflowNoAmcsArray;
-                this.sharedService.seasonalLabelsArray = cResponse.seasonalLabelsArray;
+                this.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
+                this.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
                 this.sharedService.dailyDisplaynSeasonalSubject.next(true);
               },
               error => {
@@ -74,6 +73,8 @@ export class InflowTrendsComponent implements OnInit {
                 this.sharedService.storageArray = [];
                 this.sharedService.durationArray = [];
                 this.sharedService.datesArray = [];
+                this.sharedService.yearsPredictedvsActualData = null;
+                this.sharedService.yearsPredictedvsNormalData = null;
                 console.log(error);
               }
             );
@@ -98,9 +99,8 @@ export class InflowTrendsComponent implements OnInit {
                     this.sharedService.storageArray = cResponse.storageArray;
                     this.sharedService.durationArray = cResponse.durationArray;
                     this.sharedService.datesArray = cResponse.datesArray;
-                    this.sharedService.seasonalOutflowAmcsArray = cResponse.seasonalOutflowAmcsArray;
-                    this.sharedService.seasonalOutflowNoAmcsArray = cResponse.seasonalOutflowNoAmcsArray;
-                    this.sharedService.seasonalLabelsArray = cResponse.seasonalLabelsArray;
+                    this.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
+                    this.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
                     this.sharedService.dailyDisplaynSeasonalSubject.next(true);
                   },
                   error => {
@@ -110,6 +110,8 @@ export class InflowTrendsComponent implements OnInit {
                     this.sharedService.storageArray = [];
                     this.sharedService.durationArray = [];
                     this.sharedService.datesArray = [];
+                    this.sharedService.yearsPredictedvsActualData = null;
+                    this.sharedService.yearsPredictedvsNormalData = null;
                     console.log(error);
                   }
                 );
