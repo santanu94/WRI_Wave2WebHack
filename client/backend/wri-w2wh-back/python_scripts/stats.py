@@ -58,29 +58,47 @@ class Stats:
 #             actual_inflow_dict[ddmm] = actual_inflow
         
         # AMCS impact on outflow in current cycle
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'] = {}
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'] = {}
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] = 0
-        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'] = {}
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'] = {}
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] = 0
+#         stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['WINTER'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['SUMMER'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['MONSOON'] = 0
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['POST-MONSOON'] = 0
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'] = {}
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'] = {}
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER'] = 0
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER'] = 0
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON'] = 0
+        stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON'] = 0
 
         # AMCS impact on storage in current cycle
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS'] = {}
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS'] = {}
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE'].values[0]
         
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS'] = {}
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['STORAGE'].values[0]
-        stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS'] = {}
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['STORAGE'].values[0]
+#         stats_dict['CURRENT CYCLE FINAL SEASONAL STORAGE NO AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['STORAGE'].values[0]
         
         actual_inflow_dict = {f'{start_year}-{end_year}': {}}
         amcs_outflow_dict = {f'{start_year}-{end_year}': {}}
@@ -92,7 +110,7 @@ class Stats:
             
             
             stats_dict['INFLOW CHANGE'] = {}
-            for actual_inflow, outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
+            for actual_inflow, actual_outflow, normal_outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'ACTUAL OUTFLOW', 'NORMAL OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
                 
                 # Change in Inflow compared to Normal Inflow
                 year = int(ddmmyyyy.split('-')[-1])
@@ -103,8 +121,11 @@ class Stats:
                     print('Error getting inflow change compared to last year current date')
                     print(e)
                 
-                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'][self.__get_season(ddmmyyyy)] += amcs_outflow
-                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'][self.__get_season(ddmmyyyy)] += outflow
+                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += amcs_outflow
+                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += actual_outflow
+                stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += normal_outflow
+#                 stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'][self.__get_season(ddmmyyyy)] += amcs_outflow
+#                 stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'][self.__get_season(ddmmyyyy)] += outflow
                 
                 # Current actual inflow dataframe
                 ddmm = '-'.join(ddmmyyyy.split('-')[:-1])
@@ -113,9 +134,12 @@ class Stats:
                 # Current amcs outflow dataframe
                 amcs_outflow_dict[f'{start_year}-{end_year}'][ddmm] = amcs_outflow
         else:
-            for actual_inflow, outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
-                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'][self.__get_season(ddmmyyyy)] += amcs_outflow
-                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'][self.__get_season(ddmmyyyy)] += outflow
+            for actual_inflow, actual_outflow, normal_outflow, amcs_outflow, ddmmyyyy in self.pred_df[['ACTUAL INFLOW', 'ACTUAL OUTFLOW', 'NORMAL OUTFLOW', 'AMCS OUTFLOW', 'DD-MM-YYYY']].values:
+                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += amcs_outflow
+                stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += actual_outflow
+                stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}'][self.__get_season(ddmmyyyy)] += 0
+#                 stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS'][self.__get_season(ddmmyyyy)] += amcs_outflow
+#                 stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS'][self.__get_season(ddmmyyyy)] += outflow
                 
                 # Current actual inflow dataframe
                 ddmm = '-'.join(ddmmyyyy.split('-')[:-1])
@@ -142,44 +166,62 @@ class Stats:
         else:
             current_amcs_outflow_df.to_csv(f'predictions/{self.reservoir}/all_amcs_outflow.csv')
                     
-        # AMCS impact on outflow (annual cumulative)
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS'] = {}
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['WINTER']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS'] = {}
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON']
-        stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON']
+#         # AMCS impact on outflow (annual cumulative)
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS'] = {}
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['WINTER']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS'] = {}
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON']
+#         stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] = stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON']
 
-#         # AMCS impact on storage in (annual cumulative)
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS'] = {}
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
+# #         # AMCS impact on storage in (annual cumulative)
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS'] = {}
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
         
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS'] = {}
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE']
-#         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS'] = {}
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['WINTER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 2) & (self.pred_df['DATE'] == 28 if end_year % 4 != 0 else 29)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['SUMMER'] = self.pred_df[(self.pred_df['YEAR'] == end_year) & (self.pred_df['MONTH'] == 5) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 9) & (self.pred_df['DATE'] == 30)]['AMCS STORAGE']
+# #         stats_dict['ANNUAL CUMULATIVE FINAL SEASONAL STORAGE NO AMCS']['POST-MONSOON'] = self.pred_df[(self.pred_df['YEAR'] == start_year) & (self.pred_df['MONTH'] == 12) & (self.pred_df['DATE'] == 31)]['AMCS STORAGE']
+        
+        # Calculate percentage difference in predicted outflow vs actual outflow
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'][f'{start_year}-{end_year}'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'][f'{start_year}-{end_year}']['WINTER'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER'] - stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['WINTER']) * 100 / stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['WINTER'], 1)
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'][f'{start_year}-{end_year}']['SUMMER'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER'] - stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['SUMMER']) * 100 / stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['SUMMER'], 1)
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'][f'{start_year}-{end_year}']['MONSOON'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON'] - stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['MONSOON']) * 100 / stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['MONSOON'], 1)
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'][f'{start_year}-{end_year}']['POST-MONSOON'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON'] - stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['POST-MONSOON']) * 100 / stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'][f'{start_year}-{end_year}']['POST-MONSOON'], 1)
+        
+        # Calculate percentage difference in predicted outflow vs normal outflow
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'][f'{start_year}-{end_year}'] = {}
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'][f'{start_year}-{end_year}']['WINTER'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER'] - stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER']) * 100 / stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['WINTER'], 2) if start_year > 2011 else 100
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'][f'{start_year}-{end_year}']['SUMMER'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER'] - stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER']) * 100 / stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['SUMMER'], 2) if start_year > 2011 else 100
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'][f'{start_year}-{end_year}']['MONSOON'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON'] - stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON']) * 100 / stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['MONSOON'], 2) if start_year > 2011 else 100
+        stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'][f'{start_year}-{end_year}']['POST-MONSOON'] = round((stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON'] - stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON']) * 100 / stats_dict['NORMAL TOTAL SEASONAL OUTFLOW PREDICTED'][f'{start_year}-{end_year}']['POST-MONSOON'], 2) if start_year > 2011 else 100
         
         if prev_cycle_stats is not None:
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON']
-            stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON']
+            stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'].update(prev_cycle_stats['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED'])
+            stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'].update(prev_cycle_stats['CURRENT CYCLE TOTAL SEASONAL OUTFLOW ACTUAL'])
+            stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'].update(prev_cycle_stats['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'])
+            stats_dict['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'].update(prev_cycle_stats['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'])
+            
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['WINTER']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['SUMMER']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['MONSOON']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW AMCS']['POST-MONSOON']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['WINTER']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['SUMMER']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['MONSOON']
+#             stats_dict['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON'] += prev_cycle_stats['ANNUAL CUMULATIVE TOTAL SEASONAL OUTFLOW NO AMCS']['POST-MONSOON']
 
 
 
-
-
-# (amcs_effect_df['OUTFLOW'] - amcs_effect_df['OLD_OUTFLOW']) * 100 / amcs_effect_df['OLD_OUTFLOW']
         return stats_dict

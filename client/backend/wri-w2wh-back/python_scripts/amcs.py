@@ -118,13 +118,13 @@ class AMCS:
             if drought:
                 if drought == 'Slight':
                     inflow_dist_normal = np.array([1]*(pred_remaining_df.shape[0])) / (pred_remaining_df.shape[0])
-                    deviation_tmc = deviation_tmc * 0.65
+                    deviation_tmc = abs(deviation_tmc) * 0.1
                 elif drought == 'Moderate':
                     inflow_dist_normal = np.array([1]*(pred_remaining_df.shape[0])) / (pred_remaining_df.shape[0])
-                    deviation_tmc = deviation_tmc * 0.5
+                    deviation_tmc = abs(deviation_tmc) * 0.2
                 elif drought == 'Severe':
                     inflow_dist_normal = np.array([1]*(pred_remaining_df.shape[0])) / (pred_remaining_df.shape[0])
-                    deviation_tmc = deviation_tmc * 0.4
+                    deviation_tmc = abs(deviation_tmc) * 0.3
 #                 inflow_dist_normal = np.array([1]*(pred_remaining_df.shape[0])) / (pred_remaining_df.shape[0])
 #                 deviation_tmc = deviation_tmc * 0.4
             else:
@@ -137,7 +137,7 @@ class AMCS:
                     # pd.DataFrame(row).to_csv('Examine.csv')
 
                 else:
-                    deviation_tmc = deviation_tmc * 0.7
+                    deviation_tmc = deviation_tmc * 0.4
                     abs_deviation = np.abs(np.array(self.deviation[pred_remaining_start_idx:]))
                     abs_deviation_sum = abs_deviation.sum()
                     if max(self.deviation[pred_remaining_start_idx:]) > 0 and (max(abs_deviation) / abs_deviation_sum) * abs(deviation_tmc) * 11574.074 < max(abs_deviation):
@@ -202,7 +202,7 @@ class AMCS:
             if ndays > 152:
                 return '> 150'
         
-        return ndays - 1
+        return max(ndays - 1, 0)
     
     def run(self, storage):
         amcs_outflow = {}

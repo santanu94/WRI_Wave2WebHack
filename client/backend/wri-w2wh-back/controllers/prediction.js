@@ -149,7 +149,7 @@ function readJsonDataExpanded(jsonpath, typeofdata, res) {
                         }
                     }
                 );
-                if (dataType === 'INFLOW' || dataType === 'OUTFLOW') {
+                if (dataType === 'INFLOW' || dataType === 'ACTUAL OUTFLOW') {
                     expandedData.predictedfullYearData = listFirstHalf.concat(listSecondHalf);
                 } else {
                     expandedData.actual_amcsfullYearData = listFirstHalf.concat(listSecondHalf);
