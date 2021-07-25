@@ -15,6 +15,7 @@ def save_predictions(reservoir, year, curr_storage):
     res_obj = None
     if reservoir == 'KRS':
         res_obj = KRS()
+        total_capacity = 49.45
     else:
         print('Reservoir not found')
     
@@ -27,7 +28,7 @@ def save_predictions(reservoir, year, curr_storage):
         reservoir_name = reservoir
     
     # Get AMCS output
-    amcs_out = AMCS(prediction.copy(), reservoir_name, year, year+1).run(curr_storage)
+    amcs_out = AMCS(prediction.copy(), reservoir_name, total_capacity, year, year+1).run(curr_storage)
     prediction.update(amcs_out)
     
     # Get statistics from predictions
