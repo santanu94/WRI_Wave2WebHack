@@ -21,6 +21,9 @@ def save_predictions(reservoir, year, curr_storage):
     
     # Get model predictions
     prediction = res_obj.get_predictions(curr_storage, year)
+#     with open(f'predictions/{reservoir}/predictions_{year}_{year+1}.json', "r") as f:
+#         prediction = json.load(f)
+#     prediction = {'INFLOW': prediction['INFLOW'], 'OUTFLOW': prediction['OUTFLOW'], 'STORAGE': prediction['STORAGE']}
     
     if reservoir == 'KRS':
         reservoir_name = 'K.R.S'

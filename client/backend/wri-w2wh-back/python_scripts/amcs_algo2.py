@@ -125,30 +125,67 @@ class AMCS:
         
         return season_col
     
+    def __get_outflow_plan(self, storage):
+        expected_remaining_total_monsoon_inflow = self.pred_df[self.inflow_df['SEASON'].isin(['MONSOON', 'POST-MONSOON'])]['INFLOW'].sum()
+        expected_remaining_total_non_monsoon_inflow = self.pred_df[self.inflow_df['SEASON'].isin(['WINTER', 'SUMMER'])]['INFLOW'].sum()
+        expected_remaining_total_monsoon_tmc = 8.64e-05 * expected_remaining_total_monsoon_inflow
+        expected_remaining_total_non_monsoon_tmc = 8.64e-05 * expected_remaining_total_non_monsoon_inflow
+        
+        remaining_monsoon_df = self.pred_df[self.pred_df['SEASON'].isin(['MONSOON', 'POST-MONSOON'])]
+        remaining_non_monsoon_df = self.pred_df[self.pred_df['SEASON'].isin(['WINTER', 'SUMMER'])]
+        outflow_monsoon_dist = remaining_monsoon_df['OUTFLOW'].values / (remaining_monsoon_df['OUTFLOW'].sum() if remaining_monsoon_df['OUTFLOW'].sum() > 0 else 1)
+        outflow_non_monsoon_dist = remaining_non_monsoon_df['OUTFLOW'].values / (remaining_non_monsoon_df['OUTFLOW'].sum() if remaining_non_monsoon_df['OUTFLOW'].sum() > 0 else 1)
+
+        water_to_dispatch_monsoon_tmc = expected_remaining_total_monsoon_tmc + storage - self.total_capacity * 1.5
+        water_to_dispatch_non_monsoon_tmc = expected_remaining_total_non_monsoon_tmc + self.total_capacity * 1.2
+        new_outflow_list = np.append((outflow_monsoon_dist * water_to_dispatch_monsoon_tmc * 11574.074), (outflow_non_monsoon_dist * water_to_dispatch_non_monsoon_tmc * 11574.074))
+    
     def __get_outflow(self, interval, storage, season):
+
         pred_remaining_df = self.pred_df[self.pred_df['INTERVAL'] > interval]
         pred_remaining_start_idx = pred_remaining_df.index[0]
         remaining_old_pred_outflow = pred_remaining_df['OUTFLOW'].values
-        remaining_old_pred_outflow[remaining_old_pred_outflow == 0] = remaining_old_pred_outflow[remaining_old_pred_outflow != 0].mean() if remaining_old_pred_outflow.sum() > 0 else 0        
+#         remaining_old_pred_outflow[remaining_old_pred_outflow == 0] = 1
+
+        # we calculate distribution of remaining weeks
+        remaining_season_outflow_sum = pred_remaining_df.groupby('SEASON')['OUTFLOW'].apply(sum)
+        remaining_season_monsoon_outflow_sum = 0
+        remaining_season_monsoon_outflow_sum += remaining_season_outflow_sum['MONSOON'] if 'MONSOON' in remaining_season_outflow_sum.index else 0
+        remaining_season_monsoon_outflow_sum += remaining_season_outflow_sum['POST-MONSOON'] if 'POST-MONSOON' in remaining_season_outflow_sum.index else 0
+        remaining_season_non_monsoon_outflow_sum = 0
+        remaining_season_non_monsoon_outflow_sum += remaining_season_outflow_sum['WINTER'] if 'WINTER' in remaining_season_outflow_sum.index else 0
+        remaining_season_non_monsoon_outflow_sum += remaining_season_outflow_sum['SUMMER'] if 'SUMMER' in remaining_season_outflow_sum.index else 0
         
         expected_remaining_total_monsoon_inflow = self.pred_df[(self.pred_df['INTERVAL'] > interval) & (self.inflow_df['SEASON'].isin(['MONSOON', 'POST-MONSOON']))]['INFLOW'].sum()
         expected_remaining_total_non_monsoon_inflow = self.pred_df[(self.pred_df['INTERVAL'] > interval) & (self.inflow_df['SEASON'].isin(['WINTER', 'SUMMER']))]['INFLOW'].sum()
         expected_remaining_total_monsoon_tmc = 8.64e-05 * expected_remaining_total_monsoon_inflow
         expected_remaining_total_non_monsoon_tmc = 8.64e-05 * expected_remaining_total_non_monsoon_inflow
 
+        num_days_in_interval = self.pred_df[self.pred_df['INTERVAL'] == interval - 1].shape[0]
+        actual_inflow = self.inflow_df[self.inflow_df['INTERVAL'] == interval - 1]['INFLOW_CUSECS'].sum()
+        pred_inflow = self.pred_df[self.pred_df['INTERVAL'] == interval - 1]['INFLOW'].sum()
+
+        inflow_deviation = actual_inflow - pred_inflow
+        deviation_tmc = 8.64e-05 * inflow_deviation * num_days_in_interval
+
         if self.drought:
             if self.drought == 'Slight':
-                monsoon_end_storage_threshold = self.total_capacity * 0.4
-                year_end_threshold = self.total_capacity * 0.1
+                monsoon_end_storage_threshold = self.total_capacity * 0.9
+                year_end_threshold = self.total_capacity * 0.15
             elif self.drought == 'Moderate':
-                monsoon_end_storage_threshold = self.total_capacity * 0.3
-                year_end_threshold = self.total_capacity * 0
+                monsoon_end_storage_threshold = self.total_capacity * 0.7
+                year_end_threshold = self.total_capacity * 0.05
             elif self.drought == 'Severe':
-                monsoon_end_storage_threshold = self.total_capacity * 0.2
+                monsoon_end_storage_threshold = self.total_capacity * 0.5
                 year_end_threshold = 0
             
             if season in ['MONSOON', 'POST-MONSOON']:
-                # we calculate distribution of remaining weeks
+                remaining_monsoon_count = pred_remaining_df[pred_remaining_df['SEASON'].isin(['MONSOON', 'POST-MONSOON'])].shape[0]
+                remaining_non_monsoon_count = pred_remaining_df[pred_remaining_df['SEASON'].isin(['WINTER', 'SUMMER'])].shape[0]
+
+#                 outflow_monsoon_dist = np.array([1]*(remaining_monsoon_count)) / (remaining_monsoon_count)
+#                 outflow_non_monsoon_dist = np.array([1]*(remaining_non_monsoon_count)) / (remaining_non_monsoon_count)
+
                 remaining_monsoon_df = pred_remaining_df[pred_remaining_df['SEASON'].isin(['MONSOON', 'POST-MONSOON'])]
                 remaining_non_monsoon_df = pred_remaining_df[pred_remaining_df['SEASON'].isin(['WINTER', 'SUMMER'])]
                 outflow_monsoon_dist = remaining_monsoon_df['OUTFLOW'].values / (remaining_monsoon_df['OUTFLOW'].sum() if remaining_monsoon_df['OUTFLOW'].sum() > 0 else 1)
@@ -157,40 +194,73 @@ class AMCS:
                 water_to_dispatch_monsoon_tmc = expected_remaining_total_monsoon_tmc + storage - monsoon_end_storage_threshold
                 water_to_dispatch_non_monsoon_tmc = expected_remaining_total_non_monsoon_tmc + monsoon_end_storage_threshold - year_end_threshold
 
+
                 new_outflow_list = np.append((outflow_monsoon_dist * water_to_dispatch_monsoon_tmc * 11574.074), (outflow_non_monsoon_dist * water_to_dispatch_non_monsoon_tmc * 11574.074))
+                print('a')
             elif season in ['WINTER', 'SUMMER']:
                 water_to_dispatch_tmc = expected_remaining_total_non_monsoon_tmc + storage - year_end_threshold
-
-                # we calculate distribution of remaining weeks
-                outflow_dist = remaining_old_pred_outflow / (remaining_old_pred_outflow.sum() if remaining_old_pred_outflow.sum() > 0 else 1)
+                print(water_to_dispatch_tmc)
+                print(remaining_old_pred_outflow)
+                outflow_dist = remaining_old_pred_outflow / (remaining_old_pred_outflow.sum() if remaining_old_pred_outflow.sum() > 0 else 1)#remaining_outflow_dist / remaining_outflow_dist.sum()
                 new_outflow_list = outflow_dist * water_to_dispatch_tmc * 11574.074
+                print('b')
         else:
-            if season in ['WINTER', 'SUMMER']:
-                year_end_threshold = self.total_capacity * 0.3
-                water_to_dispatch_tmc = expected_remaining_total_non_monsoon_tmc + storage - year_end_threshold
-
-                # we calculate distribution of remaining weeks
-                outflow_non_monsoon_dist = remaining_old_pred_outflow / (remaining_old_pred_outflow.sum() if remaining_old_pred_outflow.sum() > 0 else 1)
-                new_outflow_list = outflow_non_monsoon_dist * water_to_dispatch_tmc * 11574.074
-            elif season in ['MONSOON', 'POST-MONSOON']:
-                remaining_monsoon_arr = pred_remaining_df[pred_remaining_df['SEASON'].isin(['MONSOON', 'POST-MONSOON'])]['OUTFLOW'].values
-                remaining_non_monsoon_arr = pred_remaining_df[pred_remaining_df['SEASON'].isin(['WINTER', 'SUMMER'])]['OUTFLOW'].values
-
-                remaining_non_monsoon_arr_mean = remaining_non_monsoon_arr[remaining_non_monsoon_arr > 0].mean()
-                remaining_non_monsoon_arr[remaining_non_monsoon_arr < remaining_non_monsoon_arr_mean] = remaining_non_monsoon_arr_mean
+            if deviation_tmc > 0:
+                remaining_outflow_cross_dist = []
+                for season in pred_remaining_df['SEASON'].values:
+                    if season in ['MONSOON', 'POST-MONSOON']:
+                        remaining_outflow_cross_dist.append(remaining_season_non_monsoon_outflow_sum)
+                    elif remaining_season_monsoon_outflow_sum > 0:
+                        remaining_outflow_cross_dist.append(remaining_season_monsoon_outflow_sum)
+                    elif remaining_season_monsoon_outflow_sum == 0:
+                        remaining_outflow_cross_dist.append(1)
+                print(remaining_outflow_cross_dist)
+                remaining_outflow_cross_dist = np.array(remaining_outflow_cross_dist) / sum(remaining_outflow_cross_dist)
+#                 print(remaining_outflow_cross_dist)
                 
-                # we calculate distribution of remaining weeks
-                outflow_monsoon_dist = remaining_monsoon_arr / (remaining_monsoon_arr.sum() if remaining_monsoon_arr.sum() > 0 else 1)
-                outflow_non_monsoon_dist = remaining_non_monsoon_arr / (remaining_non_monsoon_arr.sum() if remaining_non_monsoon_arr.sum() > 0 else 1)
-
-                water_to_dispatch_monsoon_tmc = expected_remaining_total_monsoon_tmc + storage - self.total_capacity * 0.9
-                water_to_dispatch_non_monsoon_tmc = expected_remaining_total_non_monsoon_tmc + self.total_capacity * 0.6
-                new_outflow_list = np.append((outflow_monsoon_dist * water_to_dispatch_monsoon_tmc * 11574.074), (outflow_non_monsoon_dist * water_to_dispatch_non_monsoon_tmc * 11574.074))
+                outflow_dist = remaining_outflow_cross_dist.copy()
+                print('c')
             else:
-                raise Exception('Unknown season')
-        
+                remaining_outflow_dist = []
+                for season in pred_remaining_df['SEASON'].values:
+                    if season in ['MONSOON', 'POST-MONSOON']:
+                        remaining_outflow_dist.append(remaining_season_monsoon_outflow_sum)
+                    elif remaining_season_monsoon_outflow_sum > 0:
+                        remaining_outflow_dist.append(remaining_season_non_monsoon_outflow_sum)
+                    elif remaining_season_monsoon_outflow_sum == 0:
+                        remaining_outflow_dist.append(1)
+                        
+                remaining_outflow_dist = np.array(remaining_outflow_dist) / sum(remaining_outflow_dist)
+                
+                outflow_dist = remaining_outflow_dist.copy()
+                print('d')
+            
+            new_outflow_list = remaining_old_pred_outflow + outflow_dist * deviation_tmc * 11574.074
+
+#                 abs_deviation = np.abs(np.array(self.deviation[pred_remaining_start_idx:]))
+#                 abs_deviation_sum = abs_deviation.sum()
+#                 if max(self.deviation[pred_remaining_start_idx:]) > 0 and (max(abs_deviation) / abs_deviation_sum) * abs(deviation_tmc) * 11574.074 < max(abs_deviation):
+
+#                     inflow_dist_normal = abs_deviation / abs_deviation.sum()
+#                     # pd.DataFrame({'dev_inflow_dist_normal': inflow_dist_normal, 'outflow_dist': inflow_dist_normal * deviation_tmc * 11574.074}).to_csv('Examine.csv')
+#                 else:
+#                     inflow_dist_normal = remaining_inflow_values / remaining_inflow_values.sum()
+
+            
+#             plt.plot(self.model_predicted_outflow, label='OLD')
+#             plt.plot(self.pred_df['OUTFLOW'], label='NEW')
+#             plt.legend()
+#             plt.show(block=True)
+#         plt.plot(new_outflow_list)
+#         plt.show(block=True)
+#         new_outflow_list = np.minimum(new_outflow_list, (remaining_old_pred_outflow * 2))
         new_outflow_list[new_outflow_list < 0] = 0
-        self.pred_df.loc[pred_remaining_start_idx:, ('OUTFLOW')] = new_outflow_list.copy()
+#             np.minimum(outflow, self.model_predicted_outflow * 1.5) if self.model_predicted_outflow[idx] > 0 else outflow
+        self.pred_df.loc[pred_remaining_start_idx:, ('OUTFLOW')] = new_outflow_list
+#         self.deviation[pred_remaining_start_idx:] = new_outflow_list - self.model_predicted_outflow[pred_remaining_start_idx:]
+        if self.pred_df[self.pred_df.isnull().any(axis=1)].shape[0] > 0:
+            print(self.pred_df[self.pred_df.isnull().any(axis=1)])
+            raise Exception()
 
     def __drought_prediction(self, actual_inflow, normal_inflow):
         if actual_inflow < normal_inflow:
@@ -207,7 +277,8 @@ class AMCS:
         else:
             self.drought = False
     
-    def __get_storage(self, inflow, outflow, storage):
+    def __get_storage(self, inflow, outflow, storage, idx):
+#         outflow = min(outflow, self.model_predicted_outflow[idx] * 2)
         inflow_tmc = 8.64e-05 * inflow
         outflow_tmc = 8.64e-05 * outflow
         print(outflow, outflow_tmc)
@@ -280,12 +351,28 @@ class AMCS:
             cum_actual_inflow += actual_inflow
             cum_normal_inflow += normal_inflow
             self.__drought_prediction(cum_actual_inflow, cum_normal_inflow)
+                            
+            if ddmm == '1-6':
+                self.__get_outflow_plan(storage)
             
             if interval > 1 and prev_interval != interval and interval < 48:
                 self.__get_outflow(interval, storage, season)
                 prev_interval = interval
+                print()
             
-            outflow, storage, storage_pct = self.__get_storage(actual_inflow, outflow, storage)
+#                 if idx > 225:
+# #     #               
+#                 plt.plot(self.model_predicted_outflow, label='OLD')
+#                 plt.plot(self.pred_df['OUTFLOW'], label='NEW')
+#                 plt.title(f'{ddmmyyyy}-{storage}')
+#                 plt.legend()
+#                 plt.show(block=True)
+            
+            print(ddmmyyyy)
+            
+            print(outflow)
+            
+            outflow, storage, storage_pct = self.__get_storage(actual_inflow, outflow, storage, idx)
             duration = self.__get_reservoir_duration(storage, idx)
             amcs_outflow['AMCS OUTFLOW'][ddmmyyyy] = outflow
             amcs_outflow['AMCS STORAGE'][ddmmyyyy] = storage
