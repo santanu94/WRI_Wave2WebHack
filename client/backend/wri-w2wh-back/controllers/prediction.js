@@ -5,7 +5,7 @@ var spawn = require("child_process").spawn;
 var scriptPath = './python_scripts/predictions_json.py';
 var jsonFolderPath = './python_scripts/predictions';
 
-var types = ['INFLOW', 'OUTFLOW', 'ACTUAL INFLOW', 'AMCS OUTFLOW'];
+var types = ['INFLOW', 'ACTUAL OUTFLOW', 'ACTUAL INFLOW', 'AMCS OUTFLOW'];
 var predictionReturnObject = {};
 
 router.get('/getInflowOutflowArrayData', (req, res) => {
@@ -107,14 +107,14 @@ function readJsonData(jsonpath, res) {
                 var elementName = '';
                 if (element === 'INFLOW') {
                     elementName = 'inflowCurrentCycleArray';
-                } else if (element === 'OUTFLOW') {
+                } else if (element === 'ACTUAL OUTFLOW') {
                     elementName = 'outflowArray';
                 } else if (element === 'ACTUAL INFLOW') {
                     elementName = 'actualInflowArray';
                 } else if (element === 'AMCS OUTFLOW') {
                     elementName = 'amcsOutflowArray';
                 } 
-                predictionReturnObject[elementName] = transArray.slice(6, 12).concat(transArray.slice(0, 6));
+                predictionReturnObject[elementName] = transArray.slice(5, 12).concat(transArray.slice(0, 5));
             });
             res.status(200);
         }
