@@ -8,7 +8,7 @@ import { AuthService } from './login-register/services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'WRI_Wave2WebHack';
+  title = 'The_Atlantians';
 
   constructor(
     public authService: AuthService,
