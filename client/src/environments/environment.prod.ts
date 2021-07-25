@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  serverUrl: 'https://wave2hack.herokuapp.com'
+  serverUrl: 'https://wave2hack.herokuapp.com',
   firebase: {
     apiKey: 'AIzaSyCaFc5oP_sefJAbCdh8J80rLs8L3m3zJ3g',
     authDomain: 'wri-wave2webhack.firebaseapp.com',
