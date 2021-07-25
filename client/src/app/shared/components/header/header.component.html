@@ -1,0 +1,20 @@
+<mat-toolbar class="header-class" color="primary">
+    <mat-toolbar-row>
+      <span>WRI_Wave2WebHack</span>
+      <span class="class-spacer"></span>
+      <mat-form-field *ngIf="authService.isLoggedIn" appearance="fill" class="mat-field-class">
+        <mat-label class="mat-label-class">Select year</mat-label>
+        <mat-select (selectionChange)="onYearChange()" [(value)]="sharedService.selectedYear">
+          <mat-option *ngFor="let year of yearList" [value]="year">
+            {{year}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-icon class="class-icon"
+          *ngIf="authService.isLoggedIn"
+          aria-hidden="false" aria-label="class-icon" (click)="authService.SignOut()">settings_power</mat-icon>
+      <mat-icon class="class-icon"
+          *ngIf="authService.isLoggedIn"
+          aria-hidden="false" aria-label="class-icon">verified_user</mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,25 @@
+.user-card-class {
+    margin-top: 10px;
+    margin-left: 7.5px;
+    text-align: center;
+    background-color: #efeff5;
+}
+.region-card-class {
+    margin-top: 5px;
+    margin-left: 7.5px;
+    background-color: #efeff5;
+}
+.region-image-class {
+    background-image: url('../../../../assets/region-map-icon.png');
+    background-size: cover;
+}
+.mat-standard-chip {
+    width: 90% !important;
+}
+.para-class {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.top-para-class {
+    margin-top: 10px !important;
+}
