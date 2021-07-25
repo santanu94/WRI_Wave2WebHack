@@ -36,7 +36,7 @@ export class OutflowComponent implements OnInit {
       maintainAspectRatio: false
     };
     this.chartData = [
-      { data: [], label: 'Predicted Outflow' },
+      { data: [], label: 'Actual Outflow' },
       { data: [], label: 'AMCS Outflow' }
     ];
     this.chartColors = [
@@ -74,6 +74,7 @@ export class OutflowComponent implements OnInit {
         config.data = {
           yearPredictedData: response.predictedfullYearData,
           yearActualAmcsData: response.actual_amcsfullYearData,
+          outflowfullYearData: response.outflowfullYearData,
           yearDetails: this.sharedService.selectedYear,
           data: typeOfData
         };

@@ -22,6 +22,7 @@ export class ViewExpandedDataComponent implements OnInit {
   labelDetailsData: string;
   predictedDataSetLabel: string;
   actualAmcsDataSetLabel: string;
+  outflowArrayDataSetLabel: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public dialogData,
@@ -37,6 +38,7 @@ export class ViewExpandedDataComponent implements OnInit {
       this.headerData = 'Outflow Current Cycle';
       this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
       this.predictedDataSetLabel = 'Actual Outflow';
+      this.outflowArrayDataSetLabel = 'Outflow';
     }
     const years = this.dialogData.yearDetails.split(' - ');
     this.labelDetailsData = 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')';
@@ -68,20 +70,42 @@ export class ViewExpandedDataComponent implements OnInit {
         ],
       }
     };
-    this.chartData = [
-      { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
-      { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel }
-    ];
-    this.chartColors = [
-      {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,0,255,0.28)',
-      },
-      {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,255,0,0.28)',
-      }
-    ];
+    if (this.dialogData.data === 'INFLOW') {
+      this.chartData = [
+        { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
+        { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel }
+      ];
+      this.chartColors = [
+        {
+          borderColor: 'black',
+          backgroundColor: 'rgba(0,0,255,0.28)',
+        },
+        {
+          borderColor: 'black',
+          backgroundColor: 'rgba(0,255,0,0.28)',
+        }
+      ];
+    } else {
+      this.chartData = [
+        { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
+        { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel },
+        { data: this.dialogData.outflowfullYearData, label: this.outflowArrayDataSetLabel, hidden: true }
+      ];
+      this.chartColors = [
+        {
+          borderColor: 'black',
+          backgroundColor: 'rgba(0,0,255,0.28)',
+        },
+        {
+          borderColor: 'black',
+          backgroundColor: 'rgba(0,255,0,0.28)',
+        },
+        {
+          borderColor: 'black',
+          backgroundColor: 'rgba(255,69,0,0.5)',
+        }
+      ];
+    }
   }
 
   closeDialog(){

@@ -4,8 +4,8 @@
     </mat-card-header>
     <mat-card-content>
         <img src="../../../../assets/user.png" height="50%" width="50%">
-        <p *ngIf="!!authService.userData.displayName" class="para-class">{{ authService.userData.displayName }}</p>
-        <p *ngIf="!authService.userData.displayName" class="para-class">Unknown user</p>
+        <p *ngIf="!!authService.userData.displayName" class="top-para-class para-class">{{ authService.userData.displayName }}</p>
+        <p *ngIf="!authService.userData.displayName" class="top-para-class para-class">Unknown user</p>
         <p class="para-class">{{ authService.userData.email }}</p>
         <p class="para-class">Admin</p>
     </mat-card-content>

@@ -123,10 +123,19 @@ function readJsonData(jsonpath, res) {
 }
 
 function readJsonDataExpanded(jsonpath, typeofdata, res) {
-    var twoTypesOfData = [
-        typeofdata,
-        typeofdata === 'INFLOW' ? 'ACTUAL INFLOW' : 'AMCS OUTFLOW'
-    ];
+    var typesOfData = [];
+    if (typeofdata === 'INFLOW') {
+        typesOfData = [
+            typeofdata,
+            'ACTUAL INFLOW'
+        ];
+    } else {
+        typesOfData = [
+            typeofdata,
+            'OUTFLOW',
+            'AMCS OUTFLOW'
+        ];
+    }
     fs.readFile(jsonpath, {encoding:'utf8', flag:'r'}, (err, data) => {
         var expandedData = {};
         if (err) {
@@ -136,7 +145,7 @@ function readJsonDataExpanded(jsonpath, typeofdata, res) {
             res.status(500);
         } else {
             var totaljsondata = JSON.parse(data);
-            twoTypesOfData.forEach(dataType => {
+            typesOfData.forEach(dataType => {
                 var listFirstHalf = [];
                 var listSecondHalf = [];
                 var partjsondata = totaljsondata[dataType];
@@ -149,6 +158,9 @@ function readJsonDataExpanded(jsonpath, typeofdata, res) {
                         }
                     }
                 );
+                if (dataType === 'OUTFLOW') {
+                    expandedData.outflowfullYearData = listFirstHalf.concat(listSecondHalf);
+                }
                 if (dataType === 'INFLOW' || dataType === 'ACTUAL OUTFLOW') {
                     expandedData.predictedfullYearData = listFirstHalf.concat(listSecondHalf);
                 } else {
