@@ -54,7 +54,7 @@ export class OutflowComponent implements OnInit {
       (dataPopulated) => {
         if (dataPopulated) {
           this.chartData = [
-            { data: this.predictionService.outflowDataSet, label: 'Predicted Outflow' },
+            { data: this.predictionService.outflowDataSet, label: 'Actual Outflow' },
             { data: this.predictionService.amcsOutflowDataSet, label: 'AMCS Outflow' }
           ];
         }

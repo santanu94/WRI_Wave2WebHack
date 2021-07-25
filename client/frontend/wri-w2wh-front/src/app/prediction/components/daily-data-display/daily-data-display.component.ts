@@ -45,7 +45,7 @@ export class DailyDataDisplayComponent implements OnInit {
             }
             this.duration = this.sharedService.durationArray[value];
             const nextDate = this.sharedService.datesArray[value].split('-');
-            this.displayDate = new Date(+nextDate[2], +nextDate[1], +nextDate[0]);
+            this.displayDate = new Date(+nextDate[2], +nextDate[1] - 1, +nextDate[0]);
           });
         } else {
           !!this.changetimeSubscribe ? this.changetimeSubscribe.unsubscribe() : this.changetimeSubscribe = null;

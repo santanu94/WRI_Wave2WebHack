@@ -36,7 +36,7 @@ export class ViewExpandedDataComponent implements OnInit {
     } else {
       this.headerData = 'Outflow Current Cycle';
       this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
-      this.predictedDataSetLabel = 'Predicted Outflow';
+      this.predictedDataSetLabel = 'Actual Outflow';
     }
     const years = this.dialogData.yearDetails.split(' - ');
     this.labelDetailsData = 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')';
