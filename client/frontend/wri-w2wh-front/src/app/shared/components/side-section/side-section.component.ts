@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { AuthService } from 'src/app/login-register/services/auth.service';
 import { SharedService } from '../../services/shared.service';
 
 export interface RegionModel {
@@ -16,9 +17,13 @@ export class SideSectionComponent implements OnInit {
 
   regionList: RegionModel[] = [];
 
-  constructor(private sharedService: SharedService) { }
+  constructor(
+    private sharedService: SharedService,
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    console.log(this.authService.userData);
     this.sharedService.getRegionList().subscribe(
       (response: any) => {
         this.regionList = response.regionList;

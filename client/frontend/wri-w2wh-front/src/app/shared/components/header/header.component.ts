@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/login-register/services/auth.service';
 import { SharedService } from '../../services/shared.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
   yearList: string[] = [];
 
   constructor(
-    public sharedService: SharedService
+    public sharedService: SharedService,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {

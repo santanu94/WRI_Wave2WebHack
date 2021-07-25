@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from './shared/services/shared.service';
+import { AuthService } from './login-register/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,14 @@ export class AppComponent implements OnInit{
   title = 'WRI_Wave2WebHack';
 
   constructor(
+    public authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.router.navigate(['prediction']);
+    if (this.authService.isLoggedIn) {
+      this.router.navigate(['prediction']);
+    }
   }
 
 }

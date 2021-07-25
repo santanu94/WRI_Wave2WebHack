@@ -1,4 +1,15 @@
-<p style="margin-top: 3px; margin-left: 7.5px;">Hello, Welcome</p>
+<mat-card class="user-card-class">
+    <mat-card-header>
+        <mat-card-title>User</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <img src="../../../../assets/user.png" height="50%" width="50%">
+        <p *ngIf="!!authService.userData.displayName" class="para-class">{{ authService.userData.displayName }}</p>
+        <p *ngIf="!authService.userData.displayName" class="para-class">Unknown user</p>
+        <p class="para-class">{{ authService.userData.email }}</p>
+        <p class="para-class">Admin</p>
+    </mat-card-content>
+</mat-card>
 <mat-card class="region-card-class">
     <mat-card-header>
         <div mat-card-avatar class="region-image-class"></div>

@@ -1,5 +1,6 @@
 .class-icon {
-    padding: 0 14px;
+    padding: 0 18px;
+    cursor: pointer;
 }
 .class-spacer {
     flex: 1 1 auto;

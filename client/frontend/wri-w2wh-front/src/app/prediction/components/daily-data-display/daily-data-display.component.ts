@@ -27,7 +27,7 @@ export class DailyDataDisplayComponent implements OnInit {
     this.sharedService.dailyDisplaynSeasonalObservable.subscribe(
       (dataReceived) => {
         if (dataReceived) {
-          this.changetime = interval(1000);
+          this.changetime = interval(10000);
           this.changetime.pipe(take(this.sharedService.durationArray.length));
           this.changetimeSubscribe = this.changetime.subscribe(value => {
             if (this.sharedService.selectedYear === '2011 - 2012') {

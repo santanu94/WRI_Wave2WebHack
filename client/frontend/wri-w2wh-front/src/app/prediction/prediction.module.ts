@@ -13,6 +13,8 @@ import { ViewExpandedDataComponent } from './components/view-expanded-data/view-
 import { DailyDataDisplayComponent } from './components/daily-data-display/daily-data-display.component';
 import { GaugeModule } from 'angular-gauge';
 import { BarChartPartComponent } from './components/bar-chart-part/bar-chart-part.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { BarChartPartComponent } from './components/bar-chart-part/bar-chart-par
     MatIconModule,
     MatDialogModule,
     ChartsModule,
-    GaugeModule.forRoot()
+    GaugeModule.forRoot(),
+    SharedModule,
+    MatTabsModule
   ],
   entryComponents: [ViewExpandedDataComponent]
 })

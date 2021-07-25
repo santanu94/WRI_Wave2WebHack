@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="form-signin text-center">
+        <form [formGroup]="signinupform">
+            <img class="mt-4" src="../../../assets/water-icon.png" alt="" width="100">
+            <h1 class="h3 mb-3 fw-normal">WRI_Wave2WebHack</h1>
+
+            <p class="fw-bold">Sign in/up</p>
+      
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" formControlName="email"
+                    [ngClass]="{'invalid-class': signinupFormValues.email.errors && signinupFormValues.email.touched}"
+                    placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div *ngIf="signinupFormValues.email.errors && signinupFormValues.email.touched" 
+                class="invalid-field">
+                <div *ngIf="signinupFormValues.email.errors.required">
+                    Email address is required.
+                </div>
+                <div *ngIf="signinupFormValues.email.errors.pattern">
+                    Email address is invalid.
+                </div>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" formControlName="password"
+                    [ngClass]="{'invalid-class': signinupFormValues.password.errors && signinupFormValues.password.touched}"
+                    placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div *ngIf="signinupFormValues.password.errors && signinupFormValues.password.touched" 
+                class="invalid-field">
+                <div *ngIf="signinupFormValues.password.errors.required">
+                    Password is required.
+                </div>
+                <div *ngIf="signinupFormValues.password.errors.pattern">
+                    Password should match contain at least one capital letter, one number and one special character.
+                </div>
+            </div>
+            <br>
+            <button class="w-100 btn btn-primary" [disabled]="authService.disableFlag" (click)="signInUpMethod('SIGNIN')">Sign in</button>
+            <hr>
+            <button class="w-100 btn btn-primary" [disabled]="authService.disableFlag" (click)="signInUpMethod('SIGNUP')">Sign up</button>
+        </form>
+        <p class="mt-3 text-muted">Socials</p>
+        <div class="btn-group">
+            <a class="icon-button facebook"><i class="fa fa-facebook"></i><span></span></a>
+            <a class="icon-button twitter"><i class="fa fa-twitter"></i><span></span></a>
+            <a class="icon-button google" (click)="authService.GoogleAuth()"><i class="fa fa-google"></i><span></span></a>
+            <a class="icon-button linkedin"><i class="fa fa-linkedin"></i><span></span></a>
+            <a class="icon-button instagram"><i class="fa fa-instagram"></i><span></span></a>
+        </div>
+        <p class="mt-2 mb-3 text-muted">© 2021</p>
+    </div>
+</div>

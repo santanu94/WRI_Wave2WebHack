@@ -1,15 +1,23 @@
-<div class="container">
-    <app-daily-data-display></app-daily-data-display>
-    <div class="row col-lg-12">
-        <div class="col-lg-6">
-            <app-inflow-current-cycle [showExpand]="showExpand"></app-inflow-current-cycle>
+<div class="body-class">
+    <app-side-section class="side-section-class"></app-side-section>
+    <div class="modules-class">
+        <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Prediction"></mat-tab>
+        </mat-tab-group>
+        <div class="container">
+            <app-daily-data-display></app-daily-data-display>
+            <div class="row col-lg-12">
+                <div class="col-lg-6">
+                    <app-inflow-current-cycle [showExpand]="showExpand"></app-inflow-current-cycle>
+                </div>
+                <div class="col-lg-6">
+                    <app-outflow [showExpand]="showExpand"></app-outflow>  
+                </div>
+            </div>
+            <app-bar-chart-part></app-bar-chart-part>
+            <div class="row col-lg-12">
+                <app-inflow-trends></app-inflow-trends>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <app-outflow [showExpand]="showExpand"></app-outflow>  
-        </div>
-    </div>
-    <app-bar-chart-part></app-bar-chart-part>
-    <div class="row col-lg-12">
-        <app-inflow-trends></app-inflow-trends>
     </div>
 </div>
