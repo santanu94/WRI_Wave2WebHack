@@ -1591,20 +1591,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             lat: 12.4255,
             lng: 76.5724
           };
-          this.coordinates = [{
-            lat: 12.3375,
-            lng: 75.8069,
-            loc: 'Kodagu'
-          }, {
-            lat: 12.2958,
-            lng: 76.6394,
-            loc: 'Mysuru'
-          }, {
-            lat: 13.0033,
-            lng: 76.1004,
-            loc: 'Hassan'
-          }];
-          this.setMarkers();
           this.sharedService.getRegionList().subscribe(function (response) {
             _this7.regionList = response.regionList;
             _this7.sharedService.selectedRegion = _this7.regionList[0].regionName;
@@ -1612,6 +1598,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, function (error) {
             _this7.regionList = [];
             console.log(error);
+          });
+          this.sharedService.getcoordinatesList().subscribe(function (response) {
+            _this7.coordinates = response.coordinatesList;
+
+            _this7.setMarkers();
           });
         }
       }, {
@@ -2026,6 +2017,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getYearlist",
         value: function getYearlist() {
           return this.httpClient.get(this.getServerUrl() + '/getYearlist');
+        }
+      }, {
+        key: "getcoordinatesList",
+        value: function getcoordinatesList() {
+          return this.httpClient.get(this.getServerUrl() + '/coordinatesList');
         }
       }, {
         key: "getDailynSeasonalData",

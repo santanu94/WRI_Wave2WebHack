@@ -3,9 +3,13 @@ const router = express.Router();
 const fs = require('fs');
 const csv = require('csv-parser');
 const regionModel = require('../models/regionModel');
+const locModel = require('../models/locModel');
 var regionNameList = ['KRS', 'KAB', 'HEM', 'HAR'];
 var maxStorageRegionWise = [49.45, 50, 50, 50];
 var weatherRegionNameList = ['Kodagu', 'Mysuru', 'Hassan'];
+
+var latsArray = [12.3375, 12.2958, 13.0033];
+var longsArray = [75.8069, 76.6394, 76.1004];
 
 var jsonFolderPath = './python_scripts/predictions';
 var datasetPath = './python_scripts/dataset/Weather';
@@ -34,6 +38,16 @@ router.get('/getYearlist', (req, res) => {
     }
     res.status(200);
     res.json({ 'yearlist': yearlist });
+});
+
+router.get('/coordinatesList', (req, res) => {
+    console.log('coordinatesList');
+    var coordinatesList = [];
+    for (let i=0; i<weatherRegionNameList.length; i++) {
+        coordinatesList.push(new locModel(latsArray[i], longsArray[i], weatherRegionNameList[i]));
+    }
+    res.status(200);
+    res.json({ 'coordinatesList': coordinatesList });
 });
 
 router.get('/getDailynSeasonalData', (req, res) => {

@@ -945,20 +945,6 @@ class SideSectionComponent {
             lat: 12.4255,
             lng: 76.5724
         };
-        this.coordinates = [{
-                lat: 12.3375,
-                lng: 75.8069,
-                loc: 'Kodagu'
-            }, {
-                lat: 12.2958,
-                lng: 76.6394,
-                loc: 'Mysuru'
-            }, {
-                lat: 13.0033,
-                lng: 76.1004,
-                loc: 'Hassan'
-            }];
-        this.setMarkers();
         this.sharedService.getRegionList().subscribe((response) => {
             this.regionList = response.regionList;
             this.sharedService.selectedRegion = this.regionList[0].regionName;
@@ -966,6 +952,10 @@ class SideSectionComponent {
         }, error => {
             this.regionList = [];
             console.log(error);
+        });
+        this.sharedService.getcoordinatesList().subscribe((response) => {
+            this.coordinates = response.coordinatesList;
+            this.setMarkers();
         });
     }
     setMarkers() {
@@ -1186,6 +1176,9 @@ class SharedService {
     }
     getYearlist() {
         return this.httpClient.get(this.getServerUrl() + '/getYearlist');
+    }
+    getcoordinatesList() {
+        return this.httpClient.get(this.getServerUrl() + '/coordinatesList');
     }
     getDailynSeasonalData() {
         let urlParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]();

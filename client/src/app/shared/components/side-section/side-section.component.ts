@@ -44,22 +44,6 @@ export class SideSectionComponent implements OnInit {
       lng: 76.5724
     };
 
-    this.coordinates = [{
-      lat: 12.3375,
-      lng: 75.8069,
-      loc: 'Kodagu'
-    }, {
-      lat: 12.2958,
-      lng: 76.6394,
-      loc: 'Mysuru'
-    }, {
-      lat: 13.0033,
-      lng: 76.1004,
-      loc: 'Hassan'
-    }];
-
-    this.setMarkers();
-
     this.sharedService.getRegionList().subscribe(
       (response: any) => {
         this.regionList = response.regionList;
@@ -71,6 +55,12 @@ export class SideSectionComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.sharedService.getcoordinatesList().subscribe(
+      (response: any) => {
+        this.coordinates = response.coordinatesList;
+        this.setMarkers();
+    });
   }
 
   setMarkers() {

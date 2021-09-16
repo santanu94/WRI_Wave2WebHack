@@ -66,6 +66,10 @@ export class SharedService {
     return this.httpClient.get(this.getServerUrl() + '/getYearlist');
   }
 
+  getcoordinatesList() {
+    return this.httpClient.get(this.getServerUrl() + '/coordinatesList');
+  }
+
   getDailynSeasonalData() {
     let urlParams = new HttpParams();
     urlParams = urlParams.set('region', this.selectedRegion);
