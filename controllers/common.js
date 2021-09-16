@@ -1,19 +1,29 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const csv = require('csv-parser');
 const regionModel = require('../models/regionModel');
 var regionNameList = ['KRS', 'KAB', 'HEM', 'HAR'];
+var maxStorageRegionWise = [49.45, 50, 50, 50];
+var weatherRegionNameList = ['Kodagu', 'Mysuru', 'Hassan'];
 
 var jsonFolderPath = './python_scripts/predictions';
+var datasetPath = './python_scripts/dataset/Weather';
 
 router.get('/regionList', (req, res) => {
     console.log('regionList');
     var regionModelList = [];
-    regionNameList.forEach(value => {
-        regionModelList.push(new regionModel(value, 'primary'));
-    });
+    for (let i=0; i<regionNameList.length; i++) {
+        regionModelList.push(new regionModel(regionNameList[i], 'primary', maxStorageRegionWise[i]));
+    }
     res.status(200);
     res.json({ 'regionList': regionModelList });
+});
+
+router.get('/weatherRegionList', (req, res) => {
+    console.log('weatherRegionList');
+    res.status(200);
+    res.json({ 'regionList': weatherRegionNameList });
 });
 
 router.get('/getYearlist', (req, res) => {
@@ -34,7 +44,7 @@ router.get('/getDailynSeasonalData', (req, res) => {
     var year = req.query.years.split(' - ');
     var jsonStatspath = jsonFolderPath + '/' + req.query.region + '/stats' + '_' + year[0] + '_' + year[1] + '.json';
     var jsonPredpath = jsonFolderPath + '/' + req.query.region + '/predictions' + '_' + year[0] + '_' + year[1] + '.json';
-    if (checkIfJsonExists(jsonStatspath) && checkIfJsonExists(jsonPredpath)) {
+    if (checkIfFileExists(jsonStatspath) && checkIfFileExists(jsonPredpath)) {
         var statsData = JSON.parse(fs.readFileSync(jsonStatspath, {encoding:'utf8', flag:'r'}));
         var predictionData = JSON.parse(fs.readFileSync(jsonPredpath, {encoding:'utf8', flag:'r'}));
         if (!statsData['INFLOW CHANGE']) {
@@ -59,10 +69,44 @@ router.get('/getDailynSeasonalData', (req, res) => {
         dailyDataObject['yearsPredictedvsNormalData'] = {};
         res.status(500);
     }
-    res.json(dailyDataObject); 
+    res.json(dailyDataObject);
 });
 
-function checkIfJsonExists(jsonpath) {
+router.get('/getWeatherData', (req, res) => {
+    console.log('/getWeatherData');
+    var weatherdatapath = datasetPath + '/' + 'opwnweathermap_historic.csv';
+    var returnObject = {};
+    var headersNotNeeded = ['dt', 'timezone', 'temp_min', 'temp_max', 'snow_1h', 'snow_3h', 'weather_id', 'weather_icon'];
+    const results = [];
+    if (checkIfFileExists(weatherdatapath)) {
+        fs.createReadStream(weatherdatapath)
+        .pipe(csv({
+            mapHeaders: ({ header, index }) => {
+                if (headersNotNeeded.indexOf(header) > -1) {
+                    return null;
+                } else {
+                    return header;
+                }
+            }
+        }))
+        .on('data', (x) => {
+            if (x.city_name === req.query.region && x.dt_iso.indexOf(req.query.date) > -1) {
+                results.push(x);
+            }
+        })
+        .on('end', () => {
+            returnObject['weather'] = results;
+            res.status(200);
+            res.json(returnObject); 
+        });
+    } else {
+        returnObject['weather'] = [];
+        res.status(500);
+        res.json(returnObject); 
+    }
+});
+
+function checkIfFileExists(jsonpath) {
     console.log('pathcheck');
     try {
         if (fs.existsSync(jsonpath)) {

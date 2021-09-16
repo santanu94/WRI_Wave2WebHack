@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { PredictionService } from '../../services/prediction.service';
+import { DailyDataDisplayComponent } from '../daily-data-display/daily-data-display.component';
 
 @Component({
   selector: 'app-prediction-base',
@@ -13,6 +14,8 @@ export class PredictionBaseComponent implements OnInit, OnDestroy {
 
   public notifier = new Subject();
   public showExpand = false;
+
+  @ViewChild(DailyDataDisplayComponent, { static: false }) dailyDataDisplayComponent: DailyDataDisplayComponent;
 
   constructor(
     private predictionService: PredictionService,
@@ -61,6 +64,19 @@ export class PredictionBaseComponent implements OnInit, OnDestroy {
         this.predictionService.amcsOutflowDataSet = [];
         console.log(error);
       });
+  }
+
+  onOpenEmit(event: any) {
+    this.sharedService.dailyDisplaynSeasonalSubject.next(false);
+    this.dailyDataDisplayComponent.setAllValues(this.sharedService.dailyStatsLastValue);
+  }
+
+  onCloseEmit(event: any) {
+    this.sharedService.dailyDisplaynSeasonalSubject.next(true);
+  }
+
+  onDayEventEmit(event: any) {
+    this.dailyDataDisplayComponent.setAllValues(this.sharedService.dailyStatsLastValue);
   }
 
 }

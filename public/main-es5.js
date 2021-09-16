@@ -36,6 +36,314 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+  /*!**************************************************!*\
+    !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+    \**************************************************/
+
+  /*! no static exports found */
+
+  /***/
+  function node_modulesMomentLocaleSyncRecursive$(module, exports, __webpack_require__) {
+    var map = {
+      "./af": "./node_modules/moment/locale/af.js",
+      "./af.js": "./node_modules/moment/locale/af.js",
+      "./ar": "./node_modules/moment/locale/ar.js",
+      "./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+      "./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+      "./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+      "./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+      "./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+      "./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+      "./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+      "./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+      "./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+      "./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+      "./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+      "./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+      "./ar.js": "./node_modules/moment/locale/ar.js",
+      "./az": "./node_modules/moment/locale/az.js",
+      "./az.js": "./node_modules/moment/locale/az.js",
+      "./be": "./node_modules/moment/locale/be.js",
+      "./be.js": "./node_modules/moment/locale/be.js",
+      "./bg": "./node_modules/moment/locale/bg.js",
+      "./bg.js": "./node_modules/moment/locale/bg.js",
+      "./bm": "./node_modules/moment/locale/bm.js",
+      "./bm.js": "./node_modules/moment/locale/bm.js",
+      "./bn": "./node_modules/moment/locale/bn.js",
+      "./bn-bd": "./node_modules/moment/locale/bn-bd.js",
+      "./bn-bd.js": "./node_modules/moment/locale/bn-bd.js",
+      "./bn.js": "./node_modules/moment/locale/bn.js",
+      "./bo": "./node_modules/moment/locale/bo.js",
+      "./bo.js": "./node_modules/moment/locale/bo.js",
+      "./br": "./node_modules/moment/locale/br.js",
+      "./br.js": "./node_modules/moment/locale/br.js",
+      "./bs": "./node_modules/moment/locale/bs.js",
+      "./bs.js": "./node_modules/moment/locale/bs.js",
+      "./ca": "./node_modules/moment/locale/ca.js",
+      "./ca.js": "./node_modules/moment/locale/ca.js",
+      "./cs": "./node_modules/moment/locale/cs.js",
+      "./cs.js": "./node_modules/moment/locale/cs.js",
+      "./cv": "./node_modules/moment/locale/cv.js",
+      "./cv.js": "./node_modules/moment/locale/cv.js",
+      "./cy": "./node_modules/moment/locale/cy.js",
+      "./cy.js": "./node_modules/moment/locale/cy.js",
+      "./da": "./node_modules/moment/locale/da.js",
+      "./da.js": "./node_modules/moment/locale/da.js",
+      "./de": "./node_modules/moment/locale/de.js",
+      "./de-at": "./node_modules/moment/locale/de-at.js",
+      "./de-at.js": "./node_modules/moment/locale/de-at.js",
+      "./de-ch": "./node_modules/moment/locale/de-ch.js",
+      "./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+      "./de.js": "./node_modules/moment/locale/de.js",
+      "./dv": "./node_modules/moment/locale/dv.js",
+      "./dv.js": "./node_modules/moment/locale/dv.js",
+      "./el": "./node_modules/moment/locale/el.js",
+      "./el.js": "./node_modules/moment/locale/el.js",
+      "./en-au": "./node_modules/moment/locale/en-au.js",
+      "./en-au.js": "./node_modules/moment/locale/en-au.js",
+      "./en-ca": "./node_modules/moment/locale/en-ca.js",
+      "./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+      "./en-gb": "./node_modules/moment/locale/en-gb.js",
+      "./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+      "./en-ie": "./node_modules/moment/locale/en-ie.js",
+      "./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+      "./en-il": "./node_modules/moment/locale/en-il.js",
+      "./en-il.js": "./node_modules/moment/locale/en-il.js",
+      "./en-in": "./node_modules/moment/locale/en-in.js",
+      "./en-in.js": "./node_modules/moment/locale/en-in.js",
+      "./en-nz": "./node_modules/moment/locale/en-nz.js",
+      "./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+      "./en-sg": "./node_modules/moment/locale/en-sg.js",
+      "./en-sg.js": "./node_modules/moment/locale/en-sg.js",
+      "./eo": "./node_modules/moment/locale/eo.js",
+      "./eo.js": "./node_modules/moment/locale/eo.js",
+      "./es": "./node_modules/moment/locale/es.js",
+      "./es-do": "./node_modules/moment/locale/es-do.js",
+      "./es-do.js": "./node_modules/moment/locale/es-do.js",
+      "./es-mx": "./node_modules/moment/locale/es-mx.js",
+      "./es-mx.js": "./node_modules/moment/locale/es-mx.js",
+      "./es-us": "./node_modules/moment/locale/es-us.js",
+      "./es-us.js": "./node_modules/moment/locale/es-us.js",
+      "./es.js": "./node_modules/moment/locale/es.js",
+      "./et": "./node_modules/moment/locale/et.js",
+      "./et.js": "./node_modules/moment/locale/et.js",
+      "./eu": "./node_modules/moment/locale/eu.js",
+      "./eu.js": "./node_modules/moment/locale/eu.js",
+      "./fa": "./node_modules/moment/locale/fa.js",
+      "./fa.js": "./node_modules/moment/locale/fa.js",
+      "./fi": "./node_modules/moment/locale/fi.js",
+      "./fi.js": "./node_modules/moment/locale/fi.js",
+      "./fil": "./node_modules/moment/locale/fil.js",
+      "./fil.js": "./node_modules/moment/locale/fil.js",
+      "./fo": "./node_modules/moment/locale/fo.js",
+      "./fo.js": "./node_modules/moment/locale/fo.js",
+      "./fr": "./node_modules/moment/locale/fr.js",
+      "./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+      "./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+      "./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+      "./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+      "./fr.js": "./node_modules/moment/locale/fr.js",
+      "./fy": "./node_modules/moment/locale/fy.js",
+      "./fy.js": "./node_modules/moment/locale/fy.js",
+      "./ga": "./node_modules/moment/locale/ga.js",
+      "./ga.js": "./node_modules/moment/locale/ga.js",
+      "./gd": "./node_modules/moment/locale/gd.js",
+      "./gd.js": "./node_modules/moment/locale/gd.js",
+      "./gl": "./node_modules/moment/locale/gl.js",
+      "./gl.js": "./node_modules/moment/locale/gl.js",
+      "./gom-deva": "./node_modules/moment/locale/gom-deva.js",
+      "./gom-deva.js": "./node_modules/moment/locale/gom-deva.js",
+      "./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+      "./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+      "./gu": "./node_modules/moment/locale/gu.js",
+      "./gu.js": "./node_modules/moment/locale/gu.js",
+      "./he": "./node_modules/moment/locale/he.js",
+      "./he.js": "./node_modules/moment/locale/he.js",
+      "./hi": "./node_modules/moment/locale/hi.js",
+      "./hi.js": "./node_modules/moment/locale/hi.js",
+      "./hr": "./node_modules/moment/locale/hr.js",
+      "./hr.js": "./node_modules/moment/locale/hr.js",
+      "./hu": "./node_modules/moment/locale/hu.js",
+      "./hu.js": "./node_modules/moment/locale/hu.js",
+      "./hy-am": "./node_modules/moment/locale/hy-am.js",
+      "./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+      "./id": "./node_modules/moment/locale/id.js",
+      "./id.js": "./node_modules/moment/locale/id.js",
+      "./is": "./node_modules/moment/locale/is.js",
+      "./is.js": "./node_modules/moment/locale/is.js",
+      "./it": "./node_modules/moment/locale/it.js",
+      "./it-ch": "./node_modules/moment/locale/it-ch.js",
+      "./it-ch.js": "./node_modules/moment/locale/it-ch.js",
+      "./it.js": "./node_modules/moment/locale/it.js",
+      "./ja": "./node_modules/moment/locale/ja.js",
+      "./ja.js": "./node_modules/moment/locale/ja.js",
+      "./jv": "./node_modules/moment/locale/jv.js",
+      "./jv.js": "./node_modules/moment/locale/jv.js",
+      "./ka": "./node_modules/moment/locale/ka.js",
+      "./ka.js": "./node_modules/moment/locale/ka.js",
+      "./kk": "./node_modules/moment/locale/kk.js",
+      "./kk.js": "./node_modules/moment/locale/kk.js",
+      "./km": "./node_modules/moment/locale/km.js",
+      "./km.js": "./node_modules/moment/locale/km.js",
+      "./kn": "./node_modules/moment/locale/kn.js",
+      "./kn.js": "./node_modules/moment/locale/kn.js",
+      "./ko": "./node_modules/moment/locale/ko.js",
+      "./ko.js": "./node_modules/moment/locale/ko.js",
+      "./ku": "./node_modules/moment/locale/ku.js",
+      "./ku.js": "./node_modules/moment/locale/ku.js",
+      "./ky": "./node_modules/moment/locale/ky.js",
+      "./ky.js": "./node_modules/moment/locale/ky.js",
+      "./lb": "./node_modules/moment/locale/lb.js",
+      "./lb.js": "./node_modules/moment/locale/lb.js",
+      "./lo": "./node_modules/moment/locale/lo.js",
+      "./lo.js": "./node_modules/moment/locale/lo.js",
+      "./lt": "./node_modules/moment/locale/lt.js",
+      "./lt.js": "./node_modules/moment/locale/lt.js",
+      "./lv": "./node_modules/moment/locale/lv.js",
+      "./lv.js": "./node_modules/moment/locale/lv.js",
+      "./me": "./node_modules/moment/locale/me.js",
+      "./me.js": "./node_modules/moment/locale/me.js",
+      "./mi": "./node_modules/moment/locale/mi.js",
+      "./mi.js": "./node_modules/moment/locale/mi.js",
+      "./mk": "./node_modules/moment/locale/mk.js",
+      "./mk.js": "./node_modules/moment/locale/mk.js",
+      "./ml": "./node_modules/moment/locale/ml.js",
+      "./ml.js": "./node_modules/moment/locale/ml.js",
+      "./mn": "./node_modules/moment/locale/mn.js",
+      "./mn.js": "./node_modules/moment/locale/mn.js",
+      "./mr": "./node_modules/moment/locale/mr.js",
+      "./mr.js": "./node_modules/moment/locale/mr.js",
+      "./ms": "./node_modules/moment/locale/ms.js",
+      "./ms-my": "./node_modules/moment/locale/ms-my.js",
+      "./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+      "./ms.js": "./node_modules/moment/locale/ms.js",
+      "./mt": "./node_modules/moment/locale/mt.js",
+      "./mt.js": "./node_modules/moment/locale/mt.js",
+      "./my": "./node_modules/moment/locale/my.js",
+      "./my.js": "./node_modules/moment/locale/my.js",
+      "./nb": "./node_modules/moment/locale/nb.js",
+      "./nb.js": "./node_modules/moment/locale/nb.js",
+      "./ne": "./node_modules/moment/locale/ne.js",
+      "./ne.js": "./node_modules/moment/locale/ne.js",
+      "./nl": "./node_modules/moment/locale/nl.js",
+      "./nl-be": "./node_modules/moment/locale/nl-be.js",
+      "./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+      "./nl.js": "./node_modules/moment/locale/nl.js",
+      "./nn": "./node_modules/moment/locale/nn.js",
+      "./nn.js": "./node_modules/moment/locale/nn.js",
+      "./oc-lnc": "./node_modules/moment/locale/oc-lnc.js",
+      "./oc-lnc.js": "./node_modules/moment/locale/oc-lnc.js",
+      "./pa-in": "./node_modules/moment/locale/pa-in.js",
+      "./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+      "./pl": "./node_modules/moment/locale/pl.js",
+      "./pl.js": "./node_modules/moment/locale/pl.js",
+      "./pt": "./node_modules/moment/locale/pt.js",
+      "./pt-br": "./node_modules/moment/locale/pt-br.js",
+      "./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+      "./pt.js": "./node_modules/moment/locale/pt.js",
+      "./ro": "./node_modules/moment/locale/ro.js",
+      "./ro.js": "./node_modules/moment/locale/ro.js",
+      "./ru": "./node_modules/moment/locale/ru.js",
+      "./ru.js": "./node_modules/moment/locale/ru.js",
+      "./sd": "./node_modules/moment/locale/sd.js",
+      "./sd.js": "./node_modules/moment/locale/sd.js",
+      "./se": "./node_modules/moment/locale/se.js",
+      "./se.js": "./node_modules/moment/locale/se.js",
+      "./si": "./node_modules/moment/locale/si.js",
+      "./si.js": "./node_modules/moment/locale/si.js",
+      "./sk": "./node_modules/moment/locale/sk.js",
+      "./sk.js": "./node_modules/moment/locale/sk.js",
+      "./sl": "./node_modules/moment/locale/sl.js",
+      "./sl.js": "./node_modules/moment/locale/sl.js",
+      "./sq": "./node_modules/moment/locale/sq.js",
+      "./sq.js": "./node_modules/moment/locale/sq.js",
+      "./sr": "./node_modules/moment/locale/sr.js",
+      "./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+      "./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+      "./sr.js": "./node_modules/moment/locale/sr.js",
+      "./ss": "./node_modules/moment/locale/ss.js",
+      "./ss.js": "./node_modules/moment/locale/ss.js",
+      "./sv": "./node_modules/moment/locale/sv.js",
+      "./sv.js": "./node_modules/moment/locale/sv.js",
+      "./sw": "./node_modules/moment/locale/sw.js",
+      "./sw.js": "./node_modules/moment/locale/sw.js",
+      "./ta": "./node_modules/moment/locale/ta.js",
+      "./ta.js": "./node_modules/moment/locale/ta.js",
+      "./te": "./node_modules/moment/locale/te.js",
+      "./te.js": "./node_modules/moment/locale/te.js",
+      "./tet": "./node_modules/moment/locale/tet.js",
+      "./tet.js": "./node_modules/moment/locale/tet.js",
+      "./tg": "./node_modules/moment/locale/tg.js",
+      "./tg.js": "./node_modules/moment/locale/tg.js",
+      "./th": "./node_modules/moment/locale/th.js",
+      "./th.js": "./node_modules/moment/locale/th.js",
+      "./tk": "./node_modules/moment/locale/tk.js",
+      "./tk.js": "./node_modules/moment/locale/tk.js",
+      "./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+      "./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+      "./tlh": "./node_modules/moment/locale/tlh.js",
+      "./tlh.js": "./node_modules/moment/locale/tlh.js",
+      "./tr": "./node_modules/moment/locale/tr.js",
+      "./tr.js": "./node_modules/moment/locale/tr.js",
+      "./tzl": "./node_modules/moment/locale/tzl.js",
+      "./tzl.js": "./node_modules/moment/locale/tzl.js",
+      "./tzm": "./node_modules/moment/locale/tzm.js",
+      "./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+      "./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+      "./tzm.js": "./node_modules/moment/locale/tzm.js",
+      "./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+      "./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+      "./uk": "./node_modules/moment/locale/uk.js",
+      "./uk.js": "./node_modules/moment/locale/uk.js",
+      "./ur": "./node_modules/moment/locale/ur.js",
+      "./ur.js": "./node_modules/moment/locale/ur.js",
+      "./uz": "./node_modules/moment/locale/uz.js",
+      "./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+      "./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+      "./uz.js": "./node_modules/moment/locale/uz.js",
+      "./vi": "./node_modules/moment/locale/vi.js",
+      "./vi.js": "./node_modules/moment/locale/vi.js",
+      "./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+      "./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+      "./yo": "./node_modules/moment/locale/yo.js",
+      "./yo.js": "./node_modules/moment/locale/yo.js",
+      "./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+      "./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+      "./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+      "./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+      "./zh-mo": "./node_modules/moment/locale/zh-mo.js",
+      "./zh-mo.js": "./node_modules/moment/locale/zh-mo.js",
+      "./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+      "./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+    };
+
+    function webpackContext(req) {
+      var id = webpackContextResolve(req);
+      return __webpack_require__(id);
+    }
+
+    function webpackContextResolve(req) {
+      if (!__webpack_require__.o(map, req)) {
+        var e = new Error("Cannot find module '" + req + "'");
+        e.code = 'MODULE_NOT_FOUND';
+        throw e;
+      }
+
+      return map[req];
+    }
+
+    webpackContext.keys = function webpackContextKeys() {
+      return Object.keys(map);
+    };
+
+    webpackContext.resolve = webpackContextResolve;
+    module.exports = webpackContext;
+    webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+    /***/
+  },
+
+  /***/
   "./src/app/app-routing.module.ts":
   /*!***************************************!*\
     !*** ./src/app/app-routing.module.ts ***!
@@ -642,9 +950,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     FooterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: FooterComponent,
       selectors: [["app-footer"]],
-      decls: 5,
+      decls: 10,
       vars: 0,
-      consts: [[1, "footer-class"], [1, "class-spacer"], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon"]],
+      consts: [[1, "footer-class"], [1, "class-spacer"], [2, "display", "block !important", "color", "white !important", "font-weight", "200 !important", "margin-bottom", "0px !important", "font-size", "15px !important", "line-height", "initial !important"], [2, "display", "block !important", "color", "white !important", "font-weight", "200 !important", "font-size", "15px !important", "line-height", "initial !important"], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon"]],
       template: function FooterComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-toolbar", 0);
@@ -653,9 +961,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "span", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-icon", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "help");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "p", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "Legends:");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h3", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, "P2W : Predictions for next 2 weeks");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "mat-icon", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "help");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -691,13 +1015,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/app/shared/components/header/header.component.ts ***!
     \**************************************************************/
 
-  /*! exports provided: HeaderComponent */
+  /*! exports provided: MY_DATE_FORMATS, HeaderComponent */
 
   /***/
   function srcAppSharedComponentsHeaderHeaderComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MY_DATE_FORMATS", function () {
+      return MY_DATE_FORMATS;
+    });
     /* harmony export (binding) */
 
 
@@ -713,55 +1043,69 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _services_shared_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ../../services/shared.service */
-    "./src/app/shared/services/shared.service.ts");
-    /* harmony import */
-
-
-    var src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/login-register/services/auth.service */
-    "./src/app/login-register/services/auth.service.ts");
-    /* harmony import */
-
-
-    var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/material/toolbar */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/toolbar.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-    /* harmony import */
-
-
-    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/material/form-field */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
-    /* harmony import */
-
-
-    var _angular_material_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/material/select */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
-    /* harmony import */
-
-
-    var _angular_material_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_material_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/material/core */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material/input */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+    /* harmony import */
+
+
+    var _services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../services/shared.service */
+    "./src/app/shared/services/shared.service.ts");
+    /* harmony import */
+
+
+    var src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/login-register/services/auth.service */
+    "./src/app/login-register/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material/toolbar */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/toolbar.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/material/form-field */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+    /* harmony import */
+
+
+    var _angular_material_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/material/select */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
+    /* harmony import */
+
+
+    var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @angular/material/datepicker */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/datepicker.js");
+    /* harmony import */
+
+
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @angular/material/icon */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
 
+    var _c0 = ["dateInput"];
+
     function HeaderComponent_mat_form_field_5_mat_option_4_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 10);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -769,45 +1113,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var year_r4 = ctx.$implicit;
+        var year_r5 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", year_r4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", year_r5);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", year_r4, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", year_r5, " ");
       }
     }
 
     function HeaderComponent_mat_form_field_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-form-field", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-form-field", 6);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-label", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-label", 7);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Select year");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-select", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-select", 8);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("selectionChange", function HeaderComponent_mat_form_field_5_Template_mat_select_selectionChange_3_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
 
-          var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r5.onYearChange();
+          return ctx_r6.onYearChange();
         })("valueChange", function HeaderComponent_mat_form_field_5_Template_mat_select_valueChange_3_listener($event) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
 
-          var ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r7.sharedService.selectedYear = $event;
+          return ctx_r8.sharedService.selectedYear = $event;
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, HeaderComponent_mat_form_field_5_mat_option_4_Template, 2, 2, "mat-option", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, HeaderComponent_mat_form_field_5_mat_option_4_Template, 2, 2, "mat-option", 9);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -827,18 +1171,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function HeaderComponent_mat_icon_6_Template(rf, ctx) {
+    function HeaderComponent_mat_form_field_6_Template(rf, ctx) {
       if (rf & 1) {
-        var _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-form-field", 11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_mat_icon_6_Template_mat_icon_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-label", 7);
 
-          var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Select date");
 
-          return ctx_r8.authService.SignOut();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "input", 12, 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("dateChange", function HeaderComponent_mat_form_field_6_Template_input_dateChange_3_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12);
+
+          var ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r11.onDateChange($event);
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "mat-datepicker-toggle", 14);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "mat-datepicker", 15, 16);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var _r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](7);
+
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("min", ctx_r1.minDate)("max", ctx_r1.maxDate)("matDatepicker", _r10);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("for", _r10);
+      }
+    }
+
+    function HeaderComponent_mat_icon_7_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_mat_icon_7_Template_mat_icon_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r14);
+
+          var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r13.authService.SignOut();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "settings_power");
@@ -847,15 +1237,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function HeaderComponent_mat_icon_7_Template(rf, ctx) {
+    function HeaderComponent_mat_icon_8_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 18);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "verified_user");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
       }
     }
+
+    var MY_DATE_FORMATS = {
+      parse: {
+        dateInput: 'YYYY-MM-DD'
+      },
+      display: {
+        dateInput: 'MMM DD, YYYY',
+        monthYearLabel: 'MMMM YYYY',
+        dateA11yLabel: 'LL',
+        monthYearA11yLabel: 'MMMM YYYY'
+      }
+    };
 
     var HeaderComponent = /*#__PURE__*/function () {
       function HeaderComponent(sharedService, authService) {
@@ -873,6 +1275,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.sharedService.getYearlist().subscribe(function (response) {
             _this6.yearList = response.yearlist;
+            _this6.minDate = new Date(+_this6.sharedService.selectedYear.split(' - ')[0], 5, 1);
+            _this6.maxDate = new Date(+_this6.sharedService.selectedYear.split(' - ')[1], 4, 31);
+          });
+          this.sharedService.regionObservable.subscribe(function (data) {
+            if (data) {
+              _this6.dateInput.value = '';
+
+              _this6.sharedService.dateSelectSubject.next(false);
+            }
+          });
+          this.sharedService.dailyDisplaynSeasonalObservable.subscribe(function (data) {
+            if (data) {
+              _this6.dateInput.value = '';
+
+              _this6.sharedService.dateSelectSubject.next(false);
+            }
           });
         }
       }, {
@@ -881,6 +1299,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.sharedService.yearSubject.next(true);
           this.sharedService.dataPopulationSubject.next(false);
           this.sharedService.dailyDisplaynSeasonalSubject.next(false);
+          this.sharedService.dailyStatsLastValue = -1;
+          this.minDate = new Date(+this.sharedService.selectedYear.split(' - ')[0], 5, 1);
+          this.maxDate = new Date(+this.sharedService.selectedYear.split(' - ')[1], 4, 31);
+          this.sharedService.dateSelectSubject.next(false);
+          this.dateInput.value = '';
+        }
+      }, {
+        key: "onDateChange",
+        value: function onDateChange(event) {
+          this.sharedService.dailyStatsLastValue = this.sharedService.datesArray.indexOf(event.value.date() + '-' + (event.value.month() + 1) + '-' + event.value.year());
+          this.sharedService.dateSelectSubject.next(true);
         }
       }]);
 
@@ -888,15 +1317,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     HeaderComponent.ɵfac = function HeaderComponent_Factory(t) {
-      return new (t || HeaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_shared_service__WEBPACK_IMPORTED_MODULE_1__["SharedService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]));
+      return new (t || HeaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]));
     };
 
     HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: HeaderComponent,
       selectors: [["app-header"]],
-      decls: 8,
-      vars: 3,
-      consts: [["color", "primary", 1, "header-class"], [1, "class-spacer"], ["appearance", "fill", "class", "mat-field-class", 4, "ngIf"], ["class", "class-icon", "aria-hidden", "false", "aria-label", "class-icon", 3, "click", 4, "ngIf"], ["class", "class-icon", "aria-hidden", "false", "aria-label", "class-icon", 4, "ngIf"], ["appearance", "fill", 1, "mat-field-class"], [1, "mat-label-class"], [3, "value", "selectionChange", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon", 3, "click"], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon"]],
+      viewQuery: function HeaderComponent_Query(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_c0, true, _angular_material_input__WEBPACK_IMPORTED_MODULE_2__["MatInput"]);
+        }
+
+        if (rf & 2) {
+          var _t;
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.dateInput = _t.first);
+        }
+      },
+      features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([{
+        provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_1__["MAT_DATE_FORMATS"],
+        useValue: MY_DATE_FORMATS
+      }])],
+      decls: 9,
+      vars: 4,
+      consts: [["color", "primary", 1, "header-class"], [1, "class-spacer"], ["appearance", "fill", "class", "mat-field-class", 4, "ngIf"], ["appearance", "fill", "class", "mat-date-field-class", 4, "ngIf"], ["class", "class-icon", "aria-hidden", "false", "aria-label", "class-icon", 3, "click", 4, "ngIf"], ["class", "class-icon", "aria-hidden", "false", "aria-label", "class-icon", 4, "ngIf"], ["appearance", "fill", 1, "mat-field-class"], [1, "mat-label-class"], [3, "value", "selectionChange", "valueChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], ["appearance", "fill", 1, "mat-date-field-class"], ["matInput", "", "disabled", "", 3, "min", "max", "matDatepicker", "dateChange"], ["dateInput", ""], ["matSuffix", "", 3, "for"], ["disabled", "false"], ["picker", ""], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon", 3, "click"], ["aria-hidden", "false", "aria-label", "class-icon", 1, "class-icon"]],
       template: function HeaderComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-toolbar", 0);
@@ -913,9 +1357,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, HeaderComponent_mat_form_field_5_Template, 5, 2, "mat-form-field", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, HeaderComponent_mat_icon_6_Template, 2, 0, "mat-icon", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, HeaderComponent_mat_form_field_6_Template, 8, 4, "mat-form-field", 3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, HeaderComponent_mat_icon_7_Template, 2, 0, "mat-icon", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, HeaderComponent_mat_icon_8_Template, 2, 0, "mat-icon", 5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -934,10 +1380,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authService.isLoggedIn);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authService.isLoggedIn);
         }
       },
-      directives: [_angular_material_toolbar__WEBPACK_IMPORTED_MODULE_3__["MatToolbar"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_3__["MatToolbarRow"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_5__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_6__["MatSelect"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_material_core__WEBPACK_IMPORTED_MODULE_7__["MatOption"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIcon"]],
-      styles: [".class-icon[_ngcontent-%COMP%] {\r\n    padding: 0 18px;\r\n    cursor: pointer;\r\n}\r\n.class-spacer[_ngcontent-%COMP%] {\r\n    flex: 1 1 auto;\r\n}\r\n.header-class[_ngcontent-%COMP%] {\r\n    height: 54px !important;\r\n}\r\n.mat-toolbar-multiple-rows[_ngcontent-%COMP%] {\r\n    min-height: 54px !important;\r\n}\r\n.mat-label-class[_ngcontent-%COMP%] {\r\n    top: 0px !important;\r\n    font-size: large !important;\r\n}\r\n.mat-field-class[_ngcontent-%COMP%] {\r\n    height: 50px !important;\r\n}\r\n  .mat-form-field-flex {\r\n    padding: 0 0 0 0 !important;\r\n    background-color: inherit !important;\r\n    height: 50px !important;\r\n}\r\n  .mat-option {\r\n    font-size: initial !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtJQUNmLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxtQkFBbUI7SUFDbkIsMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSx1QkFBdUI7QUFDM0I7QUFDQTtJQUNJLDJCQUEyQjtJQUMzQixvQ0FBb0M7SUFDcEMsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSw2QkFBNkI7QUFDakMiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2xhc3MtaWNvbiB7XHJcbiAgICBwYWRkaW5nOiAwIDE4cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuLmNsYXNzLXNwYWNlciB7XHJcbiAgICBmbGV4OiAxIDEgYXV0bztcclxufVxyXG4uaGVhZGVyLWNsYXNzIHtcclxuICAgIGhlaWdodDogNTRweCAhaW1wb3J0YW50O1xyXG59XHJcbi5tYXQtdG9vbGJhci1tdWx0aXBsZS1yb3dzIHtcclxuICAgIG1pbi1oZWlnaHQ6IDU0cHggIWltcG9ydGFudDtcclxufVxyXG4ubWF0LWxhYmVsLWNsYXNzIHtcclxuICAgIHRvcDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBmb250LXNpemU6IGxhcmdlICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1hdC1maWVsZC1jbGFzcyB7XHJcbiAgICBoZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcclxufVxyXG46Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWZsZXgge1xyXG4gICAgcGFkZGluZzogMCAwIDAgMCAhaW1wb3J0YW50O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogaW5oZXJpdCAhaW1wb3J0YW50O1xyXG4gICAgaGVpZ2h0OiA1MHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuOjpuZy1kZWVwIC5tYXQtb3B0aW9uIHtcclxuICAgIGZvbnQtc2l6ZTogaW5pdGlhbCAhaW1wb3J0YW50O1xyXG59Il19 */"]
+      directives: [_angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbar"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarRow"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatLabel"], _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelect"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_material_core__WEBPACK_IMPORTED_MODULE_1__["MatOption"], _angular_material_input__WEBPACK_IMPORTED_MODULE_2__["MatInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__["MatDatepickerInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__["MatDatepickerToggle"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_7__["MatSuffix"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_9__["MatDatepicker"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__["MatIcon"]],
+      styles: [".class-icon[_ngcontent-%COMP%] {\r\n    padding: 0 18px;\r\n    cursor: pointer;\r\n}\r\n.class-spacer[_ngcontent-%COMP%] {\r\n    flex: 1 1 auto;\r\n}\r\n.header-class[_ngcontent-%COMP%] {\r\n    height: 54px !important;\r\n}\r\n.mat-toolbar-multiple-rows[_ngcontent-%COMP%] {\r\n    min-height: 54px !important;\r\n}\r\n.mat-label-class[_ngcontent-%COMP%] {\r\n    top: 0px !important;\r\n    font-size: large !important;\r\n    color: white !important;\r\n}\r\n.mat-field-class[_ngcontent-%COMP%] {\r\n    height: 50px !important;\r\n    margin-left: 15px !important;\r\n}\r\n.mat-date-field-class[_ngcontent-%COMP%] {\r\n    height: 50px !important;\r\n    margin-left: 20px !important;\r\n    width: 180px !important;\r\n}\r\n  .mat-form-field-flex {\r\n    padding: 0 0 0 0 !important;\r\n    background-color: inherit !important;\r\n    height: 50px !important;\r\n}\r\n  .mat-option {\r\n    font-size: initial !important;\r\n}\r\n  .mat-icon-button {\r\n    color: white !important;\r\n}\r\n  .mat-input-element {\r\n    color: white !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZUFBZTtJQUNmLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxtQkFBbUI7SUFDbkIsMkJBQTJCO0lBQzNCLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksdUJBQXVCO0lBQ3ZCLDRCQUE0QjtBQUNoQztBQUNBO0lBQ0ksdUJBQXVCO0lBQ3ZCLDRCQUE0QjtJQUM1Qix1QkFBdUI7QUFDM0I7QUFDQTtJQUNJLDJCQUEyQjtJQUMzQixvQ0FBb0M7SUFDcEMsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSw2QkFBNkI7QUFDakM7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksdUJBQXVCO0FBQzNCIiwiZmlsZSI6InNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNsYXNzLWljb24ge1xyXG4gICAgcGFkZGluZzogMCAxOHB4O1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5jbGFzcy1zcGFjZXIge1xyXG4gICAgZmxleDogMSAxIGF1dG87XHJcbn1cclxuLmhlYWRlci1jbGFzcyB7XHJcbiAgICBoZWlnaHQ6IDU0cHggIWltcG9ydGFudDtcclxufVxyXG4ubWF0LXRvb2xiYXItbXVsdGlwbGUtcm93cyB7XHJcbiAgICBtaW4taGVpZ2h0OiA1NHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1hdC1sYWJlbC1jbGFzcyB7XHJcbiAgICB0b3A6IDBweCAhaW1wb3J0YW50O1xyXG4gICAgZm9udC1zaXplOiBsYXJnZSAhaW1wb3J0YW50O1xyXG4gICAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1hdC1maWVsZC1jbGFzcyB7XHJcbiAgICBoZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcclxuICAgIG1hcmdpbi1sZWZ0OiAxNXB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLm1hdC1kYXRlLWZpZWxkLWNsYXNzIHtcclxuICAgIGhlaWdodDogNTBweCAhaW1wb3J0YW50O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDIwcHggIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiAxODBweCAhaW1wb3J0YW50O1xyXG59XHJcbjo6bmctZGVlcCAubWF0LWZvcm0tZmllbGQtZmxleCB7XHJcbiAgICBwYWRkaW5nOiAwIDAgMCAwICFpbXBvcnRhbnQ7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0ICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDUwcHggIWltcG9ydGFudDtcclxufVxyXG46Om5nLWRlZXAgLm1hdC1vcHRpb24ge1xyXG4gICAgZm9udC1zaXplOiBpbml0aWFsICFpbXBvcnRhbnQ7XHJcbn1cclxuOjpuZy1kZWVwIC5tYXQtaWNvbi1idXR0b24ge1xyXG4gICAgY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XHJcbn1cclxuOjpuZy1kZWVwIC5tYXQtaW5wdXQtZWxlbWVudCB7XHJcbiAgICBjb2xvcjogd2hpdGUgIWltcG9ydGFudDtcclxufVxyXG4iXX0= */"]
     });
     /*@__PURE__*/
 
@@ -947,15 +1397,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         args: [{
           selector: 'app-header',
           templateUrl: './header.component.html',
-          styleUrls: ['./header.component.css']
+          styleUrls: ['./header.component.css'],
+          providers: [{
+            provide: _angular_material_core__WEBPACK_IMPORTED_MODULE_1__["MAT_DATE_FORMATS"],
+            useValue: MY_DATE_FORMATS
+          }]
         }]
       }], function () {
         return [{
-          type: _services_shared_service__WEBPACK_IMPORTED_MODULE_1__["SharedService"]
+          type: _services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
+          type: src_app_login_register_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]
         }];
-      }, null);
+      }, {
+        dateInput: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
+          args: ['dateInput', {
+            read: _angular_material_input__WEBPACK_IMPORTED_MODULE_2__["MatInput"]
+          }]
+        }]
+      });
     })();
     /***/
 
@@ -1001,25 +1462,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_material_card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/material/card */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    var _angular_material_card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material/card */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/card.js");
     /* harmony import */
 
 
     var _angular_material_chips__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/material/chips */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
+    /* harmony import */
 
-    function SideSectionComponent_p_6_Template(rf, ctx) {
+
+    var _angular_google_maps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/google-maps */
+    "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js");
+    /* harmony import */
+
+
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/material/icon */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+
+    function SideSectionComponent_h3_4_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -1035,9 +1508,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function SideSectionComponent_p_7_Template(rf, ctx) {
+    function SideSectionComponent_h3_5_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3", 17);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Unknown user");
 
@@ -1045,20 +1518,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
     }
 
-    function SideSectionComponent_mat_chip_23_Template(rf, ctx) {
+    function SideSectionComponent_mat_chip_21_Template(rf, ctx) {
       if (rf & 1) {
-        var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-chip", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-chip", 18);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SideSectionComponent_mat_chip_23_Template_mat_chip_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SideSectionComponent_mat_chip_21_Template_mat_chip_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6);
 
-          var object_r3 = ctx.$implicit;
+          var object_r4 = ctx.$implicit;
 
-          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r4.regionSelect(object_r3.regionName);
+          return ctx_r5.regionSelect(object_r4);
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -1067,13 +1540,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       if (rf & 2) {
-        var object_r3 = ctx.$implicit;
+        var object_r4 = ctx.$implicit;
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("color", object_r3.color);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("color", object_r4.color);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", object_r3.regionName, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", object_r4.regionName, " ");
+      }
+    }
+
+    function SideSectionComponent_map_marker_28_Template(rf, ctx) {
+      if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "map-marker", 19);
+      }
+
+      if (rf & 2) {
+        var marker_r7 = ctx.$implicit;
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("position", marker_r7.position)("label", marker_r7.label)("title", marker_r7.title)("options", marker_r7.options);
       }
     }
 
@@ -1084,6 +1569,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.sharedService = sharedService;
         this.authService = authService;
         this.regionList = [];
+        this.zoom = 6;
+        this.options = {
+          mapTypeId: 'roadmap',
+          zoomControl: false,
+          scrollwheel: false,
+          disableDoubleClickZoom: false,
+          maxZoom: 25,
+          minZoom: 4
+        };
+        this.markers = [];
+        this.coordinates = [];
       }
 
       _createClass(SideSectionComponent, [{
@@ -1091,22 +1587,79 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this7 = this;
 
-          console.log(this.authService.userData);
+          this.center = {
+            lat: 12.4255,
+            lng: 76.5724
+          };
+          this.coordinates = [{
+            lat: 12.3375,
+            lng: 75.8069,
+            loc: 'Kodagu'
+          }, {
+            lat: 12.2958,
+            lng: 76.6394,
+            loc: 'Mysuru'
+          }, {
+            lat: 13.0033,
+            lng: 76.1004,
+            loc: 'Hassan'
+          }];
+          this.setMarkers();
           this.sharedService.getRegionList().subscribe(function (response) {
             _this7.regionList = response.regionList;
             _this7.sharedService.selectedRegion = _this7.regionList[0].regionName;
+            _this7.sharedService.maxCapacity = _this7.regionList[0].maxCapacity;
           }, function (error) {
             _this7.regionList = [];
             console.log(error);
           });
         }
       }, {
+        key: "setMarkers",
+        value: function setMarkers() {
+          var _this8 = this;
+
+          this.coordinates.forEach(function (element) {
+            _this8.markers.push({
+              position: {
+                lat: element.lat,
+                lng: element.lng
+              },
+              label: {
+                color: 'white',
+                text: element.loc
+              },
+              title: element.loc,
+              options: {
+                animation: google.maps.Animation.DROP
+              }
+            });
+          });
+        }
+      }, {
+        key: "zoomIn",
+        value: function zoomIn() {
+          if (this.zoom < this.options.maxZoom) {
+            this.zoom++;
+          }
+        }
+      }, {
+        key: "zoomOut",
+        value: function zoomOut() {
+          if (this.zoom > this.options.minZoom) {
+            this.zoom--;
+          }
+        }
+      }, {
         key: "regionSelect",
         value: function regionSelect(value) {
-          this.sharedService.selectedRegion = value;
+          this.sharedService.selectedRegion = value.regionName;
+          this.sharedService.maxCapacity = value.maxCapacity;
           this.sharedService.regionSubject.next(true);
           this.sharedService.dataPopulationSubject.next(false);
           this.sharedService.dailyDisplaynSeasonalSubject.next(false);
+          this.sharedService.dailyStatsLastValue = -1;
+          this.sharedService.dateSelectSubject.next(false);
         }
       }]);
 
@@ -1120,90 +1673,132 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     SideSectionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: SideSectionComponent,
       selectors: [["app-side-section"]],
-      decls: 25,
-      vars: 4,
-      consts: [[1, "user-card-class"], ["src", "../../../../assets/user.png", "height", "50%", "width", "50%"], ["class", "top-para-class para-class", 4, "ngIf"], [1, "para-class"], [1, "region-card-class"], ["mat-card-avatar", "", 1, "region-image-class"], [1, "mat-chip-list-stacked"], ["selected", "", 3, "color", "click", 4, "ngFor", "ngForOf"], ["src", "../../../../assets/sea.png", "height", "45px", "width", "45px", 1, "water-image-class"], [1, "top-para-class", "para-class"], ["selected", "", 3, "color", "click"]],
+      decls: 35,
+      vars: 8,
+      consts: [[1, "row", "col-md-12", "user-card-class"], [1, "col-md-2"], ["src", "../../../../assets/user.png", "height", "25px", "width", "25px", 2, "margin-top", "2px"], [1, "col-md-10"], ["style", "font-weight: 500;", "class", "para-class", 4, "ngIf"], [1, "para-class"], [1, "region-card-class"], ["mat-card-avatar", "", 1, "region-image-class"], [1, "mat-chip-list-stacked"], ["selected", "", 3, "color", "click", 4, "ngFor", "ngForOf"], [1, "region-card-class", 2, "padding", "8px"], [2, "margin-bottom", "0px"], ["height", "600px", "width", "205px", 3, "zoom", "center", "options"], [3, "position", "label", "title", "options", 4, "ngFor", "ngForOf"], [2, "display", "flex"], [2, "cursor", "pointer", 3, "click"], [1, "class-spacer"], [1, "para-class", 2, "font-weight", "500"], ["selected", "", 3, "color", "click"], [3, "position", "label", "title", "options"]],
       template: function SideSectionComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-header");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-card-title");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "User");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, SideSectionComponent_h3_4_Template, 2, 1, "h3", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, SideSectionComponent_h3_5_Template, 2, 0, "h3", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "p", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Admin");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-card-content");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-card", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "mat-card-header");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, SideSectionComponent_p_6_Template, 2, 1, "p", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, SideSectionComponent_p_7_Template, 2, 0, "p", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "mat-card-title");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Regions");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "mat-card-subtitle");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Admin");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Tanks");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "mat-card", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-card-content");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "mat-card-header");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "p");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "div", 5);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "mat-card-title");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Regions");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, " Given below is the list of names for the storage tank regions. ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-card-subtitle");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "mat-chip-list", 8);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Tanks");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](21, SideSectionComponent_mat_chip_21_Template, 2, 2, "mat-chip", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "mat-card-content");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "p");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "mat-card", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " Given below is the list of names for the storage tank regions. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "mat-card-header", 11);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "mat-card-title");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Map view");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "mat-chip-list", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, SideSectionComponent_mat_chip_23_Template, 2, 2, "mat-chip", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "mat-card-content");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "google-map", 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](28, SideSectionComponent_map_marker_28_Template, 1, 4, "map-marker", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "mat-icon", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SideSectionComponent_Template_mat_icon_click_30_listener() {
+            return ctx.zoomOut();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "zoom_out");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](32, "span", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "mat-icon", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SideSectionComponent_Template_mat_icon_click_33_listener() {
+            return ctx.zoomIn();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "zoom_in");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "img", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !!ctx.authService.userData.displayName);
 
@@ -1218,10 +1813,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.regionList);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("zoom", ctx.zoom)("center", ctx.center)("options", ctx.options);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.markers);
         }
       },
-      directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardContent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardAvatar"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardSubtitle"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_5__["MatChipList"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_5__["MatChip"]],
-      styles: [".user-card-class[_ngcontent-%COMP%] {\r\n    margin-top: 10px;\r\n    margin-left: 7.5px;\r\n    text-align: center;\r\n    background-color: #efeff5;\r\n}\r\n.region-card-class[_ngcontent-%COMP%] {\r\n    margin-top: 5px;\r\n    margin-left: 7.5px;\r\n    background-color: #efeff5;\r\n}\r\n.region-image-class[_ngcontent-%COMP%] {\r\n    background-image: url('region-map-icon.png');\r\n    background-size: cover;\r\n}\r\n.mat-standard-chip[_ngcontent-%COMP%] {\r\n    width: 90% !important;\r\n}\r\n.para-class[_ngcontent-%COMP%] {\r\n    margin-top: 5px;\r\n    margin-bottom: 5px;\r\n}\r\n.top-para-class[_ngcontent-%COMP%] {\r\n    margin-top: 10px !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2lkZS1zZWN0aW9uL3NpZGUtc2VjdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLHlCQUF5QjtBQUM3QjtBQUNBO0lBQ0ksNENBQStEO0lBQy9ELHNCQUFzQjtBQUMxQjtBQUNBO0lBQ0kscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxlQUFlO0lBQ2Ysa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSwyQkFBMkI7QUFDL0IiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy9zaWRlLXNlY3Rpb24vc2lkZS1zZWN0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXNlci1jYXJkLWNsYXNzIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogNy41cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWZlZmY1O1xyXG59XHJcbi5yZWdpb24tY2FyZC1jbGFzcyB7XHJcbiAgICBtYXJnaW4tdG9wOiA1cHg7XHJcbiAgICBtYXJnaW4tbGVmdDogNy41cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWZlZmY1O1xyXG59XHJcbi5yZWdpb24taW1hZ2UtY2xhc3Mge1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi8uLi8uLi9hc3NldHMvcmVnaW9uLW1hcC1pY29uLnBuZycpO1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxufVxyXG4ubWF0LXN0YW5kYXJkLWNoaXAge1xyXG4gICAgd2lkdGg6IDkwJSAhaW1wb3J0YW50O1xyXG59XHJcbi5wYXJhLWNsYXNzIHtcclxuICAgIG1hcmdpbi10b3A6IDVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDVweDtcclxufVxyXG4udG9wLXBhcmEtY2xhc3Mge1xyXG4gICAgbWFyZ2luLXRvcDogMTBweCAhaW1wb3J0YW50O1xyXG59Il19 */"]
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardAvatar"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_4__["MatCardContent"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_5__["MatChipList"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_6__["GoogleMap"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIcon"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_5__["MatChip"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_6__["MapMarker"]],
+      styles: [".user-card-class[_ngcontent-%COMP%] {\r\n    margin-top: 10px;\r\n    margin-left: 7.5px;\r\n    text-align: left;\r\n    background-color: #efeff5;\r\n    width: 220px !important;\r\n    border-radius: 4px;\r\n}\r\n.region-card-class[_ngcontent-%COMP%] {\r\n    margin-top: 10px;\r\n    margin-left: 7.5px;\r\n    background-color: #efeff5;\r\n}\r\n.region-image-class[_ngcontent-%COMP%] {\r\n    background-image: url('region-map-icon.png');\r\n    background-size: cover;\r\n}\r\n.mat-standard-chip[_ngcontent-%COMP%] {\r\n    width: 90% !important;\r\n}\r\n.para-class[_ngcontent-%COMP%] {\r\n    margin-top: 2px;\r\n    margin-bottom: 2px;\r\n}\r\n.top-para-class[_ngcontent-%COMP%] {\r\n    margin-top: 10px !important;\r\n}\r\n.class-spacer[_ngcontent-%COMP%] {\r\n    flex: 1 1 auto;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvc2lkZS1zZWN0aW9uL3NpZGUtc2VjdGlvbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLHVCQUF1QjtJQUN2QixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSw0Q0FBK0Q7SUFDL0Qsc0JBQXNCO0FBQzFCO0FBQ0E7SUFDSSxxQkFBcUI7QUFDekI7QUFDQTtJQUNJLGVBQWU7SUFDZixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLDJCQUEyQjtBQUMvQjtBQUNBO0lBQ0ksY0FBYztBQUNsQiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb21wb25lbnRzL3NpZGUtc2VjdGlvbi9zaWRlLXNlY3Rpb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi51c2VyLWNhcmQtY2xhc3Mge1xyXG4gICAgbWFyZ2luLXRvcDogMTBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiA3LjVweDtcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWZlZmY1O1xyXG4gICAgd2lkdGg6IDIyMHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbn1cclxuLnJlZ2lvbi1jYXJkLWNsYXNzIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogNy41cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWZlZmY1O1xyXG59XHJcbi5yZWdpb24taW1hZ2UtY2xhc3Mge1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi8uLi8uLi9hc3NldHMvcmVnaW9uLW1hcC1pY29uLnBuZycpO1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxufVxyXG4ubWF0LXN0YW5kYXJkLWNoaXAge1xyXG4gICAgd2lkdGg6IDkwJSAhaW1wb3J0YW50O1xyXG59XHJcbi5wYXJhLWNsYXNzIHtcclxuICAgIG1hcmdpbi10b3A6IDJweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDJweDtcclxufVxyXG4udG9wLXBhcmEtY2xhc3Mge1xyXG4gICAgbWFyZ2luLXRvcDogMTBweCAhaW1wb3J0YW50O1xyXG59XHJcbi5jbGFzcy1zcGFjZXIge1xyXG4gICAgZmxleDogMSAxIGF1dG87XHJcbn1cclxuIl19 */"]
     });
     /*@__PURE__*/
 
@@ -1371,7 +1974,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var SharedService = /*#__PURE__*/function () {
       function SharedService(httpClient) {
-        var _this8 = this;
+        var _this9 = this;
 
         _classCallCheck(this, SharedService);
 
@@ -1380,6 +1983,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.selectedYear = '2011 - 2012';
         this.regionSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this.yearSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.dateSelectSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this.dataPopulationSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this.cumulativeInflowArray = [];
         this.inflowArray = [];
@@ -1388,18 +1992,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.durationArray = [];
         this.datesArray = [];
         this.dailyDisplaynSeasonalSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.weatherOpenForP2WSubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
         this.borderColorArray = [];
         this.backgroundColorArray = [];
+        this.dailyStatsLastValue = -1;
+        this.maxCapacity = 49.45;
         this.moduleName = '/common';
 
         this.getServerUrl = function () {
-          return src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + _this8.moduleName;
+          return src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].serverUrl + _this9.moduleName;
         };
 
         this.regionObservable = this.regionSubject.asObservable();
         this.yearObservable = this.yearSubject.asObservable();
         this.dataPopulationObservable = this.dataPopulationSubject.asObservable();
         this.dailyDisplaynSeasonalObservable = this.dailyDisplaynSeasonalSubject.asObservable();
+        this.dateSelectObservable = this.dateSelectSubject.asObservable();
+        this.weatherOpenForP2WObservable = this.weatherOpenForP2WSubject.asObservable();
         this.populateColorsArray();
       }
 
@@ -1407,6 +2016,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getRegionList",
         value: function getRegionList() {
           return this.httpClient.get(this.getServerUrl() + '/regionList');
+        }
+      }, {
+        key: "getWeatherRegionList",
+        value: function getWeatherRegionList() {
+          return this.httpClient.get(this.getServerUrl() + '/weatherRegionList');
         }
       }, {
         key: "getYearlist",
@@ -1420,6 +2034,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           urlParams = urlParams.set('region', this.selectedRegion);
           urlParams = urlParams.set('years', this.selectedYear);
           return this.httpClient.get(this.getServerUrl() + '/getDailynSeasonalData', {
+            params: urlParams
+          });
+        }
+      }, {
+        key: "getWeatherData",
+        value: function getWeatherData(region, date) {
+          var urlParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]();
+          urlParams = urlParams.set('region', region);
+          urlParams = urlParams.set('date', date);
+          return this.httpClient.get(this.getServerUrl() + '/getWeatherData', {
             params: urlParams
           });
         }
@@ -1544,6 +2168,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_material_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/select */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/select.js");
+    /* harmony import */
+
+
+    var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/datepicker */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/datepicker.js");
+    /* harmony import */
+
+
+    var _angular_material_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/material/core */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! @angular/material-moment-adapter */
+    "./node_modules/@angular/material-moment-adapter/__ivy_ngcc__/fesm2015/material-moment-adapter.js");
+    /* harmony import */
+
+
+    var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/material/form-field */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+    /* harmony import */
+
+
+    var _angular_material_input__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! @angular/material/input */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! @angular/google-maps */
+    "./node_modules/@angular/google-maps/__ivy_ngcc__/fesm2015/google-maps.js");
 
     var SharedModule = function SharedModule() {
       _classCallCheck(this, SharedModule);
@@ -1556,13 +2222,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       factory: function SharedModule_Factory(t) {
         return new (t || SharedModule)();
       },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"]]]
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_10__["MatDatepickerModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_12__["MatMomentDateModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](SharedModule, {
         declarations: [_components_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"], _components_side_section_side_section_component__WEBPACK_IMPORTED_MODULE_4__["SideSectionComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_10__["MatDatepickerModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_12__["MatMomentDateModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"]],
         exports: [_components_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"], _components_side_section_side_section_component__WEBPACK_IMPORTED_MODULE_4__["SideSectionComponent"]]
       });
     })();
@@ -1574,7 +2240,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_components_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"], _components_side_section_side_section_component__WEBPACK_IMPORTED_MODULE_4__["SideSectionComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_6__["MatIconModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_8__["MatChipsModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_10__["MatDatepickerModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_11__["MatNativeDateModule"], _angular_material_moment_adapter__WEBPACK_IMPORTED_MODULE_12__["MatMomentDateModule"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormFieldModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInputModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"], _angular_google_maps__WEBPACK_IMPORTED_MODULE_16__["GoogleMapsModule"]],
           exports: [_components_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"], _components_side_section_side_section_component__WEBPACK_IMPORTED_MODULE_4__["SideSectionComponent"]]
         }]
       }], null, null);

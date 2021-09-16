@@ -1,11 +1,13 @@
 .user-card-class {
     margin-top: 10px;
     margin-left: 7.5px;
-    text-align: center;
+    text-align: left;
     background-color: #efeff5;
+    width: 220px !important;
+    border-radius: 4px;
 }
 .region-card-class {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 7.5px;
     background-color: #efeff5;
 }
@@ -17,9 +19,12 @@
     width: 90% !important;
 }
 .para-class {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 .top-para-class {
     margin-top: 10px !important;
+}
+.class-spacer {
+    flex: 1 1 auto;
 }

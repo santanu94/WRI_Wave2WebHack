@@ -9,6 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatCardModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    GoogleMapsModule
   ],
   exports: [
     HeaderComponent,
@@ -31,3 +45,4 @@ import { MatSelectModule } from '@angular/material/select';
   ]
 })
 export class SharedModule { }
+// apiKey: 'AIzaSyDq2sN6NHHeBFWZpv64ZzYyE0Dbe-FycqU'

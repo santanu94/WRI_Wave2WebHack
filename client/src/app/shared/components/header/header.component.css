@@ -14,9 +14,16 @@
 .mat-label-class {
     top: 0px !important;
     font-size: large !important;
+    color: white !important;
 }
 .mat-field-class {
     height: 50px !important;
+    margin-left: 15px !important;
+}
+.mat-date-field-class {
+    height: 50px !important;
+    margin-left: 20px !important;
+    width: 180px !important;
 }
 ::ng-deep .mat-form-field-flex {
     padding: 0 0 0 0 !important;
@@ -25,4 +32,10 @@
 }
 ::ng-deep .mat-option {
     font-size: initial !important;
+}
+::ng-deep .mat-icon-button {
+    color: white !important;
+}
+::ng-deep .mat-input-element {
+    color: white !important;
 }

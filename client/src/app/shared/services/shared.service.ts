@@ -14,6 +14,8 @@ export class SharedService {
   public regionObservable: Observable<any>;
   public yearSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public yearObservable: Observable<any>;
+  public dateSelectSubject: BehaviorSubject<any> = new BehaviorSubject(false);
+  public dateSelectObservable: Observable<any>;
   public dataPopulationSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public dataPopulationObservable: Observable<any>;
 
@@ -30,8 +32,14 @@ export class SharedService {
   public dailyDisplaynSeasonalSubject: BehaviorSubject<any> = new BehaviorSubject(false);
   public dailyDisplaynSeasonalObservable: Observable<any>;
 
+  public weatherOpenForP2WSubject: BehaviorSubject<any> = new BehaviorSubject(false);
+  public weatherOpenForP2WObservable: Observable<any>;
+
   public borderColorArray: string[] = [];
   public backgroundColorArray: string[] = [];
+
+  public dailyStatsLastValue = -1;
+  public maxCapacity = 49.45;
 
   moduleName = '/common';
   getServerUrl = () => environment.serverUrl + this.moduleName;
@@ -41,11 +49,17 @@ export class SharedService {
     this.yearObservable = this.yearSubject.asObservable();
     this.dataPopulationObservable = this.dataPopulationSubject.asObservable();
     this.dailyDisplaynSeasonalObservable = this.dailyDisplaynSeasonalSubject.asObservable();
+    this.dateSelectObservable = this.dateSelectSubject.asObservable();
+    this.weatherOpenForP2WObservable = this.weatherOpenForP2WSubject.asObservable();
     this.populateColorsArray();
   }
 
   getRegionList() {
     return this.httpClient.get(this.getServerUrl() + '/regionList');
+  }
+
+  getWeatherRegionList() {
+    return this.httpClient.get(this.getServerUrl() + '/weatherRegionList');
   }
 
   getYearlist() {
@@ -57,6 +71,13 @@ export class SharedService {
     urlParams = urlParams.set('region', this.selectedRegion);
     urlParams = urlParams.set('years', this.selectedYear);
     return this.httpClient.get(this.getServerUrl() + '/getDailynSeasonalData', {params: urlParams});
+  }
+
+  getWeatherData(region: string, date: string) {
+    let urlParams = new HttpParams();
+    urlParams = urlParams.set('region', region);
+    urlParams = urlParams.set('date', date);
+    return this.httpClient.get(this.getServerUrl() + '/getWeatherData', {params: urlParams});
   }
 
   populateColorsArray() {

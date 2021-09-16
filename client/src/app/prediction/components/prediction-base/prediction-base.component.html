@@ -5,7 +5,11 @@
             <mat-tab label="Prediction"></mat-tab>
         </mat-tab-group>
         <div class="container">
+            <app-weather-data 
+                (openEvent)="onOpenEmit($event)" (closeEvent)="onCloseEmit($event)"
+                (prevDayEvent)="onDayEventEmit($event)" (nextDayEvent)="onDayEventEmit($event)"></app-weather-data>
             <app-daily-data-display></app-daily-data-display>
+            <h2 style="margin-top: 7.5px; margin-bottom: 0px;">Predictions :</h2>
             <div class="row col-lg-12">
                 <div class="col-lg-6">
                     <app-inflow-current-cycle [showExpand]="showExpand"></app-inflow-current-cycle>
@@ -14,10 +18,10 @@
                     <app-outflow [showExpand]="showExpand"></app-outflow>  
                 </div>
             </div>
+            <h2 style="margin-top: 0px; margin-bottom: 0px;">Seasonal data :</h2>
             <app-bar-chart-part></app-bar-chart-part>
-            <div class="row col-lg-12">
-                <app-inflow-trends></app-inflow-trends>
-            </div>
+            <h2 style="margin-top: 5px; margin-bottom: 0px;">Trends data :</h2>
+            <app-inflow-trends></app-inflow-trends>
         </div>
     </div>
 </div>

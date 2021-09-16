@@ -15,7 +15,12 @@ import { GaugeModule } from 'angular-gauge';
 import { BarChartPartComponent } from './components/bar-chart-part/bar-chart-part.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '../shared/shared.module';
-
+import { WeatherDataComponent } from './components/weather-data/weather-data.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,8 @@ import { SharedModule } from '../shared/shared.module';
     InflowTrendsComponent,
     ViewExpandedDataComponent,
     DailyDataDisplayComponent,
-    BarChartPartComponent
+    BarChartPartComponent,
+    WeatherDataComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,12 @@ import { SharedModule } from '../shared/shared.module';
     ChartsModule,
     GaugeModule.forRoot(),
     SharedModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule,
+    MatChipsModule,
+    MatButtonModule,
+    MatStepperModule,
+    MatProgressBarModule
   ],
   entryComponents: [ViewExpandedDataComponent]
 })

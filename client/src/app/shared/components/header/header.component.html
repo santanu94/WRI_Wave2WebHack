@@ -10,6 +10,13 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field *ngIf="authService.isLoggedIn" appearance="fill" class="mat-date-field-class">
+        <mat-label class="mat-label-class">Select date</mat-label>
+        <input matInput #dateInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker"
+            (dateChange)="onDateChange($event)" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+      </mat-form-field>
       <mat-icon class="class-icon"
           *ngIf="authService.isLoggedIn"
           aria-hidden="false" aria-label="class-icon" (click)="authService.SignOut()">settings_power</mat-icon>

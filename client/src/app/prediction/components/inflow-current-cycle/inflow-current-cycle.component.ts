@@ -21,6 +21,8 @@ export class InflowCurrentCycleComponent implements OnInit {
   chartPlugins = [];
   chartType: string;
 
+  showP2W = false;
+
   @Input() showExpand: boolean;
 
   constructor(
@@ -42,24 +44,26 @@ export class InflowCurrentCycleComponent implements OnInit {
     ];
     this.chartColors = [
       {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,0,255,0.28)',
+        borderColor: 'rgba(133,51,255,1)'
       },
       {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,255,0,0.28)',
+        borderColor: 'rgba(0,179,0,1)'
       }
     ];
     this.sharedService.dataPopulationObservable.subscribe(
       (dataPopulated) => {
         if (dataPopulated) {
           this.chartData = [
-            { data: this.predictionService.inflowDataSet, label: 'Predicted Inflow' },
-            { data: this.predictionService.actualInflowDataSet, label: 'Actual Inflow' }
+            { data: this.predictionService.inflowDataSet, label: 'Predicted Inflow', fill: false, lineTension: 0.1 },
+            { data: this.predictionService.actualInflowDataSet, label: 'Actual Inflow', fill: false, lineTension: 0.1 }
           ];
         }
       }
     );
+
+    this.sharedService.dateSelectObservable.subscribe(data => { this.showP2W = data; });
+
+    this.sharedService.weatherOpenForP2WObservable.subscribe(data => { this.showP2W = data; });
   }
 
   onExpandClick(typeOfData: string) {

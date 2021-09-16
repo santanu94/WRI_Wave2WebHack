@@ -1,0 +1,70 @@
+<div class="row col-lg-12">
+    <mat-accordion class="weather_container_class">
+        <mat-expansion-panel #expansionPanel class="weather_panel_class" (opened)="onOpen()"
+                           (closed)="onClose()">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h2 style="margin-bottom: 0px;">Weather</h2>
+                </mat-panel-title>
+                <mat-panel-description *ngIf="panelOpenState">
+                    <h3 style="margin-bottom: 0px;">Current date : {{ dateData | date }}</h3>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="row col-lg-12">
+                <div class="col-lg-9" style="display: flex;">
+                    <mat-chip-list>
+                        <mat-chip color="primary" *ngFor="let object of regionList" 
+                            [selected]="object === selectedWeatherRegion"
+                            (click)="onRegionSelect(object)">
+                            {{object}}
+                        </mat-chip>
+                    </mat-chip-list>
+                    <div *ngIf="!!timeframeDetails" style="margin-left: 25px; display: flex;">
+                        <h2 style="margin-bottom: 0px; margin-right: 10px;">Coordinates : </h2>
+                        <h3 style="margin-top: 3px; margin-bottom: 0px; margin-right: 5px;">{{ timeframeDetails.lat }}° N, </h3> 
+                        <h3 style="margin-top: 3px; margin-bottom: 0px;">{{ timeframeDetails.lon }}° E</h3> 
+                    </div>
+                </div>
+                <div class="col-lg-3 buttons-class">
+                    <button mat-raised-button style="margin-right: 5px;" (click)="prevDayClick()">Previous day</button>
+                    <button mat-raised-button (click)="nextDayClick()">Next day</button>
+                </div>
+            </div>
+            <mat-progress-bar style="margin-top: 10px;" *ngIf="loadingData" mode="indeterminate"></mat-progress-bar>
+            <div class="row col-lg-12" *ngIf="!loadingData">
+                <div class="col-lg-9">
+                    <h2 style="margin-bottom: 0px;">Timeline</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2 style="margin-bottom: 0px; margin-left: 10px;">Forecast details</h2>
+                </div>
+            </div>
+            <div class="row col-lg-12" *ngIf="!loadingData" class="margin-class">
+                <div class="col-lg-9">
+                    <mat-horizontal-stepper labelPosition="bottom" (selectionChange)="selectionChange($event)">
+                        <ng-template matStepperIcon="edit">
+                            <mat-icon>watch_later</mat-icon>
+                        </ng-template>
+                        <mat-step *ngFor="let time of timeframeList;">
+                            <ng-template matStepLabel>
+                                <p>{{time}}</p>
+                            </ng-template>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </div>
+                <div class="col-lg-3 details-class">
+                    <div *ngIf="!!timeframeDetails" class="details-data-class">
+                        <p style="margin-bottom: 5px;">Time : {{ timeframeDetails.hourNumber }}</p>
+                        <p style="margin-bottom: 5px;">Temperature : {{ timeframeDetails.temp }}</p> 
+                        <p style="margin-bottom: 5px;">Feels like : {{ timeframeDetails.feels_like }}</p> 
+                        <p style="margin-bottom: 5px;">Pressure : {{ timeframeDetails.pressure }}</p>
+                        <p style="margin-bottom: 5px;">Humidity : {{ timeframeDetails.humidity }}</p>
+                        <p style="margin-bottom: 5px;">Wind Speed : {{ timeframeDetails.wind_speed }}</p>
+                        <p style="margin-bottom: 5px;">Wind degree : {{ timeframeDetails.wind_deg }}</p>
+                        <p style="margin-bottom: 5px;">Description : {{ timeframeDetails.weather_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

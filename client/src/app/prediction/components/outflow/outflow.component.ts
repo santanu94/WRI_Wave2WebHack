@@ -20,6 +20,9 @@ export class OutflowComponent implements OnInit {
   chartLegend = true;
   chartPlugins = [];
   chartType: string;
+
+  showP2W = false;
+
   @Input() showExpand: boolean;
 
   constructor(
@@ -41,12 +44,10 @@ export class OutflowComponent implements OnInit {
     ];
     this.chartColors = [
       {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,0,255,0.28)',
+        borderColor: 'rgba(133,51,255,1)'
       },
       {
-        borderColor: 'black',
-        backgroundColor: 'rgba(0,255,0,0.28)',
+        borderColor: 'rgba(0,179,0,1)'
       }
     ];
 
@@ -54,12 +55,16 @@ export class OutflowComponent implements OnInit {
       (dataPopulated) => {
         if (dataPopulated) {
           this.chartData = [
-            { data: this.predictionService.outflowDataSet, label: 'Actual Outflow' },
-            { data: this.predictionService.amcsOutflowDataSet, label: 'AMCS Outflow' }
+            { data: this.predictionService.outflowDataSet, label: 'Actual Outflow', fill: false, lineTension: 0.1 },
+            { data: this.predictionService.amcsOutflowDataSet, label: 'AMCS Outflow',  fill: false, lineTension: 0.1 }
           ];
         }
       }
     );
+
+    this.sharedService.dateSelectObservable.subscribe(data => { this.showP2W = data; });
+
+    this.sharedService.weatherOpenForP2WObservable.subscribe(data => { this.showP2W = data; });
   }
 
   onExpandClick(typeOfData: string) {

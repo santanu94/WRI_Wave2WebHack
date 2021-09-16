@@ -1,15 +1,14 @@
-<mat-card class="user-card-class">
-    <mat-card-header>
-        <mat-card-title>User</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <img src="../../../../assets/user.png" height="50%" width="50%">
-        <p *ngIf="!!authService.userData.displayName" class="top-para-class para-class">{{ authService.userData.displayName }}</p>
-        <p *ngIf="!authService.userData.displayName" class="top-para-class para-class">Unknown user</p>
-        <p class="para-class">{{ authService.userData.email }}</p>
-        <p class="para-class">Admin</p>
-    </mat-card-content>
-</mat-card>
+<div class="row col-md-12 user-card-class">
+    <div class="col-md-2">
+        <img src="../../../../assets/user.png" style="margin-top: 2px;" height="25px" width="25px">
+    </div>
+    <div class="col-md-10">
+        <h3 *ngIf="!!authService.userData.displayName" style="font-weight: 500;" class="para-class">{{ authService.userData.displayName }}</h3>
+        <h3 *ngIf="!authService.userData.displayName" style="font-weight: 500;" class="para-class">Unknown user</h3>
+    </div>
+    <p class="para-class">{{ authService.userData.email }}</p>
+    <p class="para-class">Admin</p>
+</div>
 <mat-card class="region-card-class">
     <mat-card-header>
         <div mat-card-avatar class="region-image-class"></div>
@@ -17,15 +16,39 @@
         <mat-card-subtitle>Tanks</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-         <p>
+        <p>
             Given below is the list of names for the storage tank regions.
         </p>
         <mat-chip-list class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let object of regionList" selected [color]="object.color" (click)="regionSelect(object.regionName)">
+            <mat-chip *ngFor="let object of regionList" selected [color]="object.color" (click)="regionSelect(object)">
                 {{object.regionName}}
             </mat-chip>
         </mat-chip-list>
     </mat-card-content>
-    <img class="water-image-class" src="../../../../assets/sea.png" height="45px" width="45px">
 </mat-card>
-
+<mat-card style="padding: 8px;" class="region-card-class">
+    <mat-card-header style="margin-bottom: 0px;">
+        <mat-card-title>Map view</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <google-map
+            height="600px"
+            width="205px"
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options">
+            <map-marker
+                *ngFor="let marker of markers"
+                [position]="marker.position"
+                [label]="marker.label"
+                [title]="marker.title"
+                [options]="marker.options">
+            </map-marker>
+        </google-map>
+        <div style="display: flex;">
+            <mat-icon style="cursor: pointer;" (click)="zoomOut()">zoom_out</mat-icon>
+            <span class="class-spacer"></span>
+            <mat-icon style="cursor: pointer;" (click)="zoomIn()">zoom_in</mat-icon>
+        </div>
+    </mat-card-content>
+</mat-card>
