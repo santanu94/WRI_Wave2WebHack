@@ -84144,7 +84144,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             var years = this.dialogData.yearDetails.split(' - ');
-            this.labelDetailsData = this.dialogData.fullYear ? 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01,' + years[0];
+            this.labelDetailsData = this.dialogData.fullYear ? 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01, ' + years[0];
             this.chartOptions = {
               responsive: true,
               maintainAspectRatio: false,

@@ -80,7 +80,7 @@ export class ViewExpandedDataComponent implements OnInit {
       }
       const years = this.dialogData.yearDetails.split(' - ');
       this.labelDetailsData = this.dialogData.fullYear ?
-        'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01,' + years[0];
+        'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01, ' + years[0];
       this.chartOptions = {
         responsive: true,
         maintainAspectRatio: false,
