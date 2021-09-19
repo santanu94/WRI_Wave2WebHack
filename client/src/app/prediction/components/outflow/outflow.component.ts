@@ -22,6 +22,7 @@ export class OutflowComponent implements OnInit {
   chartType: string;
 
   showP2W = false;
+  tooltipText = 'Expanded View Full Year';
 
   @Input() showExpand: boolean;
 
@@ -62,9 +63,15 @@ export class OutflowComponent implements OnInit {
       }
     );
 
-    this.sharedService.dateSelectObservable.subscribe(data => { this.showP2W = data; });
+    this.sharedService.dateSelectObservable.subscribe(data => {
+      this.showP2W = data;
+      this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+    });
 
-    this.sharedService.weatherOpenForP2WObservable.subscribe(data => { this.showP2W = data; });
+    this.sharedService.weatherOpenForP2WObservable.subscribe(data => {
+      this.showP2W = data;
+      this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+    });
   }
 
   onExpandClick(typeOfData: string) {
@@ -77,11 +84,33 @@ export class OutflowComponent implements OnInit {
       this.sharedService.selectedYear.toString(), typeOfData)
       .subscribe((response: any) => {
         config.data = {
-          yearPredictedData: response.predictedfullYearData,
-          yearActualAmcsData: response.actual_amcsfullYearData,
+          expandedSection: true,
+          fullYear: !this.showP2W,
+          yearPredictedData: this.showP2W ? response.predictedfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+             : response.predictedfullYearData,
+          yearActualAmcsData: this.showP2W ? response.actual_amcsfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+              : response.actual_amcsfullYearData,
           outflowfullYearData: response.outflowfullYearData,
           yearDetails: this.sharedService.selectedYear,
           data: typeOfData
+        };
+        this.dialog.open(ViewExpandedDataComponent, config);
+    });
+  }
+
+  onForecastClick(typeOfData: string) {
+    const config = new MatDialogConfig();
+    config.autoFocus = true;
+    config.disableClose = true;
+    config.hasBackdrop = true;
+    this.predictionService.getForecastData(this.sharedService.selectedRegion,
+      this.sharedService.selectedYear.toString(), typeOfData, this.sharedService.datesArray[this.sharedService.dailyStatsLastValue])
+      .subscribe((response: any) => {
+        config.data = {
+          expandedSection: false,
+          data: typeOfData,
+          datesArray: response.datesArray,
+          forecastDataArray: response.dataArray
         };
         this.dialog.open(ViewExpandedDataComponent, config);
     });

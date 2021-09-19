@@ -69,7 +69,16 @@ router.get('/getDailynSeasonalData', (req, res) => {
         for (let i = 0; i < objectName.length; i++) {
             dailyDataObject[returnArrayName[i]] = Object.values(predictionData[objectName[i]]);
         }
-        dailyDataObject['datesArray'] = Object.keys(predictionData['ACTUAL INFLOW']);
+        var dates_arr = [];
+        Object.keys(predictionData['ACTUAL INFLOW']).forEach(element => {
+            if (element.split('-')[0].length === 4) {
+                const date = new Date(element);
+                dates_arr.push(date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear());
+            } else {
+                dates_arr.push(element);
+            }
+        });
+        dailyDataObject['datesArray'] = dates_arr;
         dailyDataObject['yearsPredictedvsActualData'] = statsData['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS ACTUAL'];
         dailyDataObject['yearsPredictedvsNormalData'] = statsData['CURRENT CYCLE TOTAL SEASONAL OUTFLOW PREDICTED VS NORMAL'];
         res.status(200);

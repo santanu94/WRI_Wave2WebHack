@@ -21,6 +21,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatChipsModule,
     MatButtonModule,
     MatStepperModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTooltipModule
   ],
   entryComponents: [ViewExpandedDataComponent]
 })

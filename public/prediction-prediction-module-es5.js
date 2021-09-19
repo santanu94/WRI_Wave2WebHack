@@ -641,6 +641,614 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js":
+  /*!*******************************************************************!*\
+    !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js ***!
+    \*******************************************************************/
+
+  /*! exports provided: BreakpointObserver, Breakpoints, LayoutModule, MediaMatcher */
+
+  /***/
+  function node_modulesAngularCdk__ivy_ngcc__Fesm2015LayoutJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "BreakpointObserver", function () {
+      return BreakpointObserver;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Breakpoints", function () {
+      return Breakpoints;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LayoutModule", function () {
+      return LayoutModule;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MediaMatcher", function () {
+      return MediaMatcher;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/cdk/platform */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/cdk/coercion */
+    "./node_modules/@angular/cdk/fesm2015/coercion.js");
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/cdk/layout/layout-module.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+
+    var LayoutModule = function LayoutModule() {
+      _classCallCheck(this, LayoutModule);
+    };
+
+    LayoutModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+      type: LayoutModule
+    });
+    LayoutModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+      factory: function LayoutModule_Factory(t) {
+        return new (t || LayoutModule)();
+      }
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LayoutModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{}]
+      }], null, null);
+    })();
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/cdk/layout/media-matcher.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * Global registry for all dynamically-created, injected media queries.
+     * @type {?}
+     */
+
+
+    var mediaQueriesForWebkitCompatibility = new Set();
+    /**
+     * Style tag that holds all of the dynamically-created media queries.
+     * @type {?}
+     */
+
+    var mediaQueryStyleNode;
+    /**
+     * A utility for calling matchMedia queries.
+     */
+
+    var MediaMatcher = /*#__PURE__*/function () {
+      /**
+       * @param {?} _platform
+       */
+      function MediaMatcher(_platform) {
+        _classCallCheck(this, MediaMatcher);
+
+        this._platform = _platform;
+        this._matchMedia = this._platform.isBrowser && window.matchMedia ? // matchMedia is bound to the window scope intentionally as it is an illegal invocation to
+        // call it from a different scope.
+        window.matchMedia.bind(window) : noopMatchMedia;
+      }
+      /**
+       * Evaluates the given media query and returns the native MediaQueryList from which results
+       * can be retrieved.
+       * Confirms the layout engine will trigger for the selector query provided and returns the
+       * MediaQueryList for the query provided.
+       * @param {?} query
+       * @return {?}
+       */
+
+
+      _createClass(MediaMatcher, [{
+        key: "matchMedia",
+        value: function matchMedia(query) {
+          if (this._platform.WEBKIT) {
+            createEmptyStyleRule(query);
+          }
+
+          return this._matchMedia(query);
+        }
+      }]);
+
+      return MediaMatcher;
+    }();
+
+    MediaMatcher.ɵfac = function MediaMatcher_Factory(t) {
+      return new (t || MediaMatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"]));
+    };
+    /** @nocollapse */
+
+
+    MediaMatcher.ctorParameters = function () {
+      return [{
+        type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"]
+      }];
+    };
+    /** @nocollapse */
+
+
+    MediaMatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
+      factory: function MediaMatcher_Factory() {
+        return new MediaMatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"]));
+      },
+      token: MediaMatcher,
+      providedIn: "root"
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MediaMatcher, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"]
+        }];
+      }, null);
+    })();
+
+    if (false) {}
+    /**
+     * For Webkit engines that only trigger the MediaQueryListListener when
+     * there is at least one CSS selector for the respective media query.
+     * @param {?} query
+     * @return {?}
+     */
+
+
+    function createEmptyStyleRule(query) {
+      if (mediaQueriesForWebkitCompatibility.has(query)) {
+        return;
+      }
+
+      try {
+        if (!mediaQueryStyleNode) {
+          mediaQueryStyleNode = document.createElement('style');
+          mediaQueryStyleNode.setAttribute('type', 'text/css');
+
+          /** @type {?} */
+          document.head.appendChild(mediaQueryStyleNode);
+        }
+
+        if (mediaQueryStyleNode.sheet) {
+          /** @type {?} */
+          mediaQueryStyleNode.sheet.insertRule("@media ".concat(query, " {.fx-query-test{ }}"), 0);
+          mediaQueriesForWebkitCompatibility.add(query);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    /**
+     * No-op matchMedia replacement for non-browser platforms.
+     * @param {?} query
+     * @return {?}
+     */
+
+
+    function noopMatchMedia(query) {
+      // Use `as any` here to avoid adding additional necessary properties for
+      // the noop matcher.
+      return (
+        /** @type {?} */
+        {
+          matches: query === 'all' || query === '',
+          media: query,
+          addListener:
+          /**
+          * @return {?}
+          */
+          function addListener() {},
+          removeListener:
+          /**
+          * @return {?}
+          */
+          function removeListener() {}
+        }
+      );
+    }
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/cdk/layout/breakpoints-observer.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * The current state of a layout breakpoint.
+     * @record
+     */
+
+
+    function BreakpointState() {}
+
+    if (false) {}
+    /**
+     * The current state of a layout breakpoint.
+     * @record
+     */
+
+
+    function InternalBreakpointState() {}
+
+    if (false) {}
+    /**
+     * @record
+     */
+
+
+    function Query() {}
+
+    if (false) {}
+    /**
+     * Utility for checking the matching state of \@media queries.
+     */
+
+
+    var BreakpointObserver = /*#__PURE__*/function () {
+      /**
+       * @param {?} _mediaMatcher
+       * @param {?} _zone
+       */
+      function BreakpointObserver(_mediaMatcher, _zone) {
+        _classCallCheck(this, BreakpointObserver);
+
+        this._mediaMatcher = _mediaMatcher;
+        this._zone = _zone;
+        /**
+         * A map of all media queries currently being listened for.
+         */
+
+        this._queries = new Map();
+        /**
+         * A subject for all other observables to takeUntil based on.
+         */
+
+        this._destroySubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+      }
+      /**
+       * Completes the active subject, signalling to all other observables to complete.
+       * @return {?}
+       */
+
+
+      _createClass(BreakpointObserver, [{
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this._destroySubject.next();
+
+          this._destroySubject.complete();
+        }
+        /**
+         * Whether one or more media queries match the current viewport size.
+         * @param {?} value One or more media queries to check.
+         * @return {?} Whether any of the media queries match.
+         */
+
+      }, {
+        key: "isMatched",
+        value: function isMatched(value) {
+          var _this3 = this;
+
+          /** @type {?} */
+          var queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(value));
+          return queries.some(
+          /**
+          * @param {?} mediaQuery
+          * @return {?}
+          */
+          function (mediaQuery) {
+            return _this3._registerQuery(mediaQuery).mql.matches;
+          });
+        }
+        /**
+         * Gets an observable of results for the given queries that will emit new results for any changes
+         * in matching of the given queries.
+         * @param {?} value One or more media queries to check.
+         * @return {?} A stream of matches for the given queries.
+         */
+
+      }, {
+        key: "observe",
+        value: function observe(value) {
+          var _this4 = this;
+
+          /** @type {?} */
+          var queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(value));
+          /** @type {?} */
+
+          var observables = queries.map(
+          /**
+          * @param {?} query
+          * @return {?}
+          */
+          function (query) {
+            return _this4._registerQuery(query).observable;
+          });
+          /** @type {?} */
+
+          var stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(observables); // Emit the first state immediately, and then debounce the subsequent emissions.
+
+          stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["concat"])(stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)), stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["skip"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(0)));
+          return stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
+          /**
+          * @param {?} breakpointStates
+          * @return {?}
+          */
+          function (breakpointStates) {
+            /** @type {?} */
+            var response = {
+              matches: false,
+              breakpoints: {}
+            };
+            breakpointStates.forEach(
+            /**
+            * @param {?} state
+            * @return {?}
+            */
+            function (state) {
+              response.matches = response.matches || state.matches;
+              response.breakpoints[state.query] = state.matches;
+            });
+            return response;
+          }));
+        }
+        /**
+         * Registers a specific query to be listened for.
+         * @private
+         * @param {?} query
+         * @return {?}
+         */
+
+      }, {
+        key: "_registerQuery",
+        value: function _registerQuery(query) {
+          var _this5 = this;
+
+          // Only set up a new MediaQueryList if it is not already being listened for.
+          if (this._queries.has(query)) {
+            return (
+              /** @type {?} */
+              this._queries.get(query)
+            );
+          }
+          /** @type {?} */
+
+
+          var mql = this._mediaMatcher.matchMedia(query); // Create callback for match changes and add it is as a listener.
+
+          /** @type {?} */
+
+
+          var queryObservable = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](
+          /**
+          * @param {?} observer
+          * @return {?}
+          */
+          function (observer) {
+            // Listener callback methods are wrapped to be placed back in ngZone. Callbacks must be placed
+            // back into the zone because matchMedia is only included in Zone.js by loading the
+            // webapis-media-query.js file alongside the zone.js file.  Additionally, some browsers do not
+            // have MediaQueryList inherit from EventTarget, which causes inconsistencies in how Zone.js
+            // patches it.
+
+            /** @type {?} */
+            var handler =
+            /**
+            * @param {?} e
+            * @return {?}
+            */
+            function handler(e) {
+              return _this5._zone.run(
+              /**
+              * @return {?}
+              */
+              function () {
+                return observer.next(e);
+              });
+            };
+
+            mql.addListener(handler);
+            return (
+              /**
+              * @return {?}
+              */
+              function () {
+                mql.removeListener(handler);
+              }
+            );
+          }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(mql), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(
+          /**
+          * @param {?} nextMql
+          * @return {?}
+          */
+          function (nextMql) {
+            return {
+              query: query,
+              matches: nextMql.matches
+            };
+          }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroySubject)); // Add the MediaQueryList to the set of queries.
+
+          /** @type {?} */
+
+          var output = {
+            observable: queryObservable,
+            mql: mql
+          };
+
+          this._queries.set(query, output);
+
+          return output;
+        }
+      }]);
+
+      return BreakpointObserver;
+    }();
+
+    BreakpointObserver.ɵfac = function BreakpointObserver_Factory(t) {
+      return new (t || BreakpointObserver)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](MediaMatcher), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]));
+    };
+    /** @nocollapse */
+
+
+    BreakpointObserver.ctorParameters = function () {
+      return [{
+        type: MediaMatcher
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
+      }];
+    };
+    /** @nocollapse */
+
+
+    BreakpointObserver.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({
+      factory: function BreakpointObserver_Factory() {
+        return new BreakpointObserver(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(MediaMatcher), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]));
+      },
+      token: BreakpointObserver,
+      providedIn: "root"
+    });
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BreakpointObserver, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{
+          providedIn: 'root'
+        }]
+      }], function () {
+        return [{
+          type: MediaMatcher
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"]
+        }];
+      }, null);
+    })();
+
+    if (false) {}
+    /**
+     * Split each query string into separate query strings if two queries are provided as comma
+     * separated.
+     * @param {?} queries
+     * @return {?}
+     */
+
+
+    function splitQueries(queries) {
+      return queries.map(
+      /**
+      * @param {?} query
+      * @return {?}
+      */
+      function (query) {
+        return query.split(',');
+      }).reduce(
+      /**
+      * @param {?} a1
+      * @param {?} a2
+      * @return {?}
+      */
+      function (a1, a2) {
+        return a1.concat(a2);
+      }).map(
+      /**
+      * @param {?} query
+      * @return {?}
+      */
+      function (query) {
+        return query.trim();
+      });
+    }
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/cdk/layout/breakpoints.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    // PascalCase is being used as Breakpoints is used like an enum.
+    // tslint:disable-next-line:variable-name
+
+    /**
+     * @license
+     * Copyright Google LLC All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     * @type {?}
+     */
+
+
+    var Breakpoints = {
+      XSmall: '(max-width: 599.99px)',
+      Small: '(min-width: 600px) and (max-width: 959.99px)',
+      Medium: '(min-width: 960px) and (max-width: 1279.99px)',
+      Large: '(min-width: 1280px) and (max-width: 1919.99px)',
+      XLarge: '(min-width: 1920px)',
+      Handset: '(max-width: 599.99px) and (orientation: portrait), ' + '(max-width: 959.99px) and (orientation: landscape)',
+      Tablet: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait), ' + '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
+      Web: '(min-width: 840px) and (orientation: portrait), ' + '(min-width: 1280px) and (orientation: landscape)',
+      HandsetPortrait: '(max-width: 599.99px) and (orientation: portrait)',
+      TabletPortrait: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait)',
+      WebPortrait: '(min-width: 840px) and (orientation: portrait)',
+      HandsetLandscape: '(max-width: 959.99px) and (orientation: landscape)',
+      TabletLandscape: '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
+      WebLandscape: '(min-width: 1280px) and (orientation: landscape)'
+    };
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/cdk/layout/public-api.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * Generated bundle index. Do not edit.
+     */
+    //# sourceMappingURL=layout.js.map
+
+    /***/
+  },
+
+  /***/
   "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/stepper.js":
   /*!********************************************************************!*\
     !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/stepper.js ***!
@@ -1447,7 +2055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this3 = this;
+          var _this6 = this;
 
           // Note that while the step headers are content children by default, any components that
           // extend this one might have them as view children. We initialize the keyboard handling in
@@ -1461,7 +2069,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (direction) {
-            return _this3._keyManager.withHorizontalOrientation(direction);
+            return _this6._keyManager.withHorizontalOrientation(direction);
           });
 
           this._keyManager.updateActiveItem(this._selectedIndex);
@@ -1471,8 +2079,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            if (!_this3.selected) {
-              _this3._selectedIndex = Math.max(_this3._selectedIndex - 1, 0);
+            if (!_this6.selected) {
+              _this6._selectedIndex = Math.max(_this6._selectedIndex - 1, 0);
             }
           });
         }
@@ -2610,44 +3218,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} defaultOptions
        */
       function MatExpansionPanel(accordion, _changeDetectorRef, _uniqueSelectionDispatcher, _viewContainerRef, _document, _animationMode, defaultOptions) {
-        var _this4;
+        var _this7;
 
         _classCallCheck(this, MatExpansionPanel);
 
-        _this4 = _super.call(this, accordion, _changeDetectorRef, _uniqueSelectionDispatcher);
-        _this4._viewContainerRef = _viewContainerRef;
-        _this4._animationMode = _animationMode;
-        _this4._hideToggle = false;
+        _this7 = _super.call(this, accordion, _changeDetectorRef, _uniqueSelectionDispatcher);
+        _this7._viewContainerRef = _viewContainerRef;
+        _this7._animationMode = _animationMode;
+        _this7._hideToggle = false;
         /**
          * An event emitted after the body's expansion animation happens.
          */
 
-        _this4.afterExpand = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        _this7.afterExpand = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         /**
          * An event emitted after the body's collapse animation happens.
          */
 
-        _this4.afterCollapse = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        _this7.afterCollapse = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         /**
          * Stream that emits for changes in `\@Input` properties.
          */
 
-        _this4._inputChanges = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
+        _this7._inputChanges = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
         /**
          * ID for the associated header element. Used for a11y labelling.
          */
 
-        _this4._headerId = "mat-expansion-panel-header-".concat(uniqueId++);
+        _this7._headerId = "mat-expansion-panel-header-".concat(uniqueId++);
         /**
          * Stream of body animation done events.
          */
 
-        _this4._bodyAnimationDone = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
-        _this4.accordion = accordion;
-        _this4._document = _document; // We need a Subject with distinctUntilChanged, because the `done` event
+        _this7._bodyAnimationDone = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
+        _this7.accordion = accordion;
+        _this7._document = _document; // We need a Subject with distinctUntilChanged, because the `done` event
         // fires twice on some browsers. See https://github.com/angular/angular/issues/24084
 
-        _this4._bodyAnimationDone.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["distinctUntilChanged"])(
+        _this7._bodyAnimationDone.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["distinctUntilChanged"])(
         /**
         * @param {?} x
         * @param {?} y
@@ -2663,18 +3271,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         function (event) {
           if (event.fromState !== 'void') {
             if (event.toState === 'expanded') {
-              _this4.afterExpand.emit();
+              _this7.afterExpand.emit();
             } else if (event.toState === 'collapsed') {
-              _this4.afterCollapse.emit();
+              _this7.afterCollapse.emit();
             }
           }
         });
 
         if (defaultOptions) {
-          _this4.hideToggle = defaultOptions.hideToggle;
+          _this7.hideToggle = defaultOptions.hideToggle;
         }
 
-        return _this4;
+        return _this7;
       }
       /**
        * Whether the toggle indicator should be hidden.
@@ -2774,7 +3382,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this5 = this;
+          var _this8 = this;
 
           if (this._lazyContent) {
             // Render the content as soon as the panel becomes open.
@@ -2785,13 +3393,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function () {
-              return _this5.expanded && !_this5._portal;
+              return _this8.expanded && !_this8._portal;
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["take"])(1)).subscribe(
             /**
             * @return {?}
             */
             function () {
-              _this5._portal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_1__["TemplatePortal"](_this5._lazyContent._template, _this5._viewContainerRef);
+              _this8._portal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_1__["TemplatePortal"](_this8._lazyContent._template, _this8._viewContainerRef);
             });
           }
         }
@@ -3155,7 +3763,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} defaultOptions
        */
       function MatExpansionPanelHeader(panel, _element, _focusMonitor, _changeDetectorRef, defaultOptions) {
-        var _this6 = this;
+        var _this9 = this;
 
         _classCallCheck(this, MatExpansionPanelHeader);
 
@@ -3193,7 +3801,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         * @return {?}
         */
         function () {
-          return _this6._changeDetectorRef.markForCheck();
+          return _this9._changeDetectorRef.markForCheck();
         }); // Avoids focus being lost if the panel contained the focused element and was closed.
 
         panel.closed.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["filter"])(
@@ -3217,7 +3825,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         */
         function (origin) {
           if (origin && panel.accordion) {
-            panel.accordion._handleHeaderFocus(_this6);
+            panel.accordion._handleHeaderFocus(_this9);
           }
         });
 
@@ -3625,17 +4233,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var _super2 = _createSuper(MatAccordion);
 
       function MatAccordion() {
-        var _this7;
+        var _this10;
 
         _classCallCheck(this, MatAccordion);
 
-        _this7 = _super2.apply(this, arguments);
+        _this10 = _super2.apply(this, arguments);
         /**
          * Headers belonging to this accordion.
          */
 
-        _this7._ownHeaders = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["QueryList"]();
-        _this7._hideToggle = false;
+        _this10._ownHeaders = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["QueryList"]();
+        _this10._hideToggle = false;
         /**
          * Display mode used for all expansion panels in the accordion. Currently two display
          * modes exist:
@@ -3645,13 +4253,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          *     elevation.
          */
 
-        _this7.displayMode = 'default';
+        _this10.displayMode = 'default';
         /**
          * The position of the expansion indicator.
          */
 
-        _this7.togglePosition = 'after';
-        return _this7;
+        _this10.togglePosition = 'after';
+        return _this10;
       }
       /**
        * Whether the expansion indicator should be hidden.
@@ -3679,7 +4287,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this8 = this;
+          var _this11 = this;
 
           this._headers.changes.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["startWith"])(this._headers)).subscribe(
           /**
@@ -3687,16 +4295,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (headers) {
-            _this8._ownHeaders.reset(headers.filter(
+            _this11._ownHeaders.reset(headers.filter(
             /**
             * @param {?} header
             * @return {?}
             */
             function (header) {
-              return header.panel.accordion === _this8;
+              return header.panel.accordion === _this11;
             }));
 
-            _this8._ownHeaders.notifyOnChanges();
+            _this11._ownHeaders.notifyOnChanges();
           });
 
           this._keyManager = new _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_5__["FocusKeyManager"](this._ownHeaders).withWrap();
@@ -4095,33 +4703,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @breaking-change 8.0.0
        */
       location) {
-        var _this9;
+        var _this12;
 
         _classCallCheck(this, MatProgressBar);
 
-        _this9 = _super3.call(this, _elementRef);
-        _this9._elementRef = _elementRef;
-        _this9._ngZone = _ngZone;
-        _this9._animationMode = _animationMode;
+        _this12 = _super3.call(this, _elementRef);
+        _this12._elementRef = _elementRef;
+        _this12._ngZone = _ngZone;
+        _this12._animationMode = _animationMode;
         /**
          * Flag that indicates whether NoopAnimations mode is set to true.
          */
 
-        _this9._isNoopAnimation = false;
-        _this9._value = 0;
-        _this9._bufferValue = 0;
+        _this12._isNoopAnimation = false;
+        _this12._value = 0;
+        _this12._bufferValue = 0;
         /**
          * Event emitted when animation of the primary progress bar completes. This event will not
          * be emitted when animations are disabled, nor will it be emitted for modes with continuous
          * animations (indeterminate and query).
          */
 
-        _this9.animationEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        _this12.animationEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         /**
          * Reference to animation end subscription to be unsubscribed on destroy.
          */
 
-        _this9._animationEndSubscription = rxjs__WEBPACK_IMPORTED_MODULE_5__["Subscription"].EMPTY;
+        _this12._animationEndSubscription = rxjs__WEBPACK_IMPORTED_MODULE_5__["Subscription"].EMPTY;
         /**
          * Mode of the progress bar.
          *
@@ -4130,12 +4738,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          * Mirrored to mode attribute.
          */
 
-        _this9.mode = 'determinate';
+        _this12.mode = 'determinate';
         /**
          * ID of the progress bar.
          */
 
-        _this9.progressbarId = "mat-progress-bar-".concat(progressbarId++); // We need to prefix the SVG reference with the current path, otherwise they won't work
+        _this12.progressbarId = "mat-progress-bar-".concat(progressbarId++); // We need to prefix the SVG reference with the current path, otherwise they won't work
         // in Safari if the page has a `<base>` tag. Note that we need quotes inside the `url()`,
         // because named route URLs can contain parentheses (see #12338). Also we don't use since
         // we can't tell the difference between whether
@@ -4145,9 +4753,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         /** @type {?} */
 
         var path = location ? location.getPathname().split('#')[0] : '';
-        _this9._rectangleFillValue = "url('".concat(path, "#").concat(_this9.progressbarId, "')");
-        _this9._isNoopAnimation = _animationMode === 'NoopAnimations';
-        return _this9;
+        _this12._rectangleFillValue = "url('".concat(path, "#").concat(_this12.progressbarId, "')");
+        _this12._isNoopAnimation = _animationMode === 'NoopAnimations';
+        return _this12;
       }
       /**
        * Value of the progress bar. Defaults to zero. Mirrored to aria-valuenow.
@@ -4226,7 +4834,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this10 = this;
+          var _this13 = this;
 
           // Run outside angular so change detection didn't get triggered on every transition end
           // instead only on the animation that we care about (primary value bar's transitionend)
@@ -4236,8 +4844,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           */
           function () {
             /** @type {?} */
-            var element = _this10._primaryValueBar.nativeElement;
-            _this10._animationEndSubscription =
+            var element = _this13._primaryValueBar.nativeElement;
+            _this13._animationEndSubscription =
             /** @type {?} */
             Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["fromEvent"])(element, 'transitionend').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_6__["filter"])(
             /**
@@ -4251,14 +4859,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function () {
-              if (_this10.mode === 'determinate' || _this10.mode === 'buffer') {
-                _this10._ngZone.run(
+              if (_this13.mode === 'determinate' || _this13.mode === 'buffer') {
+                _this13._ngZone.run(
                 /**
                 * @return {?}
                 */
                 function () {
-                  return _this10.animationEnd.next({
-                    value: _this10.value
+                  return _this13.animationEnd.next({
+                    value: _this13.value
                   });
                 });
               }
@@ -5167,24 +5775,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?} changeDetectorRef
        */
       function MatStepHeader(_intl, _focusMonitor, _elementRef, changeDetectorRef) {
-        var _this11;
+        var _this14;
 
         _classCallCheck(this, MatStepHeader);
 
-        _this11 = _super5.call(this, _elementRef);
-        _this11._intl = _intl;
-        _this11._focusMonitor = _focusMonitor;
+        _this14 = _super5.call(this, _elementRef);
+        _this14._intl = _intl;
+        _this14._focusMonitor = _focusMonitor;
 
         _focusMonitor.monitor(_elementRef, true);
 
-        _this11._intlSubscription = _intl.changes.subscribe(
+        _this14._intlSubscription = _intl.changes.subscribe(
         /**
         * @return {?}
         */
         function () {
           return changeDetectorRef.markForCheck();
         });
-        return _this11;
+        return _this14;
       }
       /**
        * @return {?}
@@ -5611,13 +6219,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} stepperOptions
        */
       function MatStep(stepper, _errorStateMatcher, stepperOptions) {
-        var _this12;
+        var _this15;
 
         _classCallCheck(this, MatStep);
 
-        _this12 = _super6.call(this, stepper, stepperOptions);
-        _this12._errorStateMatcher = _errorStateMatcher;
-        return _this12;
+        _this15 = _super6.call(this, stepper, stepperOptions);
+        _this15._errorStateMatcher = _errorStateMatcher;
+        return _this15;
       }
       /**
        * Custom error state matcher that additionally checks for validity of interacted form.
@@ -5790,27 +6398,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var _super7 = _createSuper(MatStepper);
 
       function MatStepper() {
-        var _this13;
+        var _this16;
 
         _classCallCheck(this, MatStepper);
 
-        _this13 = _super7.apply(this, arguments);
+        _this16 = _super7.apply(this, arguments);
         /**
          * Event emitted when the current step is done transitioning in.
          */
 
-        _this13.animationDone = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
+        _this16.animationDone = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         /**
          * Consumer-specified template-refs to be used to override the header icons.
          */
 
-        _this13._iconOverrides = {};
+        _this16._iconOverrides = {};
         /**
          * Stream of animation `done` events when the body expands/collapses.
          */
 
-        _this13._animationDone = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
-        return _this13;
+        _this16._animationDone = new rxjs__WEBPACK_IMPORTED_MODULE_8__["Subject"]();
+        return _this16;
       }
       /**
        * @return {?}
@@ -5820,7 +6428,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MatStepper, [{
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this14 = this;
+          var _this17 = this;
 
           this._icons.forEach(
           /**
@@ -5830,7 +6438,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           function (_ref) {
             var name = _ref.name,
                 templateRef = _ref.templateRef;
-            return _this14._iconOverrides[name] = templateRef;
+            return _this17._iconOverrides[name] = templateRef;
           }); // Mark the component for change detection whenever the content children query changes
 
 
@@ -5839,7 +6447,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            _this14._stateChanged();
+            _this17._stateChanged();
           });
 
           this._animationDone.pipe( // This needs a `distinctUntilChanged` in order to avoid emitting the same event twice due
@@ -5862,7 +6470,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (
             /** @type {?} */
             event.toState === 'current') {
-              _this14.animationDone.emit();
+              _this17.animationDone.emit();
             }
           });
         }
@@ -5987,17 +6595,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       var _super8 = _createSuper(MatHorizontalStepper);
 
       function MatHorizontalStepper() {
-        var _this15;
+        var _this18;
 
         _classCallCheck(this, MatHorizontalStepper);
 
-        _this15 = _super8.apply(this, arguments);
+        _this18 = _super8.apply(this, arguments);
         /**
          * Whether the label should display in bottom or end position.
          */
 
-        _this15.labelPosition = 'end';
-        return _this15;
+        _this18.labelPosition = 'end';
+        return _this18;
       }
 
       return MatHorizontalStepper;
@@ -6124,13 +6732,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        */
       function MatVerticalStepper(dir, changeDetectorRef, // @breaking-change 8.0.0 `elementRef` and `_document` parameters to become required.
       elementRef, _document) {
-        var _this16;
+        var _this19;
 
         _classCallCheck(this, MatVerticalStepper);
 
-        _this16 = _super9.call(this, dir, changeDetectorRef, elementRef, _document);
-        _this16._orientation = 'vertical';
-        return _this16;
+        _this19 = _super9.call(this, dir, changeDetectorRef, elementRef, _document);
+        _this19._orientation = 'vertical';
+        return _this19;
       }
 
       return MatVerticalStepper;
@@ -6895,7 +7503,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MatInkBar, [{
         key: "alignToElement",
         value: function alignToElement(element) {
-          var _this17 = this;
+          var _this20 = this;
 
           this.show();
 
@@ -6910,7 +7518,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               * @return {?}
               */
               function () {
-                return _this17._setStyles(element);
+                return _this20._setStyles(element);
               });
             });
           } else {
@@ -7174,46 +7782,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} _closestTabGroup
        */
       function MatTab(_viewContainerRef, _closestTabGroup) {
-        var _this18;
+        var _this21;
 
         _classCallCheck(this, MatTab);
 
-        _this18 = _super13.call(this);
-        _this18._viewContainerRef = _viewContainerRef;
-        _this18._closestTabGroup = _closestTabGroup;
+        _this21 = _super13.call(this);
+        _this21._viewContainerRef = _viewContainerRef;
+        _this21._closestTabGroup = _closestTabGroup;
         /**
          * Plain text label for the tab, used when there is no template label.
          */
 
-        _this18.textLabel = '';
+        _this21.textLabel = '';
         /**
          * Portal that will be the hosted content of the tab
          */
 
-        _this18._contentPortal = null;
+        _this21._contentPortal = null;
         /**
          * Emits whenever the internal state of the tab changes.
          */
 
-        _this18._stateChanges = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
+        _this21._stateChanges = new rxjs__WEBPACK_IMPORTED_MODULE_7__["Subject"]();
         /**
          * The relatively indexed position where 0 represents the center, negative is left, and positive
          * represents the right.
          */
 
-        _this18.position = null;
+        _this21.position = null;
         /**
          * The initial relatively index origin of the tab if it was created and selected after there
          * was already a selected tab. Provides context of what position the tab should originate from.
          */
 
-        _this18.origin = null;
+        _this21.origin = null;
         /**
          * Whether the tab is currently active.
          */
 
-        _this18.isActive = false;
-        return _this18;
+        _this21.isActive = false;
+        return _this21;
       }
       /**
        * Content for the tab label given by `<ng-template mat-tab-label>`.
@@ -7508,23 +8116,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @breaking-change 9.0.0
        */
       _document) {
-        var _this19;
+        var _this22;
 
         _classCallCheck(this, MatTabBodyPortal);
 
-        _this19 = _super14.call(this, componentFactoryResolver, viewContainerRef, _document);
-        _this19._host = _host;
+        _this22 = _super14.call(this, componentFactoryResolver, viewContainerRef, _document);
+        _this22._host = _host;
         /**
          * Subscription to events for when the tab body begins centering.
          */
 
-        _this19._centeringSub = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
+        _this22._centeringSub = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
         /**
          * Subscription to events for when the tab body finishes leaving from center position.
          */
 
-        _this19._leavingSub = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-        return _this19;
+        _this22._leavingSub = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
+        return _this22;
       }
       /**
        * Set initial visibility or set up subscription for changing visibility.
@@ -7535,7 +8143,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MatTabBodyPortal, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this20 = this;
+          var _this23 = this;
 
           _get(_getPrototypeOf(MatTabBodyPortal.prototype), "ngOnInit", this).call(this);
 
@@ -7545,8 +8153,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (isCentering) {
-            if (isCentering && !_this20.hasAttached()) {
-              _this20.attach(_this20._host._content);
+            if (isCentering && !_this23.hasAttached()) {
+              _this23.attach(_this23._host._content);
             }
           });
           this._leavingSub = this._host._afterLeavingCenter.subscribe(
@@ -7554,7 +8162,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            _this20.detach();
+            _this23.detach();
           });
         }
         /**
@@ -7670,7 +8278,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?} changeDetectorRef
        */
       function _MatTabBodyBase(_elementRef, _dir, changeDetectorRef) {
-        var _this21 = this;
+        var _this24 = this;
 
         _classCallCheck(this, _MatTabBodyBase);
 
@@ -7721,7 +8329,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (dir) {
-            _this21._computePositionAnimationState(dir);
+            _this24._computePositionAnimationState(dir);
 
             changeDetectorRef.markForCheck();
           });
@@ -7744,12 +8352,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         */
         function (event) {
           // If the transition to the center is complete, emit an event.
-          if (_this21._isCenterPosition(event.toState) && _this21._isCenterPosition(_this21._position)) {
-            _this21._onCentered.emit();
+          if (_this24._isCenterPosition(event.toState) && _this24._isCenterPosition(_this24._position)) {
+            _this24._onCentered.emit();
           }
 
-          if (_this21._isCenterPosition(event.fromState) && !_this21._isCenterPosition(_this21._position)) {
-            _this21._afterLeavingCenter.emit();
+          if (_this24._isCenterPosition(event.fromState) && !_this24._isCenterPosition(_this24._position)) {
+            _this24._afterLeavingCenter.emit();
           }
         });
       }
@@ -8205,69 +8813,69 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} _animationMode
        */
       function _MatTabGroupBase(elementRef, _changeDetectorRef, defaultConfig, _animationMode) {
-        var _this22;
+        var _this25;
 
         _classCallCheck(this, _MatTabGroupBase);
 
-        _this22 = _super16.call(this, elementRef);
-        _this22._changeDetectorRef = _changeDetectorRef;
-        _this22._animationMode = _animationMode;
+        _this25 = _super16.call(this, elementRef);
+        _this25._changeDetectorRef = _changeDetectorRef;
+        _this25._animationMode = _animationMode;
         /**
          * All of the tabs that belong to the group.
          */
 
-        _this22._tabs = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["QueryList"]();
+        _this25._tabs = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["QueryList"]();
         /**
          * The tab index that should be selected after the content has been checked.
          */
 
-        _this22._indexToSelect = 0;
+        _this25._indexToSelect = 0;
         /**
          * Snapshot of the height of the tab body wrapper before another tab is activated.
          */
 
-        _this22._tabBodyWrapperHeight = 0;
+        _this25._tabBodyWrapperHeight = 0;
         /**
          * Subscription to tabs being added/removed.
          */
 
-        _this22._tabsSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
+        _this25._tabsSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
         /**
          * Subscription to changes in the tab labels.
          */
 
-        _this22._tabLabelSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
-        _this22._dynamicHeight = false;
-        _this22._selectedIndex = null;
+        _this25._tabLabelSubscription = rxjs__WEBPACK_IMPORTED_MODULE_7__["Subscription"].EMPTY;
+        _this25._dynamicHeight = false;
+        _this25._selectedIndex = null;
         /**
          * Position of the tab header.
          */
 
-        _this22.headerPosition = 'above';
+        _this25.headerPosition = 'above';
         /**
          * Output to enable support for two-way binding on `[(selectedIndex)]`
          */
 
-        _this22.selectedIndexChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
+        _this25.selectedIndexChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
         /**
          * Event emitted when focus has changed within a tab group.
          */
 
-        _this22.focusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
+        _this25.focusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
         /**
          * Event emitted when the body animation has completed
          */
 
-        _this22.animationDone = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
+        _this25.animationDone = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"]();
         /**
          * Event emitted when the tab selection has changed.
          */
 
-        _this22.selectedTabChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"](true);
-        _this22._groupId = nextId++;
-        _this22.animationDuration = defaultConfig && defaultConfig.animationDuration ? defaultConfig.animationDuration : '500ms';
-        _this22.disablePagination = defaultConfig && defaultConfig.disablePagination != null ? defaultConfig.disablePagination : false;
-        return _this22;
+        _this25.selectedTabChange = new _angular_core__WEBPACK_IMPORTED_MODULE_4__["EventEmitter"](true);
+        _this25._groupId = nextId++;
+        _this25.animationDuration = defaultConfig && defaultConfig.animationDuration ? defaultConfig.animationDuration : '500ms';
+        _this25.disablePagination = defaultConfig && defaultConfig.disablePagination != null ? defaultConfig.disablePagination : false;
+        return _this25;
       }
       /**
        * Whether the tab group should grow to the size of the active tab.
@@ -8361,7 +8969,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentChecked",
         value: function ngAfterContentChecked() {
-          var _this23 = this;
+          var _this26 = this;
 
           // Don't clamp the `indexToSelect` immediately in the setter because it can happen that
           // the amount of tabs changes before the actual change detection runs.
@@ -8386,7 +8994,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function () {
-              _this23._tabs.forEach(
+              _this26._tabs.forEach(
               /**
               * @param {?} tab
               * @param {?} index
@@ -8397,7 +9005,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
 
               if (!isFirstRun) {
-                _this23.selectedIndexChange.emit(indexToSelect);
+                _this26.selectedIndexChange.emit(indexToSelect);
               }
             });
           } // Setup the position for each tab and optionally setup an origin on the next selected tab.
@@ -8413,8 +9021,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             tab.position = index - indexToSelect; // If there is already a selected tab, then set up an origin for the next selected tab
             // if it doesn't have one already.
 
-            if (_this23._selectedIndex != null && tab.position == 0 && !tab.origin) {
-              tab.origin = indexToSelect - _this23._selectedIndex;
+            if (_this26._selectedIndex != null && tab.position == 0 && !tab.origin) {
+              tab.origin = indexToSelect - _this26._selectedIndex;
             }
           });
 
@@ -8431,7 +9039,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this24 = this;
+          var _this27 = this;
 
           this._subscribeToAllTabChanges();
 
@@ -8445,26 +9053,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           */
           function () {
             /** @type {?} */
-            var indexToSelect = _this24._clampTabIndex(_this24._indexToSelect); // Maintain the previously-selected tab if a new tab is added or removed and there is no
+            var indexToSelect = _this27._clampTabIndex(_this27._indexToSelect); // Maintain the previously-selected tab if a new tab is added or removed and there is no
             // explicit change that selects a different tab.
 
 
-            if (indexToSelect === _this24._selectedIndex) {
+            if (indexToSelect === _this27._selectedIndex) {
               /** @type {?} */
-              var tabs = _this24._tabs.toArray();
+              var tabs = _this27._tabs.toArray();
 
               for (var i = 0; i < tabs.length; i++) {
                 if (tabs[i].isActive) {
                   // Assign both to the `_indexToSelect` and `_selectedIndex` so we don't fire a changed
                   // event, otherwise the consumer may end up in an infinite loop in some edge cases like
                   // adding a tab within the `selectedIndexChange` event.
-                  _this24._indexToSelect = _this24._selectedIndex = i;
+                  _this27._indexToSelect = _this27._selectedIndex = i;
                   break;
                 }
               }
             }
 
-            _this24._changeDetectorRef.markForCheck();
+            _this27._changeDetectorRef.markForCheck();
           });
         }
         /**
@@ -8476,7 +9084,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "_subscribeToAllTabChanges",
         value: function _subscribeToAllTabChanges() {
-          var _this25 = this;
+          var _this28 = this;
 
           // Since we use a query with `descendants: true` to pick up the tabs, we may end up catching
           // some that are inside of nested tab groups. We filter them out manually by checking that
@@ -8487,7 +9095,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (tabs) {
-            _this25._tabs.reset(tabs.filter(
+            _this28._tabs.reset(tabs.filter(
             /**
             * @param {?} tab
             * @return {?}
@@ -8495,10 +9103,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             function (tab) {
               // @breaking-change 10.0.0 Remove null check for `_closestTabGroup`
               // once it becomes a required parameter in MatTab.
-              return !tab._closestTabGroup || tab._closestTabGroup === _this25;
+              return !tab._closestTabGroup || tab._closestTabGroup === _this28;
             }));
 
-            _this25._tabs.notifyOnChanges();
+            _this28._tabs.notifyOnChanges();
           });
         }
         /**
@@ -8567,7 +9175,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "_subscribeToTabLabels",
         value: function _subscribeToTabLabels() {
-          var _this26 = this;
+          var _this29 = this;
 
           if (this._tabLabelSubscription) {
             this._tabLabelSubscription.unsubscribe();
@@ -8585,7 +9193,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            return _this26._changeDetectorRef.markForCheck();
+            return _this29._changeDetectorRef.markForCheck();
           });
         }
         /**
@@ -9103,13 +9711,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?} elementRef
        */
       function MatTabLabelWrapper(elementRef) {
-        var _this27;
+        var _this30;
 
         _classCallCheck(this, MatTabLabelWrapper);
 
-        _this27 = _super18.call(this);
-        _this27.elementRef = elementRef;
-        return _this27;
+        _this30 = _super18.call(this);
+        _this30.elementRef = elementRef;
+        return _this30;
       }
       /**
        * Sets focus on the wrapper element
@@ -9249,7 +9857,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} _animationMode
        */
       function MatPaginatedTabHeader(_elementRef, _changeDetectorRef, _viewportRuler, _dir, _ngZone, _platform, _animationMode) {
-        var _this28 = this;
+        var _this31 = this;
 
         _classCallCheck(this, MatPaginatedTabHeader);
 
@@ -9318,12 +9926,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         * @return {?}
         */
         function () {
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["fromEvent"])(_elementRef.nativeElement, 'mouseleave').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(_this28._destroyed)).subscribe(
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["fromEvent"])(_elementRef.nativeElement, 'mouseleave').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(_this31._destroyed)).subscribe(
           /**
           * @return {?}
           */
           function () {
-            _this28._stopInterval();
+            _this31._stopInterval();
           });
         });
       }
@@ -9362,7 +9970,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this29 = this;
+          var _this32 = this;
 
           // We need to handle these events manually, because we want to bind passive event listeners.
           Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["fromEvent"])(this._previousPaginator.nativeElement, 'touchstart', passiveEventListenerOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this._destroyed)).subscribe(
@@ -9370,14 +9978,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            _this29._handlePaginatorPress('before');
+            _this32._handlePaginatorPress('before');
           });
           Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["fromEvent"])(this._nextPaginator.nativeElement, 'touchstart', passiveEventListenerOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this._destroyed)).subscribe(
           /**
           * @return {?}
           */
           function () {
-            _this29._handlePaginatorPress('after');
+            _this32._handlePaginatorPress('after');
           });
         }
         /**
@@ -9387,7 +9995,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this30 = this;
+          var _this33 = this;
 
           /** @type {?} */
           var dirChange = this._dir ? this._dir.change : Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["of"])(null);
@@ -9402,9 +10010,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function realign() {
-            _this30.updatePagination();
+            _this33.updatePagination();
 
-            _this30._alignInkBarToSelectedTab();
+            _this33._alignInkBarToSelectedTab();
           };
 
           this._keyManager = new _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_0__["FocusKeyManager"](this._items).withHorizontalOrientation(this._getLayoutDirection()).withWrap();
@@ -9424,7 +10032,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             // We need to defer this to give the browser some time to recalculate the element dimensions.
             Promise.resolve().then(realign);
 
-            _this30._keyManager.withHorizontalOrientation(_this30._getLayoutDirection());
+            _this33._keyManager.withHorizontalOrientation(_this33._getLayoutDirection());
           }); // If there is a change in the focus key manager we need to emit the `indexFocused`
           // event in order to provide a public event that notifies about focus changes. Also we realign
           // the tabs container by scrolling the new focused tab into the visible section.
@@ -9435,9 +10043,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (newFocusIndex) {
-            _this30.indexFocused.emit(newFocusIndex);
+            _this33.indexFocused.emit(newFocusIndex);
 
-            _this30._setTabFocus(newFocusIndex);
+            _this33._setTabFocus(newFocusIndex);
           });
         }
         /**
@@ -9542,7 +10150,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "_onContentChanges",
         value: function _onContentChanges() {
-          var _this31 = this;
+          var _this34 = this;
 
           /** @type {?} */
           var textContent = this._elementRef.nativeElement.textContent; // We need to diff the text content of the header, because the MutationObserver callback
@@ -9558,11 +10166,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function () {
-              _this31.updatePagination();
+              _this34.updatePagination();
 
-              _this31._alignInkBarToSelectedTab();
+              _this34._alignInkBarToSelectedTab();
 
-              _this31._changeDetectorRef.markForCheck();
+              _this34._changeDetectorRef.markForCheck();
             });
           }
         }
@@ -9937,7 +10545,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "_handlePaginatorPress",
         value: function _handlePaginatorPress(direction, mouseEvent) {
-          var _this32 = this;
+          var _this35 = this;
 
           // Don't start auto scrolling for right mouse button clicks. Note that we shouldn't have to
           // null check the `button`, but we do it so we don't break tests that use fake events.
@@ -9955,13 +10563,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            var _this32$_scrollHeader = _this32._scrollHeader(direction),
-                maxScrollDistance = _this32$_scrollHeader.maxScrollDistance,
-                distance = _this32$_scrollHeader.distance; // Stop the timer if we've reached the start or the end.
+            var _this35$_scrollHeader = _this35._scrollHeader(direction),
+                maxScrollDistance = _this35$_scrollHeader.maxScrollDistance,
+                distance = _this35$_scrollHeader.distance; // Stop the timer if we've reached the start or the end.
 
 
             if (distance === 0 || distance >= maxScrollDistance) {
-              _this32._stopInterval();
+              _this35._stopInterval();
             }
           });
         }
@@ -10115,13 +10723,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        */
       function _MatTabHeaderBase(elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, // @breaking-change 9.0.0 `_animationMode` parameter to be made required.
       animationMode) {
-        var _this33;
+        var _this36;
 
         _classCallCheck(this, _MatTabHeaderBase);
 
-        _this33 = _super19.call(this, elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode);
-        _this33._disableRipple = false;
-        return _this33;
+        _this36 = _super19.call(this, elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode);
+        _this36._disableRipple = false;
+        return _this36;
       }
       /**
        * Whether the ripple effect is disabled or not.
@@ -10589,18 +11197,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @deprecated @breaking-change 9.0.0 `platform` parameter to become required.
        */
       platform, animationMode) {
-        var _this34;
+        var _this37;
 
         _classCallCheck(this, _MatTabNavBase);
 
-        _this34 = _super21.call(this, elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode);
-        _this34._disableRipple = false;
+        _this37 = _super21.call(this, elementRef, changeDetectorRef, viewportRuler, dir, ngZone, platform, animationMode);
+        _this37._disableRipple = false;
         /**
          * Theme color of the nav bar.
          */
 
-        _this34.color = 'primary';
-        return _this34;
+        _this37.color = 'primary';
+        return _this37;
       }
       /**
        * Background color of the tab nav.
@@ -10663,7 +11271,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngAfterContentInit",
         value: function ngAfterContentInit() {
-          var _this35 = this;
+          var _this38 = this;
 
           // We need this to run before the `changes` subscription in parent to ensure that the
           // selectedIndex is up-to-date by the time the super class starts looking for it.
@@ -10672,7 +11280,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function () {
-            _this35.updateActiveLink();
+            _this38.updateActiveLink();
           });
 
           _get(_getPrototypeOf(_MatTabNavBase.prototype), "ngAfterContentInit", this).call(this);
@@ -11181,24 +11789,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} animationMode
        */
       function _MatTabLinkBase(_tabNavBar, elementRef, globalRippleOptions, tabIndex, _focusMonitor, animationMode) {
-        var _this36;
+        var _this39;
 
         _classCallCheck(this, _MatTabLinkBase);
 
-        _this36 = _super23.call(this);
-        _this36._tabNavBar = _tabNavBar;
-        _this36.elementRef = elementRef;
-        _this36._focusMonitor = _focusMonitor;
+        _this39 = _super23.call(this);
+        _this39._tabNavBar = _tabNavBar;
+        _this39.elementRef = elementRef;
+        _this39._focusMonitor = _focusMonitor;
         /**
          * Whether the tab link is active or not.
          */
 
-        _this36._isActive = false;
-        _this36.rippleConfig = globalRippleOptions || {};
-        _this36.tabIndex = parseInt(tabIndex) || 0;
+        _this39._isActive = false;
+        _this39.rippleConfig = globalRippleOptions || {};
+        _this39.tabIndex = parseInt(tabIndex) || 0;
 
         if (animationMode === 'NoopAnimations') {
-          _this36.rippleConfig.animation = {
+          _this39.rippleConfig.animation = {
             enterDuration: 0,
             exitDuration: 0
           };
@@ -11206,7 +11814,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _focusMonitor.monitor(elementRef);
 
-        return _this36;
+        return _this39;
       }
       /**
        * Whether the link is active.
@@ -11379,16 +11987,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
        * @param {?=} animationMode
        */
       function MatTabLink(tabNavBar, elementRef, ngZone, platform, globalRippleOptions, tabIndex, focusMonitor, animationMode) {
-        var _this37;
+        var _this40;
 
         _classCallCheck(this, MatTabLink);
 
-        _this37 = _super24.call(this, tabNavBar, elementRef, globalRippleOptions, tabIndex, focusMonitor, animationMode);
-        _this37._tabLinkRipple = new _angular_material_core__WEBPACK_IMPORTED_MODULE_5__["RippleRenderer"](_assertThisInitialized(_this37), ngZone, elementRef, platform);
+        _this40 = _super24.call(this, tabNavBar, elementRef, globalRippleOptions, tabIndex, focusMonitor, animationMode);
+        _this40._tabLinkRipple = new _angular_material_core__WEBPACK_IMPORTED_MODULE_5__["RippleRenderer"](_assertThisInitialized(_this40), ngZone, elementRef, platform);
 
-        _this37._tabLinkRipple.setupTriggerEvents(elementRef.nativeElement);
+        _this40._tabLinkRipple.setupTriggerEvents(elementRef.nativeElement);
 
-        return _this37;
+        return _this40;
       }
       /**
        * @return {?}
@@ -11595,6 +12203,1667 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js":
+  /*!*************************************************************************!*\
+    !*** ./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js ***!
+    \*************************************************************************/
+
+  /*! exports provided: MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER, MatTooltip, MatTooltipModule, SCROLL_THROTTLE_MS, TOOLTIP_PANEL_CLASS, TooltipComponent, getMatTooltipInvalidPositionError, matTooltipAnimations */
+
+  /***/
+  function node_modulesAngularMaterial__ivy_ngcc__Fesm2015TooltipJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_DEFAULT_OPTIONS", function () {
+      return MAT_TOOLTIP_DEFAULT_OPTIONS;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY", function () {
+      return MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY", function () {
+      return MAT_TOOLTIP_SCROLL_STRATEGY;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY", function () {
+      return MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER", function () {
+      return MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MatTooltip", function () {
+      return MatTooltip;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MatTooltipModule", function () {
+      return MatTooltipModule;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SCROLL_THROTTLE_MS", function () {
+      return SCROLL_THROTTLE_MS;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TOOLTIP_PANEL_CLASS", function () {
+      return TOOLTIP_PANEL_CLASS;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TooltipComponent", function () {
+      return TooltipComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "getMatTooltipInvalidPositionError", function () {
+      return getMatTooltipInvalidPositionError;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "matTooltipAnimations", function () {
+      return matTooltipAnimations;
+    });
+    /* harmony import */
+
+
+    var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/cdk/overlay */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
+    /* harmony import */
+
+
+    var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/cdk/a11y */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/a11y.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_material_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material/core */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/cdk/scrolling */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
+    /* harmony import */
+
+
+    var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/cdk/bidi */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+    /* harmony import */
+
+
+    var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/cdk/coercion */
+    "./node_modules/@angular/cdk/fesm2015/coercion.js");
+    /* harmony import */
+
+
+    var _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/cdk/keycodes */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/keycodes.js");
+    /* harmony import */
+
+
+    var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @angular/cdk/layout */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js");
+    /* harmony import */
+
+
+    var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/cdk/platform */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
+    /* harmony import */
+
+
+    var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/cdk/portal */
+    "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _angular_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! @angular/animations */
+    "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js");
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/material/tooltip/tooltip-animations.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * Animations used by MatTooltip.
+     * \@docs-private
+     * @type {?}
+     */
+
+
+    var matTooltipAnimations = {
+      /**
+       * Animation that transitions a tooltip in and out.
+       */
+      tooltipState: Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["trigger"])('state', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["state"])('initial, void, hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        opacity: 0,
+        transform: 'scale(0)'
+      })), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        transform: 'scale(1)'
+      })), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["transition"])('* => visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["animate"])('200ms cubic-bezier(0, 0, 0.2, 1)', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["keyframes"])([Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        opacity: 0,
+        transform: 'scale(0)',
+        offset: 0
+      }), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        opacity: 0.5,
+        transform: 'scale(0.99)',
+        offset: 0.5
+      }), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        opacity: 1,
+        transform: 'scale(1)',
+        offset: 1
+      })]))), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["transition"])('* => hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["animate"])('100ms cubic-bezier(0, 0, 0.2, 1)', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({
+        opacity: 0
+      })))])
+    };
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/material/tooltip/tooltip.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * Time in ms to throttle repositioning after scroll events.
+     * @type {?}
+     */
+
+    var SCROLL_THROTTLE_MS = 20;
+    /**
+     * CSS class that will be attached to the overlay panel.
+     * @type {?}
+     */
+
+    var TOOLTIP_PANEL_CLASS = 'mat-tooltip-panel';
+    /**
+     * Options used to bind passive event listeners.
+     * @type {?}
+     */
+
+    var passiveListenerOptions = Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["normalizePassiveListenerOptions"])({
+      passive: true
+    });
+    /**
+     * Time between the user putting the pointer on a tooltip
+     * trigger and the long press event being fired.
+     * @type {?}
+     */
+
+    var LONGPRESS_DELAY = 500;
+    /**
+     * Creates an error to be thrown if the user supplied an invalid tooltip position.
+     * \@docs-private
+     * @param {?} position
+     * @return {?}
+     */
+
+    function getMatTooltipInvalidPositionError(position) {
+      return Error("Tooltip position \"".concat(position, "\" is invalid."));
+    }
+    /**
+     * Injection token that determines the scroll handling while a tooltip is visible.
+     * @type {?}
+     */
+
+
+    var MAT_TOOLTIP_SCROLL_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["InjectionToken"]('mat-tooltip-scroll-strategy');
+    /**
+     * \@docs-private
+     * @param {?} overlay
+     * @return {?}
+     */
+
+    function MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY(overlay) {
+      return (
+        /**
+        * @return {?}
+        */
+        function () {
+          return overlay.scrollStrategies.reposition({
+            scrollThrottle: SCROLL_THROTTLE_MS
+          });
+        }
+      );
+    }
+    /**
+     * \@docs-private
+     * @type {?}
+     */
+
+
+    var MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER = {
+      provide: MAT_TOOLTIP_SCROLL_STRATEGY,
+      deps: [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]],
+      useFactory: MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY
+    };
+    /**
+     * Default `matTooltip` options that can be overridden.
+     * @record
+     */
+
+    function MatTooltipDefaultOptions() {}
+
+    if (false) {}
+    /**
+     * Injection token to be used to override the default options for `matTooltip`.
+     * @type {?}
+     */
+
+
+    var MAT_TOOLTIP_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["InjectionToken"]('mat-tooltip-default-options', {
+      providedIn: 'root',
+      factory: MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY
+    });
+    /**
+     * \@docs-private
+     * @return {?}
+     */
+
+    function MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY() {
+      return {
+        showDelay: 0,
+        hideDelay: 0,
+        touchendHideDelay: 1500
+      };
+    }
+    /**
+     * Directive that attaches a material design tooltip to the host element. Animates the showing and
+     * hiding of a tooltip provided position (defaults to below the element).
+     *
+     * https://material.io/design/components/tooltips.html
+     */
+
+
+    var MatTooltip = /*#__PURE__*/function () {
+      /**
+       * @param {?} _overlay
+       * @param {?} _elementRef
+       * @param {?} _scrollDispatcher
+       * @param {?} _viewContainerRef
+       * @param {?} _ngZone
+       * @param {?} _platform
+       * @param {?} _ariaDescriber
+       * @param {?} _focusMonitor
+       * @param {?} scrollStrategy
+       * @param {?} _dir
+       * @param {?} _defaultOptions
+       * @param {?=} _hammerLoader
+       */
+      function MatTooltip(_overlay, _elementRef, _scrollDispatcher, _viewContainerRef, _ngZone, _platform, _ariaDescriber, _focusMonitor, scrollStrategy, _dir, _defaultOptions,
+      /**
+       * @deprecated _hammerLoader parameter to be removed.
+       * @breaking-change 9.0.0
+       */
+      // Note that we need to give Angular something to inject here so it doesn't throw.
+      _hammerLoader) {
+        var _this41 = this;
+
+        _classCallCheck(this, MatTooltip);
+
+        this._overlay = _overlay;
+        this._elementRef = _elementRef;
+        this._scrollDispatcher = _scrollDispatcher;
+        this._viewContainerRef = _viewContainerRef;
+        this._ngZone = _ngZone;
+        this._platform = _platform;
+        this._ariaDescriber = _ariaDescriber;
+        this._focusMonitor = _focusMonitor;
+        this._dir = _dir;
+        this._defaultOptions = _defaultOptions;
+        this._position = 'below';
+        this._disabled = false;
+        /**
+         * The default delay in ms before showing the tooltip after show is called
+         */
+
+        this.showDelay = this._defaultOptions.showDelay;
+        /**
+         * The default delay in ms before hiding the tooltip after hide is called
+         */
+
+        this.hideDelay = this._defaultOptions.hideDelay;
+        /**
+         * How touch gestures should be handled by the tooltip. On touch devices the tooltip directive
+         * uses a long press gesture to show and hide, however it can conflict with the native browser
+         * gestures. To work around the conflict, Angular Material disables native gestures on the
+         * trigger, but that might not be desirable on particular elements (e.g. inputs and draggable
+         * elements). The different values for this option configure the touch event handling as follows:
+         * - `auto` - Enables touch gestures for all elements, but tries to avoid conflicts with native
+         *   browser gestures on particular elements. In particular, it allows text selection on inputs
+         *   and textareas, and preserves the native browser dragging on elements marked as `draggable`.
+         * - `on` - Enables touch gestures for all elements and disables native
+         *   browser gestures with no exceptions.
+         * - `off` - Disables touch gestures. Note that this will prevent the tooltip from
+         *   showing on touch devices.
+         */
+
+        this.touchGestures = 'auto';
+        this._message = '';
+        /**
+         * Manually-bound passive event listeners.
+         */
+
+        this._passiveListeners = new Map();
+        /**
+         * Emits when the component is destroyed.
+         */
+
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+        /**
+         * Handles the keydown events on the host element.
+         * Needs to be an arrow function so that we can use it in addEventListener.
+         */
+
+        this._handleKeydown =
+        /**
+        * @param {?} event
+        * @return {?}
+        */
+        function (event) {
+          if (_this41._isTooltipVisible() && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["ESCAPE"] && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["hasModifierKey"])(event)) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            _this41._ngZone.run(
+            /**
+            * @return {?}
+            */
+            function () {
+              return _this41.hide(0);
+            });
+          }
+        };
+
+        this._scrollStrategy = scrollStrategy;
+
+        if (_defaultOptions) {
+          if (_defaultOptions.position) {
+            this.position = _defaultOptions.position;
+          }
+
+          if (_defaultOptions.touchGestures) {
+            this.touchGestures = _defaultOptions.touchGestures;
+          }
+        }
+
+        _focusMonitor.monitor(_elementRef).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(
+        /**
+        * @param {?} origin
+        * @return {?}
+        */
+        function (origin) {
+          // Note that the focus monitor runs outside the Angular zone.
+          if (!origin) {
+            _ngZone.run(
+            /**
+            * @return {?}
+            */
+            function () {
+              return _this41.hide(0);
+            });
+          } else if (origin === 'keyboard') {
+            _ngZone.run(
+            /**
+            * @return {?}
+            */
+            function () {
+              return _this41.show();
+            });
+          }
+        });
+
+        _ngZone.runOutsideAngular(
+        /**
+        * @return {?}
+        */
+        function () {
+          _elementRef.nativeElement.addEventListener('keydown', _this41._handleKeydown);
+        });
+      }
+      /**
+       * Allows the user to define the position of the tooltip relative to the parent element
+       * @return {?}
+       */
+
+
+      _createClass(MatTooltip, [{
+        key: "position",
+        get: function get() {
+          return this._position;
+        }
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        ,
+        set: function set(value) {
+          if (value !== this._position) {
+            this._position = value;
+
+            if (this._overlayRef) {
+              this._updatePosition();
+
+              if (this._tooltipInstance) {
+                /** @type {?} */
+                this._tooltipInstance.show(0);
+              }
+
+              this._overlayRef.updatePosition();
+            }
+          }
+        }
+        /**
+         * Disables the display of the tooltip.
+         * @return {?}
+         */
+
+      }, {
+        key: "disabled",
+        get: function get() {
+          return this._disabled;
+        }
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        ,
+        set: function set(value) {
+          this._disabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_7__["coerceBooleanProperty"])(value); // If tooltip is disabled, hide immediately.
+
+          if (this._disabled) {
+            this.hide(0);
+          }
+        }
+        /**
+         * The message to be displayed in the tooltip
+         * @return {?}
+         */
+
+      }, {
+        key: "message",
+        get: function get() {
+          return this._message;
+        }
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        ,
+        set: function set(value) {
+          var _this42 = this;
+
+          this._ariaDescriber.removeDescription(this._elementRef.nativeElement, this._message); // If the message is not a string (e.g. number), convert it to a string and trim it.
+
+
+          this._message = value != null ? "".concat(value).trim() : '';
+
+          if (!this._message && this._isTooltipVisible()) {
+            this.hide(0);
+          } else {
+            this._updateTooltipMessage();
+
+            this._ngZone.runOutsideAngular(
+            /**
+            * @return {?}
+            */
+            function () {
+              // The `AriaDescriber` has some functionality that avoids adding a description if it's the
+              // same as the `aria-label` of an element, however we can't know whether the tooltip trigger
+              // has a data-bound `aria-label` or when it'll be set for the first time. We can avoid the
+              // issue by deferring the description by a tick so Angular has time to set the `aria-label`.
+              Promise.resolve().then(
+              /**
+              * @return {?}
+              */
+              function () {
+                _this42._ariaDescriber.describe(_this42._elementRef.nativeElement, _this42.message);
+              });
+            });
+          }
+        }
+        /**
+         * Classes to be passed to the tooltip. Supports the same syntax as `ngClass`.
+         * @return {?}
+         */
+
+      }, {
+        key: "tooltipClass",
+        get: function get() {
+          return this._tooltipClass;
+        }
+        /**
+         * @param {?} value
+         * @return {?}
+         */
+        ,
+        set: function set(value) {
+          this._tooltipClass = value;
+
+          if (this._tooltipInstance) {
+            this._setTooltipClass(this._tooltipClass);
+          }
+        }
+        /**
+         * Setup styling-specific things
+         * @return {?}
+         */
+
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          // This needs to happen in `ngOnInit` so the initial values for all inputs have been set.
+          this._setupPointerEvents();
+        }
+        /**
+         * Dispose the tooltip when destroyed.
+         * @return {?}
+         */
+
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          /** @type {?} */
+          var nativeElement = this._elementRef.nativeElement;
+          clearTimeout(this._touchstartTimeout);
+
+          if (this._overlayRef) {
+            this._overlayRef.dispose();
+
+            this._tooltipInstance = null;
+          } // Clean up the event listeners set in the constructor
+
+
+          nativeElement.removeEventListener('keydown', this._handleKeydown);
+
+          this._passiveListeners.forEach(
+          /**
+          * @param {?} listener
+          * @param {?} event
+          * @return {?}
+          */
+          function (listener, event) {
+            nativeElement.removeEventListener(event, listener, passiveListenerOptions);
+          });
+
+          this._passiveListeners.clear();
+
+          this._destroyed.next();
+
+          this._destroyed.complete();
+
+          this._ariaDescriber.removeDescription(nativeElement, this.message);
+
+          this._focusMonitor.stopMonitoring(nativeElement);
+        }
+        /**
+         * Shows the tooltip after the delay in ms, defaults to tooltip-delay-show or 0ms if no input
+         * @param {?=} delay
+         * @return {?}
+         */
+
+      }, {
+        key: "show",
+        value: function show() {
+          var _this43 = this;
+
+          var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.showDelay;
+
+          if (this.disabled || !this.message || this._isTooltipVisible() && !
+          /** @type {?} */
+          this._tooltipInstance._showTimeoutId && !
+          /** @type {?} */
+          this._tooltipInstance._hideTimeoutId) {
+            return;
+          }
+          /** @type {?} */
+
+
+          var overlayRef = this._createOverlay();
+
+          this._detach();
+
+          this._portal = this._portal || new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__["ComponentPortal"](TooltipComponent, this._viewContainerRef);
+          this._tooltipInstance = overlayRef.attach(this._portal).instance;
+
+          this._tooltipInstance.afterHidden().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(
+          /**
+          * @return {?}
+          */
+          function () {
+            return _this43._detach();
+          });
+
+          this._setTooltipClass(this._tooltipClass);
+
+          this._updateTooltipMessage();
+
+          /** @type {?} */
+          this._tooltipInstance.show(delay);
+        }
+        /**
+         * Hides the tooltip after the delay in ms, defaults to tooltip-delay-hide or 0ms if no input
+         * @param {?=} delay
+         * @return {?}
+         */
+
+      }, {
+        key: "hide",
+        value: function hide() {
+          var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.hideDelay;
+
+          if (this._tooltipInstance) {
+            this._tooltipInstance.hide(delay);
+          }
+        }
+        /**
+         * Shows/hides the tooltip
+         * @return {?}
+         */
+
+      }, {
+        key: "toggle",
+        value: function toggle() {
+          this._isTooltipVisible() ? this.hide() : this.show();
+        }
+        /**
+         * Returns true if the tooltip is currently visible to the user
+         * @return {?}
+         */
+
+      }, {
+        key: "_isTooltipVisible",
+        value: function _isTooltipVisible() {
+          return !!this._tooltipInstance && this._tooltipInstance.isVisible();
+        }
+        /**
+         * Create the overlay config and position strategy
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_createOverlay",
+        value: function _createOverlay() {
+          var _this44 = this;
+
+          if (this._overlayRef) {
+            return this._overlayRef;
+          }
+          /** @type {?} */
+
+
+          var scrollableAncestors = this._scrollDispatcher.getAncestorScrollContainers(this._elementRef); // Create connected position strategy that listens for scroll events to reposition.
+
+          /** @type {?} */
+
+
+          var strategy = this._overlay.position().flexibleConnectedTo(this._elementRef).withTransformOriginOn('.mat-tooltip').withFlexibleDimensions(false).withViewportMargin(8).withScrollableContainers(scrollableAncestors);
+
+          strategy.positionChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(
+          /**
+          * @param {?} change
+          * @return {?}
+          */
+          function (change) {
+            if (_this44._tooltipInstance) {
+              if (change.scrollableViewProperties.isOverlayClipped && _this44._tooltipInstance.isVisible()) {
+                // After position changes occur and the overlay is clipped by
+                // a parent scrollable then close the tooltip.
+                _this44._ngZone.run(
+                /**
+                * @return {?}
+                */
+                function () {
+                  return _this44.hide(0);
+                });
+              }
+            }
+          });
+          this._overlayRef = this._overlay.create({
+            direction: this._dir,
+            positionStrategy: strategy,
+            panelClass: TOOLTIP_PANEL_CLASS,
+            scrollStrategy: this._scrollStrategy()
+          });
+
+          this._updatePosition();
+
+          this._overlayRef.detachments().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(
+          /**
+          * @return {?}
+          */
+          function () {
+            return _this44._detach();
+          });
+
+          return this._overlayRef;
+        }
+        /**
+         * Detaches the currently-attached tooltip.
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_detach",
+        value: function _detach() {
+          if (this._overlayRef && this._overlayRef.hasAttached()) {
+            this._overlayRef.detach();
+          }
+
+          this._tooltipInstance = null;
+        }
+        /**
+         * Updates the position of the current tooltip.
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_updatePosition",
+        value: function _updatePosition() {
+          /** @type {?} */
+          var position =
+          /** @type {?} */
+
+          /** @type {?} */
+          this._overlayRef.getConfig().positionStrategy;
+          /** @type {?} */
+
+
+          var origin = this._getOrigin();
+          /** @type {?} */
+
+
+          var overlay = this._getOverlayPosition();
+
+          position.withPositions([Object.assign(Object.assign({}, origin.main), overlay.main), Object.assign(Object.assign({}, origin.fallback), overlay.fallback)]);
+        }
+        /**
+         * Returns the origin position and a fallback position based on the user's position preference.
+         * The fallback position is the inverse of the origin (e.g. `'below' -> 'above'`).
+         * @return {?}
+         */
+
+      }, {
+        key: "_getOrigin",
+        value: function _getOrigin() {
+          /** @type {?} */
+          var isLtr = !this._dir || this._dir.value == 'ltr';
+          /** @type {?} */
+
+          var position = this.position;
+          /** @type {?} */
+
+          var originPosition;
+
+          if (position == 'above' || position == 'below') {
+            originPosition = {
+              originX: 'center',
+              originY: position == 'above' ? 'top' : 'bottom'
+            };
+          } else if (position == 'before' || position == 'left' && isLtr || position == 'right' && !isLtr) {
+            originPosition = {
+              originX: 'start',
+              originY: 'center'
+            };
+          } else if (position == 'after' || position == 'right' && isLtr || position == 'left' && !isLtr) {
+            originPosition = {
+              originX: 'end',
+              originY: 'center'
+            };
+          } else {
+            throw getMatTooltipInvalidPositionError(position);
+          }
+
+          var _this$_invertPosition = this._invertPosition(originPosition.originX, originPosition.originY),
+              x = _this$_invertPosition.x,
+              y = _this$_invertPosition.y;
+
+          return {
+            main: originPosition,
+            fallback: {
+              originX: x,
+              originY: y
+            }
+          };
+        }
+        /**
+         * Returns the overlay position and a fallback position based on the user's preference
+         * @return {?}
+         */
+
+      }, {
+        key: "_getOverlayPosition",
+        value: function _getOverlayPosition() {
+          /** @type {?} */
+          var isLtr = !this._dir || this._dir.value == 'ltr';
+          /** @type {?} */
+
+          var position = this.position;
+          /** @type {?} */
+
+          var overlayPosition;
+
+          if (position == 'above') {
+            overlayPosition = {
+              overlayX: 'center',
+              overlayY: 'bottom'
+            };
+          } else if (position == 'below') {
+            overlayPosition = {
+              overlayX: 'center',
+              overlayY: 'top'
+            };
+          } else if (position == 'before' || position == 'left' && isLtr || position == 'right' && !isLtr) {
+            overlayPosition = {
+              overlayX: 'end',
+              overlayY: 'center'
+            };
+          } else if (position == 'after' || position == 'right' && isLtr || position == 'left' && !isLtr) {
+            overlayPosition = {
+              overlayX: 'start',
+              overlayY: 'center'
+            };
+          } else {
+            throw getMatTooltipInvalidPositionError(position);
+          }
+
+          var _this$_invertPosition2 = this._invertPosition(overlayPosition.overlayX, overlayPosition.overlayY),
+              x = _this$_invertPosition2.x,
+              y = _this$_invertPosition2.y;
+
+          return {
+            main: overlayPosition,
+            fallback: {
+              overlayX: x,
+              overlayY: y
+            }
+          };
+        }
+        /**
+         * Updates the tooltip message and repositions the overlay according to the new message length
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_updateTooltipMessage",
+        value: function _updateTooltipMessage() {
+          var _this45 = this;
+
+          // Must wait for the message to be painted to the tooltip so that the overlay can properly
+          // calculate the correct positioning based on the size of the text.
+          if (this._tooltipInstance) {
+            this._tooltipInstance.message = this.message;
+
+            this._tooltipInstance._markForCheck();
+
+            this._ngZone.onMicrotaskEmpty.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe(
+            /**
+            * @return {?}
+            */
+            function () {
+              if (_this45._tooltipInstance) {
+                /** @type {?} */
+                _this45._overlayRef.updatePosition();
+              }
+            });
+          }
+        }
+        /**
+         * Updates the tooltip class
+         * @private
+         * @param {?} tooltipClass
+         * @return {?}
+         */
+
+      }, {
+        key: "_setTooltipClass",
+        value: function _setTooltipClass(tooltipClass) {
+          if (this._tooltipInstance) {
+            this._tooltipInstance.tooltipClass = tooltipClass;
+
+            this._tooltipInstance._markForCheck();
+          }
+        }
+        /**
+         * Inverts an overlay position.
+         * @private
+         * @param {?} x
+         * @param {?} y
+         * @return {?}
+         */
+
+      }, {
+        key: "_invertPosition",
+        value: function _invertPosition(x, y) {
+          if (this.position === 'above' || this.position === 'below') {
+            if (y === 'top') {
+              y = 'bottom';
+            } else if (y === 'bottom') {
+              y = 'top';
+            }
+          } else {
+            if (x === 'end') {
+              x = 'start';
+            } else if (x === 'start') {
+              x = 'end';
+            }
+          }
+
+          return {
+            x: x,
+            y: y
+          };
+        }
+        /**
+         * Binds the pointer events to the tooltip trigger.
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_setupPointerEvents",
+        value: function _setupPointerEvents() {
+          var _this46 = this;
+
+          // The mouse events shouldn't be bound on mobile devices, because they can prevent the
+          // first tap from firing its click event or can cause the tooltip to open for clicks.
+          if (!this._platform.IOS && !this._platform.ANDROID) {
+            this._passiveListeners.set('mouseenter',
+            /**
+            * @return {?}
+            */
+            function () {
+              return _this46.show();
+            }).set('mouseleave',
+            /**
+            * @return {?}
+            */
+            function () {
+              return _this46.hide();
+            });
+          } else if (this.touchGestures !== 'off') {
+            this._disableNativeGesturesIfNecessary();
+            /** @type {?} */
+
+
+            var touchendListener =
+            /**
+            * @return {?}
+            */
+            function touchendListener() {
+              clearTimeout(_this46._touchstartTimeout);
+
+              _this46.hide(_this46._defaultOptions.touchendHideDelay);
+            };
+
+            this._passiveListeners.set('touchend', touchendListener).set('touchcancel', touchendListener).set('touchstart',
+            /**
+            * @return {?}
+            */
+            function () {
+              // Note that it's important that we don't `preventDefault` here,
+              // because it can prevent click events from firing on the element.
+              clearTimeout(_this46._touchstartTimeout);
+              _this46._touchstartTimeout = setTimeout(
+              /**
+              * @return {?}
+              */
+              function () {
+                return _this46.show();
+              }, LONGPRESS_DELAY);
+            });
+          }
+
+          this._passiveListeners.forEach(
+          /**
+          * @param {?} listener
+          * @param {?} event
+          * @return {?}
+          */
+          function (listener, event) {
+            _this46._elementRef.nativeElement.addEventListener(event, listener, passiveListenerOptions);
+          });
+        }
+        /**
+         * Disables the native browser gestures, based on how the tooltip has been configured.
+         * @private
+         * @return {?}
+         */
+
+      }, {
+        key: "_disableNativeGesturesIfNecessary",
+        value: function _disableNativeGesturesIfNecessary() {
+          /** @type {?} */
+          var element = this._elementRef.nativeElement;
+          /** @type {?} */
+
+          var style = element.style;
+          /** @type {?} */
+
+          var gestures = this.touchGestures;
+
+          if (gestures !== 'off') {
+            // If gestures are set to `auto`, we don't disable text selection on inputs and
+            // textareas, because it prevents the user from typing into them on iOS Safari.
+            if (gestures === 'on' || element.nodeName !== 'INPUT' && element.nodeName !== 'TEXTAREA') {
+              style.userSelect = style.msUserSelect = style.webkitUserSelect =
+              /** @type {?} */
+              style.MozUserSelect = 'none';
+            } // If we have `auto` gestures and the element uses native HTML dragging,
+            // we don't set `-webkit-user-drag` because it prevents the native behavior.
+
+
+            if (gestures === 'on' || !element.draggable) {
+              /** @type {?} */
+              style.webkitUserDrag = 'none';
+            }
+
+            style.touchAction = 'none';
+            style.webkitTapHighlightColor = 'transparent';
+          }
+        }
+      }]);
+
+      return MatTooltip;
+    }();
+
+    MatTooltip.ɵfac = function MatTooltip_Factory(t) {
+      return new (t || MatTooltip)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](MAT_TOOLTIP_SCROLL_STRATEGY), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](MAT_TOOLTIP_DEFAULT_OPTIONS, 8), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]));
+    };
+
+    MatTooltip.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineDirective"]({
+      type: MatTooltip,
+      selectors: [["", "matTooltip", ""]],
+      inputs: {
+        showDelay: ["matTooltipShowDelay", "showDelay"],
+        hideDelay: ["matTooltipHideDelay", "hideDelay"],
+        touchGestures: ["matTooltipTouchGestures", "touchGestures"],
+        position: ["matTooltipPosition", "position"],
+        disabled: ["matTooltipDisabled", "disabled"],
+        message: ["matTooltip", "message"],
+        tooltipClass: ["matTooltipClass", "tooltipClass"]
+      },
+      exportAs: ["matTooltip"]
+    });
+    /** @nocollapse */
+
+    MatTooltip.ctorParameters = function () {
+      return [{
+        type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]
+      }, {
+        type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"]
+      }, {
+        type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"]
+      }, {
+        type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"]
+      }, {
+        type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"]
+      }, {
+        type: undefined,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+          args: [MAT_TOOLTIP_SCROLL_STRATEGY]
+        }]
+      }, {
+        type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+        }]
+      }, {
+        type: undefined,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+          args: [MAT_TOOLTIP_DEFAULT_OPTIONS]
+        }]
+      }, {
+        type: undefined,
+        decorators: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+          args: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]]
+        }]
+      }];
+    };
+
+    MatTooltip.propDecorators = {
+      position: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipPosition']
+      }],
+      disabled: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipDisabled']
+      }],
+      showDelay: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipShowDelay']
+      }],
+      hideDelay: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipHideDelay']
+      }],
+      touchGestures: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipTouchGestures']
+      }],
+      message: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltip']
+      }],
+      tooltipClass: [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+        args: ['matTooltipClass']
+      }]
+    };
+    /*@__PURE__*/
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](MatTooltip, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Directive"],
+        args: [{
+          selector: '[matTooltip]',
+          exportAs: 'matTooltip'
+        }]
+      }], function () {
+        return [{
+          type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]
+        }, {
+          type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"]
+        }, {
+          type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"]
+        }, {
+          type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"]
+        }, {
+          type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+            args: [MAT_TOOLTIP_SCROLL_STRATEGY]
+          }]
+        }, {
+          type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"],
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+          }]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+            args: [MAT_TOOLTIP_DEFAULT_OPTIONS]
+          }]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+            args: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]]
+          }]
+        }];
+      }, {
+        showDelay: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipShowDelay']
+        }],
+        hideDelay: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipHideDelay']
+        }],
+        touchGestures: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipTouchGestures']
+        }],
+        position: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipPosition']
+        }],
+        disabled: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipDisabled']
+        }],
+        message: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltip']
+        }],
+        tooltipClass: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+          args: ['matTooltipClass']
+        }]
+      });
+    })();
+
+    if (false) {}
+    /**
+     * Internal component that wraps the tooltip's content.
+     * \@docs-private
+     */
+
+
+    var TooltipComponent = /*#__PURE__*/function () {
+      /**
+       * @param {?} _changeDetectorRef
+       * @param {?} _breakpointObserver
+       */
+      function TooltipComponent(_changeDetectorRef, _breakpointObserver) {
+        _classCallCheck(this, TooltipComponent);
+
+        this._changeDetectorRef = _changeDetectorRef;
+        this._breakpointObserver = _breakpointObserver;
+        /**
+         * Property watched by the animation framework to show or hide the tooltip
+         */
+
+        this._visibility = 'initial';
+        /**
+         * Whether interactions on the page should close the tooltip
+         */
+
+        this._closeOnInteraction = false;
+        /**
+         * Subject for notifying that the tooltip has been hidden from the view
+         */
+
+        this._onHide = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+        /**
+         * Stream that emits whether the user has a handset-sized display.
+         */
+
+        this._isHandset = this._breakpointObserver.observe(_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["Breakpoints"].Handset);
+      }
+      /**
+       * Shows the tooltip with an animation originating from the provided origin
+       * @param {?} delay Amount of milliseconds to the delay showing the tooltip.
+       * @return {?}
+       */
+
+
+      _createClass(TooltipComponent, [{
+        key: "show",
+        value: function show(delay) {
+          var _this47 = this;
+
+          // Cancel the delayed hide if it is scheduled
+          if (this._hideTimeoutId) {
+            clearTimeout(this._hideTimeoutId);
+            this._hideTimeoutId = null;
+          } // Body interactions should cancel the tooltip if there is a delay in showing.
+
+
+          this._closeOnInteraction = true;
+          this._showTimeoutId = setTimeout(
+          /**
+          * @return {?}
+          */
+          function () {
+            _this47._visibility = 'visible';
+            _this47._showTimeoutId = null; // Mark for check so if any parent component has set the
+            // ChangeDetectionStrategy to OnPush it will be checked anyways
+
+            _this47._markForCheck();
+          }, delay);
+        }
+        /**
+         * Begins the animation to hide the tooltip after the provided delay in ms.
+         * @param {?} delay Amount of milliseconds to delay showing the tooltip.
+         * @return {?}
+         */
+
+      }, {
+        key: "hide",
+        value: function hide(delay) {
+          var _this48 = this;
+
+          // Cancel the delayed show if it is scheduled
+          if (this._showTimeoutId) {
+            clearTimeout(this._showTimeoutId);
+            this._showTimeoutId = null;
+          }
+
+          this._hideTimeoutId = setTimeout(
+          /**
+          * @return {?}
+          */
+          function () {
+            _this48._visibility = 'hidden';
+            _this48._hideTimeoutId = null; // Mark for check so if any parent component has set the
+            // ChangeDetectionStrategy to OnPush it will be checked anyways
+
+            _this48._markForCheck();
+          }, delay);
+        }
+        /**
+         * Returns an observable that notifies when the tooltip has been hidden from view.
+         * @return {?}
+         */
+
+      }, {
+        key: "afterHidden",
+        value: function afterHidden() {
+          return this._onHide.asObservable();
+        }
+        /**
+         * Whether the tooltip is being displayed.
+         * @return {?}
+         */
+
+      }, {
+        key: "isVisible",
+        value: function isVisible() {
+          return this._visibility === 'visible';
+        }
+        /**
+         * @return {?}
+         */
+
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this._onHide.complete();
+        }
+        /**
+         * @return {?}
+         */
+
+      }, {
+        key: "_animationStart",
+        value: function _animationStart() {
+          this._closeOnInteraction = false;
+        }
+        /**
+         * @param {?} event
+         * @return {?}
+         */
+
+      }, {
+        key: "_animationDone",
+        value: function _animationDone(event) {
+          /** @type {?} */
+          var toState =
+          /** @type {?} */
+          event.toState;
+
+          if (toState === 'hidden' && !this.isVisible()) {
+            this._onHide.next();
+          }
+
+          if (toState === 'visible' || toState === 'hidden') {
+            this._closeOnInteraction = true;
+          }
+        }
+        /**
+         * Interactions on the HTML body should close the tooltip immediately as defined in the
+         * material design spec.
+         * https://material.io/design/components/tooltips.html#behavior
+         * @return {?}
+         */
+
+      }, {
+        key: "_handleBodyInteraction",
+        value: function _handleBodyInteraction() {
+          if (this._closeOnInteraction) {
+            this.hide(0);
+          }
+        }
+        /**
+         * Marks that the tooltip needs to be checked in the next change detection run.
+         * Mainly used for rendering the initial text before positioning a tooltip, which
+         * can be problematic in components with OnPush change detection.
+         * @return {?}
+         */
+
+      }, {
+        key: "_markForCheck",
+        value: function _markForCheck() {
+          this._changeDetectorRef.markForCheck();
+        }
+      }]);
+
+      return TooltipComponent;
+    }();
+
+    TooltipComponent.ɵfac = function TooltipComponent_Factory(t) {
+      return new (t || TooltipComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"]));
+    };
+
+    TooltipComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({
+      type: TooltipComponent,
+      selectors: [["mat-tooltip-component"]],
+      hostAttrs: ["aria-hidden", "true"],
+      hostVars: 2,
+      hostBindings: function TooltipComponent_HostBindings(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TooltipComponent_click_HostBindingHandler() {
+            return ctx._handleBodyInteraction();
+          }, false, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresolveBody"]);
+        }
+
+        if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵstyleProp"]("zoom", ctx._visibility === "visible" ? 1 : null);
+        }
+      },
+      decls: 3,
+      vars: 7,
+      consts: [[1, "mat-tooltip", 3, "ngClass"]],
+      template: function TooltipComponent_Template(rf, ctx) {
+        if (rf & 1) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("@state.start", function TooltipComponent_Template_div_animation_state_start_0_listener() {
+            return ctx._animationStart();
+          })("@state.done", function TooltipComponent_Template_div_animation_state_done_0_listener($event) {
+            return ctx._animationDone($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](1, "async");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var tmp_0_0 = null;
+          var currVal_0 = (tmp_0_0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](1, 5, ctx._isHandset)) == null ? null : tmp_0_0.matches;
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵclassProp"]("mat-tooltip-handset", currVal_0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", ctx.tooltipClass)("@state", ctx._visibility);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](ctx.message);
+        }
+      },
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]],
+      pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["AsyncPipe"]],
+      styles: [".mat-tooltip-panel{pointer-events:none !important}.mat-tooltip{color:#fff;border-radius:4px;margin:14px;max-width:250px;padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:ellipsis}.cdk-high-contrast-active .mat-tooltip{outline:solid 1px}.mat-tooltip-handset{margin:24px;padding-left:16px;padding-right:16px}\n"],
+      encapsulation: 2,
+      data: {
+        animation: [matTooltipAnimations.tooltipState]
+      },
+      changeDetection: 0
+    });
+    /** @nocollapse */
+
+    TooltipComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"]
+      }, {
+        type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"]
+      }];
+    };
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](TooltipComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"],
+        args: [{
+          selector: 'mat-tooltip-component',
+          template: "<div class=\"mat-tooltip\"\n     [ngClass]=\"tooltipClass\"\n     [class.mat-tooltip-handset]=\"(_isHandset | async)?.matches\"\n     [@state]=\"_visibility\"\n     (@state.start)=\"_animationStart()\"\n     (@state.done)=\"_animationDone($event)\">{{message}}</div>\n",
+          encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewEncapsulation"].None,
+          changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectionStrategy"].OnPush,
+          animations: [matTooltipAnimations.tooltipState],
+          host: {
+            // Forces the element to have a layout in IE and Edge. This fixes issues where the element
+            // won't be rendered if the animations are disabled or there is no web animations polyfill.
+            '[style.zoom]': '_visibility === "visible" ? 1 : null',
+            '(body:click)': 'this._handleBodyInteraction()',
+            'aria-hidden': 'true'
+          },
+          styles: [".mat-tooltip-panel{pointer-events:none !important}.mat-tooltip{color:#fff;border-radius:4px;margin:14px;max-width:250px;padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:ellipsis}.cdk-high-contrast-active .mat-tooltip{outline:solid 1px}.mat-tooltip-handset{margin:24px;padding-left:16px;padding-right:16px}\n"]
+        }]
+      }], function () {
+        return [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"]
+        }, {
+          type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"]
+        }];
+      }, null);
+    })();
+
+    if (false) {}
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/material/tooltip/tooltip-module.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+
+    var MatTooltipModule = function MatTooltipModule() {
+      _classCallCheck(this, MatTooltipModule);
+    };
+
+    MatTooltipModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
+      type: MatTooltipModule
+    });
+    MatTooltipModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
+      factory: function MatTooltipModule_Factory(t) {
+        return new (t || MatTooltipModule)();
+      },
+      providers: [MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER],
+      imports: [[_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"]], _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]]
+    });
+
+    (function () {
+      (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](MatTooltipModule, {
+        declarations: function declarations() {
+          return [MatTooltip, TooltipComponent];
+        },
+        imports: function imports() {
+          return [_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"]];
+        },
+        exports: function exports() {
+          return [MatTooltip, TooltipComponent, _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]];
+        }
+      });
+    })();
+    /*@__PURE__*/
+
+
+    (function () {
+      _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](MatTooltipModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"],
+        args: [{
+          imports: [_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"]],
+          exports: [MatTooltip, TooltipComponent, _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]],
+          declarations: [MatTooltip, TooltipComponent],
+          entryComponents: [TooltipComponent],
+          providers: [MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER]
+        }]
+      }], null, null);
+    })();
+    /**
+     * @fileoverview added by tsickle
+     * Generated from: src/material/tooltip/public-api.ts
+     * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * Generated bundle index. Do not edit.
+     */
+    //# sourceMappingURL=tooltip.js.map
+
+    /***/
+
+  },
+
+  /***/
   "./node_modules/angular-gauge/__ivy_ngcc__/fesm2015/angular-gauge.js":
   /*!***************************************************************************!*\
     !*** ./node_modules/angular-gauge/__ivy_ngcc__/fesm2015/angular-gauge.js ***!
@@ -11729,7 +13998,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(GaugeComponent, [{
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this38 = this;
+          var _this49 = this;
 
           var options = {
             dialStartAngle: this.dialStartAngle,
@@ -11748,7 +14017,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           Object.keys(this.defaults).forEach(function (optionKey) {
             if (typeof options[optionKey] === 'undefined') {
-              options[optionKey] = _this38.defaults[optionKey];
+              options[optionKey] = _this49.defaults[optionKey];
             }
           });
           Object.keys(options).forEach(function (optionKey) {
@@ -77687,7 +79956,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
          * @return {?}
          */
         function ngOnInit() {
-          var _this39 = this;
+          var _this50 = this;
 
           this.ctx = this.element.nativeElement.getContext('2d');
           this.refresh();
@@ -77697,7 +79966,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (r) {
-            return _this39.themeChanged(r);
+            return _this50.themeChanged(r);
           }));
         }
         /**
@@ -77718,7 +79987,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngDoCheck",
         value: function ngDoCheck() {
-          var _this40 = this;
+          var _this51 = this;
 
           if (!this.chart) {
             return;
@@ -77766,7 +80035,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (x, i) {
-            return x.data !== _this40.old.datasetsDataObjects[i];
+            return x.data !== _this51.old.datasetsDataObjects[i];
           }).length) {
             this.old.datasetsDataObjects = this.datasets.map(
             /**
@@ -77786,7 +80055,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (x, i) {
-            return x.data.length !== _this40.old.datasetsDataLengths[i];
+            return x.data.length !== _this51.old.datasetsDataLengths[i];
           }).length) {
             this.old.datasetsDataLengths = this.datasets.map(
             /**
@@ -77813,7 +80082,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (x, i) {
-            return !_this40.colorsEqual(x, _this40.old.colors[i]);
+            return !_this51.colorsEqual(x, _this51.old.colors[i]);
           }).length) {
             this.old.colors = this.colors.map(
             /**
@@ -77821,7 +80090,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function (x) {
-              return _this40.copyColor(x);
+              return _this51.copyColor(x);
             });
             this.updateColors();
             wantUpdate(UpdateType.Update);
@@ -77839,7 +80108,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (x, i) {
-            return !_this40.labelsEqual(x, _this40.old.labels[i]);
+            return !_this51.labelsEqual(x, _this51.old.labels[i]);
           }).length) {
             this.old.labels = this.labels.map(
             /**
@@ -77847,7 +80116,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function (x) {
-              return _this40.copyLabel(x);
+              return _this51.copyLabel(x);
             });
             wantUpdate(UpdateType.Update);
           }
@@ -77963,7 +80232,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "updateColors",
         value: function updateColors() {
-          var _this41 = this;
+          var _this52 = this;
 
           this.datasets.forEach(
           /**
@@ -77972,10 +80241,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           * @return {?}
           */
           function (elm, index) {
-            if (_this41.colors && _this41.colors[index]) {
-              Object.assign(elm, _this41.colors[index]);
+            if (_this52.colors && _this52.colors[index]) {
+              Object.assign(elm, _this52.colors[index]);
             } else {
-              Object.assign(elm, getColors(_this41.chartType, index, elm.data.length), Object.assign({}, elm));
+              Object.assign(elm, getColors(_this52.chartType, index, elm.data.length), Object.assign({}, elm));
             }
           });
         }
@@ -78116,7 +80385,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getChartConfiguration",
         value: function getChartConfiguration() {
-          var _this42 = this;
+          var _this53 = this;
 
           /** @type {?} */
           var datasets = this.getDatasets();
@@ -78145,7 +80414,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return;
               }
 
-              _this42.chartHover.emit({
+              _this53.chartHover.emit({
                 event: event,
                 active: active
               });
@@ -78160,7 +80429,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             * @return {?}
             */
             function (event, active) {
-              _this42.chartClick.emit({
+              _this53.chartClick.emit({
                 event: event,
                 active: active
               });
@@ -78204,7 +80473,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "smartMerge",
         value: function smartMerge(options, overrides) {
-          var _this43 = this;
+          var _this54 = this;
 
           var level = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
@@ -78232,7 +80501,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 * @return {?}
                 */
                 function (r) {
-                  _this43.smartMerge(r, overrides[key][0], level + 1);
+                  _this54.smartMerge(r, overrides[key][0], level + 1);
                 });
               }
             } else if (typeof overrides[key] === 'object') {
@@ -78240,7 +80509,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 options[key] = {};
               }
 
-              _this43.smartMerge(options[key], overrides[key], level + 1);
+              _this54.smartMerge(options[key], overrides[key], level + 1);
             } else {
               options[key] = overrides[key];
             }
@@ -78313,7 +80582,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "propagateDataToDatasets",
         value: function propagateDataToDatasets(newDataValues) {
-          var _this44 = this;
+          var _this55 = this;
 
           if (this.isMultiDataSet(newDataValues)) {
             if (this.datasets && newDataValues.length === this.datasets.length) {
@@ -78336,7 +80605,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               function (data, index) {
                 return {
                   data: data,
-                  label: _this44.joinLabel(_this44.labels[index]) || "Label ".concat(index)
+                  label: _this55.joinLabel(_this55.labels[index]) || "Label ".concat(index)
                 };
               });
 
@@ -79830,7 +82099,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(BarChartPartComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this45 = this;
+          var _this56 = this;
 
           this.chartType = 'bar';
           this.chartLabels = this.predictionService.displaySeasons;
@@ -79840,8 +82109,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.sharedService.dailyDisplaynSeasonalObservable.subscribe(function (dataReceived) {
             if (dataReceived) {
-              if (!!_this45.sharedService.yearsPredictedvsActualData && !!_this45.sharedService.yearsPredictedvsNormalData) {
-                _this45.processDataForDisplay();
+              if (!!_this56.sharedService.yearsPredictedvsActualData && !!_this56.sharedService.yearsPredictedvsNormalData) {
+                _this56.processDataForDisplay();
               }
             }
           });
@@ -79849,7 +82118,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "processDataForDisplay",
         value: function processDataForDisplay() {
-          var _this46 = this;
+          var _this57 = this;
 
           this.chartDataActual = [];
           this.chartColorsActual = [];
@@ -79857,14 +82126,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.chartColorsNormal = [];
           var index = 0;
           Object.keys(this.sharedService.yearsPredictedvsNormalData).forEach(function (key) {
-            _this46.chartDataNormal.push({
-              data: Object.values(_this46.sharedService.yearsPredictedvsNormalData[key]),
+            _this57.chartDataNormal.push({
+              data: Object.values(_this57.sharedService.yearsPredictedvsNormalData[key]),
               label: key
             });
 
-            _this46.chartColorsNormal.push({
-              borderColor: _this46.sharedService.borderColorArray[index],
-              backgroundColor: _this46.sharedService.backgroundColorArray[index],
+            _this57.chartColorsNormal.push({
+              borderColor: _this57.sharedService.borderColorArray[index],
+              backgroundColor: _this57.sharedService.backgroundColorArray[index],
               borderWidth: 2
             });
 
@@ -79872,14 +82141,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           });
           index = 0;
           Object.keys(this.sharedService.yearsPredictedvsActualData).forEach(function (key) {
-            _this46.chartDataActual.push({
-              data: Object.values(_this46.sharedService.yearsPredictedvsActualData[key]),
+            _this57.chartDataActual.push({
+              data: Object.values(_this57.sharedService.yearsPredictedvsActualData[key]),
               label: key
             });
 
-            _this46.chartColorsActual.push({
-              borderColor: _this46.sharedService.borderColorArray[index],
-              backgroundColor: _this46.sharedService.backgroundColorArray[index],
+            _this57.chartColorsActual.push({
+              borderColor: _this57.sharedService.borderColorArray[index],
+              backgroundColor: _this57.sharedService.backgroundColorArray[index],
               borderWidth: 2
             });
 
@@ -80092,20 +82361,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DailyDataDisplayComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this47 = this;
+          var _this58 = this;
 
           this.sharedService.dailyDisplaynSeasonalObservable.subscribe(function (dataReceived) {
             if (dataReceived) {
-              _this47.setObservables();
+              _this58.setObservables();
 
-              _this47.changetimeSubscribe = _this47.changetime.subscribe(function (value) {
-                _this47.sharedService.dailyStatsLastValue = value;
+              _this58.changetimeSubscribe = _this58.changetime.subscribe(function (value) {
+                _this58.sharedService.dailyStatsLastValue = value;
 
-                _this47.setAllValues(value);
+                _this58.setAllValues(value);
               });
             } else {
-              !!_this47.changetimeSubscribe ? _this47.changetimeSubscribe.unsubscribe() : _this47.changetimeSubscribe = null;
-              _this47.changetime = null;
+              !!_this58.changetimeSubscribe ? _this58.changetimeSubscribe.unsubscribe() : _this58.changetimeSubscribe = null;
+              _this58.changetime = null;
             }
           });
         }
@@ -80478,10 +82747,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/icon */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+    /* harmony import */
+
+
+    var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/tooltip */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
 
     function InflowCurrentCycleComponent_button_4_Template(rf, ctx) {
       if (rf & 1) {
+        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function InflowCurrentCycleComponent_button_4_Template_button_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r2.onForecastClick("INFLOW");
+        });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "P2W");
 
@@ -80491,21 +82776,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function InflowCurrentCycleComponent_mat_icon_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 7);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function InflowCurrentCycleComponent_mat_icon_5_Template_mat_icon_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5);
 
-          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r2.onExpandClick("INFLOW");
+          return ctx_r4.onExpandClick("INFLOW");
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "launch");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matTooltip", ctx_r1.tooltipText);
       }
     }
 
@@ -80522,12 +82813,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.chartLegend = true;
         this.chartPlugins = [];
         this.showP2W = false;
+        this.tooltipText = 'Expanded View Full Year';
       }
 
       _createClass(InflowCurrentCycleComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this48 = this;
+          var _this59 = this;
 
           this.chartType = 'line';
           this.chartLabels = this.predictionService.displayMonths;
@@ -80549,13 +82841,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.sharedService.dataPopulationObservable.subscribe(function (dataPopulated) {
             if (dataPopulated) {
-              _this48.chartData = [{
-                data: _this48.predictionService.inflowDataSet,
+              _this59.chartData = [{
+                data: _this59.predictionService.inflowDataSet,
                 label: 'Predicted Inflow',
                 fill: false,
                 lineTension: 0.1
               }, {
-                data: _this48.predictionService.actualInflowDataSet,
+                data: _this59.predictionService.actualInflowDataSet,
                 label: 'Actual Inflow',
                 fill: false,
                 lineTension: 0.1
@@ -80563,16 +82855,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
           this.sharedService.dateSelectObservable.subscribe(function (data) {
-            _this48.showP2W = data;
+            _this59.showP2W = data;
+            _this59.tooltipText = _this59.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
           });
           this.sharedService.weatherOpenForP2WObservable.subscribe(function (data) {
-            _this48.showP2W = data;
+            _this59.showP2W = data;
+            _this59.tooltipText = _this59.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
           });
         }
       }, {
         key: "onExpandClick",
         value: function onExpandClick(typeOfData) {
-          var _this49 = this;
+          var _this60 = this;
 
           var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
           config.width = '150%';
@@ -80581,13 +82875,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           config.hasBackdrop = true;
           this.predictionService.getExpandedData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData).subscribe(function (response) {
             config.data = {
-              yearPredictedData: response.predictedfullYearData,
-              yearActualAmcsData: response.actual_amcsfullYearData,
-              yearDetails: _this49.sharedService.selectedYear,
+              expandedSection: true,
+              fullYear: !_this60.showP2W,
+              yearPredictedData: _this60.showP2W ? response.predictedfullYearData.slice(0, _this60.sharedService.dailyStatsLastValue) : response.predictedfullYearData,
+              yearActualAmcsData: _this60.showP2W ? response.actual_amcsfullYearData.slice(0, _this60.sharedService.dailyStatsLastValue) : response.actual_amcsfullYearData,
+              yearDetails: _this60.sharedService.selectedYear,
               data: typeOfData
             };
 
-            _this49.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+            _this60.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+          });
+        }
+      }, {
+        key: "onForecastClick",
+        value: function onForecastClick(typeOfData) {
+          var _this61 = this;
+
+          var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
+          config.autoFocus = true;
+          config.disableClose = true;
+          config.hasBackdrop = true;
+          this.predictionService.getForecastData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData, this.sharedService.datesArray[this.sharedService.dailyStatsLastValue]).subscribe(function (response) {
+            config.data = {
+              expandedSection: false,
+              data: typeOfData,
+              datesArray: response.datesArray,
+              forecastDataArray: response.dataArray
+            };
+
+            _this61.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
           });
         }
       }]);
@@ -80607,7 +82923,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 9,
       vars: 9,
-      consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary"], [1, "launch-class", 2, "margin-top", "5px", 3, "click"]],
+      consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "matTooltip", "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary", 3, "click"], [1, "launch-class", 2, "margin-top", "5px", 3, "matTooltip", "click"]],
       template: function InflowCurrentCycleComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
@@ -80622,7 +82938,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, InflowCurrentCycleComponent_button_4_Template, 2, 0, "button", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, InflowCurrentCycleComponent_mat_icon_5_Template, 2, 0, "mat-icon", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, InflowCurrentCycleComponent_mat_icon_5_Template, 2, 1, "mat-icon", 3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -80653,7 +82969,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
         }
       },
-      directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"]],
+      directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltip"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9pbmZsb3ctY3VycmVudC1jeWNsZS9pbmZsb3ctY3VycmVudC1jeWNsZS5jb21wb25lbnQuY3NzIn0= */"]
     });
     /*@__PURE__*/
@@ -80822,7 +83138,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(InflowTrendsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this50 = this;
+          var _this62 = this;
 
           this.chartType = 'line';
           this.chartOptions = {
@@ -80845,74 +83161,74 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.sharedService.dataPopulationObservable.subscribe(function (dataPopulated) {
             if (dataPopulated) {
-              if (_this50.sharedService.selectedYear.indexOf('2011') !== -1) {
-                _this50.noTrendsGraph = true;
-                _this50.trendsValue = 0;
+              if (_this62.sharedService.selectedYear.indexOf('2011') !== -1) {
+                _this62.noTrendsGraph = true;
+                _this62.trendsValue = 0;
 
-                _this50.sharedService.getDailynSeasonalData().subscribe(function (cResponse) {
-                  _this50.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
-                  _this50.sharedService.inflowArray = cResponse.inflowArray;
-                  _this50.sharedService.outflowArray = cResponse.outflowArray;
-                  _this50.sharedService.storageArray = cResponse.storageArray;
-                  _this50.sharedService.durationArray = cResponse.durationArray;
-                  _this50.sharedService.datesArray = cResponse.datesArray;
-                  _this50.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
-                  _this50.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
+                _this62.sharedService.getDailynSeasonalData().subscribe(function (cResponse) {
+                  _this62.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
+                  _this62.sharedService.inflowArray = cResponse.inflowArray;
+                  _this62.sharedService.outflowArray = cResponse.outflowArray;
+                  _this62.sharedService.storageArray = cResponse.storageArray;
+                  _this62.sharedService.durationArray = cResponse.durationArray;
+                  _this62.sharedService.datesArray = cResponse.datesArray;
+                  _this62.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
+                  _this62.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
 
-                  _this50.sharedService.dailyDisplaynSeasonalSubject.next(true);
+                  _this62.sharedService.dailyDisplaynSeasonalSubject.next(true);
                 }, function (error) {
-                  _this50.sharedService.cumulativeInflowArray = [];
-                  _this50.sharedService.inflowArray = [];
-                  _this50.sharedService.outflowArray = [];
-                  _this50.sharedService.storageArray = [];
-                  _this50.sharedService.durationArray = [];
-                  _this50.sharedService.datesArray = [];
-                  _this50.sharedService.yearsPredictedvsActualData = null;
-                  _this50.sharedService.yearsPredictedvsNormalData = null;
+                  _this62.sharedService.cumulativeInflowArray = [];
+                  _this62.sharedService.inflowArray = [];
+                  _this62.sharedService.outflowArray = [];
+                  _this62.sharedService.storageArray = [];
+                  _this62.sharedService.durationArray = [];
+                  _this62.sharedService.datesArray = [];
+                  _this62.sharedService.yearsPredictedvsActualData = null;
+                  _this62.sharedService.yearsPredictedvsNormalData = null;
                   console.log(error);
                 });
               } else {
-                _this50.predictionService.getTrendsData(_this50.sharedService.selectedRegion, _this50.sharedService.selectedYear).subscribe(function (response) {
+                _this62.predictionService.getTrendsData(_this62.sharedService.selectedRegion, _this62.sharedService.selectedYear).subscribe(function (response) {
                   if (!!response.noOfValues && response.noOfValues === 1) {
-                    _this50.noTrendsGraph = true;
-                    _this50.trendsValue = response.trendsValue;
+                    _this62.noTrendsGraph = true;
+                    _this62.trendsValue = response.trendsValue;
                   } else {
-                    _this50.noTrendsGraph = false;
-                    _this50.chartLabels = response.trendsLabel;
-                    _this50.chartData = [{
+                    _this62.noTrendsGraph = false;
+                    _this62.chartLabels = response.trendsLabel;
+                    _this62.chartData = [{
                       data: response.trendsArray,
                       label: 'Rainfall'
                     }];
                   }
 
-                  _this50.sharedService.getDailynSeasonalData().subscribe(function (cResponse) {
-                    _this50.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
-                    _this50.sharedService.inflowArray = cResponse.inflowArray;
-                    _this50.sharedService.outflowArray = cResponse.outflowArray;
-                    _this50.sharedService.storageArray = cResponse.storageArray;
-                    _this50.sharedService.durationArray = cResponse.durationArray;
-                    _this50.sharedService.datesArray = cResponse.datesArray;
-                    _this50.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
-                    _this50.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
+                  _this62.sharedService.getDailynSeasonalData().subscribe(function (cResponse) {
+                    _this62.sharedService.cumulativeInflowArray = cResponse.cumulativeInflowDiff;
+                    _this62.sharedService.inflowArray = cResponse.inflowArray;
+                    _this62.sharedService.outflowArray = cResponse.outflowArray;
+                    _this62.sharedService.storageArray = cResponse.storageArray;
+                    _this62.sharedService.durationArray = cResponse.durationArray;
+                    _this62.sharedService.datesArray = cResponse.datesArray;
+                    _this62.sharedService.yearsPredictedvsActualData = cResponse.yearsPredictedvsActualData;
+                    _this62.sharedService.yearsPredictedvsNormalData = cResponse.yearsPredictedvsNormalData;
 
-                    _this50.sharedService.dailyDisplaynSeasonalSubject.next(true);
+                    _this62.sharedService.dailyDisplaynSeasonalSubject.next(true);
                   }, function (error) {
-                    _this50.sharedService.cumulativeInflowArray = [];
-                    _this50.sharedService.inflowArray = [];
-                    _this50.sharedService.outflowArray = [];
-                    _this50.sharedService.storageArray = [];
-                    _this50.sharedService.durationArray = [];
-                    _this50.sharedService.datesArray = [];
-                    _this50.sharedService.yearsPredictedvsActualData = null;
-                    _this50.sharedService.yearsPredictedvsNormalData = null;
+                    _this62.sharedService.cumulativeInflowArray = [];
+                    _this62.sharedService.inflowArray = [];
+                    _this62.sharedService.outflowArray = [];
+                    _this62.sharedService.storageArray = [];
+                    _this62.sharedService.durationArray = [];
+                    _this62.sharedService.datesArray = [];
+                    _this62.sharedService.yearsPredictedvsActualData = null;
+                    _this62.sharedService.yearsPredictedvsNormalData = null;
                     console.log(error);
                   });
                 }, function (error) {
-                  _this50.chartData = [{
+                  _this62.chartData = [{
                     data: [],
                     label: 'Rainfall'
                   }];
-                  _this50.chartLabels = [];
+                  _this62.chartLabels = [];
                   console.log(error);
                 });
               }
@@ -81069,10 +83385,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/material/icon */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+    /* harmony import */
+
+
+    var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material/tooltip */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
 
     function OutflowComponent_button_4_Template(rf, ctx) {
       if (rf & 1) {
+        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function OutflowComponent_button_4_Template_button_click_0_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r2.onForecastClick("OUTFLOW");
+        });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "P2W");
 
@@ -81082,21 +83414,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     function OutflowComponent_mat_icon_5_Template(rf, ctx) {
       if (rf & 1) {
-        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 7);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function OutflowComponent_mat_icon_5_Template_mat_icon_click_0_listener() {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5);
 
-          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-          return ctx_r2.onExpandClick("ACTUAL OUTFLOW");
+          return ctx_r4.onExpandClick("ACTUAL OUTFLOW");
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "launch");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matTooltip", ctx_r1.tooltipText);
       }
     }
 
@@ -81113,12 +83451,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.chartLegend = true;
         this.chartPlugins = [];
         this.showP2W = false;
+        this.tooltipText = 'Expanded View Full Year';
       }
 
       _createClass(OutflowComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this51 = this;
+          var _this63 = this;
 
           this.chartType = 'line';
           this.chartLabels = this.predictionService.displayMonths;
@@ -81140,13 +83479,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }];
           this.sharedService.dataPopulationObservable.subscribe(function (dataPopulated) {
             if (dataPopulated) {
-              _this51.chartData = [{
-                data: _this51.predictionService.outflowDataSet,
+              _this63.chartData = [{
+                data: _this63.predictionService.outflowDataSet,
                 label: 'Actual Outflow',
                 fill: false,
                 lineTension: 0.1
               }, {
-                data: _this51.predictionService.amcsOutflowDataSet,
+                data: _this63.predictionService.amcsOutflowDataSet,
                 label: 'AMCS Outflow',
                 fill: false,
                 lineTension: 0.1
@@ -81154,16 +83493,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           });
           this.sharedService.dateSelectObservable.subscribe(function (data) {
-            _this51.showP2W = data;
+            _this63.showP2W = data;
+            _this63.tooltipText = _this63.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
           });
           this.sharedService.weatherOpenForP2WObservable.subscribe(function (data) {
-            _this51.showP2W = data;
+            _this63.showP2W = data;
+            _this63.tooltipText = _this63.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
           });
         }
       }, {
         key: "onExpandClick",
         value: function onExpandClick(typeOfData) {
-          var _this52 = this;
+          var _this64 = this;
 
           var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
           config.width = '150%';
@@ -81172,14 +83513,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           config.hasBackdrop = true;
           this.predictionService.getExpandedData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData).subscribe(function (response) {
             config.data = {
-              yearPredictedData: response.predictedfullYearData,
-              yearActualAmcsData: response.actual_amcsfullYearData,
+              expandedSection: true,
+              fullYear: !_this64.showP2W,
+              yearPredictedData: _this64.showP2W ? response.predictedfullYearData.slice(0, _this64.sharedService.dailyStatsLastValue) : response.predictedfullYearData,
+              yearActualAmcsData: _this64.showP2W ? response.actual_amcsfullYearData.slice(0, _this64.sharedService.dailyStatsLastValue) : response.actual_amcsfullYearData,
               outflowfullYearData: response.outflowfullYearData,
-              yearDetails: _this52.sharedService.selectedYear,
+              yearDetails: _this64.sharedService.selectedYear,
               data: typeOfData
             };
 
-            _this52.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+            _this64.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+          });
+        }
+      }, {
+        key: "onForecastClick",
+        value: function onForecastClick(typeOfData) {
+          var _this65 = this;
+
+          var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
+          config.autoFocus = true;
+          config.disableClose = true;
+          config.hasBackdrop = true;
+          this.predictionService.getForecastData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData, this.sharedService.datesArray[this.sharedService.dailyStatsLastValue]).subscribe(function (response) {
+            config.data = {
+              expandedSection: false,
+              data: typeOfData,
+              datesArray: response.datesArray,
+              forecastDataArray: response.dataArray
+            };
+
+            _this65.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
           });
         }
       }]);
@@ -81199,7 +83562,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       },
       decls: 9,
       vars: 9,
-      consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary"], [1, "launch-class", 2, "margin-top", "5px", 3, "click"]],
+      consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "matTooltip", "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary", 3, "click"], [1, "launch-class", 2, "margin-top", "5px", 3, "matTooltip", "click"]],
       template: function OutflowComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
@@ -81214,7 +83577,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, OutflowComponent_button_4_Template, 2, 0, "button", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, OutflowComponent_mat_icon_5_Template, 2, 0, "mat-icon", 3);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, OutflowComponent_mat_icon_5_Template, 2, 1, "mat-icon", 3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -81245,7 +83608,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
         }
       },
-      directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"]],
+      directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltip"]],
       styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9vdXRmbG93L291dGZsb3cuY29tcG9uZW50LmNzcyJ9 */"]
     });
     /*@__PURE__*/
@@ -81393,40 +83756,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this53 = this;
+          var _this66 = this;
 
           this.fetchAllData(this.sharedService.selectedRegion, this.sharedService.selectedYear);
           this.sharedService.regionObservable.subscribe(function (changeTrigger) {
             if (changeTrigger) {
-              _this53.fetchAllData(_this53.sharedService.selectedRegion, _this53.sharedService.selectedYear);
+              _this66.fetchAllData(_this66.sharedService.selectedRegion, _this66.sharedService.selectedYear);
             }
           });
           this.sharedService.yearObservable.subscribe(function (changeTrigger) {
             if (changeTrigger) {
-              _this53.fetchAllData(_this53.sharedService.selectedRegion, _this53.sharedService.selectedYear);
+              _this66.fetchAllData(_this66.sharedService.selectedRegion, _this66.sharedService.selectedYear);
             }
           });
         }
       }, {
         key: "fetchAllData",
         value: function fetchAllData(region, year) {
-          var _this54 = this;
+          var _this67 = this;
 
           this.showExpand = false;
           this.predictionService.getAllArrayData(region, year).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.notifier)).subscribe(function (response) {
-            _this54.predictionService.inflowDataSet = response.inflowCurrentCycleArray;
-            _this54.predictionService.outflowDataSet = response.outflowArray;
-            _this54.predictionService.actualInflowDataSet = response.actualInflowArray;
-            _this54.predictionService.amcsOutflowDataSet = response.amcsOutflowArray;
+            _this67.predictionService.inflowDataSet = response.inflowCurrentCycleArray;
+            _this67.predictionService.outflowDataSet = response.outflowArray;
+            _this67.predictionService.actualInflowDataSet = response.actualInflowArray;
+            _this67.predictionService.amcsOutflowDataSet = response.amcsOutflowArray;
 
-            _this54.sharedService.dataPopulationSubject.next(true);
+            _this67.sharedService.dataPopulationSubject.next(true);
 
-            _this54.showExpand = true;
+            _this67.showExpand = true;
           }, function (error) {
-            _this54.predictionService.inflowDataSet = [];
-            _this54.predictionService.outflowDataSet = [];
-            _this54.predictionService.actualInflowDataSet = [];
-            _this54.predictionService.amcsOutflowDataSet = [];
+            _this67.predictionService.inflowDataSet = [];
+            _this67.predictionService.outflowDataSet = [];
+            _this67.predictionService.actualInflowDataSet = [];
+            _this67.predictionService.amcsOutflowDataSet = [];
             console.log(error);
           });
         }
@@ -81625,15 +83988,89 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/icon */
-    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var ng2_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ng2-charts */
     "./node_modules/ng2-charts/__ivy_ngcc__/fesm2015/ng2-charts.js");
+    /* harmony import */
+
+
+    var _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material/icon */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+
+    function ViewExpandedDataComponent_h2_0_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_h2_0_Template_mat_icon_click_2_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
+
+          var ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r2.closeDialog();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", ctx_r0.headerData, " Expanded ", ctx_r0.dialogData.fullYear ? "Full Year" : "Upto Date", " View ");
+      }
+    }
+
+    function ViewExpandedDataComponent_h2_1_Template(rf, ctx) {
+      if (rf & 1) {
+        var _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 6);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_h2_1_Template_mat_icon_click_2_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5);
+
+          var ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          return ctx_r4.closeDialog();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+      }
+
+      if (rf & 2) {
+        var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx_r1.headerData, " View ");
+      }
+    }
 
     var ViewExpandedDataComponent = /*#__PURE__*/function () {
       function ViewExpandedDataComponent(dialogData, dialogRef) {
@@ -81651,81 +84088,125 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ViewExpandedDataComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          if (this.dialogData.data === 'INFLOW') {
-            this.headerData = 'Inflow Current Cycle';
-            this.actualAmcsDataSetLabel = 'Actual Inflow Current Cycle';
-            this.predictedDataSetLabel = 'Predicted Inflow';
-          } else {
-            this.headerData = 'Outflow Current Cycle';
-            this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
-            this.predictedDataSetLabel = 'Actual Outflow';
-            this.outflowArrayDataSetLabel = 'Outflow';
-          }
-
-          var years = this.dialogData.yearDetails.split(' - ');
-          this.labelDetailsData = 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')';
           this.chartType = 'line';
           this.chartLabels = this.getChartLabels();
-          this.chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              xAxes: [{
-                display: true,
-                scaleLabel: {
-                  display: true,
-                  labelString: this.labelDetailsData,
-                  fontSize: 20
-                }
-              }],
-              yAxes: [{
-                display: true,
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Quantity (in cubic metres)',
-                  fontSize: 20
-                }
-              }]
-            }
-          };
 
-          if (this.dialogData.data === 'INFLOW') {
-            this.chartData = [{
-              data: this.dialogData.yearPredictedData,
-              label: this.predictedDataSetLabel
-            }, {
-              data: this.dialogData.yearActualAmcsData,
-              label: this.actualAmcsDataSetLabel
-            }];
-            this.chartColors = [{
-              borderColor: 'black',
-              backgroundColor: 'rgba(0,0,255,0.28)'
-            }, {
-              borderColor: 'black',
-              backgroundColor: 'rgba(0,255,0,0.28)'
-            }];
+          if (this.dialogData.expandedSection) {
+            if (this.dialogData.data === 'INFLOW') {
+              this.headerData = 'Inflow Current Cycle';
+              this.actualAmcsDataSetLabel = 'Actual Inflow Current Cycle';
+              this.predictedDataSetLabel = 'Predicted Inflow';
+              this.chartData = [{
+                data: this.dialogData.yearPredictedData,
+                label: this.predictedDataSetLabel,
+                lineTension: 0.1
+              }, {
+                data: this.dialogData.yearActualAmcsData,
+                label: this.actualAmcsDataSetLabel,
+                lineTension: 0.1
+              }];
+              this.chartColors = [{
+                borderColor: 'black',
+                backgroundColor: 'rgba(0,0,255,0.28)'
+              }, {
+                borderColor: 'black',
+                backgroundColor: 'rgba(0,255,0,0.28)'
+              }];
+            } else {
+              this.headerData = 'Outflow Current Cycle';
+              this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
+              this.predictedDataSetLabel = 'Actual Outflow';
+              this.outflowArrayDataSetLabel = 'Outflow';
+              this.chartData = [{
+                data: this.dialogData.yearPredictedData,
+                label: this.predictedDataSetLabel,
+                lineTension: 0.1
+              }, {
+                data: this.dialogData.yearActualAmcsData,
+                label: this.actualAmcsDataSetLabel,
+                lineTension: 0.1
+              }, {
+                data: this.dialogData.outflowfullYearData,
+                label: this.outflowArrayDataSetLabel,
+                lineTension: 0.1,
+                hidden: true
+              }];
+              this.chartColors = [{
+                borderColor: 'black',
+                backgroundColor: 'rgba(0,0,255,0.28)'
+              }, {
+                borderColor: 'black',
+                backgroundColor: 'rgba(0,255,0,0.28)'
+              }, {
+                borderColor: 'black',
+                backgroundColor: 'rgba(255,69,0,0.5)'
+              }];
+            }
+
+            var years = this.dialogData.yearDetails.split(' - ');
+            this.labelDetailsData = this.dialogData.fullYear ? 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01,' + years[0];
+            this.chartOptions = {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: this.labelDetailsData,
+                    fontSize: 20
+                  }
+                }],
+                yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Quantity (in cubic metres)',
+                    fontSize: 20
+                  }
+                }]
+              }
+            };
           } else {
+            if (this.dialogData.data === 'INFLOW') {
+              this.headerData = 'Two Weeks Predicted Inflow';
+              this.forecastDataSetLabel = 'Predicted Inflow';
+            } else {
+              this.headerData = 'Two Weeks Predicted Outflow';
+              this.forecastDataSetLabel = 'Predicted Outflow';
+            }
+
             this.chartData = [{
-              data: this.dialogData.yearPredictedData,
-              label: this.predictedDataSetLabel
-            }, {
-              data: this.dialogData.yearActualAmcsData,
-              label: this.actualAmcsDataSetLabel
-            }, {
-              data: this.dialogData.outflowfullYearData,
-              label: this.outflowArrayDataSetLabel,
-              hidden: true
+              data: this.dialogData.forecastDataArray,
+              label: this.forecastDataSetLabel,
+              lineTension: 0.1
             }];
             this.chartColors = [{
               borderColor: 'black',
               backgroundColor: 'rgba(0,0,255,0.28)'
-            }, {
-              borderColor: 'black',
-              backgroundColor: 'rgba(0,255,0,0.28)'
-            }, {
-              borderColor: 'black',
-              backgroundColor: 'rgba(255,69,0,0.5)'
             }];
+            this.chartOptions = {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                xAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Dates next two weeks',
+                    fontSize: 20
+                  }
+                }],
+                yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Quantity (in cubic metres)',
+                    fontSize: 20
+                  }
+                }]
+              }
+            };
           }
         }
       }, {
@@ -81737,9 +84218,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "getChartLabels",
         value: function getChartLabels() {
           var returnArray = [];
+          var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-          for (var i = 1; i <= this.dialogData.yearPredictedData.length; i++) {
-            returnArray.push(i.toString());
+          if (this.dialogData.expandedSection) {
+            for (var i = 1; i <= this.dialogData.yearPredictedData.length; i++) {
+              returnArray.push(i.toString());
+            }
+          } else {
+            this.dialogData.datesArray.forEach(function (element) {
+              var dateValues = element.split('-');
+              var dateElement = new Date(+dateValues[0], +dateValues[1] - 1, +dateValues[2]);
+              returnArray.push(dateElement.getDate().toString() + ' ' + months[dateElement.getMonth()] + ', ' + dateElement.getFullYear().toString());
+            });
           }
 
           return returnArray;
@@ -81756,46 +84246,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     ViewExpandedDataComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ViewExpandedDataComponent,
       selectors: [["app-view-expanded-data"]],
-      decls: 12,
-      vars: 8,
-      consts: [["mat-dialog-title", ""], [2, "float", "right", "cursor", "pointer", 3, "click"], ["mat-dialog-content", ""], [1, "chart-wrapper"], ["baseChart", "", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], [1, "text-center"]],
+      decls: 10,
+      vars: 9,
+      consts: [["mat-dialog-title", "", 4, "ngIf"], ["mat-dialog-content", ""], [1, "chart-wrapper"], ["baseChart", "", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], [1, "text-center"], ["mat-dialog-title", ""], [2, "float", "right", "cursor", "pointer", 3, "click"]],
       template: function ViewExpandedDataComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ViewExpandedDataComponent_h2_0_Template, 4, 2, "h2", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ViewExpandedDataComponent_h2_1_Template, 4, 1, "h2", 0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "hr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_Template_mat_icon_click_2_listener() {
-            return ctx.closeDialog();
-          });
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "hr");
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 2);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 3);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "canvas", 4);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "canvas", 3);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "hr");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "hr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "span");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "The_Atlantians");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "The_Atlantians");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -81803,16 +84281,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         if (rf & 2) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.dialogData.expandedSection);
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx.headerData, " Expanded Full Year View ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.dialogData.expandedSection);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
         }
       },
-      directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_2__["MatIcon"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_3__["BaseChartDirective"]],
+      directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_3__["BaseChartDirective"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIcon"]],
       styles: ["canvas[_ngcontent-%COMP%] {\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJlZGljdGlvbi9jb21wb25lbnRzL3ZpZXctZXhwYW5kZWQtZGF0YS92aWV3LWV4cGFuZGVkLWRhdGEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtJQUN0Qix1QkFBdUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9wcmVkaWN0aW9uL2NvbXBvbmVudHMvdmlldy1leHBhbmRlZC1kYXRhL3ZpZXctZXhwYW5kZWQtZGF0YS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiY2FudmFzIHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcclxufSJdfQ== */"]
     });
     /*@__PURE__*/
@@ -82227,7 +84707,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var WeatherDataComponent = /*#__PURE__*/function () {
       function WeatherDataComponent(sharedService) {
-        var _this55 = this;
+        var _this68 = this;
 
         _classCallCheck(this, WeatherDataComponent);
 
@@ -82246,14 +84726,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.nextDayEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.prevDayEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         sharedService.getWeatherRegionList().subscribe(function (response) {
-          _this55.regionList = response.regionList;
+          _this68.regionList = response.regionList;
         });
       }
 
       _createClass(WeatherDataComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this56 = this;
+          var _this69 = this;
 
           for (var i = 0; i < 24; i += 4) {
             this.timeframeList.push(i < 10 ? '0' + i.toString() + ':00:00' : i.toString() + ':00:00');
@@ -82264,20 +84744,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.timeframeIndex.push(23);
           this.sharedService.yearObservable.subscribe(function (data) {
             if (data) {
-              _this56.matExpansionPanelElement.close();
+              _this69.matExpansionPanelElement.close();
             }
           });
           this.sharedService.regionObservable.subscribe(function (data) {
             if (data) {
-              _this56.matExpansionPanelElement.close();
+              _this69.matExpansionPanelElement.close();
             }
           });
           this.sharedService.dateSelectObservable.subscribe(function (data) {
             if (data) {
-              if (_this56.matExpansionPanelElement.expanded) {
-                _this56.onOpen();
+              if (_this69.matExpansionPanelElement.expanded) {
+                _this69.onOpen();
               } else {
-                _this56.matExpansionPanelElement.open();
+                _this69.matExpansionPanelElement.open();
               }
             }
           });
@@ -82303,16 +84783,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "fetchDataMethod",
         value: function fetchDataMethod() {
-          var _this57 = this;
+          var _this70 = this;
 
           this.timeframeDetails = null;
 
           if (!!this.dateData) {
             this.sharedService.getWeatherData(this.selectedWeatherRegion, this.dateData).subscribe(function (response) {
-              _this57.loadingData = false;
-              _this57.weatherDataList = response.weather;
-              _this57.timeframeDetails = !!_this57.weatherDataList ? _this57.weatherDataList[0] : null;
-              _this57.timeframeDetails.hourNumber = _this57.timeframeList[0];
+              _this70.loadingData = false;
+              _this70.weatherDataList = response.weather;
+              _this70.timeframeDetails = !!_this70.weatherDataList ? _this70.weatherDataList[0] : null;
+              _this70.timeframeDetails.hourNumber = _this70.timeframeList[0];
             });
           }
         }
@@ -82771,6 +85251,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! @angular/material/progress-bar */
     "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-bar.js");
+    /* harmony import */
+
+
+    var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    /*! @angular/material/tooltip */
+    "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
 
     var PredictionModule = function PredictionModule() {
       _classCallCheck(this, PredictionModule);
@@ -82783,13 +85269,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       factory: function PredictionModule_Factory(t) {
         return new (t || PredictionModule)();
       },
-      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"].forRoot(), _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]]]
+      imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"].forRoot(), _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]]]
     });
 
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PredictionModule, {
         declarations: [_components_prediction_base_prediction_base_component__WEBPACK_IMPORTED_MODULE_3__["PredictionBaseComponent"], _components_inflow_current_cycle_inflow_current_cycle_component__WEBPACK_IMPORTED_MODULE_4__["InflowCurrentCycleComponent"], _components_outflow_outflow_component__WEBPACK_IMPORTED_MODULE_5__["OutflowComponent"], _components_inflow_trends_inflow_trends_component__WEBPACK_IMPORTED_MODULE_6__["InflowTrendsComponent"], _components_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_11__["ViewExpandedDataComponent"], _components_daily_data_display_daily_data_display_component__WEBPACK_IMPORTED_MODULE_12__["DailyDataDisplayComponent"], _components_bar_chart_part_bar_chart_part_component__WEBPACK_IMPORTED_MODULE_14__["BarChartPartComponent"], _components_weather_data_weather_data_component__WEBPACK_IMPORTED_MODULE_17__["WeatherDataComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]]
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]]
       });
     })();
     /*@__PURE__*/
@@ -82800,7 +85286,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
           declarations: [_components_prediction_base_prediction_base_component__WEBPACK_IMPORTED_MODULE_3__["PredictionBaseComponent"], _components_inflow_current_cycle_inflow_current_cycle_component__WEBPACK_IMPORTED_MODULE_4__["InflowCurrentCycleComponent"], _components_outflow_outflow_component__WEBPACK_IMPORTED_MODULE_5__["OutflowComponent"], _components_inflow_trends_inflow_trends_component__WEBPACK_IMPORTED_MODULE_6__["InflowTrendsComponent"], _components_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_11__["ViewExpandedDataComponent"], _components_daily_data_display_daily_data_display_component__WEBPACK_IMPORTED_MODULE_12__["DailyDataDisplayComponent"], _components_bar_chart_part_bar_chart_part_component__WEBPACK_IMPORTED_MODULE_14__["BarChartPartComponent"], _components_weather_data_weather_data_component__WEBPACK_IMPORTED_MODULE_17__["WeatherDataComponent"]],
-          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"].forRoot(), _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _prediction_routing_module__WEBPACK_IMPORTED_MODULE_2__["PredictionRoutingModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_7__["MatCardModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialogModule"], ng2_charts__WEBPACK_IMPORTED_MODULE_10__["ChartsModule"], angular_gauge__WEBPACK_IMPORTED_MODULE_13__["GaugeModule"].forRoot(), _shared_shared_module__WEBPACK_IMPORTED_MODULE_16__["SharedModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_15__["MatTabsModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_18__["MatExpansionModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]],
           entryComponents: [_components_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_11__["ViewExpandedDataComponent"]]
         }]
       }], null, null);
@@ -82849,7 +85335,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var PredictionService = /*#__PURE__*/function () {
       function PredictionService(httpClient) {
-        var _this58 = this;
+        var _this71 = this;
 
         _classCallCheck(this, PredictionService);
 
@@ -82863,7 +85349,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.moduleName = '/prediction';
 
         this.getServerUrl = function () {
-          return src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl + _this58.moduleName;
+          return src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].serverUrl + _this71.moduleName;
         };
       }
 
@@ -82885,6 +85371,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           urlParams = urlParams.set('years', year);
           urlParams = urlParams.set('typeOfData', typeOfData);
           return this.httpClient.get(this.getServerUrl() + '/getExpandedData', {
+            params: urlParams
+          });
+        }
+      }, {
+        key: "getForecastData",
+        value: function getForecastData(region, year, typeOfData, forecastDate) {
+          var urlParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]();
+          urlParams = urlParams.set('region', region);
+          urlParams = urlParams.set('years', year);
+          urlParams = urlParams.set('typeOfData', typeOfData);
+          urlParams = urlParams.set('forecastDate', forecastDate);
+          return this.httpClient.get(this.getServerUrl() + '/getForecastData', {
             params: urlParams
           });
         }

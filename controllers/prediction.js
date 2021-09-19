@@ -40,6 +40,40 @@ router.get('/getExpandedData', (req, res) => {
     readJsonDataExpanded(jsonpath, req.query.typeOfData, res);
 });
 
+router.get('/getForecastData', (req, res) => {
+    console.log('forecast');
+    var year = req.query.years.split(' - ');
+    var jsonpath = jsonFolderPath + '/' + req.query.region + '/predictions' + '_' + year[0] + '_' + year[1] + '.json';
+    readForecastData(jsonpath, req.query.forecastDate, req.query.typeOfData, res);
+});
+
+function readForecastData(jsonpath, forecastDate, typeofdata, res) {
+    fs.readFile(jsonpath, {encoding:'utf8', flag:'r'}, (err, data) => {
+        var forcastData = {};
+        if (err) {
+            console.log(err);
+            forcastData.datesArray = [];
+            forcastData.dataArray = [];
+            res.status(500);
+        } else {
+            var totaljsondata = JSON.parse(data);
+            var dateValues = forecastDate.split('-');
+            const date = new Date(+dateValues[2], +dateValues[1] - 1, +dateValues[0]);
+            var foreDate = date.getFullYear()
+                + '-' + 
+                (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
+                + '-' +
+                (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+            console.log(foreDate);
+            var forecastObject = totaljsondata['FORECAST'][foreDate][typeofdata];
+            forcastData.datesArray = Object.keys(forecastObject).slice(0, 14);
+            forcastData.dataArray = Object.values(forecastObject).slice(0, 14);
+            res.status(200);
+        }
+        res.json(forcastData);
+    });
+}
+
 router.get('/getInflowTrends', (req, res) => {
     console.log('trendsData');
     var inflowTrendsReturnObject = {};

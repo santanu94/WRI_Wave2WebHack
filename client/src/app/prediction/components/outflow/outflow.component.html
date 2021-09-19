@@ -1,8 +1,10 @@
 <mat-card class="graph-card-class">
     <mat-card-header>
         <span class="center-class">Outflow Current Cycle</span>
-        <button *ngIf="showP2W" mat-button color="primary">P2W</button>
-        <mat-icon *ngIf="showExpand" style="margin-top: 5px;" class="launch-class" (click)="onExpandClick('ACTUAL OUTFLOW')">launch</mat-icon>
+        <button *ngIf="showP2W" mat-button color="primary" (click)="onForecastClick('OUTFLOW')">P2W</button>
+        <mat-icon *ngIf="showExpand" style="margin-top: 5px;" class="launch-class" 
+            [matTooltip]="tooltipText"
+            (click)="onExpandClick('ACTUAL OUTFLOW')">launch</mat-icon>
     </mat-card-header>
     <mat-card-content>
         <div class="chart-wrapper">

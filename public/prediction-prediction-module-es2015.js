@@ -378,6 +378,395 @@ CdkAccordionModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefin
 
 /***/ }),
 
+/***/ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js ***!
+  \*******************************************************************/
+/*! exports provided: BreakpointObserver, Breakpoints, LayoutModule, MediaMatcher */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreakpointObserver", function() { return BreakpointObserver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Breakpoints", function() { return Breakpoints; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutModule", function() { return LayoutModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediaMatcher", function() { return MediaMatcher; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/platform */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/coercion */ "./node_modules/@angular/cdk/fesm2015/coercion.js");
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/cdk/layout/layout-module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+
+class LayoutModule {
+}
+LayoutModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: LayoutModule });
+LayoutModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function LayoutModule_Factory(t) { return new (t || LayoutModule)(); } });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](LayoutModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
+        args: [{}]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/cdk/layout/media-matcher.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Global registry for all dynamically-created, injected media queries.
+ * @type {?}
+ */
+const mediaQueriesForWebkitCompatibility = new Set();
+/**
+ * Style tag that holds all of the dynamically-created media queries.
+ * @type {?}
+ */
+let mediaQueryStyleNode;
+/**
+ * A utility for calling matchMedia queries.
+ */
+class MediaMatcher {
+    /**
+     * @param {?} _platform
+     */
+    constructor(_platform) {
+        this._platform = _platform;
+        this._matchMedia = this._platform.isBrowser && window.matchMedia ?
+            // matchMedia is bound to the window scope intentionally as it is an illegal invocation to
+            // call it from a different scope.
+            window.matchMedia.bind(window) :
+            noopMatchMedia;
+    }
+    /**
+     * Evaluates the given media query and returns the native MediaQueryList from which results
+     * can be retrieved.
+     * Confirms the layout engine will trigger for the selector query provided and returns the
+     * MediaQueryList for the query provided.
+     * @param {?} query
+     * @return {?}
+     */
+    matchMedia(query) {
+        if (this._platform.WEBKIT) {
+            createEmptyStyleRule(query);
+        }
+        return this._matchMedia(query);
+    }
+}
+MediaMatcher.ɵfac = function MediaMatcher_Factory(t) { return new (t || MediaMatcher)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"])); };
+/** @nocollapse */
+MediaMatcher.ctorParameters = () => [
+    { type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"] }
+];
+/** @nocollapse */ MediaMatcher.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function MediaMatcher_Factory() { return new MediaMatcher(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"])); }, token: MediaMatcher, providedIn: "root" });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MediaMatcher, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{ providedIn: 'root' }]
+    }], function () { return [{ type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_1__["Platform"] }]; }, null); })();
+if (false) {}
+/**
+ * For Webkit engines that only trigger the MediaQueryListListener when
+ * there is at least one CSS selector for the respective media query.
+ * @param {?} query
+ * @return {?}
+ */
+function createEmptyStyleRule(query) {
+    if (mediaQueriesForWebkitCompatibility.has(query)) {
+        return;
+    }
+    try {
+        if (!mediaQueryStyleNode) {
+            mediaQueryStyleNode = document.createElement('style');
+            mediaQueryStyleNode.setAttribute('type', 'text/css');
+            (/** @type {?} */ (document.head)).appendChild(mediaQueryStyleNode);
+        }
+        if (mediaQueryStyleNode.sheet) {
+            ((/** @type {?} */ (mediaQueryStyleNode.sheet)))
+                .insertRule(`@media ${query} {.fx-query-test{ }}`, 0);
+            mediaQueriesForWebkitCompatibility.add(query);
+        }
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
+/**
+ * No-op matchMedia replacement for non-browser platforms.
+ * @param {?} query
+ * @return {?}
+ */
+function noopMatchMedia(query) {
+    // Use `as any` here to avoid adding additional necessary properties for
+    // the noop matcher.
+    return (/** @type {?} */ ({
+        matches: query === 'all' || query === '',
+        media: query,
+        addListener: (/**
+         * @return {?}
+         */
+        () => { }),
+        removeListener: (/**
+         * @return {?}
+         */
+        () => { })
+    }));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/cdk/layout/breakpoints-observer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * The current state of a layout breakpoint.
+ * @record
+ */
+function BreakpointState() { }
+if (false) {}
+/**
+ * The current state of a layout breakpoint.
+ * @record
+ */
+function InternalBreakpointState() { }
+if (false) {}
+/**
+ * @record
+ */
+function Query() { }
+if (false) {}
+/**
+ * Utility for checking the matching state of \@media queries.
+ */
+class BreakpointObserver {
+    /**
+     * @param {?} _mediaMatcher
+     * @param {?} _zone
+     */
+    constructor(_mediaMatcher, _zone) {
+        this._mediaMatcher = _mediaMatcher;
+        this._zone = _zone;
+        /**
+         * A map of all media queries currently being listened for.
+         */
+        this._queries = new Map();
+        /**
+         * A subject for all other observables to takeUntil based on.
+         */
+        this._destroySubject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    }
+    /**
+     * Completes the active subject, signalling to all other observables to complete.
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this._destroySubject.next();
+        this._destroySubject.complete();
+    }
+    /**
+     * Whether one or more media queries match the current viewport size.
+     * @param {?} value One or more media queries to check.
+     * @return {?} Whether any of the media queries match.
+     */
+    isMatched(value) {
+        /** @type {?} */
+        const queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(value));
+        return queries.some((/**
+         * @param {?} mediaQuery
+         * @return {?}
+         */
+        mediaQuery => this._registerQuery(mediaQuery).mql.matches));
+    }
+    /**
+     * Gets an observable of results for the given queries that will emit new results for any changes
+     * in matching of the given queries.
+     * @param {?} value One or more media queries to check.
+     * @return {?} A stream of matches for the given queries.
+     */
+    observe(value) {
+        /** @type {?} */
+        const queries = splitQueries(Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_4__["coerceArray"])(value));
+        /** @type {?} */
+        const observables = queries.map((/**
+         * @param {?} query
+         * @return {?}
+         */
+        query => this._registerQuery(query).observable));
+        /** @type {?} */
+        let stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["combineLatest"])(observables);
+        // Emit the first state immediately, and then debounce the subsequent emissions.
+        stateObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["concat"])(stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)), stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["skip"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(0)));
+        return stateObservable.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} breakpointStates
+         * @return {?}
+         */
+        (breakpointStates) => {
+            /** @type {?} */
+            const response = {
+                matches: false,
+                breakpoints: {},
+            };
+            breakpointStates.forEach((/**
+             * @param {?} state
+             * @return {?}
+             */
+            (state) => {
+                response.matches = response.matches || state.matches;
+                response.breakpoints[state.query] = state.matches;
+            }));
+            return response;
+        })));
+    }
+    /**
+     * Registers a specific query to be listened for.
+     * @private
+     * @param {?} query
+     * @return {?}
+     */
+    _registerQuery(query) {
+        // Only set up a new MediaQueryList if it is not already being listened for.
+        if (this._queries.has(query)) {
+            return (/** @type {?} */ (this._queries.get(query)));
+        }
+        /** @type {?} */
+        const mql = this._mediaMatcher.matchMedia(query);
+        // Create callback for match changes and add it is as a listener.
+        /** @type {?} */
+        const queryObservable = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((/**
+         * @param {?} observer
+         * @return {?}
+         */
+        (observer) => {
+            // Listener callback methods are wrapped to be placed back in ngZone. Callbacks must be placed
+            // back into the zone because matchMedia is only included in Zone.js by loading the
+            // webapis-media-query.js file alongside the zone.js file.  Additionally, some browsers do not
+            // have MediaQueryList inherit from EventTarget, which causes inconsistencies in how Zone.js
+            // patches it.
+            /** @type {?} */
+            const handler = (/**
+             * @param {?} e
+             * @return {?}
+             */
+            (e) => this._zone.run((/**
+             * @return {?}
+             */
+            () => observer.next(e))));
+            mql.addListener(handler);
+            return (/**
+             * @return {?}
+             */
+            () => {
+                mql.removeListener(handler);
+            });
+        })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(mql), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
+         * @param {?} nextMql
+         * @return {?}
+         */
+        (nextMql) => ({ query, matches: nextMql.matches }))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroySubject));
+        // Add the MediaQueryList to the set of queries.
+        /** @type {?} */
+        const output = { observable: queryObservable, mql };
+        this._queries.set(query, output);
+        return output;
+    }
+}
+BreakpointObserver.ɵfac = function BreakpointObserver_Factory(t) { return new (t || BreakpointObserver)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](MediaMatcher), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); };
+/** @nocollapse */
+BreakpointObserver.ctorParameters = () => [
+    { type: MediaMatcher },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
+];
+/** @nocollapse */ BreakpointObserver.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function BreakpointObserver_Factory() { return new BreakpointObserver(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(MediaMatcher), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"])); }, token: BreakpointObserver, providedIn: "root" });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BreakpointObserver, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+        args: [{ providedIn: 'root' }]
+    }], function () { return [{ type: MediaMatcher }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }]; }, null); })();
+if (false) {}
+/**
+ * Split each query string into separate query strings if two queries are provided as comma
+ * separated.
+ * @param {?} queries
+ * @return {?}
+ */
+function splitQueries(queries) {
+    return queries.map((/**
+     * @param {?} query
+     * @return {?}
+     */
+    (query) => query.split(',')))
+        .reduce((/**
+     * @param {?} a1
+     * @param {?} a2
+     * @return {?}
+     */
+    (a1, a2) => a1.concat(a2)))
+        .map((/**
+     * @param {?} query
+     * @return {?}
+     */
+    query => query.trim()));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/cdk/layout/breakpoints.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+// PascalCase is being used as Breakpoints is used like an enum.
+// tslint:disable-next-line:variable-name
+/**
+ * @license
+ * Copyright Google LLC All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ * @type {?}
+ */
+const Breakpoints = {
+    XSmall: '(max-width: 599.99px)',
+    Small: '(min-width: 600px) and (max-width: 959.99px)',
+    Medium: '(min-width: 960px) and (max-width: 1279.99px)',
+    Large: '(min-width: 1280px) and (max-width: 1919.99px)',
+    XLarge: '(min-width: 1920px)',
+    Handset: '(max-width: 599.99px) and (orientation: portrait), ' +
+        '(max-width: 959.99px) and (orientation: landscape)',
+    Tablet: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait), ' +
+        '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
+    Web: '(min-width: 840px) and (orientation: portrait), ' +
+        '(min-width: 1280px) and (orientation: landscape)',
+    HandsetPortrait: '(max-width: 599.99px) and (orientation: portrait)',
+    TabletPortrait: '(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait)',
+    WebPortrait: '(min-width: 840px) and (orientation: portrait)',
+    HandsetLandscape: '(max-width: 959.99px) and (orientation: landscape)',
+    TabletLandscape: '(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)',
+    WebLandscape: '(min-width: 1280px) and (orientation: landscape)',
+};
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/cdk/layout/public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=layout.js.map
+
+/***/ }),
+
 /***/ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/stepper.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/stepper.js ***!
@@ -6633,6 +7022,1068 @@ MatTabsModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInje
 
 
 //# sourceMappingURL=tabs.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js ***!
+  \*************************************************************************/
+/*! exports provided: MAT_TOOLTIP_DEFAULT_OPTIONS, MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY, MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER, MatTooltip, MatTooltipModule, SCROLL_THROTTLE_MS, TOOLTIP_PANEL_CLASS, TooltipComponent, getMatTooltipInvalidPositionError, matTooltipAnimations */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_DEFAULT_OPTIONS", function() { return MAT_TOOLTIP_DEFAULT_OPTIONS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY", function() { return MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY", function() { return MAT_TOOLTIP_SCROLL_STRATEGY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY", function() { return MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER", function() { return MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatTooltip", function() { return MatTooltip; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MatTooltipModule", function() { return MatTooltipModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SCROLL_THROTTLE_MS", function() { return SCROLL_THROTTLE_MS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOOLTIP_PANEL_CLASS", function() { return TOOLTIP_PANEL_CLASS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TooltipComponent", function() { return TooltipComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMatTooltipInvalidPositionError", function() { return getMatTooltipInvalidPositionError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "matTooltipAnimations", function() { return matTooltipAnimations; });
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
+/* harmony import */ var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/a11y */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/a11y.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/scrolling.js");
+/* harmony import */ var _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/bidi */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/bidi.js");
+/* harmony import */ var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/coercion */ "./node_modules/@angular/cdk/fesm2015/coercion.js");
+/* harmony import */ var _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/cdk/keycodes */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/keycodes.js");
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/layout.js");
+/* harmony import */ var _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/platform */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/platform.js");
+/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/__ivy_ngcc__/fesm2015/animations.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material/tooltip/tooltip-animations.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Animations used by MatTooltip.
+ * \@docs-private
+ * @type {?}
+ */
+
+
+
+
+
+
+
+
+const matTooltipAnimations = {
+    /**
+     * Animation that transitions a tooltip in and out.
+     */
+    tooltipState: Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["trigger"])('state', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["state"])('initial, void, hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ opacity: 0, transform: 'scale(0)' })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ transform: 'scale(1)' })),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["transition"])('* => visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["animate"])('200ms cubic-bezier(0, 0, 0.2, 1)', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["keyframes"])([
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ opacity: 0, transform: 'scale(0)', offset: 0 }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ opacity: 0.5, transform: 'scale(0.99)', offset: 0.5 }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ opacity: 1, transform: 'scale(1)', offset: 1 })
+        ]))),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["transition"])('* => hidden', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["animate"])('100ms cubic-bezier(0, 0, 0.2, 1)', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_14__["style"])({ opacity: 0 }))),
+    ])
+};
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material/tooltip/tooltip.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Time in ms to throttle repositioning after scroll events.
+ * @type {?}
+ */
+const SCROLL_THROTTLE_MS = 20;
+/**
+ * CSS class that will be attached to the overlay panel.
+ * @type {?}
+ */
+const TOOLTIP_PANEL_CLASS = 'mat-tooltip-panel';
+/**
+ * Options used to bind passive event listeners.
+ * @type {?}
+ */
+const passiveListenerOptions = Object(_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["normalizePassiveListenerOptions"])({ passive: true });
+/**
+ * Time between the user putting the pointer on a tooltip
+ * trigger and the long press event being fired.
+ * @type {?}
+ */
+const LONGPRESS_DELAY = 500;
+/**
+ * Creates an error to be thrown if the user supplied an invalid tooltip position.
+ * \@docs-private
+ * @param {?} position
+ * @return {?}
+ */
+function getMatTooltipInvalidPositionError(position) {
+    return Error(`Tooltip position "${position}" is invalid.`);
+}
+/**
+ * Injection token that determines the scroll handling while a tooltip is visible.
+ * @type {?}
+ */
+const MAT_TOOLTIP_SCROLL_STRATEGY = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["InjectionToken"]('mat-tooltip-scroll-strategy');
+/**
+ * \@docs-private
+ * @param {?} overlay
+ * @return {?}
+ */
+function MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY(overlay) {
+    return (/**
+     * @return {?}
+     */
+    () => overlay.scrollStrategies.reposition({ scrollThrottle: SCROLL_THROTTLE_MS }));
+}
+/**
+ * \@docs-private
+ * @type {?}
+ */
+const MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER = {
+    provide: MAT_TOOLTIP_SCROLL_STRATEGY,
+    deps: [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]],
+    useFactory: MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY,
+};
+/**
+ * Default `matTooltip` options that can be overridden.
+ * @record
+ */
+function MatTooltipDefaultOptions() { }
+if (false) {}
+/**
+ * Injection token to be used to override the default options for `matTooltip`.
+ * @type {?}
+ */
+const MAT_TOOLTIP_DEFAULT_OPTIONS = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["InjectionToken"]('mat-tooltip-default-options', {
+    providedIn: 'root',
+    factory: MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY
+});
+/**
+ * \@docs-private
+ * @return {?}
+ */
+function MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY() {
+    return {
+        showDelay: 0,
+        hideDelay: 0,
+        touchendHideDelay: 1500,
+    };
+}
+/**
+ * Directive that attaches a material design tooltip to the host element. Animates the showing and
+ * hiding of a tooltip provided position (defaults to below the element).
+ *
+ * https://material.io/design/components/tooltips.html
+ */
+class MatTooltip {
+    /**
+     * @param {?} _overlay
+     * @param {?} _elementRef
+     * @param {?} _scrollDispatcher
+     * @param {?} _viewContainerRef
+     * @param {?} _ngZone
+     * @param {?} _platform
+     * @param {?} _ariaDescriber
+     * @param {?} _focusMonitor
+     * @param {?} scrollStrategy
+     * @param {?} _dir
+     * @param {?} _defaultOptions
+     * @param {?=} _hammerLoader
+     */
+    constructor(_overlay, _elementRef, _scrollDispatcher, _viewContainerRef, _ngZone, _platform, _ariaDescriber, _focusMonitor, scrollStrategy, _dir, _defaultOptions, 
+    /**
+     * @deprecated _hammerLoader parameter to be removed.
+     * @breaking-change 9.0.0
+     */
+    // Note that we need to give Angular something to inject here so it doesn't throw.
+    _hammerLoader) {
+        this._overlay = _overlay;
+        this._elementRef = _elementRef;
+        this._scrollDispatcher = _scrollDispatcher;
+        this._viewContainerRef = _viewContainerRef;
+        this._ngZone = _ngZone;
+        this._platform = _platform;
+        this._ariaDescriber = _ariaDescriber;
+        this._focusMonitor = _focusMonitor;
+        this._dir = _dir;
+        this._defaultOptions = _defaultOptions;
+        this._position = 'below';
+        this._disabled = false;
+        /**
+         * The default delay in ms before showing the tooltip after show is called
+         */
+        this.showDelay = this._defaultOptions.showDelay;
+        /**
+         * The default delay in ms before hiding the tooltip after hide is called
+         */
+        this.hideDelay = this._defaultOptions.hideDelay;
+        /**
+         * How touch gestures should be handled by the tooltip. On touch devices the tooltip directive
+         * uses a long press gesture to show and hide, however it can conflict with the native browser
+         * gestures. To work around the conflict, Angular Material disables native gestures on the
+         * trigger, but that might not be desirable on particular elements (e.g. inputs and draggable
+         * elements). The different values for this option configure the touch event handling as follows:
+         * - `auto` - Enables touch gestures for all elements, but tries to avoid conflicts with native
+         *   browser gestures on particular elements. In particular, it allows text selection on inputs
+         *   and textareas, and preserves the native browser dragging on elements marked as `draggable`.
+         * - `on` - Enables touch gestures for all elements and disables native
+         *   browser gestures with no exceptions.
+         * - `off` - Disables touch gestures. Note that this will prevent the tooltip from
+         *   showing on touch devices.
+         */
+        this.touchGestures = 'auto';
+        this._message = '';
+        /**
+         * Manually-bound passive event listeners.
+         */
+        this._passiveListeners = new Map();
+        /**
+         * Emits when the component is destroyed.
+         */
+        this._destroyed = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+        /**
+         * Handles the keydown events on the host element.
+         * Needs to be an arrow function so that we can use it in addEventListener.
+         */
+        this._handleKeydown = (/**
+         * @param {?} event
+         * @return {?}
+         */
+        (event) => {
+            if (this._isTooltipVisible() && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["ESCAPE"] && !Object(_angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_8__["hasModifierKey"])(event)) {
+                event.preventDefault();
+                event.stopPropagation();
+                this._ngZone.run((/**
+                 * @return {?}
+                 */
+                () => this.hide(0)));
+            }
+        });
+        this._scrollStrategy = scrollStrategy;
+        if (_defaultOptions) {
+            if (_defaultOptions.position) {
+                this.position = _defaultOptions.position;
+            }
+            if (_defaultOptions.touchGestures) {
+                this.touchGestures = _defaultOptions.touchGestures;
+            }
+        }
+        _focusMonitor.monitor(_elementRef)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed))
+            .subscribe((/**
+         * @param {?} origin
+         * @return {?}
+         */
+        origin => {
+            // Note that the focus monitor runs outside the Angular zone.
+            if (!origin) {
+                _ngZone.run((/**
+                 * @return {?}
+                 */
+                () => this.hide(0)));
+            }
+            else if (origin === 'keyboard') {
+                _ngZone.run((/**
+                 * @return {?}
+                 */
+                () => this.show()));
+            }
+        }));
+        _ngZone.runOutsideAngular((/**
+         * @return {?}
+         */
+        () => {
+            _elementRef.nativeElement.addEventListener('keydown', this._handleKeydown);
+        }));
+    }
+    /**
+     * Allows the user to define the position of the tooltip relative to the parent element
+     * @return {?}
+     */
+    get position() { return this._position; }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set position(value) {
+        if (value !== this._position) {
+            this._position = value;
+            if (this._overlayRef) {
+                this._updatePosition();
+                if (this._tooltipInstance) {
+                    (/** @type {?} */ (this._tooltipInstance)).show(0);
+                }
+                this._overlayRef.updatePosition();
+            }
+        }
+    }
+    /**
+     * Disables the display of the tooltip.
+     * @return {?}
+     */
+    get disabled() { return this._disabled; }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set disabled(value) {
+        this._disabled = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_7__["coerceBooleanProperty"])(value);
+        // If tooltip is disabled, hide immediately.
+        if (this._disabled) {
+            this.hide(0);
+        }
+    }
+    /**
+     * The message to be displayed in the tooltip
+     * @return {?}
+     */
+    get message() { return this._message; }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set message(value) {
+        this._ariaDescriber.removeDescription(this._elementRef.nativeElement, this._message);
+        // If the message is not a string (e.g. number), convert it to a string and trim it.
+        this._message = value != null ? `${value}`.trim() : '';
+        if (!this._message && this._isTooltipVisible()) {
+            this.hide(0);
+        }
+        else {
+            this._updateTooltipMessage();
+            this._ngZone.runOutsideAngular((/**
+             * @return {?}
+             */
+            () => {
+                // The `AriaDescriber` has some functionality that avoids adding a description if it's the
+                // same as the `aria-label` of an element, however we can't know whether the tooltip trigger
+                // has a data-bound `aria-label` or when it'll be set for the first time. We can avoid the
+                // issue by deferring the description by a tick so Angular has time to set the `aria-label`.
+                Promise.resolve().then((/**
+                 * @return {?}
+                 */
+                () => {
+                    this._ariaDescriber.describe(this._elementRef.nativeElement, this.message);
+                }));
+            }));
+        }
+    }
+    /**
+     * Classes to be passed to the tooltip. Supports the same syntax as `ngClass`.
+     * @return {?}
+     */
+    get tooltipClass() { return this._tooltipClass; }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set tooltipClass(value) {
+        this._tooltipClass = value;
+        if (this._tooltipInstance) {
+            this._setTooltipClass(this._tooltipClass);
+        }
+    }
+    /**
+     * Setup styling-specific things
+     * @return {?}
+     */
+    ngOnInit() {
+        // This needs to happen in `ngOnInit` so the initial values for all inputs have been set.
+        this._setupPointerEvents();
+    }
+    /**
+     * Dispose the tooltip when destroyed.
+     * @return {?}
+     */
+    ngOnDestroy() {
+        /** @type {?} */
+        const nativeElement = this._elementRef.nativeElement;
+        clearTimeout(this._touchstartTimeout);
+        if (this._overlayRef) {
+            this._overlayRef.dispose();
+            this._tooltipInstance = null;
+        }
+        // Clean up the event listeners set in the constructor
+        nativeElement.removeEventListener('keydown', this._handleKeydown);
+        this._passiveListeners.forEach((/**
+         * @param {?} listener
+         * @param {?} event
+         * @return {?}
+         */
+        (listener, event) => {
+            nativeElement.removeEventListener(event, listener, passiveListenerOptions);
+        }));
+        this._passiveListeners.clear();
+        this._destroyed.next();
+        this._destroyed.complete();
+        this._ariaDescriber.removeDescription(nativeElement, this.message);
+        this._focusMonitor.stopMonitoring(nativeElement);
+    }
+    /**
+     * Shows the tooltip after the delay in ms, defaults to tooltip-delay-show or 0ms if no input
+     * @param {?=} delay
+     * @return {?}
+     */
+    show(delay = this.showDelay) {
+        if (this.disabled || !this.message || (this._isTooltipVisible() &&
+            !(/** @type {?} */ (this._tooltipInstance))._showTimeoutId && !(/** @type {?} */ (this._tooltipInstance))._hideTimeoutId)) {
+            return;
+        }
+        /** @type {?} */
+        const overlayRef = this._createOverlay();
+        this._detach();
+        this._portal = this._portal || new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__["ComponentPortal"](TooltipComponent, this._viewContainerRef);
+        this._tooltipInstance = overlayRef.attach(this._portal).instance;
+        this._tooltipInstance.afterHidden()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed))
+            .subscribe((/**
+         * @return {?}
+         */
+        () => this._detach()));
+        this._setTooltipClass(this._tooltipClass);
+        this._updateTooltipMessage();
+        (/** @type {?} */ (this._tooltipInstance)).show(delay);
+    }
+    /**
+     * Hides the tooltip after the delay in ms, defaults to tooltip-delay-hide or 0ms if no input
+     * @param {?=} delay
+     * @return {?}
+     */
+    hide(delay = this.hideDelay) {
+        if (this._tooltipInstance) {
+            this._tooltipInstance.hide(delay);
+        }
+    }
+    /**
+     * Shows/hides the tooltip
+     * @return {?}
+     */
+    toggle() {
+        this._isTooltipVisible() ? this.hide() : this.show();
+    }
+    /**
+     * Returns true if the tooltip is currently visible to the user
+     * @return {?}
+     */
+    _isTooltipVisible() {
+        return !!this._tooltipInstance && this._tooltipInstance.isVisible();
+    }
+    /**
+     * Create the overlay config and position strategy
+     * @private
+     * @return {?}
+     */
+    _createOverlay() {
+        if (this._overlayRef) {
+            return this._overlayRef;
+        }
+        /** @type {?} */
+        const scrollableAncestors = this._scrollDispatcher.getAncestorScrollContainers(this._elementRef);
+        // Create connected position strategy that listens for scroll events to reposition.
+        /** @type {?} */
+        const strategy = this._overlay.position()
+            .flexibleConnectedTo(this._elementRef)
+            .withTransformOriginOn('.mat-tooltip')
+            .withFlexibleDimensions(false)
+            .withViewportMargin(8)
+            .withScrollableContainers(scrollableAncestors);
+        strategy.positionChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe((/**
+         * @param {?} change
+         * @return {?}
+         */
+        change => {
+            if (this._tooltipInstance) {
+                if (change.scrollableViewProperties.isOverlayClipped && this._tooltipInstance.isVisible()) {
+                    // After position changes occur and the overlay is clipped by
+                    // a parent scrollable then close the tooltip.
+                    this._ngZone.run((/**
+                     * @return {?}
+                     */
+                    () => this.hide(0)));
+                }
+            }
+        }));
+        this._overlayRef = this._overlay.create({
+            direction: this._dir,
+            positionStrategy: strategy,
+            panelClass: TOOLTIP_PANEL_CLASS,
+            scrollStrategy: this._scrollStrategy()
+        });
+        this._updatePosition();
+        this._overlayRef.detachments()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed))
+            .subscribe((/**
+         * @return {?}
+         */
+        () => this._detach()));
+        return this._overlayRef;
+    }
+    /**
+     * Detaches the currently-attached tooltip.
+     * @private
+     * @return {?}
+     */
+    _detach() {
+        if (this._overlayRef && this._overlayRef.hasAttached()) {
+            this._overlayRef.detach();
+        }
+        this._tooltipInstance = null;
+    }
+    /**
+     * Updates the position of the current tooltip.
+     * @private
+     * @return {?}
+     */
+    _updatePosition() {
+        /** @type {?} */
+        const position = (/** @type {?} */ ((/** @type {?} */ (this._overlayRef)).getConfig().positionStrategy));
+        /** @type {?} */
+        const origin = this._getOrigin();
+        /** @type {?} */
+        const overlay = this._getOverlayPosition();
+        position.withPositions([
+            Object.assign(Object.assign({}, origin.main), overlay.main),
+            Object.assign(Object.assign({}, origin.fallback), overlay.fallback)
+        ]);
+    }
+    /**
+     * Returns the origin position and a fallback position based on the user's position preference.
+     * The fallback position is the inverse of the origin (e.g. `'below' -> 'above'`).
+     * @return {?}
+     */
+    _getOrigin() {
+        /** @type {?} */
+        const isLtr = !this._dir || this._dir.value == 'ltr';
+        /** @type {?} */
+        const position = this.position;
+        /** @type {?} */
+        let originPosition;
+        if (position == 'above' || position == 'below') {
+            originPosition = { originX: 'center', originY: position == 'above' ? 'top' : 'bottom' };
+        }
+        else if (position == 'before' ||
+            (position == 'left' && isLtr) ||
+            (position == 'right' && !isLtr)) {
+            originPosition = { originX: 'start', originY: 'center' };
+        }
+        else if (position == 'after' ||
+            (position == 'right' && isLtr) ||
+            (position == 'left' && !isLtr)) {
+            originPosition = { originX: 'end', originY: 'center' };
+        }
+        else {
+            throw getMatTooltipInvalidPositionError(position);
+        }
+        const { x, y } = this._invertPosition(originPosition.originX, originPosition.originY);
+        return {
+            main: originPosition,
+            fallback: { originX: x, originY: y }
+        };
+    }
+    /**
+     * Returns the overlay position and a fallback position based on the user's preference
+     * @return {?}
+     */
+    _getOverlayPosition() {
+        /** @type {?} */
+        const isLtr = !this._dir || this._dir.value == 'ltr';
+        /** @type {?} */
+        const position = this.position;
+        /** @type {?} */
+        let overlayPosition;
+        if (position == 'above') {
+            overlayPosition = { overlayX: 'center', overlayY: 'bottom' };
+        }
+        else if (position == 'below') {
+            overlayPosition = { overlayX: 'center', overlayY: 'top' };
+        }
+        else if (position == 'before' ||
+            (position == 'left' && isLtr) ||
+            (position == 'right' && !isLtr)) {
+            overlayPosition = { overlayX: 'end', overlayY: 'center' };
+        }
+        else if (position == 'after' ||
+            (position == 'right' && isLtr) ||
+            (position == 'left' && !isLtr)) {
+            overlayPosition = { overlayX: 'start', overlayY: 'center' };
+        }
+        else {
+            throw getMatTooltipInvalidPositionError(position);
+        }
+        const { x, y } = this._invertPosition(overlayPosition.overlayX, overlayPosition.overlayY);
+        return {
+            main: overlayPosition,
+            fallback: { overlayX: x, overlayY: y }
+        };
+    }
+    /**
+     * Updates the tooltip message and repositions the overlay according to the new message length
+     * @private
+     * @return {?}
+     */
+    _updateTooltipMessage() {
+        // Must wait for the message to be painted to the tooltip so that the overlay can properly
+        // calculate the correct positioning based on the size of the text.
+        if (this._tooltipInstance) {
+            this._tooltipInstance.message = this.message;
+            this._tooltipInstance._markForCheck();
+            this._ngZone.onMicrotaskEmpty.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["takeUntil"])(this._destroyed)).subscribe((/**
+             * @return {?}
+             */
+            () => {
+                if (this._tooltipInstance) {
+                    (/** @type {?} */ (this._overlayRef)).updatePosition();
+                }
+            }));
+        }
+    }
+    /**
+     * Updates the tooltip class
+     * @private
+     * @param {?} tooltipClass
+     * @return {?}
+     */
+    _setTooltipClass(tooltipClass) {
+        if (this._tooltipInstance) {
+            this._tooltipInstance.tooltipClass = tooltipClass;
+            this._tooltipInstance._markForCheck();
+        }
+    }
+    /**
+     * Inverts an overlay position.
+     * @private
+     * @param {?} x
+     * @param {?} y
+     * @return {?}
+     */
+    _invertPosition(x, y) {
+        if (this.position === 'above' || this.position === 'below') {
+            if (y === 'top') {
+                y = 'bottom';
+            }
+            else if (y === 'bottom') {
+                y = 'top';
+            }
+        }
+        else {
+            if (x === 'end') {
+                x = 'start';
+            }
+            else if (x === 'start') {
+                x = 'end';
+            }
+        }
+        return { x, y };
+    }
+    /**
+     * Binds the pointer events to the tooltip trigger.
+     * @private
+     * @return {?}
+     */
+    _setupPointerEvents() {
+        // The mouse events shouldn't be bound on mobile devices, because they can prevent the
+        // first tap from firing its click event or can cause the tooltip to open for clicks.
+        if (!this._platform.IOS && !this._platform.ANDROID) {
+            this._passiveListeners
+                .set('mouseenter', (/**
+             * @return {?}
+             */
+            () => this.show()))
+                .set('mouseleave', (/**
+             * @return {?}
+             */
+            () => this.hide()));
+        }
+        else if (this.touchGestures !== 'off') {
+            this._disableNativeGesturesIfNecessary();
+            /** @type {?} */
+            const touchendListener = (/**
+             * @return {?}
+             */
+            () => {
+                clearTimeout(this._touchstartTimeout);
+                this.hide(this._defaultOptions.touchendHideDelay);
+            });
+            this._passiveListeners
+                .set('touchend', touchendListener)
+                .set('touchcancel', touchendListener)
+                .set('touchstart', (/**
+             * @return {?}
+             */
+            () => {
+                // Note that it's important that we don't `preventDefault` here,
+                // because it can prevent click events from firing on the element.
+                clearTimeout(this._touchstartTimeout);
+                this._touchstartTimeout = setTimeout((/**
+                 * @return {?}
+                 */
+                () => this.show()), LONGPRESS_DELAY);
+            }));
+        }
+        this._passiveListeners.forEach((/**
+         * @param {?} listener
+         * @param {?} event
+         * @return {?}
+         */
+        (listener, event) => {
+            this._elementRef.nativeElement.addEventListener(event, listener, passiveListenerOptions);
+        }));
+    }
+    /**
+     * Disables the native browser gestures, based on how the tooltip has been configured.
+     * @private
+     * @return {?}
+     */
+    _disableNativeGesturesIfNecessary() {
+        /** @type {?} */
+        const element = this._elementRef.nativeElement;
+        /** @type {?} */
+        const style = element.style;
+        /** @type {?} */
+        const gestures = this.touchGestures;
+        if (gestures !== 'off') {
+            // If gestures are set to `auto`, we don't disable text selection on inputs and
+            // textareas, because it prevents the user from typing into them on iOS Safari.
+            if (gestures === 'on' || (element.nodeName !== 'INPUT' && element.nodeName !== 'TEXTAREA')) {
+                style.userSelect = style.msUserSelect = style.webkitUserSelect =
+                    ((/** @type {?} */ (style))).MozUserSelect = 'none';
+            }
+            // If we have `auto` gestures and the element uses native HTML dragging,
+            // we don't set `-webkit-user-drag` because it prevents the native behavior.
+            if (gestures === 'on' || !element.draggable) {
+                ((/** @type {?} */ (style))).webkitUserDrag = 'none';
+            }
+            style.touchAction = 'none';
+            style.webkitTapHighlightColor = 'transparent';
+        }
+    }
+}
+MatTooltip.ɵfac = function MatTooltip_Factory(t) { return new (t || MatTooltip)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](MAT_TOOLTIP_SCROLL_STRATEGY), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], 8), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](MAT_TOOLTIP_DEFAULT_OPTIONS, 8), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"])); };
+MatTooltip.ɵdir = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineDirective"]({ type: MatTooltip, selectors: [["", "matTooltip", ""]], inputs: { showDelay: ["matTooltipShowDelay", "showDelay"], hideDelay: ["matTooltipHideDelay", "hideDelay"], touchGestures: ["matTooltipTouchGestures", "touchGestures"], position: ["matTooltipPosition", "position"], disabled: ["matTooltipDisabled", "disabled"], message: ["matTooltip", "message"], tooltipClass: ["matTooltipClass", "tooltipClass"] }, exportAs: ["matTooltip"] });
+/** @nocollapse */
+MatTooltip.ctorParameters = () => [
+    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"] },
+    { type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"] },
+    { type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"] },
+    { type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"] },
+    { type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [MAT_TOOLTIP_SCROLL_STRATEGY,] }] },
+    { type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [MAT_TOOLTIP_DEFAULT_OPTIONS,] }] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"],] }] }
+];
+MatTooltip.propDecorators = {
+    position: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipPosition',] }],
+    disabled: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipDisabled',] }],
+    showDelay: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipShowDelay',] }],
+    hideDelay: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipHideDelay',] }],
+    touchGestures: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipTouchGestures',] }],
+    message: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltip',] }],
+    tooltipClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"], args: ['matTooltipClass',] }]
+};
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](MatTooltip, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Directive"],
+        args: [{
+                selector: '[matTooltip]',
+                exportAs: 'matTooltip'
+            }]
+    }], function () { return [{ type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["Overlay"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"] }, { type: _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollDispatcher"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewContainerRef"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgZone"] }, { type: _angular_cdk_platform__WEBPACK_IMPORTED_MODULE_10__["Platform"] }, { type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["AriaDescriber"] }, { type: _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["FocusMonitor"] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+                args: [MAT_TOOLTIP_SCROLL_STRATEGY]
+            }] }, { type: _angular_cdk_bidi__WEBPACK_IMPORTED_MODULE_6__["Directionality"], decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+            }] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Optional"]
+            }, {
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+                args: [MAT_TOOLTIP_DEFAULT_OPTIONS]
+            }] }, { type: undefined, decorators: [{
+                type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Inject"],
+                args: [_angular_core__WEBPACK_IMPORTED_MODULE_3__["ElementRef"]]
+            }] }]; }, { showDelay: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipShowDelay']
+        }], hideDelay: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipHideDelay']
+        }], touchGestures: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipTouchGestures']
+        }], position: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipPosition']
+        }], disabled: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipDisabled']
+        }], message: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltip']
+        }], tooltipClass: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"],
+            args: ['matTooltipClass']
+        }] }); })();
+if (false) {}
+/**
+ * Internal component that wraps the tooltip's content.
+ * \@docs-private
+ */
+class TooltipComponent {
+    /**
+     * @param {?} _changeDetectorRef
+     * @param {?} _breakpointObserver
+     */
+    constructor(_changeDetectorRef, _breakpointObserver) {
+        this._changeDetectorRef = _changeDetectorRef;
+        this._breakpointObserver = _breakpointObserver;
+        /**
+         * Property watched by the animation framework to show or hide the tooltip
+         */
+        this._visibility = 'initial';
+        /**
+         * Whether interactions on the page should close the tooltip
+         */
+        this._closeOnInteraction = false;
+        /**
+         * Subject for notifying that the tooltip has been hidden from the view
+         */
+        this._onHide = new rxjs__WEBPACK_IMPORTED_MODULE_12__["Subject"]();
+        /**
+         * Stream that emits whether the user has a handset-sized display.
+         */
+        this._isHandset = this._breakpointObserver.observe(_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["Breakpoints"].Handset);
+    }
+    /**
+     * Shows the tooltip with an animation originating from the provided origin
+     * @param {?} delay Amount of milliseconds to the delay showing the tooltip.
+     * @return {?}
+     */
+    show(delay) {
+        // Cancel the delayed hide if it is scheduled
+        if (this._hideTimeoutId) {
+            clearTimeout(this._hideTimeoutId);
+            this._hideTimeoutId = null;
+        }
+        // Body interactions should cancel the tooltip if there is a delay in showing.
+        this._closeOnInteraction = true;
+        this._showTimeoutId = setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._visibility = 'visible';
+            this._showTimeoutId = null;
+            // Mark for check so if any parent component has set the
+            // ChangeDetectionStrategy to OnPush it will be checked anyways
+            this._markForCheck();
+        }), delay);
+    }
+    /**
+     * Begins the animation to hide the tooltip after the provided delay in ms.
+     * @param {?} delay Amount of milliseconds to delay showing the tooltip.
+     * @return {?}
+     */
+    hide(delay) {
+        // Cancel the delayed show if it is scheduled
+        if (this._showTimeoutId) {
+            clearTimeout(this._showTimeoutId);
+            this._showTimeoutId = null;
+        }
+        this._hideTimeoutId = setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._visibility = 'hidden';
+            this._hideTimeoutId = null;
+            // Mark for check so if any parent component has set the
+            // ChangeDetectionStrategy to OnPush it will be checked anyways
+            this._markForCheck();
+        }), delay);
+    }
+    /**
+     * Returns an observable that notifies when the tooltip has been hidden from view.
+     * @return {?}
+     */
+    afterHidden() {
+        return this._onHide.asObservable();
+    }
+    /**
+     * Whether the tooltip is being displayed.
+     * @return {?}
+     */
+    isVisible() {
+        return this._visibility === 'visible';
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this._onHide.complete();
+    }
+    /**
+     * @return {?}
+     */
+    _animationStart() {
+        this._closeOnInteraction = false;
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    _animationDone(event) {
+        /** @type {?} */
+        const toState = (/** @type {?} */ (event.toState));
+        if (toState === 'hidden' && !this.isVisible()) {
+            this._onHide.next();
+        }
+        if (toState === 'visible' || toState === 'hidden') {
+            this._closeOnInteraction = true;
+        }
+    }
+    /**
+     * Interactions on the HTML body should close the tooltip immediately as defined in the
+     * material design spec.
+     * https://material.io/design/components/tooltips.html#behavior
+     * @return {?}
+     */
+    _handleBodyInteraction() {
+        if (this._closeOnInteraction) {
+            this.hide(0);
+        }
+    }
+    /**
+     * Marks that the tooltip needs to be checked in the next change detection run.
+     * Mainly used for rendering the initial text before positioning a tooltip, which
+     * can be problematic in components with OnPush change detection.
+     * @return {?}
+     */
+    _markForCheck() {
+        this._changeDetectorRef.markForCheck();
+    }
+}
+TooltipComponent.ɵfac = function TooltipComponent_Factory(t) { return new (t || TooltipComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"])); };
+TooltipComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: TooltipComponent, selectors: [["mat-tooltip-component"]], hostAttrs: ["aria-hidden", "true"], hostVars: 2, hostBindings: function TooltipComponent_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("click", function TooltipComponent_click_HostBindingHandler() { return ctx._handleBodyInteraction(); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵresolveBody"]);
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵstyleProp"]("zoom", ctx._visibility === "visible" ? 1 : null);
+    } }, decls: 3, vars: 7, consts: [[1, "mat-tooltip", 3, "ngClass"]], template: function TooltipComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("@state.start", function TooltipComponent_Template_div_animation_state_start_0_listener() { return ctx._animationStart(); })("@state.done", function TooltipComponent_Template_div_animation_state_done_0_listener($event) { return ctx._animationDone($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipe"](1, "async");
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        var tmp_0_0 = null;
+        const currVal_0 = (tmp_0_0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵpipeBind1"](1, 5, ctx._isHandset)) == null ? null : tmp_0_0.matches;
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵclassProp"]("mat-tooltip-handset", currVal_0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngClass", ctx.tooltipClass)("@state", ctx._visibility);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtextInterpolate"](ctx.message);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgClass"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["AsyncPipe"]], styles: [".mat-tooltip-panel{pointer-events:none !important}.mat-tooltip{color:#fff;border-radius:4px;margin:14px;max-width:250px;padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:ellipsis}.cdk-high-contrast-active .mat-tooltip{outline:solid 1px}.mat-tooltip-handset{margin:24px;padding-left:16px;padding-right:16px}\n"], encapsulation: 2, data: { animation: [matTooltipAnimations.tooltipState] }, changeDetection: 0 });
+/** @nocollapse */
+TooltipComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"] },
+    { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"] }
+];
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](TooltipComponent, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"],
+        args: [{
+                selector: 'mat-tooltip-component',
+                template: "<div class=\"mat-tooltip\"\n     [ngClass]=\"tooltipClass\"\n     [class.mat-tooltip-handset]=\"(_isHandset | async)?.matches\"\n     [@state]=\"_visibility\"\n     (@state.start)=\"_animationStart()\"\n     (@state.done)=\"_animationDone($event)\">{{message}}</div>\n",
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewEncapsulation"].None,
+                changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectionStrategy"].OnPush,
+                animations: [matTooltipAnimations.tooltipState],
+                host: {
+                    // Forces the element to have a layout in IE and Edge. This fixes issues where the element
+                    // won't be rendered if the animations are disabled or there is no web animations polyfill.
+                    '[style.zoom]': '_visibility === "visible" ? 1 : null',
+                    '(body:click)': 'this._handleBodyInteraction()',
+                    'aria-hidden': 'true'
+                },
+                styles: [".mat-tooltip-panel{pointer-events:none !important}.mat-tooltip{color:#fff;border-radius:4px;margin:14px;max-width:250px;padding-left:8px;padding-right:8px;overflow:hidden;text-overflow:ellipsis}.cdk-high-contrast-active .mat-tooltip{outline:solid 1px}.mat-tooltip-handset{margin:24px;padding-left:16px;padding-right:16px}\n"]
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ChangeDetectorRef"] }, { type: _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_9__["BreakpointObserver"] }]; }, null); })();
+if (false) {}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material/tooltip/tooltip-module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class MatTooltipModule {
+}
+MatTooltipModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({ type: MatTooltipModule });
+MatTooltipModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({ factory: function MatTooltipModule_Factory(t) { return new (t || MatTooltipModule)(); }, providers: [MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER], imports: [[
+            _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"],
+            _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"],
+        ],
+        _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](MatTooltipModule, { declarations: function () { return [MatTooltip,
+        TooltipComponent]; }, imports: function () { return [_angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"],
+        _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+        _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"],
+        _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"]]; }, exports: function () { return [MatTooltip,
+        TooltipComponent,
+        _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]]; } }); })();
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵsetClassMetadata"](MatTooltipModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"],
+        args: [{
+                imports: [
+                    _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_1__["A11yModule"],
+                    _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                    _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_0__["OverlayModule"],
+                    _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"],
+                ],
+                exports: [MatTooltip, TooltipComponent, _angular_material_core__WEBPACK_IMPORTED_MODULE_4__["MatCommonModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["CdkScrollableModule"]],
+                declarations: [MatTooltip, TooltipComponent],
+                entryComponents: [TooltipComponent],
+                providers: [MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER]
+            }]
+    }], null, null); })();
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/material/tooltip/public-api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+
+//# sourceMappingURL=tooltip.js.map
 
 /***/ }),
 
@@ -58731,6 +60182,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/__ivy_ngcc__/fesm2015/ng2-charts.js");
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
+
 
 
 
@@ -58744,16 +60197,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function InflowCurrentCycleComponent_button_4_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function InflowCurrentCycleComponent_button_4_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onForecastClick("INFLOW"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "P2W");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function InflowCurrentCycleComponent_mat_icon_5_Template(rf, ctx) { if (rf & 1) {
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function InflowCurrentCycleComponent_mat_icon_5_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onExpandClick("INFLOW"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function InflowCurrentCycleComponent_mat_icon_5_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5); const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r4.onExpandClick("INFLOW"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "launch");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matTooltip", ctx_r1.tooltipText);
 } }
 class InflowCurrentCycleComponent {
     constructor(predictionService, sharedService, dialog) {
@@ -58766,6 +60224,7 @@ class InflowCurrentCycleComponent {
         this.chartLegend = true;
         this.chartPlugins = [];
         this.showP2W = false;
+        this.tooltipText = 'Expanded View Full Year';
     }
     ngOnInit() {
         this.chartType = 'line';
@@ -58794,8 +60253,14 @@ class InflowCurrentCycleComponent {
                 ];
             }
         });
-        this.sharedService.dateSelectObservable.subscribe(data => { this.showP2W = data; });
-        this.sharedService.weatherOpenForP2WObservable.subscribe(data => { this.showP2W = data; });
+        this.sharedService.dateSelectObservable.subscribe(data => {
+            this.showP2W = data;
+            this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+        });
+        this.sharedService.weatherOpenForP2WObservable.subscribe(data => {
+            this.showP2W = data;
+            this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+        });
     }
     onExpandClick(typeOfData) {
         const config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
@@ -58806,24 +60271,44 @@ class InflowCurrentCycleComponent {
         this.predictionService.getExpandedData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData)
             .subscribe((response) => {
             config.data = {
-                yearPredictedData: response.predictedfullYearData,
-                yearActualAmcsData: response.actual_amcsfullYearData,
+                expandedSection: true,
+                fullYear: !this.showP2W,
+                yearPredictedData: this.showP2W ? response.predictedfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+                    : response.predictedfullYearData,
+                yearActualAmcsData: this.showP2W ? response.actual_amcsfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+                    : response.actual_amcsfullYearData,
                 yearDetails: this.sharedService.selectedYear,
                 data: typeOfData
             };
             this.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
         });
     }
+    onForecastClick(typeOfData) {
+        const config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
+        config.autoFocus = true;
+        config.disableClose = true;
+        config.hasBackdrop = true;
+        this.predictionService.getForecastData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData, this.sharedService.datesArray[this.sharedService.dailyStatsLastValue])
+            .subscribe((response) => {
+            config.data = {
+                expandedSection: false,
+                data: typeOfData,
+                datesArray: response.datesArray,
+                forecastDataArray: response.dataArray
+            };
+            this.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+        });
+    }
 }
 InflowCurrentCycleComponent.ɵfac = function InflowCurrentCycleComponent_Factory(t) { return new (t || InflowCurrentCycleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_prediction_service__WEBPACK_IMPORTED_MODULE_3__["PredictionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialog"])); };
-InflowCurrentCycleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: InflowCurrentCycleComponent, selectors: [["app-inflow-current-cycle"]], inputs: { showExpand: "showExpand" }, decls: 9, vars: 9, consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary"], [1, "launch-class", 2, "margin-top", "5px", 3, "click"]], template: function InflowCurrentCycleComponent_Template(rf, ctx) { if (rf & 1) {
+InflowCurrentCycleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: InflowCurrentCycleComponent, selectors: [["app-inflow-current-cycle"]], inputs: { showExpand: "showExpand" }, decls: 9, vars: 9, consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "matTooltip", "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary", 3, "click"], [1, "launch-class", 2, "margin-top", "5px", 3, "matTooltip", "click"]], template: function InflowCurrentCycleComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Inflow for Current Cycle");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, InflowCurrentCycleComponent_button_4_Template, 2, 0, "button", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, InflowCurrentCycleComponent_mat_icon_5_Template, 2, 0, "mat-icon", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, InflowCurrentCycleComponent_mat_icon_5_Template, 2, 1, "mat-icon", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "mat-card-content");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
@@ -58838,7 +60323,7 @@ InflowCurrentCycleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showExpand);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
-    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9pbmZsb3ctY3VycmVudC1jeWNsZS9pbmZsb3ctY3VycmVudC1jeWNsZS5jb21wb25lbnQuY3NzIn0= */"] });
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltip"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9pbmZsb3ctY3VycmVudC1jeWNsZS9pbmZsb3ctY3VycmVudC1jeWNsZS5jb21wb25lbnQuY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](InflowCurrentCycleComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -59059,6 +60544,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/__ivy_ngcc__/fesm2015/ng2-charts.js");
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
+
 
 
 
@@ -59072,16 +60559,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function OutflowComponent_button_4_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function OutflowComponent_button_4_Template_button_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onForecastClick("OUTFLOW"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "P2W");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function OutflowComponent_mat_icon_5_Template(rf, ctx) { if (rf & 1) {
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-icon", 7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function OutflowComponent_mat_icon_5_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onExpandClick("ACTUAL OUTFLOW"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function OutflowComponent_mat_icon_5_Template_mat_icon_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5); const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r4.onExpandClick("ACTUAL OUTFLOW"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "launch");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matTooltip", ctx_r1.tooltipText);
 } }
 class OutflowComponent {
     constructor(predictionService, sharedService, dialog) {
@@ -59094,6 +60586,7 @@ class OutflowComponent {
         this.chartLegend = true;
         this.chartPlugins = [];
         this.showP2W = false;
+        this.tooltipText = 'Expanded View Full Year';
     }
     ngOnInit() {
         this.chartType = 'line';
@@ -59122,8 +60615,14 @@ class OutflowComponent {
                 ];
             }
         });
-        this.sharedService.dateSelectObservable.subscribe(data => { this.showP2W = data; });
-        this.sharedService.weatherOpenForP2WObservable.subscribe(data => { this.showP2W = data; });
+        this.sharedService.dateSelectObservable.subscribe(data => {
+            this.showP2W = data;
+            this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+        });
+        this.sharedService.weatherOpenForP2WObservable.subscribe(data => {
+            this.showP2W = data;
+            this.tooltipText = this.showP2W ? 'Expanded View Upto Date' : 'Expanded View Full Year';
+        });
     }
     onExpandClick(typeOfData) {
         const config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
@@ -59134,8 +60633,12 @@ class OutflowComponent {
         this.predictionService.getExpandedData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData)
             .subscribe((response) => {
             config.data = {
-                yearPredictedData: response.predictedfullYearData,
-                yearActualAmcsData: response.actual_amcsfullYearData,
+                expandedSection: true,
+                fullYear: !this.showP2W,
+                yearPredictedData: this.showP2W ? response.predictedfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+                    : response.predictedfullYearData,
+                yearActualAmcsData: this.showP2W ? response.actual_amcsfullYearData.slice(0, this.sharedService.dailyStatsLastValue)
+                    : response.actual_amcsfullYearData,
                 outflowfullYearData: response.outflowfullYearData,
                 yearDetails: this.sharedService.selectedYear,
                 data: typeOfData
@@ -59143,16 +60646,32 @@ class OutflowComponent {
             this.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
         });
     }
+    onForecastClick(typeOfData) {
+        const config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogConfig"]();
+        config.autoFocus = true;
+        config.disableClose = true;
+        config.hasBackdrop = true;
+        this.predictionService.getForecastData(this.sharedService.selectedRegion, this.sharedService.selectedYear.toString(), typeOfData, this.sharedService.datesArray[this.sharedService.dailyStatsLastValue])
+            .subscribe((response) => {
+            config.data = {
+                expandedSection: false,
+                data: typeOfData,
+                datesArray: response.datesArray,
+                forecastDataArray: response.dataArray
+            };
+            this.dialog.open(_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_2__["ViewExpandedDataComponent"], config);
+        });
+    }
 }
 OutflowComponent.ɵfac = function OutflowComponent_Factory(t) { return new (t || OutflowComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_prediction_service__WEBPACK_IMPORTED_MODULE_3__["PredictionService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialog"])); };
-OutflowComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OutflowComponent, selectors: [["app-outflow"]], inputs: { showExpand: "showExpand" }, decls: 9, vars: 9, consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary"], [1, "launch-class", 2, "margin-top", "5px", 3, "click"]], template: function OutflowComponent_Template(rf, ctx) { if (rf & 1) {
+OutflowComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OutflowComponent, selectors: [["app-outflow"]], inputs: { showExpand: "showExpand" }, decls: 9, vars: 9, consts: [[1, "graph-card-class"], [1, "center-class"], ["mat-button", "", "color", "primary", 3, "click", 4, "ngIf"], ["style", "margin-top: 5px;", "class", "launch-class", 3, "matTooltip", "click", 4, "ngIf"], [1, "chart-wrapper"], ["baseChart", "", 2, "height", "300px !important", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["mat-button", "", "color", "primary", 3, "click"], [1, "launch-class", 2, "margin-top", "5px", 3, "matTooltip", "click"]], template: function OutflowComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-card", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-card-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "span", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Outflow Current Cycle");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, OutflowComponent_button_4_Template, 2, 0, "button", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, OutflowComponent_mat_icon_5_Template, 2, 0, "mat-icon", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, OutflowComponent_mat_icon_5_Template, 2, 1, "mat-icon", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "mat-card-content");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
@@ -59167,7 +60686,7 @@ OutflowComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.showExpand);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
-    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9vdXRmbG93L291dGZsb3cuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardHeader"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_5__["MatCardContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_7__["BaseChartDirective"], _angular_material_button__WEBPACK_IMPORTED_MODULE_8__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIcon"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_10__["MatTooltip"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ByZWRpY3Rpb24vY29tcG9uZW50cy9vdXRmbG93L291dGZsb3cuY29tcG9uZW50LmNzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](OutflowComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -59347,14 +60866,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewExpandedDataComponent", function() { return ViewExpandedDataComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var ng2_charts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng2-charts */ "./node_modules/ng2-charts/__ivy_ngcc__/fesm2015/ng2-charts.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/icon.js");
 
 
 
 
 
 
+
+function ViewExpandedDataComponent_h2_0_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_h2_0_Template_mat_icon_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.closeDialog(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"](" ", ctx_r0.headerData, " Expanded ", ctx_r0.dialogData.fullYear ? "Full Year" : "Upto Date", " View ");
+} }
+function ViewExpandedDataComponent_h2_1_Template(rf, ctx) { if (rf & 1) {
+    const _r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_h2_1_Template_mat_icon_click_2_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r5); const ctx_r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r4.closeDialog(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx_r1.headerData, " View ");
+} }
 class ViewExpandedDataComponent {
     constructor(dialogData, dialogRef) {
         this.dialogData = dialogData;
@@ -59366,83 +60915,127 @@ class ViewExpandedDataComponent {
         this.chartPlugins = [];
     }
     ngOnInit() {
-        if (this.dialogData.data === 'INFLOW') {
-            this.headerData = 'Inflow Current Cycle';
-            this.actualAmcsDataSetLabel = 'Actual Inflow Current Cycle';
-            this.predictedDataSetLabel = 'Predicted Inflow';
-        }
-        else {
-            this.headerData = 'Outflow Current Cycle';
-            this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
-            this.predictedDataSetLabel = 'Actual Outflow';
-            this.outflowArrayDataSetLabel = 'Outflow';
-        }
-        const years = this.dialogData.yearDetails.split(' - ');
-        this.labelDetailsData = 'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')';
         this.chartType = 'line';
         this.chartLabels = this.getChartLabels();
-        this.chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                xAxes: [
+        if (this.dialogData.expandedSection) {
+            if (this.dialogData.data === 'INFLOW') {
+                this.headerData = 'Inflow Current Cycle';
+                this.actualAmcsDataSetLabel = 'Actual Inflow Current Cycle';
+                this.predictedDataSetLabel = 'Predicted Inflow';
+                this.chartData = [
+                    { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel, lineTension: 0.1 },
+                    { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel, lineTension: 0.1 }
+                ];
+                this.chartColors = [
                     {
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: this.labelDetailsData,
-                            fontSize: 20
-                        }
-                    }
-                ],
-                yAxes: [
+                        borderColor: 'black',
+                        backgroundColor: 'rgba(0,0,255,0.28)',
+                    },
                     {
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Quantity (in cubic metres)',
-                            fontSize: 20
-                        }
+                        borderColor: 'black',
+                        backgroundColor: 'rgba(0,255,0,0.28)',
                     }
-                ],
+                ];
             }
-        };
-        if (this.dialogData.data === 'INFLOW') {
-            this.chartData = [
-                { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
-                { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel }
-            ];
-            this.chartColors = [
-                {
-                    borderColor: 'black',
-                    backgroundColor: 'rgba(0,0,255,0.28)',
-                },
-                {
-                    borderColor: 'black',
-                    backgroundColor: 'rgba(0,255,0,0.28)',
+            else {
+                this.headerData = 'Outflow Current Cycle';
+                this.actualAmcsDataSetLabel = 'AMCS Outflow Current Cycle';
+                this.predictedDataSetLabel = 'Actual Outflow';
+                this.outflowArrayDataSetLabel = 'Outflow';
+                this.chartData = [
+                    { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel, lineTension: 0.1 },
+                    { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel, lineTension: 0.1 },
+                    { data: this.dialogData.outflowfullYearData, label: this.outflowArrayDataSetLabel, lineTension: 0.1, hidden: true }
+                ];
+                this.chartColors = [
+                    {
+                        borderColor: 'black',
+                        backgroundColor: 'rgba(0,0,255,0.28)',
+                    },
+                    {
+                        borderColor: 'black',
+                        backgroundColor: 'rgba(0,255,0,0.28)',
+                    },
+                    {
+                        borderColor: 'black',
+                        backgroundColor: 'rgba(255,69,0,0.5)',
+                    }
+                ];
+            }
+            const years = this.dialogData.yearDetails.split(' - ');
+            this.labelDetailsData = this.dialogData.fullYear ?
+                'Days (June ' + years[0] + ' - ' + 'May ' + years[1] + ')' : 'Days starting from June 01,' + years[0];
+            this.chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    xAxes: [
+                        {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: this.labelDetailsData,
+                                fontSize: 20
+                            }
+                        }
+                    ],
+                    yAxes: [
+                        {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Quantity (in cubic metres)',
+                                fontSize: 20
+                            }
+                        }
+                    ],
                 }
-            ];
+            };
         }
         else {
+            if (this.dialogData.data === 'INFLOW') {
+                this.headerData = 'Two Weeks Predicted Inflow';
+                this.forecastDataSetLabel = 'Predicted Inflow';
+            }
+            else {
+                this.headerData = 'Two Weeks Predicted Outflow';
+                this.forecastDataSetLabel = 'Predicted Outflow';
+            }
             this.chartData = [
-                { data: this.dialogData.yearPredictedData, label: this.predictedDataSetLabel },
-                { data: this.dialogData.yearActualAmcsData, label: this.actualAmcsDataSetLabel },
-                { data: this.dialogData.outflowfullYearData, label: this.outflowArrayDataSetLabel, hidden: true }
+                { data: this.dialogData.forecastDataArray, label: this.forecastDataSetLabel, lineTension: 0.1 },
             ];
             this.chartColors = [
                 {
                     borderColor: 'black',
                     backgroundColor: 'rgba(0,0,255,0.28)',
-                },
-                {
-                    borderColor: 'black',
-                    backgroundColor: 'rgba(0,255,0,0.28)',
-                },
-                {
-                    borderColor: 'black',
-                    backgroundColor: 'rgba(255,69,0,0.5)',
                 }
             ];
+            this.chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    xAxes: [
+                        {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Dates next two weeks',
+                                fontSize: 20
+                            }
+                        }
+                    ],
+                    yAxes: [
+                        {
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Quantity (in cubic metres)',
+                                fontSize: 20
+                            }
+                        }
+                    ],
+                }
+            };
         }
     }
     closeDialog() {
@@ -59450,39 +61043,47 @@ class ViewExpandedDataComponent {
     }
     getChartLabels() {
         const returnArray = [];
-        for (let i = 1; i <= this.dialogData.yearPredictedData.length; i++) {
-            returnArray.push(i.toString());
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
+            'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        if (this.dialogData.expandedSection) {
+            for (let i = 1; i <= this.dialogData.yearPredictedData.length; i++) {
+                returnArray.push(i.toString());
+            }
+        }
+        else {
+            this.dialogData.datesArray.forEach(element => {
+                const dateValues = element.split('-');
+                const dateElement = new Date(+dateValues[0], +dateValues[1] - 1, +dateValues[2]);
+                returnArray.push(dateElement.getDate().toString() + ' ' + months[dateElement.getMonth()]
+                    + ', ' + dateElement.getFullYear().toString());
+            });
         }
         return returnArray;
     }
 }
 ViewExpandedDataComponent.ɵfac = function ViewExpandedDataComponent_Factory(t) { return new (t || ViewExpandedDataComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"])); };
-ViewExpandedDataComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ViewExpandedDataComponent, selectors: [["app-view-expanded-data"]], decls: 12, vars: 8, consts: [["mat-dialog-title", ""], [2, "float", "right", "cursor", "pointer", 3, "click"], ["mat-dialog-content", ""], [1, "chart-wrapper"], ["baseChart", "", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], [1, "text-center"]], template: function ViewExpandedDataComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ViewExpandedDataComponent_Template_mat_icon_click_2_listener() { return ctx.closeDialog(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "clear");
+ViewExpandedDataComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ViewExpandedDataComponent, selectors: [["app-view-expanded-data"]], decls: 10, vars: 9, consts: [["mat-dialog-title", "", 4, "ngIf"], ["mat-dialog-content", ""], [1, "chart-wrapper"], ["baseChart", "", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], [1, "text-center"], ["mat-dialog-title", ""], [2, "float", "right", "cursor", "pointer", 3, "click"]], template: function ViewExpandedDataComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ViewExpandedDataComponent_h2_0_Template, 4, 2, "h2", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ViewExpandedDataComponent_h2_1_Template, 4, 1, "h2", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "hr");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "canvas", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "hr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "canvas", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "hr");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "The_Atlantians");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "hr");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "span");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "The_Atlantians");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.dialogData.expandedSection);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx.headerData, " Expanded Full Year View ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.dialogData.expandedSection);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("datasets", ctx.chartData)("labels", ctx.chartLabels)("options", ctx.chartOptions)("colors", ctx.chartColors)("legend", ctx.chartLegend)("chartType", ctx.chartType)("plugins", ctx.chartPlugins);
-    } }, directives: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_2__["MatIcon"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_3__["BaseChartDirective"]], styles: ["canvas[_ngcontent-%COMP%] {\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJlZGljdGlvbi9jb21wb25lbnRzL3ZpZXctZXhwYW5kZWQtZGF0YS92aWV3LWV4cGFuZGVkLWRhdGEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtJQUN0Qix1QkFBdUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9wcmVkaWN0aW9uL2NvbXBvbmVudHMvdmlldy1leHBhbmRlZC1kYXRhL3ZpZXctZXhwYW5kZWQtZGF0YS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiY2FudmFzIHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcclxufSJdfQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogContent"], ng2_charts__WEBPACK_IMPORTED_MODULE_3__["BaseChartDirective"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogTitle"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_4__["MatIcon"]], styles: ["canvas[_ngcontent-%COMP%] {\r\n    width: 100% !important;\r\n    height: 100% !important;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJlZGljdGlvbi9jb21wb25lbnRzL3ZpZXctZXhwYW5kZWQtZGF0YS92aWV3LWV4cGFuZGVkLWRhdGEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHNCQUFzQjtJQUN0Qix1QkFBdUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9wcmVkaWN0aW9uL2NvbXBvbmVudHMvdmlldy1leHBhbmRlZC1kYXRhL3ZpZXctZXhwYW5kZWQtZGF0YS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiY2FudmFzIHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwMCUgIWltcG9ydGFudDtcclxufSJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ViewExpandedDataComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -59925,6 +61526,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/button.js");
 /* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/stepper.js");
 /* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/progress-bar.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/tooltip.js");
+
 
 
 
@@ -59967,7 +61570,8 @@ PredictionModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
             _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"],
             _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"],
-            _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]
+            _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"],
+            _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PredictionModule, { declarations: [_components_prediction_base_prediction_base_component__WEBPACK_IMPORTED_MODULE_3__["PredictionBaseComponent"],
         _components_inflow_current_cycle_inflow_current_cycle_component__WEBPACK_IMPORTED_MODULE_4__["InflowCurrentCycleComponent"],
@@ -59987,7 +61591,8 @@ PredictionModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
         _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"],
         _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"],
         _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"],
-        _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]] }); })();
+        _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"],
+        _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](PredictionModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
         args: [{
@@ -60015,7 +61620,8 @@ PredictionModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineI
                     _angular_material_chips__WEBPACK_IMPORTED_MODULE_19__["MatChipsModule"],
                     _angular_material_button__WEBPACK_IMPORTED_MODULE_20__["MatButtonModule"],
                     _angular_material_stepper__WEBPACK_IMPORTED_MODULE_21__["MatStepperModule"],
-                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"]
+                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_22__["MatProgressBarModule"],
+                    _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_23__["MatTooltipModule"]
                 ],
                 entryComponents: [_components_view_expanded_data_view_expanded_data_component__WEBPACK_IMPORTED_MODULE_11__["ViewExpandedDataComponent"]]
             }]
@@ -60067,6 +61673,14 @@ class PredictionService {
         urlParams = urlParams.set('years', year);
         urlParams = urlParams.set('typeOfData', typeOfData);
         return this.httpClient.get(this.getServerUrl() + '/getExpandedData', { params: urlParams });
+    }
+    getForecastData(region, year, typeOfData, forecastDate) {
+        let urlParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]();
+        urlParams = urlParams.set('region', region);
+        urlParams = urlParams.set('years', year);
+        urlParams = urlParams.set('typeOfData', typeOfData);
+        urlParams = urlParams.set('forecastDate', forecastDate);
+        return this.httpClient.get(this.getServerUrl() + '/getForecastData', { params: urlParams });
     }
     getTrendsData(region, year) {
         let urlParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]();

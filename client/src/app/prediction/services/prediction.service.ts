@@ -36,6 +36,15 @@ export class PredictionService {
     return this.httpClient.get(this.getServerUrl() + '/getExpandedData', {params: urlParams});
   }
 
+  getForecastData(region: string, year: string, typeOfData: string, forecastDate: string) {
+    let urlParams = new HttpParams();
+    urlParams = urlParams.set('region', region);
+    urlParams = urlParams.set('years', year);
+    urlParams = urlParams.set('typeOfData', typeOfData);
+    urlParams = urlParams.set('forecastDate', forecastDate);
+    return this.httpClient.get(this.getServerUrl() + '/getForecastData', {params: urlParams});
+  }
+
   getTrendsData(region: string, year: string) {
     let urlParams = new HttpParams();
     urlParams = urlParams.set('region', region);
