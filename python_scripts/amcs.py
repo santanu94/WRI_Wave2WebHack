@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 class AMCS:
     def __init__(self, reservoir_obj, year) -> None:
         self.reservoir_obj = reservoir_obj
+        self.start_year = year
         # self.expected_monsoon_inflow_tmc = 342
         # self.expected_non_monsoon_inflow_tmc = 12
 
@@ -254,7 +255,8 @@ class AMCS:
     
     
     def run(self, loop_date):
-        curr_cycle_prediction_df = self.reservoir_obj.prediction_df[pd.to_datetime(self.reservoir_obj.prediction_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, self.cycle_end_date.month, self.cycle_end_date.day)]
+        curr_cycle_prediction_df = self.reservoir_obj.prediction_df[pd.to_datetime(self.reservoir_obj.prediction_df['date']) > pd.Timestamp(self.start_year, 5, 31)]
+
         curr_cycle_completed_month_date = curr_cycle_prediction_df['date'].str[5:]
         cum_normal_inflow = self.normal_inflow_outflow_df[self.normal_inflow_outflow_df['MONTH_DATE'].isin(curr_cycle_completed_month_date)]['INFLOW_CUSECS'].sum()
         # cum_normal_inflow = 0
@@ -272,6 +274,8 @@ class AMCS:
             return
 
         # self.reservoir_obj.forecast(loop_date)
+        # forecast_start_date = loop_date# + datetime.timedelta(days=1)
+        # self.reservoir_obj.forecast(forecast_start_date, max_forecast_date=forecast_start_date + datetime.timedelta(days=15))
         self.__drought_prediction(cum_actual_inflow, cum_normal_inflow)
         # print(loop_date, self.drought)
         storage_profile = self._get_updated_storage_profile()
@@ -284,21 +288,27 @@ class AMCS:
             # print(loop_date, 8.64e-05 * expected_monsoon_inflow_based_on_current_weather, 8.64e-05 * expected_monsoon_outflow_based_on_current_weather)
 
             expected_outflow_difference = amcs_target_monsoon_outflow - expected_monsoon_outflow_based_on_current_weather
+            # diff_tmc = 8.64e-05 * expected_outflow_difference
+            # target_otf = 8.64e-05 * amcs_target_monsoon_outflow
+            # exp_otf = 8.64e-05 * expected_monsoon_outflow_based_on_current_weather
             num_days_to_checkpoint = int(str(datetime.date(loop_date.year, 12, 31) - loop_date).split()[0])
-            normalizing_factor = expected_outflow_difference / num_days_to_checkpoint
 
-            self.reservoir_obj.set_normalizing_factor(normalizing_factor)
         else:
             expected_non_monsoon_inflow_based_on_current_weather, expected_non_monsoon_outflow_based_on_current_weather = self.reservoir_obj.get_expected_non_monsoon_inflow_outflow()
             amcs_target_non_monsoon_outflow = expected_non_monsoon_inflow_based_on_current_weather + 11574.074 * (storage_profile['monsoon_end_storage_target'] - storage_profile['cycle_end_storage_target'])
             # amcs_target_non_monsoon_outflow = 11574.074 * amcs_target_non_monsoon_outflow_tmc
             # print(loop_date, 8.64e-05 * expected_non_monsoon_inflow_based_on_current_weather, 8.64e-05 * expected_non_monsoon_outflow_based_on_current_weather)
 
-            expected_outflow_difference = amcs_target_non_monsoon_outflow - expected_non_monsoon_outflow_based_on_current_weather
-            num_days_to_checkpoint = int(str(datetime.date(loop_date.year+1, 5, 31) - loop_date).split()[0])
-            normalizing_factor = expected_outflow_difference / num_days_to_checkpoint
+            
 
-            self.reservoir_obj.set_normalizing_factor(normalizing_factor)
+            expected_outflow_difference = amcs_target_non_monsoon_outflow - expected_non_monsoon_outflow_based_on_current_weather
+            # diff_tmc = 8.64e-05 * expected_outflow_difference
+            # target_otf = 8.64e-05 * amcs_target_non_monsoon_outflow
+            # exp_otf = 8.64e-05 * expected_non_monsoon_outflow_based_on_current_weather
+            num_days_to_checkpoint = int(str(datetime.date(loop_date.year+1, 5, 31) - loop_date).split()[0])
+        
+        normalizing_factor = expected_outflow_difference / num_days_to_checkpoint
+        self.reservoir_obj.set_normalizing_factor(normalizing_factor)
         
     # def run(self, storage):
     #     amcs_outflow = {}

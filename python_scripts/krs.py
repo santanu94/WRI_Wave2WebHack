@@ -116,8 +116,9 @@ class KRS:
             self.prediction_df['OUTFLOW'] = np.nan
             self.prediction_df['FORECAST'] = np.nan
             self.prediction_df['DURATION'] = np.nan
-            # self.prediction_df['EXPECTED MONSOON INFLOW'] = np.nan
-            # self.prediction_df['EXPECTED NON MONSOON INFLOW'] = np.nan
+            self.prediction_df['EXPECTED MONSOON INFLOW'] = np.nan
+            self.prediction_df['EXPECTED MONSOON OUTFLOW'] = np.nan
+            self.prediction_df['EXPECTED NON MONSOON INFLOW'] = np.nan
         # elif year == 2012:
         #     self.prediction_df = self.inflow_df[self.inflow_df['FLOW_DATE'].isin(prev_ddmmyyyy_list)]
         #     self.prediction_df['date'] = self.prediction_df['FLOW_DATE']
@@ -375,6 +376,7 @@ class KRS:
         while date <= self.cycle_end_date:
             # print(date, target_end_date)
             inflow, outflow = self.__predict(date, max_forecast_date, forecast_df)
+            outflow = outflow + self.normalizing_factor
 
             # index = self.prediction_df[self.prediction_df['date'].astype(str) == str(date)].index
             # forecast[str(date)] = {'INFLOW': inflow, 'OUTFLOW': outflow}
@@ -431,22 +433,22 @@ class KRS:
 
         #expected inflow
         self.expected_monsoon_inflow = forecast_df[(pd.to_datetime(forecast_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(forecast_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['INFLOW'].sum() + \
-            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(self.prediction_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['INFLOW'].sum()
+            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(self.prediction_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['ACTUAL INFLOW'].sum()
         self.expected_non_monsoon_inflow = forecast_df[(pd.to_datetime(forecast_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(forecast_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['INFLOW'].sum() + \
-            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(self.prediction_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['INFLOW'].sum()
+            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(self.prediction_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['ACTUAL INFLOW'].sum()
         
 
         # expected outflow
         self.expected_monsoon_outflow = forecast_df[(pd.to_datetime(forecast_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(forecast_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['OUTFLOW'].sum() + \
-            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(self.prediction_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['OUTFLOW'].sum()
+            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year-1, 12, 31)) & (pd.to_datetime(self.prediction_df['date']) > pd.Timestamp(self.cycle_end_date.year-1, 5, 31))]['AMCS OUTFLOW'].sum()
         self.expected_non_monsoon_outflow = forecast_df[(pd.to_datetime(forecast_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(forecast_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['OUTFLOW'].sum() + \
-            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(self.prediction_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['OUTFLOW'].sum()
+            self.prediction_df[(pd.to_datetime(self.prediction_df['date']) <= pd.Timestamp(self.cycle_end_date.year, 5, 31)) & (pd.to_datetime(self.prediction_df['date']) >= pd.Timestamp(self.cycle_end_date.year, 1, 1))]['AMCS OUTFLOW'].sum()
         # forecast_df['date'] = forecast_df['date'].astype(str)
         forecast_df.set_index('date', inplace=True)
         return forecast_df.to_dict()
 
-    def set_normalizing_factor(self, normalizing_factor):
-        self.normalizing_factor = normalizing_factor
+    def set_normalizing_factor(self, new_normalizing_factor):
+        self.normalizing_factor += new_normalizing_factor
     
     def __get_reservoir_duration(self, loop_date, storage, index):
         ndays = 0
@@ -512,17 +514,17 @@ class KRS:
 
         #predict
         result_dict = {}
-        inflow, outflow = self.__predict(loop_date, max_forecast_date=loop_date + datetime.timedelta(days=15))
+        pred_inflow, pred_outflow = self.__predict(loop_date, max_forecast_date=loop_date + datetime.timedelta(days=15))
         
         # for debugging
-        if np.isnan(outflow):
+        if np.isnan(pred_outflow):
             print(loop_date)
 
         actual_data = self.inflow_df[(self.inflow_df['YEAR'] == loop_date.year) &
                                      (self.inflow_df['MONTH'] == loop_date.month) &
                                      (self.inflow_df['DATE'] == loop_date.day)]
         actual_inflow = actual_data['INFLOW_CUSECS'].values[0]# if actual_data['DAY'] == np.nan else inflow
-        storage, non_amcs_outflow = self.__get_storage(actual_inflow, outflow, self.curr_non_amcs_storage)
+        storage, non_amcs_outflow = self.__get_storage(actual_inflow, pred_outflow, self.curr_non_amcs_storage)
         self.curr_non_amcs_storage = round(storage, 2)
         # print(actual_data['DAY'].values[0], np.isnan(actual_data['DAY'].values[0]), np.nan)#, actual_data['DAY'].isna())
         actual_outflow = actual_data['OUTFLOW_CUECS'].values[0] if not np.isnan(actual_data['DAY'].values[0]) else non_amcs_outflow
@@ -546,11 +548,11 @@ class KRS:
         self.prediction_df.loc[index, 'ACTUAL OUTFLOW'] = actual_outflow
         self.prediction_df.loc[index, 'NORMAL OUTFLOW'] = normal_outflow
         self.prediction_df.loc[index, 'NORMAL INFLOW'] = normal_inflow
-        self.prediction_df.loc[index, 'INFLOW'] = inflow
+        self.prediction_df.loc[index, 'INFLOW'] = pred_inflow
         self.prediction_df.loc[index, 'OUTFLOW'] = non_amcs_outflow
         self.prediction_df.loc[index, 'STORAGE'] = self.curr_non_amcs_storage
         # get amcs outflow
-        amcs_outflow = max(outflow + self.normalizing_factor, 0)
+        amcs_outflow = max(pred_outflow + self.normalizing_factor, 0)
         storage, amcs_outflow = self.__get_storage(actual_inflow, amcs_outflow, self.curr_amcs_storage)
         self.prediction_df.loc[index, 'AMCS OUTFLOW'] = amcs_outflow
         self.curr_amcs_storage = round(storage, 2)
@@ -581,12 +583,15 @@ class KRS:
         # self.__apply_scaling(self.mysuru_forecast_df)
         # self.__apply_scaling(self.kodagu_forecast_df)
         # self.__apply_scaling(self.hassan_forecast_df)
+
+        
         forecast_start_date = loop_date + datetime.timedelta(days=1)
         self.prediction_df.loc[index, 'FORECAST'] = [self.forecast(forecast_start_date, max_forecast_date=forecast_start_date + datetime.timedelta(days=15))]
         duration = self.__get_reservoir_duration(loop_date, self.curr_amcs_storage, index)
         self.prediction_df.loc[index, 'DURATION'] = duration
-        # self.prediction_df.loc[index, 'EXPECTED MONSOON INFLOW'] = self.expected_monsoon_rainfall
-        # self.prediction_df.loc[index, 'EXPECTED NON MONSOON INFLOW'] = self.expected_non_monsoon_rainfall
+        self.prediction_df.loc[index, 'EXPECTED MONSOON INFLOW'] = self.expected_monsoon_inflow
+        self.prediction_df.loc[index, 'EXPECTED MONSOON OUTFLOW'] = self.expected_monsoon_outflow
+        self.prediction_df.loc[index, 'EXPECTED NON MONSOON INFLOW'] = self.expected_non_monsoon_inflow
         
         return result_dict
     
